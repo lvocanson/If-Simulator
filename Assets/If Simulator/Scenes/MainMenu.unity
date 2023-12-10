@@ -535,7 +535,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 470891181}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 470891183}
+        m_TargetAssemblyTypeName: NextSceneButton, Assembly-CSharp
+        m_MethodName: Next
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &470891181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,7 +595,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 470891178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ada86737fdb28d4ba01fcf2ea0c120c, type: 3}
+  m_Script: {fileID: 11500000, guid: 72ca766c7bd157b45a9791adb4c33a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &557027766
@@ -878,7 +890,6 @@ GameObject:
   - component: {fileID: 984484847}
   - component: {fileID: 984484846}
   - component: {fileID: 984484845}
-  - component: {fileID: 984484844}
   m_Layer: 5
   m_Name: Settings Button
   m_TagString: Untagged
@@ -906,18 +917,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &984484844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984484842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ada86737fdb28d4ba01fcf2ea0c120c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &984484845
 MonoBehaviour:
   m_ObjectHideFlags: 0
