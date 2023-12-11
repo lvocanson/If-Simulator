@@ -1,7 +1,7 @@
 using BehaviorTree;
 using UnityEngine;
 
-public class EnemyBehavior : Tree
+public class EnemyBehavior : BTree
 {
     [SerializeField] private Transform[] _waypoints;
     [SerializeField] private Transform _base;

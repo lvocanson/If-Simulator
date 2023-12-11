@@ -24,7 +24,7 @@ namespace BehaviorTree
         /// </summary>
         public Node[] Children { get; }
 
-        private readonly Tree _tree;
+        private readonly BTree _tree;
         /// <summary>
         /// Gets the tree's blackboard.
         /// </summary>
@@ -33,7 +33,7 @@ namespace BehaviorTree
         /// <summary>
         /// Creates a node attached to a tree with the given children.
         /// </summary>
-        public Node(Tree tree, params Node[] children)
+        public Node(BTree tree, params Node[] children)
         {
             _tree = tree;
             Children = children;

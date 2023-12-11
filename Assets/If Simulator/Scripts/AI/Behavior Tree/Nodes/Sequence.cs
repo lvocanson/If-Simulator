@@ -8,7 +8,7 @@ namespace BehaviorTree
         /// <summary>
         /// Creates a sequence node (until one fails).
         /// </summary>
-        public Sequence(Tree tree, params Node[] children) : base(tree, children)
+        public Sequence(BTree tree, params Node[] children) : base(tree, children)
         {
         }
 

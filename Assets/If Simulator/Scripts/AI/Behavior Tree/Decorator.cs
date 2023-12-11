@@ -10,7 +10,7 @@ namespace BehaviorTree
         /// </summary>
         protected Node Child { get; }
 
-        public Decorator(Tree tree, Node child) : base(tree, child)
+        public Decorator(BTree tree, Node child) : base(tree, child)
         {
             Child = child;
         }

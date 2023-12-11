@@ -5,7 +5,7 @@ public class GoBaseCondition : Node
 {
     bool _orderGiven = false;
 
-    public GoBaseCondition(Tree tree) : base(tree)
+    public GoBaseCondition(BTree tree) : base(tree)
     {
     }
 

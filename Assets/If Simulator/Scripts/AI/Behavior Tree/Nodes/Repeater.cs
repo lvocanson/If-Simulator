@@ -12,7 +12,7 @@ namespace BehaviorTree
         /// Creates a repeater decorator node.
         /// </summary>
         /// <param name="repeatCount">The maximum number of times to repeat the child. 0 means repeat forever.</param>
-        public Repeater(Tree tree, Node child, uint repeatCount = 0) : base(tree, child)
+        public Repeater(BTree tree, Node child, uint repeatCount = 0) : base(tree, child)
         {
             _repeatCount = repeatCount;
         }

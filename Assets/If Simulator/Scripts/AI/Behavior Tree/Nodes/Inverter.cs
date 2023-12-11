@@ -5,7 +5,7 @@ namespace BehaviorTree
     /// </summary>
     public class Inverter : Decorator
     {
-        public Inverter(Tree tree, Node child) : base(tree, child)
+        public Inverter(BTree tree, Node child) : base(tree, child)
         {
         }
 

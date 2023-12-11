@@ -7,7 +7,7 @@ public class GoBaseAction : Node
     private readonly Transform _base;
     private readonly float _speed;
 
-    public GoBaseAction(Tree tree, Transform baseTransform) : base(tree)
+    public GoBaseAction(BTree tree, Transform baseTransform) : base(tree)
     {
         _transform = tree.transform;
         _base = baseTransform;

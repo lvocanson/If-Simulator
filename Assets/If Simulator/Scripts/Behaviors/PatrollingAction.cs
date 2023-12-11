@@ -8,7 +8,7 @@ public class PatrollingAction : Node
     private readonly float _speed;
     private int _currentWaypoint = 0;
 
-    public PatrollingAction(Tree tree, Transform[] waypoints) : base(tree)
+    public PatrollingAction(BTree tree, Transform[] waypoints) : base(tree)
     {
         _transform = tree.transform;
         _waypoints = waypoints;

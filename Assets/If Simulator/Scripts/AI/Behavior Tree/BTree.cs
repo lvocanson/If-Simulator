@@ -5,7 +5,7 @@ namespace BehaviorTree
     /// <summary>
     /// A behavior tree.
     /// </summary>
-    public abstract class Tree : MonoBehaviour
+    public abstract class BTree : MonoBehaviour
     {
         /// <summary>
         /// The tree's root node.
