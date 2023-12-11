@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 23f2890164056bb4d9d6edee8df115fb
+timeCreated: 1520517199
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116665
+  packageName: ChronoHelper
+  packageVersion: 2.0
+  assetPath: Assets/ChronoHelper/Editor/ChronoHelper.cs
+  uploadId: 408474

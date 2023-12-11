@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 51adc880dd732f54bb98bd43c725e078
+timeCreated: 1521575284
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116665
+  packageName: ChronoHelper
+  packageVersion: 2.0
+  assetPath: Assets/ChronoHelper/Editor/Internal/Data/Enums.cs
+  uploadId: 408474
