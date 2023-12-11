@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -32,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
     }
     
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         ProcessHorizontalMovement(_movementValue.x, _maxSpeed, _acceleration, _deceleration, _drag);
