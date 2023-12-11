@@ -30,7 +30,7 @@ public class PlayerRotation : MonoBehaviour
         _rotationInput.action.canceled -= OnRotationAction;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         RotateAim();
     }
