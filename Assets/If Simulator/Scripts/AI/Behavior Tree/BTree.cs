@@ -5,8 +5,11 @@ namespace BehaviorTree
     /// <summary>
     /// A behavior tree.
     /// </summary>
-    public abstract class BTree : MonoBehaviour
+    public class BTree : MonoBehaviour
     {
+        [SerializeField, Tooltip("The tree this component will execute.")]
+        private BTreeAsset _treeAsset = null;
+
         /// <summary>
         /// The tree's root node.
         /// </summary>
@@ -19,18 +22,19 @@ namespace BehaviorTree
 
         private void Awake()
         {
-            Root = CreateTree();
+            if (_treeAsset == null)
+            {
+                Debug.LogWarning("No tree attached to this component.", this);
+                enabled = false;
+                return;
+            }
+
+            Root = _treeAsset.CreateTree(this);
         }
 
         private void Update()
         {
             Root.Evaluate();
         }
-
-        /// <summary>
-        /// Create the tree. This method is called in Awake.
-        /// </summary>
-        /// <returns>The tree's root node.</returns>
-        protected abstract Node CreateTree();
     }
 }

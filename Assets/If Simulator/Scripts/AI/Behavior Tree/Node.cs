@@ -7,6 +7,10 @@ namespace BehaviorTree
         Running, // The node is still running (Needs to be evaluated again)
     }
 
+    /// <summary>
+    /// Base class for all nodes of a tree.
+    /// When deriving, always leave 
+    /// </summary>
     public abstract class Node
     {
         /// <summary>
