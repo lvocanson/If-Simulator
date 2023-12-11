@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,9 +16,17 @@ public class PlayerAttackManager : MonoBehaviour
         _primaryAttackInput.action.performed += OnPrimaryAttackAction;
         _primaryAttackInput.action.canceled += OnPrimaryAttackAction;
         
-        _secondaryAttackInput.action.started += OnPrimaryAttackAction;
-        _secondaryAttackInput.action.performed += OnPrimaryAttackAction;
-        _secondaryAttackInput.action.canceled += OnPrimaryAttackAction;
+        _secondaryAttackInput.action.started += OnSecondaryAttackAction;
+        //_secondaryAttackInput.action.performed += OnSecondaryAttackAction;
+        _secondaryAttackInput.action.canceled += OnSecondaryAttackAction;
+        
+        _firstSpellInput.action.started += OnFirstSpellAction;
+        //_firstSpellInput.action.performed += OnFirstSpellAction;
+        _firstSpellInput.action.canceled += OnFirstSpellAction;
+        
+        _secondSpellInput.action.started += OnSecondSpellAction;
+        //_secondSpellInput.action.performed += OnSecondSpellAction;
+        _secondSpellInput.action.canceled += OnSecondSpellAction;
     }
 
     protected void OnDisable()
@@ -29,21 +35,17 @@ public class PlayerAttackManager : MonoBehaviour
         _primaryAttackInput.action.performed -= OnPrimaryAttackAction;
         _primaryAttackInput.action.canceled -= OnPrimaryAttackAction;
         
-        _secondaryAttackInput.action.started -= OnPrimaryAttackAction;
-        _secondaryAttackInput.action.performed -= OnPrimaryAttackAction;
-        _secondaryAttackInput.action.canceled -= OnPrimaryAttackAction;
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
+        _secondaryAttackInput.action.started -= OnSecondaryAttackAction;
+        //_secondaryAttackInput.action.performed -= OnSecondaryAttackAction;
+        _secondaryAttackInput.action.canceled -= OnSecondaryAttackAction;        
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        _firstSpellInput.action.started -= OnFirstSpellAction;
+        //_firstSpellInput.action.performed -= OnFirstSpellAction;
+        _firstSpellInput.action.canceled -= OnFirstSpellAction;        
         
+        _secondSpellInput.action.started -= OnSecondSpellAction;
+        //_secondSpellInput.action.performed -= OnSecondSpellAction;
+        _secondSpellInput.action.canceled -= OnSecondSpellAction;
     }
     
     private void OnPrimaryAttackAction(InputAction.CallbackContext context)
@@ -56,9 +58,29 @@ public class PlayerAttackManager : MonoBehaviour
         {
             Debug.Log("Primary Attack Performed");
         }
-        else if (context.canceled)
+    }
+    
+    private void OnSecondaryAttackAction(InputAction.CallbackContext context)
+    {
+        if (context.started)
         {
-            Debug.Log("Primary Attack Canceled");
+            Debug.Log("Secondary Attack Started");
+        }
+    }
+    
+    private void OnFirstSpellAction(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Debug.Log("First Spell Started");
+        }
+    }
+    
+    private void OnSecondSpellAction(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Debug.Log("Second Spell Started");
         }
     }
     
