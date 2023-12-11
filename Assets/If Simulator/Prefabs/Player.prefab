@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 2873507226914812432}
   - component: {fileID: 7202406294085310475}
   - component: {fileID: 7800368948159628112}
-  - component: {fileID: 3715300310027017672}
   - component: {fileID: 7093512433973029028}
+  - component: {fileID: 3715300310027017672}
+  - component: {fileID: 8441254601951178539}
   - component: {fileID: 877961389727778859}
   m_Layer: 0
   m_Name: Player
@@ -111,39 +112,10 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &3715300310027017672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6197885105219783949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ea43b6d9b4cb9f4bb18c50b4ee68707, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rigidbody2D: {fileID: 7800368948159628112}
-  _maxSpeed: 10
-  _acceleration: 5
-  _deceleration: 5
-  _drag: 0.1
-  _movementInput:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Movement Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 9624ac24-e32a-4282-bf44-75410fa27e75
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 7502129016056758851, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
 --- !u!114 &7093512433973029028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +166,59 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &3715300310027017672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6197885105219783949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea43b6d9b4cb9f4bb18c50b4ee68707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody2D: {fileID: 7800368948159628112}
+  _maxSpeed: 10
+  _acceleration: 5
+  _deceleration: 5
+  _drag: 0.1
+  _movementInput:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Movement Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 9624ac24-e32a-4282-bf44-75410fa27e75
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 7502129016056758851, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
+--- !u!114 &8441254601951178539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6197885105219783949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3bb9f0735842694ea94923ebdd4156e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationInput:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Rotation Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 4baf76e4-272b-4e05-b8e5-ea09cb8c2d8d
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -7280493881398489431, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
 --- !u!114 &877961389727778859
 MonoBehaviour:
   m_ObjectHideFlags: 0
