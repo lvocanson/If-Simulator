@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: febacc5485953be4b9d38730ac1d1d37
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116665
+  packageName: ChronoHelper
+  packageVersion: 2.0
+  assetPath: Assets/ChronoHelper/Editor/dotsquid.ChronoHelper.Editor.asmdef
+  uploadId: 408474

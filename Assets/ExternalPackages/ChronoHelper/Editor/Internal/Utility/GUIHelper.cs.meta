@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 59db24d8416c4e84f91b9295fe84f4e0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116665
+  packageName: ChronoHelper
+  packageVersion: 2.0
+  assetPath: Assets/ChronoHelper/Editor/Internal/Utility/GUIHelper.cs
+  uploadId: 408474

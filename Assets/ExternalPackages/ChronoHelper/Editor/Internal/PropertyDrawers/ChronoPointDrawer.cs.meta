@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: ed5ec7dbc9c2715499bd41a422efec78
+timeCreated: 1521059554
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116665
+  packageName: ChronoHelper
+  packageVersion: 2.0
+  assetPath: Assets/ChronoHelper/Editor/Internal/PropertyDrawers/ChronoPointDrawer.cs
+  uploadId: 408474

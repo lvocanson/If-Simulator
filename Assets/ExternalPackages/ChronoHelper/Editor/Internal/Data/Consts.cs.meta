@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c876c8891f1e00f419af7849142a54db
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116665
+  packageName: ChronoHelper
+  packageVersion: 2.0
+  assetPath: Assets/ChronoHelper/Editor/Internal/Data/Consts.cs
+  uploadId: 408474
