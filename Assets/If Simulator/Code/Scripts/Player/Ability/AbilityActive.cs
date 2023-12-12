@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Ability
 {
-    public abstract class AbilityActive : Ability
+    public abstract class AbilityActive : Ability<SoAbilityCooldown>
     {
         private enum AbilityState
         {
@@ -11,8 +12,6 @@ namespace Ability
             ACTIVE,
             COOLDOWN
         }
-
-        [SerializeField] private SoAbilityCooldown _abilitySo; 
         
         private float _curCooldown;
         private float _curActiveCooldown;
@@ -83,5 +82,7 @@ namespace Ability
             _curCooldown = _abilitySo.AbilityCooldown;
             OnEffectEnd();
         }
+
+        
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3698871190431304111}
   - component: {fileID: 5540728448906214869}
-  - component: {fileID: 757962826089233186}
+  - component: {fileID: 3661204070532701886}
   m_Layer: 3
   m_Name: Actions
   m_TagString: Untagged
@@ -62,7 +62,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 7502129016056758851, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
---- !u!114 &757962826089233186
+--- !u!114 &3661204070532701886
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,16 +71,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2475921871988151956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3bb9f0735842694ea94923ebdd4156e, type: 3}
+  m_Script: {fileID: 11500000, guid: a7bba14331281e047a30686408065e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bodyTransform: {fileID: 2873507226914812432}
   _rotationInput:
     m_UseReference: 1
     m_Action:
       m_Name: Rotation Input
       m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 4baf76e4-272b-4e05-b8e5-ea09cb8c2d8d
+      m_ExpectedControlType: Axis
+      m_Id: 1ce1543e-f793-4cbc-96ff-fd812081c34b
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
