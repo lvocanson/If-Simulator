@@ -3,15 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FiniteStateMachine;
+using UnityEngine.Serialization;
 
 public class Sprinter_Attack : BaseState
 {
     [SerializeField, Tooltip("The target to move towards")]
     private Transform _target;
-    [SerializeField] private BaseState _nextState;
-    [SerializeField] private float _attackRange = 1f;
-    [SerializeField] private float _attackDamage = 1f;
-    [SerializeField] private float _attackCooldown = 1f;
+    [SerializeField] private BaseState _previousState;
 
     private void OnEnable()
     {
@@ -19,8 +17,12 @@ public class Sprinter_Attack : BaseState
     }
     void Update()
     {
-        // Si plus in range
-        Manager.ChangeState(_nextState);
+        Debug.Log("Mob : " + gameObject.name + " is attacking.");
+        // Si le joueur est trop loin
+        if (Vector3.Distance(transform.position, _target.position) > 1f)
+        {
+            Manager.ChangeState(_previousState);
+        }
     }
 
     private void OnDisable()
