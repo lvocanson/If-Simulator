@@ -5,6 +5,8 @@ using Utility;
 
 public class PlayerRotation : MonoBehaviour
 {
+    [SerializeField] private Transform _bodyTransform;
+    
     [ShowNonSerializedField] private Vector2 _mousePosition;
     private Camera _mainCamera;
     
@@ -41,7 +43,7 @@ public class PlayerRotation : MonoBehaviour
 
         float angle = TransformUtility.AngleBetweenTwoPoints(positionOnScreen, _mousePosition);
 
-        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        _bodyTransform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
     }
 
     private void OnRotationAction(InputAction.CallbackContext context)
