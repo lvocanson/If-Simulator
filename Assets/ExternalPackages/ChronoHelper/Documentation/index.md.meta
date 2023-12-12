@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 77d6656834ffa844b9969489ff976f63
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116665
+  packageName: ChronoHelper
+  packageVersion: 2.0
+  assetPath: Assets/ChronoHelper/Documentation/index.md
+  uploadId: 408474
