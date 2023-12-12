@@ -2,9 +2,10 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
+
 namespace Ability
 {
-    public abstract class AbilityActive : Ability<SoAbilityCooldown>
+    public abstract class AbilityActive : AbilityBase<SoAbilityCooldown>
     {
         private enum AbilityState
         {
@@ -32,7 +33,7 @@ namespace Ability
 
         // Called when the ability is activated (corresponding key pressed)
         // Note: This method does not start the cooldown right away, the cooldown is started when the ability's active time is over
-        public override void TryActivate()
+        public sealed override void TryActivate()
         {
             if (_state != AbilityState.READY) return;
             
@@ -41,10 +42,7 @@ namespace Ability
             _curActiveCooldown = _abilitySo.AbilityActiveCooldown;
         }
         
-        public override void LevelUp()
-        {
-            throw new System.NotImplementedException();
-        }
+        public sealed override void LevelUp() => CurrentLevel = (ushort) Mathf.Clamp(CurrentLevel + 1, 0, _abilitySo.AbilityMaxLevel);
         
         private void Update()
         {
