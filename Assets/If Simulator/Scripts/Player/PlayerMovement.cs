@@ -28,9 +28,8 @@ public class PlayerMovement : MonoBehaviour
         _movementInput.action.performed -= OnMovementAction;
         _movementInput.action.canceled -= OnMovementAction;
     }
-    
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         ProcessHorizontalMovement(_movementValue.x, _maxSpeed, _acceleration, _deceleration, _drag);
         ProcessVerticalMovement(_movementValue.y, _maxSpeed, _acceleration, _deceleration, _drag);
