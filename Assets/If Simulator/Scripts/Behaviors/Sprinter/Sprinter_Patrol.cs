@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FiniteStateMachine;
+using NaughtyAttributes;
+using SAP2D;
+using UnityEngine.Serialization;
 
 public class Sprinter_Patrol : BaseState
 {
@@ -11,32 +14,35 @@ public class Sprinter_Patrol : BaseState
     [SerializeField] private BaseState _chase;
     [SerializeField] private Transform[] _waypoints;
     [SerializeField] private float _speed = 1f;
-    [SerializeField] private float _range = 2f;
-    private int _index = 0;
-    
+    [SerializeField] private float _playerRange = 2f;
+    [ShowNonSerializedField] private int _index = 0;
+    [SerializeField] private SAP2DAgent _SAPAgent;
     
     
     private void OnEnable()
     {
-        
+        _SAPAgent.Target = _waypoints[_index];
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _waypoints[_index].position, _speed * Time.deltaTime);
+        //Si le joueur est trop proche
+        if (Vector3.Distance(transform.position, _target.position) < _playerRange)
+        {
+            Manager.ChangeState(_chase);
+        }
+        
         //Changement de waypoint
-        if(Vector3.Distance(transform.position, _waypoints[_index].position) < 0.1f)
+        else if(Vector3.Distance(transform.position, _waypoints[_index].position) < .5f)
         {
             _index++;
             if (_index >= _waypoints.Length)
                 _index = 0;
+            
+            _SAPAgent.Target = _waypoints[_index];
         }
-        //Si le joueur est trop proche
-        if (Vector3.Distance(transform.position, _target.position) < _range)
-        {
-            Manager.ChangeState(_chase);
-        }
+        
     }
     private void OnDisable()
     {

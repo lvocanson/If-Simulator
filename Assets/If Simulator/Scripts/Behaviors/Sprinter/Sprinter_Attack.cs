@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FiniteStateMachine;
+using SAP2D;
 using UnityEngine.Serialization;
 
 public class Sprinter_Attack : BaseState
@@ -10,16 +11,30 @@ public class Sprinter_Attack : BaseState
     [SerializeField, Tooltip("The target to move towards")]
     private Transform _target;
     [SerializeField] private BaseState _previousState;
+    [SerializeField] private float _attackRange;
+    [SerializeField] private SAP2DAgent _SAPAgent;
+    [SerializeField] private float _attackDelay = 2f;
+    
+    private float _attackTimer;
+    bool _isAttacking = false;
 
     private void OnEnable()
     {
-        //throw new NotImplementedException();
+        _isAttacking = true; // On est en train d'attaquer
+        _attackTimer = _attackDelay + Time.timeSinceLevelLoad;
+        _SAPAgent.CanMove = false;
+        _SAPAgent.CanSearch = false;
     }
+    
     void Update()
     {
-        Debug.Log("Mob : " + gameObject.name + " is attacking.");
+        if (Time.time > _attackTimer)
+        {
+            _isAttacking = false;
+        }
+        
         // Si le joueur est trop loin
-        if (Vector3.Distance(transform.position, _target.position) > 1f)
+        if (!_isAttacking && Vector3.Distance(transform.position, _target.position) > 1f)
         {
             Manager.ChangeState(_previousState);
         }
@@ -27,6 +42,8 @@ public class Sprinter_Attack : BaseState
 
     private void OnDisable()
     {
-        //throw new NotImplementedException();
+        _isAttacking = false; // On a fini d'attaquer
+        _SAPAgent.CanMove = true;
+        _SAPAgent.CanSearch = true;
     }
 }

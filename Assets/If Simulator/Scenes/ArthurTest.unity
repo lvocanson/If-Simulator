@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 71241986}
   - component: {fileID: 71241985}
   - component: {fileID: 71241984}
+  - component: {fileID: 71241988}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -235,6 +236,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1209539366}
   _previousState: {fileID: 71241985}
+  _attackRange: 0.5
+  _SAPAgent: {fileID: 71241988}
+  _attackDelay: 0.5
 --- !u!114 &71241985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,10 +252,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1209539366}
-  _previousState: {fileID: 71241986}
-  _nextState: {fileID: 71241984}
+  _patrolState: {fileID: 71241986}
+  _attackState: {fileID: 71241984}
+  _SAPAgent: {fileID: 71241988}
   _speed: 1
-  _range: 5
+  _chaseRange: 5
+  _attackRange: 1
 --- !u!114 &71241986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +277,8 @@ MonoBehaviour:
   - {fileID: 2118059655}
   - {fileID: 293860360}
   _speed: 1
-  _range: 5
+  _playerRange: 2
+  _SAPAgent: {fileID: 71241988}
 --- !u!114 &71241987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,6 +292,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initialState: {fileID: 71241986}
+--- !u!114 &71241988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71241979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436bc0f096be0d34ba379a789d03ec45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Config: {fileID: 11400000, guid: 3893f7b5b0ba548479367fcdfa6a3fb6, type: 2}
+  MouseControl: 0
+  Target: {fileID: 0}
+  CanMove: 1
+  MovementSpeed: 5
+  RotationSpeed: 500
+  isMoving: 0
+  pathIndex: 0
+  posInGrid: {x: 0, y: 0, z: 0}
+  CanSearch: 1
+  PathUpdateRate: 0.15
+  GetNextPointDistance: 0.1
+  ShowGraphic: 1
+  color:
+    serializedVersion: 2
+    rgba: 4292990208
+  path: []
 --- !u!1 &293860358
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +563,7 @@ GameObject:
   - component: {fileID: 1455175264}
   - component: {fileID: 1455175263}
   - component: {fileID: 1455175262}
+  - component: {fileID: 1455175266}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -652,6 +689,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1455175266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455175261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab9656328c342c44b85b2a5fa76090f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GraphDrawers:
+  - ShowGrid: 1
+    ShowGridInfo: 1
+    ShowGridParameters: 1
+    ShowPathfindingSettings: 0
+    ShowGridGraphSettigs: 0
+    ScaleLvl: 1
+  EditorSettings: {fileID: 11400000, guid: f54fe2e0866d59148bb49fcb7b6fd41b, type: 2}
+  grids:
+  - GridName: Default Grid 0
+    UsePhysics2D: 1
+    ObstaclesLayer:
+      serializedVersion: 2
+      m_Bits: 1
+    UserGridData: {fileID: 0}
+    gridPosition: {x: 0.113643646, y: 1.0447104, z: 0}
+    gridPivot: 2
+    width: 35
+    height: 22
+    tileDiameter: 0.5
 --- !u!1 &2118059653
 GameObject:
   m_ObjectHideFlags: 0
