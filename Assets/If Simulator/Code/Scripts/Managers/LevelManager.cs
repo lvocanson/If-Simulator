@@ -21,7 +21,7 @@ public class LevelManager : InGameManager
 
     protected override void OnContextStarted(GameModeStartMode mode)
     {
-        _spawnedPlayer = Instantiate(_playerPrefab, _playerSpawnPoint.position, Quaternion.identity).GetComponent<Player>();
+        _spawnedPlayer = Instantiate(_playerPrefab, _playerSpawnPoint.position, Quaternion.identity).GetComponentInChildren<Player>();
         _currentPlayerSo.Load(_spawnedPlayer);
     }
 
