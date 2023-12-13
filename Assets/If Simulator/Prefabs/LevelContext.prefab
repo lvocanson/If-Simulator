@@ -47,6 +47,7 @@ MonoBehaviour:
   _currentLevel: {fileID: 0}
   _playerPrefab: {fileID: 6197885105219783949, guid: f813c1bececb1a0488ad9b595e0f9ff6, type: 3}
   _playerSpawnPoint: {fileID: 0}
+  _currentPlayerSo: {fileID: 11400000, guid: 0a0b0f884ace5ed41b10f57eb03db9b9, type: 2}
 --- !u!1 &6410777074490989867
 GameObject:
   m_ObjectHideFlags: 0
