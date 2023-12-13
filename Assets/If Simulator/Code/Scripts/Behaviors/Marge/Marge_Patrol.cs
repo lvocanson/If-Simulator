@@ -11,12 +11,19 @@ public class Marge_Patrol : BaseState
 {
     [SerializeField, Tooltip("The target to move towards")]
     private Transform _target;
+    
+    [Header("State Machine")]
     [SerializeField] private BaseState _chase;
     [SerializeField] private Transform[] _waypoints;
+    [SerializeField] private SAP2DAgent _SAPAgent;
+    
+    [Header("Data")]
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float _playerRange = 2f;
+    
+    [Header("Debug Waypoint")]
     [ShowNonSerializedField] private int _index = 0;
-    [SerializeField] private SAP2DAgent _SAPAgent;
+    
     
     
     private void OnEnable()

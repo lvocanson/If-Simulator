@@ -10,9 +10,13 @@ public class Marge_Chase : BaseState
 {
     [SerializeField, Tooltip("The target to move towards")]
     private Transform _target;
-    [FormerlySerializedAs("_previousState")] [SerializeField] private BaseState _patrolState;
-    [FormerlySerializedAs("_nextState")] [SerializeField] private BaseState _attackState;
+    
+    [Header("State Machine")]
+    [SerializeField] private BaseState _patrolState;
+    [SerializeField] private BaseState _attackState;
     [SerializeField] SAP2DAgent _SAPAgent;
+    
+    [Header("Data")]
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float _chaseRange = 2f;
     [SerializeField] private float _attackRange = 0.1f;

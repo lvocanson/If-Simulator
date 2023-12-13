@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ability;
 using UnityEngine;
 using FiniteStateMachine;
 using SAP2D;
@@ -8,14 +9,20 @@ using UnityEngine.Serialization;
 
 public class Marge_Attack : BaseState
 {
+    [Header("Data")]
     [SerializeField, Tooltip("The target to move towards")]
     private Transform _target;
-    [SerializeField] private BaseState _previousState;
     [SerializeField] private float _attackRange;
-    [SerializeField] private SAP2DAgent _SAPAgent;
     [SerializeField] private float _attackDelay = 2f;
-
-    public GameObject _bullet;
+    
+    [Header("State Machine")]
+    [SerializeField] private BaseState _chaseState;
+    [SerializeField] private SAP2DAgent _SAPAgent;
+    
+    [Header("Bullet Data")]
+    [SerializeField] private float _bulletSpeed = 2f;
+    [SerializeField] private float _bulletTimeDestroy = 2f;
+    [SerializeField] GameObject _bullet;
     
     private Coroutine _attackCoroutine;
     private float _attackTimer;
@@ -23,7 +30,6 @@ public class Marge_Attack : BaseState
 
     private void OnEnable()
     {
-        _isAttacking = true; // On est en train d'attaquer
         _attackTimer = _attackDelay + Time.timeSinceLevelLoad;
         _SAPAgent.CanMove = false;
         _SAPAgent.CanSearch = false;
@@ -39,14 +45,16 @@ public class Marge_Attack : BaseState
         // Si le joueur est trop loin
         if (!_isAttacking && Vector3.Distance(transform.position, _target.position) > 3f)
         {
-            Manager.ChangeState(_previousState);
+            Manager.ChangeState(_chaseState);
         }
     }
 
     private void MargeShoot()
     {
-        _isAttacking = true;
-        Instantiate(_bullet, transform.position, Quaternion.identity);
+        Vector3 direction = _target.transform.position - transform.position;
+        BulletBehavior bullet = Instantiate(_bullet, transform.position, Quaternion.identity)
+            .GetComponent<BulletBehavior>();
+        bullet.Initialized(direction, _bulletSpeed,_bulletTimeDestroy);
     }
 
     private void OnDisable()
@@ -64,11 +72,13 @@ public class Marge_Attack : BaseState
     
     private IEnumerator Attack()
     {
-        while (_isAttacking)
+        while (true)
         {
             MargeShoot();
-            yield return new WaitForSeconds(_attackDelay);
             _isAttacking = false;
+            Debug.Log("ATTACK");
+            yield return new WaitForSeconds(_attackDelay);
+            _isAttacking = true; 
         }
     }
 }

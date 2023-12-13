@@ -31,5 +31,11 @@ namespace Ability
             
             OnDestroy?.Invoke();
         }
+
+        public void Initialized(Vector2 dir, float speed, float lifeTime)
+        {
+            _rb.velocity = dir * _speed;
+            Destroy(gameObject, lifeTime);
+        }
     }
 }

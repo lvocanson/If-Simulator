@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1009386259272215435}
   - component: {fileID: 2962201285659424275}
   - component: {fileID: 6058050865115098019}
-  - component: {fileID: 4745255895524388905}
+  - component: {fileID: 4943362776108547337}
   m_Layer: 8
   m_Name: Marge_Bullet
   m_TagString: Projectile
@@ -160,7 +160,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &4745255895524388905
+--- !u!114 &4943362776108547337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,7 +169,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 740895394917663843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8c8991b8b0e20d479dc9b1047710671, type: 3}
+  m_Script: {fileID: 11500000, guid: 59a8e50d34ae401aa21d2da27ea65429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 2
+  _lifeTime: 4
+  _rb: {fileID: 6058050865115098019}
