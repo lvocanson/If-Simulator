@@ -2,30 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class GWorld
+namespace GOAP
 {
-    private static readonly GWorld instance = new GWorld();
-    private static WorldStates world;
-
-    static GWorld()
+    public sealed class GWorld
     {
-        world = new WorldStates();
-    }
+        private static readonly GWorld instance = new GWorld();
+        private static WorldStates world;
 
-    private GWorld()
-    {
-    }
-
-    public static GWorld Instance
-    {
-        get
+        static GWorld()
         {
-            return instance;
+            world = new WorldStates();
         }
-    }
 
-    public WorldStates GetWorld()
-    {
-        return world;
+        private GWorld()
+        {
+        }
+
+        public static GWorld Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+
+        public WorldStates GetWorld()
+        {
+            return world;
+        }
     }
 }

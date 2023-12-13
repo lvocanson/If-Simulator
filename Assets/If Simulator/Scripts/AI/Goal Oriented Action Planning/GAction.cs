@@ -3,68 +3,71 @@ using System.Collections.Generic;
 using UnityEngine;
 using SAP2D;
 
-public abstract class GAction : MonoBehaviour
+namespace GOAP
 {
-    public string actionName = "Action";
-    public float cost = 1.0f;
-    public Transform target;
-    public string targetTag;
-    public float duration = 0;
-    public WorldState[] preConditions;
-    public WorldState[] afterEffects;
-    public SAP2DAgent agent;
-
-    public Dictionary<string, int> preconditions;
-    public Dictionary<string, int> effects;
-
-    public WorldStates agentBeliefs;
-
-    public bool running = false;
-
-    public GAction()
+    public abstract class GAction : MonoBehaviour
     {
-        preconditions = new Dictionary<string, int>();
-        effects = new Dictionary<string, int>();
-    }
+        public string actionName = "Action";
+        public float cost = 1.0f;
+        public Transform target;
+        public string targetTag;
+        public float duration = 0;
+        public WorldState[] preConditions;
+        public WorldState[] afterEffects;
+        public SAP2DAgent agent;
 
-    public void Awake()
-    {
-        agent = gameObject.AddComponent<SAP2DAgent>();
+        public Dictionary<string, int> preconditions;
+        public Dictionary<string, int> effects;
 
-        if (preConditions != null)
+        public WorldStates agentBeliefs;
+
+        public bool running = false;
+
+        public GAction()
         {
-            foreach (WorldState w in preConditions)
+            preconditions = new Dictionary<string, int>();
+            effects = new Dictionary<string, int>();
+        }
+
+        public void Awake()
+        {
+            agent = gameObject.AddComponent<SAP2DAgent>();
+
+            if (preConditions != null)
             {
-                preconditions.Add(w.key, w.value);
+                foreach (WorldState w in preConditions)
+                {
+                    preconditions.Add(w.key, w.value);
+                }
+            }
+
+            if (afterEffects != null)
+            {
+                foreach (WorldState w in afterEffects)
+                {
+                    effects.Add(w.key, w.value);
+                }
             }
         }
 
-        if (afterEffects != null)
+        public bool IsAchievable()
         {
-            foreach (WorldState w in afterEffects)
-            {
-                effects.Add(w.key, w.value);
-            }
+            return true;
         }
-    }
 
-    public bool IsAchievable()
-    {
-        return true;
-    }
-
-    public bool IsAchievableGiven(Dictionary<string, int> conditions)
-    {
-        foreach (KeyValuePair<string, int> p in preconditions)
+        public bool IsAchievableGiven(Dictionary<string, int> conditions)
         {
-            if (!conditions.ContainsKey(p.Key))
+            foreach (KeyValuePair<string, int> p in preconditions)
             {
-                return false;
+                if (!conditions.ContainsKey(p.Key))
+                {
+                    return false;
+                }
             }
+            return true;
         }
-        return true;
-    }
 
-    public abstract bool PrePerform();
-    public abstract bool PostPerform();
+        public abstract bool PrePerform();
+        public abstract bool PostPerform();
+    }
 }
