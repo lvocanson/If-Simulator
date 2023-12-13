@@ -8,6 +8,6 @@ namespace Ability
         
         protected abstract void OnEffectEnd();
         
-        public sealed override void LevelUp() => CurrentLevel = (ushort) Mathf.Clamp(CurrentLevel + 1, 0, _abilitySo.AbilityMaxLevel);
+        public sealed override void LevelUp() => CurrentLevel = (ushort) Mathf.Clamp(CurrentLevel + 1, 0, _abilitySo.MaxLevel);
     }
 }

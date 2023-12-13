@@ -1,5 +1,4 @@
 using Ability;
-using Ability.List;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,20 +18,13 @@ public class PlayerAttackManager : MonoBehaviour
     protected void OnEnable()
     {
         _primaryAttackInput.action.started += OnPrimaryAttackAction;
-        //_primaryAttackInput.action.performed += OnPrimaryAttackAction;
         _primaryAttackInput.action.canceled += OnPrimaryAttackEndAction;
 
         _secondaryAttackInput.action.started += OnSecondaryAttackAction;
-        //_secondaryAttackInput.action.performed += OnSecondaryAttackAction;
-        _secondaryAttackInput.action.canceled += OnSecondaryAttackAction;
 
         _firstSpellInput.action.started += OnFirstSpellAction;
-        //_firstSpellInput.action.performed += OnFirstSpellAction;
-        _firstSpellInput.action.canceled += OnFirstSpellAction;
 
         _secondSpellInput.action.started += OnSecondSpellAction;
-        //_secondSpellInput.action.performed += OnSecondSpellAction;
-        _secondSpellInput.action.canceled += OnSecondSpellAction;
     }
 
     protected void OnDisable()
@@ -59,7 +51,7 @@ public class PlayerAttackManager : MonoBehaviour
     {
         _primaryAttackAbilityBase.TryActivate();
     }
-    
+
     private void OnPrimaryAttackEndAction(InputAction.CallbackContext context)
     {
         _primaryAttackAbilityBase.End();

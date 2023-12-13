@@ -1,18 +1,31 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Ability
 {
     public class SoAbilityBase : ScriptableObject
     {
-        [Header("Ability info")]
-        public string AbilityName;
-        public string AbilityDescription;
+        public string Name => _name;
+
+        public string Description => _description;
+
+        public Texture2D Icon => _icon;
+
+        public ushort MaxLevel => _maxLevel;
+
+        public float Damage => _damage;
+
+        public float Range => _range;
         
-        public Texture2D AbilityIcon;
-        
-        public ushort AbilityMaxLevel;
-        
-        public float AbilityDamage = 0f;
-        public float AbilityRange = 1f;
+        public bool IsHoldable => _isHoldable;
+
+        [Header("Ability info")] 
+        [SerializeField] private string _name;
+        [SerializeField] private string _description;
+        [SerializeField] private Texture2D _icon;
+        [SerializeField] private ushort _maxLevel;
+        [SerializeField] private float _damage;
+        [SerializeField] private float _range;
+        [SerializeField] private bool _isHoldable;
     }
 }
