@@ -74,18 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3bb9f0735842694ea94923ebdd4156e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationInput:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Rotation Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 4baf76e4-272b-4e05-b8e5-ea09cb8c2d8d
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -7280493881398489431, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
+  _bodyTransform: {fileID: 2873507226914812432}
+  _rotationInput: {fileID: -7280493881398489431, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
 --- !u!1 &2799416502423231899
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,51 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0465ba9a91ca4474a90feb285159c0fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _primaryAttackInput:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Primary Attack Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 10967848-ae95-48a8-bef6-2261d966228d
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 4756328208987351731, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
-  _secondaryAttackInput:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Secondary Attack Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 99be5673-5ed4-4079-a1c6-ea8e6c76d70b
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 3107184244943249471, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
-  _firstSpellInput:
-    m_UseReference: 1
-    m_Action:
-      m_Name: First Spell Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 70527104-76d9-4a1d-a83a-6726e0d9bb95
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 5852425643557178782, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
-  _secondSpellInput:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Second Spell Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: a71e8788-406f-4b94-bddc-1efb3e7a0c8d
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -2028806386459919619, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
+  _primaryAttackInput: {fileID: 4756328208987351731, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
+  _secondaryAttackInput: {fileID: 3107184244943249471, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
+  _firstSpellInput: {fileID: 5852425643557178782, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
+  _secondSpellInput: {fileID: -2028806386459919619, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}

@@ -10,7 +10,7 @@ public class PlayerRotation : MonoBehaviour
     [ShowNonSerializedField] private Vector2 _mousePosition;
     private Camera _mainCamera;
     
-    [SerializeField, BoxGroup("Inputs")] private InputActionProperty _rotationInput;
+    [SerializeField, BoxGroup("Inputs")] private InputActionReference _rotationInput;
 
     
     private void Awake()
