@@ -67,9 +67,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -562,6 +559,7 @@ GameObject:
   - component: {fileID: 2000038012}
   - component: {fileID: 2000038011}
   - component: {fileID: 2000038013}
+  - component: {fileID: 2000038014}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -649,6 +647,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _treeAsset: {fileID: 11400000, guid: b24bc4965bba6ec418a8fc7a3a7f314f, type: 2}
+  _blackboardInitializer: {fileID: 2000038014}
+--- !u!114 &2000038014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000038010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed004367a19cd143a414995a6cdf3f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 3
+  Waypoints:
+  - {fileID: 237883137}
+  - {fileID: 1426523915}
+  - {fileID: 784573484}
+  Base: {fileID: 1888131155}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -30,6 +30,8 @@ namespace BehaviorTree
     {
         public override void OnInspectorGUI()
         {
+            base.OnInspectorGUI();
+
             if (GUILayout.Button("Open Editor"))
             {
                 BTreeEditorWindow.Open((BTreeAsset)target);

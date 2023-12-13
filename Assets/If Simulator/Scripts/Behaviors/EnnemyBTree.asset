@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353e8d864f941e4459016abf3a4a31d4, type: 3}
   m_Name: EnnemyBTree
   m_EditorClassIdentifier: 
+  _serializedTree: BehaviorTree.Selector{BehaviorTree.Sequence{GoBaseCondition,GoBaseAction},PatrollingAction}

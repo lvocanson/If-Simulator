@@ -1,3 +1,5 @@
+using System;
+
 namespace BehaviorTree
 {
     public enum NodeState
@@ -9,8 +11,11 @@ namespace BehaviorTree
 
     /// <summary>
     /// Base class for all nodes of a tree.
-    /// When deriving, always leave 
     /// </summary>
+    /// <remarks>
+    /// Your derived classes must use the following constructor:<br />
+    /// <c>T(BTree tree, params Node[] children) : base(tree, children)</c>
+    /// </remarks>
     public abstract class Node
     {
         /// <summary>
@@ -33,6 +38,27 @@ namespace BehaviorTree
         /// Gets the tree's blackboard.
         /// </summary>
         protected virtual Blackboard Blackboard => _tree.Blackboard;
+
+        /// <summary>
+        /// Creates a node of the given type attached to a tree with the given children.
+        /// </summary>
+        public static Node Create(string typeName, BTree tree, params Node[] children)
+        {
+            Type type = Type.GetType(typeName) ?? throw new ArgumentException(
+                $"Type {typeName} not found. Possible causes:\n" +
+                $"- The type is not in the same assembly as the Node class.\n" +
+                $"- You forgot to add the namespace to the type name.\n" +
+                $"- The type name is misspelled.\n");
+
+            if (!type.IsSubclassOf(typeof(Node)))
+                throw new ArgumentException($"Type {typeName} is not a subclass of Node.");
+
+            var args = children == null || children.Length == 0
+                ? new object[] { tree }
+                : new object[] { tree, children };
+
+            return (Node)Activator.CreateInstance(type, args);
+        }
 
         /// <summary>
         /// Creates a node attached to a tree with the given children.

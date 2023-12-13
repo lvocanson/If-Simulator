@@ -7,8 +7,8 @@ namespace BehaviorTree
     public class BTreeEditorWindow : EditorWindow
     {
         private BTreeAsset _tree = null;
-        readonly FieldInfo _constructorField = typeof(BTreeAsset).GetField("_constructor", BindingFlags.NonPublic | BindingFlags.Instance);
-        private BTreeAsset.NodeConstructor _constructor;
+        private readonly FieldInfo _serializedTreeField = typeof(BTreeAsset).GetField("_serializedTree", BindingFlags.NonPublic | BindingFlags.Instance);
+        private string _serializedTree;
 
         public static void Open(BTreeAsset tree)
         {
@@ -17,9 +17,15 @@ namespace BehaviorTree
             window._tree = tree;
         }
 
+        // Called when the window is opened.
         private void OnEnable()
         {
-            _constructor = (BTreeAsset.NodeConstructor)_constructorField.GetValue(_tree);
+            if (_tree == null)
+            {
+                return;
+            }
+
+            _serializedTree = (string)_serializedTreeField.GetValue(_tree);
         }
 
         private void OnGUI()
@@ -29,8 +35,10 @@ namespace BehaviorTree
                 EditorGUILayout.HelpBox("No tree asset assigned.", MessageType.Warning);
                 return;
             }
+            _serializedTree ??= (string)_serializedTreeField.GetValue(_tree);
 
             DrawToolbar();
+            DrawGraph();
         }
 
         private void DrawToolbar()
@@ -40,24 +48,44 @@ namespace BehaviorTree
             {
                 Selection.activeObject = _tree;
             }
+            GUI.enabled = hasUnsavedChanges;
             if (GUILayout.Button("Save asset", EditorStyles.toolbarButton))
             {
-                _constructorField.SetValue(_tree, _constructor);
-                EditorUtility.SetDirty(_tree);
-                AssetDatabase.SaveAssets();
+                SaveChanges();
             }
-            if (GUILayout.Button("Save and Close", EditorStyles.toolbarButton))
+            if (GUILayout.Button("Discard changes", EditorStyles.toolbarButton))
             {
-                Close();
+                DiscardChanges();
             }
+            GUI.enabled = true;
             EditorGUILayout.EndHorizontal();
         }
 
-        private void OnDisable()
+        private void DrawGraph()
         {
-            // Save the tree
-            _constructorField.SetValue(_tree, _constructor);
+            EditorGUI.BeginChangeCheck();
+
+            // Write the string
+            _serializedTree = EditorGUILayout.TextArea(_serializedTree);
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                hasUnsavedChanges = true;
+            }
+        }
+
+        public override void SaveChanges()
+        {
+            _serializedTreeField.SetValue(_tree, _serializedTree);
             EditorUtility.SetDirty(_tree);
+            AssetDatabase.SaveAssets();
+            hasUnsavedChanges = false;
+        }
+
+        public override void DiscardChanges()
+        {
+            _serializedTree = null;
+            hasUnsavedChanges = false;
         }
     }
 }

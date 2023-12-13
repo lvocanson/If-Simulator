@@ -7,11 +7,11 @@ public class GoBaseAction : Node
     private readonly Transform _base;
     private readonly float _speed;
 
-    public GoBaseAction(BTree tree, Transform baseTransform) : base(tree)
+    public GoBaseAction(BTree tree) : base(tree)
     {
         _transform = tree.transform;
-        _base = baseTransform;
-        _speed = Blackboard.Read<float>("Speed");
+        Blackboard.Read("Base", out _base);
+        Blackboard.Read("Speed", out _speed);
     }
 
     public override NodeState Evaluate()
