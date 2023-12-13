@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b7406f257ad4dc14f8a7bf5a5209d266
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218574
+  packageName: RiderFlow
+  packageVersion: 2023.1
+  assetPath: Assets/Plugins/Editor/JetBrains.RiderFlow/build.txt
+  uploadId: 565615

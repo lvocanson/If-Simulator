@@ -11,7 +11,7 @@ namespace SAP2D
             {
                 if(instance == null)
                 {
-                    instance = FindObjectOfType<T>();
+                    instance = FindAnyObjectByType<T>();
 
                     if(instance == null)
                     {
