@@ -8,7 +8,7 @@ public class PatrollingAction : Node
     private readonly float _speed;
     private int _currentWaypoint = 0;
 
-    public PatrollingAction(BTree tree) : base(tree)
+    public PatrollingAction(BTreeRunner tree) : base(tree)
     {
         _transform = tree.transform;
         Blackboard.Read("Waypoints", out _waypoints);

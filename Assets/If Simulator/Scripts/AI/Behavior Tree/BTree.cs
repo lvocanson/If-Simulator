@@ -1,56 +1,50 @@
 using System.Linq;
-using System.Reflection;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace BehaviorTree
 {
-    /// <summary>
-    /// A behavior tree.
-    /// </summary>
-    public class BTree : MonoBehaviour
+    [CreateAssetMenu(fileName = "New BTree", menuName = "Scriptable Objects/Behavior Tree")]
+    public class BTree : ScriptableObject
     {
-        [SerializeField, Tooltip("The tree this component will execute.")]
-        private BTreeAsset _treeAsset = null;
-
-        [SerializeField, Tooltip("The blackboard initializer. All fields marked with the SerializeField attribute will be copied to the tree's blackboard.")]
-        private MonoBehaviour _blackboardInitializer = null;
+        /// <summary>
+        /// Syntax:
+        /// {ParentName{Child1Name,Child2Name{ChildAgain},Child3Name}}
+        /// </summary>
+        [SerializeField]
+        private string _serializedTree;
+        private BTreeRunner _tree; // Temporary variable to pass the tree around while deserializing.
 
         /// <summary>
-        /// The tree's root node.
+        /// Creates the tree from the asset.
         /// </summary>
-        public Node Root { get; private set; } = null;
-
-        /// <summary>
-        /// The tree's blackboard.
-        /// </summary>
-        public Blackboard Blackboard { get; } = new();
-
-        private void Awake()
+        public Node CreateTree(BTreeRunner tree)
         {
-            if (_treeAsset == null)
-            {
-                Debug.LogWarning("No tree attached to this component.", this);
-                enabled = false;
-                return;
-            }
-
-            if (_blackboardInitializer != null)
-            {
-                var fields = _blackboardInitializer.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                    .Where(f => f.GetCustomAttribute<SerializeField>() != null);
-
-                foreach (var field in fields)
-                {
-                    Blackboard.Write(field.Name, field.GetValue(_blackboardInitializer));
-                }
-            }
-
-            Root = _treeAsset.CreateTree(this);
+            _tree = tree;
+            return Deserialize(_serializedTree);
         }
 
-        private void Update()
+        // Recursive function to deserialize the tree.
+        private Node Deserialize(string serializedTree)
         {
-            Root.Evaluate();
+            if (serializedTree.Length == 0)
+            {
+                Debug.LogError("Empty tree.", this);
+                return null;
+            }
+
+            int index = serializedTree.IndexOf('{');
+            if (index == -1)
+                // No children, create leaf node.
+                return Node.Create(serializedTree, _tree);
+
+            // Deserialize all children. (Regex splits the string by commas, but ignores commas inside curly brackets)
+            MatchCollection children = Regex.Matches(serializedTree[(index + 1)..^1], @"(?:[^,{}]+|{[^}]*})+");
+            var siblingNodes = children.Select(child => Deserialize(child.Value));
+
+            // Create parent node.
+            string name = serializedTree[..index];
+            return Node.Create(name, _tree, siblingNodes.ToArray());
         }
     }
 }

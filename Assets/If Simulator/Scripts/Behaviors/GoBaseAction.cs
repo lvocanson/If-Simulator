@@ -7,7 +7,7 @@ public class GoBaseAction : Node
     private readonly Transform _base;
     private readonly float _speed;
 
-    public GoBaseAction(BTree tree) : base(tree)
+    public GoBaseAction(BTreeRunner tree) : base(tree)
     {
         _transform = tree.transform;
         Blackboard.Read("Base", out _base);

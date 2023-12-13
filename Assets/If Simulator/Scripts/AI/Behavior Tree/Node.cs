@@ -33,7 +33,7 @@ namespace BehaviorTree
         /// </summary>
         public Node[] Children { get; }
 
-        private readonly BTree _tree;
+        private readonly BTreeRunner _tree;
         /// <summary>
         /// Gets the tree's blackboard.
         /// </summary>
@@ -42,7 +42,7 @@ namespace BehaviorTree
         /// <summary>
         /// Creates a node of the given type attached to a tree with the given children.
         /// </summary>
-        public static Node Create(string typeName, BTree tree, params Node[] children)
+        public static Node Create(string typeName, BTreeRunner tree, params Node[] children)
         {
             Type type = Type.GetType(typeName) ?? throw new ArgumentException(
                 $"Type {typeName} not found. Possible causes:\n" +
@@ -63,7 +63,7 @@ namespace BehaviorTree
         /// <summary>
         /// Creates a node attached to a tree with the given children.
         /// </summary>
-        public Node(BTree tree, params Node[] children)
+        public Node(BTreeRunner tree, params Node[] children)
         {
             _tree = tree;
             Children = children;

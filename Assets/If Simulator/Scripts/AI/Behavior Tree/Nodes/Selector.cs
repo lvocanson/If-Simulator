@@ -8,7 +8,7 @@ namespace BehaviorTree
         /// <summary>
         /// Creates a selector node (until one succeeds).
         /// </summary>
-        public Selector(BTree tree, params Node[] children) : base(tree, children)
+        public Selector(BTreeRunner tree, params Node[] children) : base(tree, children)
         {
         }
 
