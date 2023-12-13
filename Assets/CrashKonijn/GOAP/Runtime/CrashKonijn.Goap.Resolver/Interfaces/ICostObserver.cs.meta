@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 14fdc15c34e947a2acc5ac62ef35beca
+timeCreated: 1677950418
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Runtime/CrashKonijn.Goap.Resolver/Interfaces/ICostObserver.cs
+  uploadId: 624806

@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 1c92df03a57f4d0f8bd54c2f3beeb1ba
+timeCreated: 1681913760
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Runtime/CrashKonijn.Goap/Classes/Validators/TargetSensorKeyValidator.cs
+  uploadId: 624806

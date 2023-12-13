@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: f61c42148dd84a438284c379cf5eb9b2
+timeCreated: 1684232404
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Editor/CrashKonijn.Goap.Editor/TypeDrawers/GoapRunnerEditor.cs
+  uploadId: 624806

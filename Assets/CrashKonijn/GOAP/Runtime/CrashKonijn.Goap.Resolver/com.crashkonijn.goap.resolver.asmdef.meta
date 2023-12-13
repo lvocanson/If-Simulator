@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: e52adf591423434e8c16eeb452c84a82
+timeCreated: 1675165029
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Runtime/CrashKonijn.Goap.Resolver/com.crashkonijn.goap.resolver.asmdef
+  uploadId: 624806

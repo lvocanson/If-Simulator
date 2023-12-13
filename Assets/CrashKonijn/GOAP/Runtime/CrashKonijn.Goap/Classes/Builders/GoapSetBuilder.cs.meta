@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 1ac432e466fe43bb81ce7a906a7575be
+timeCreated: 1678106842
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Runtime/CrashKonijn.Goap/Classes/Builders/GoapSetBuilder.cs
+  uploadId: 624806

@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 0c735e0707114431abca62db58d65c3f
+timeCreated: 1669924125
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Runtime/CrashKonijn.Goap/Attributes/WorldSensorAttribute.cs
+  uploadId: 624806

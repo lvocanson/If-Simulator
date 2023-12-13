@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: b122a538a33d4e70804e6f3e18a94e3c
+timeCreated: 1686129651
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Editor/CrashKonijn.Goap.Editor/Attributes/ActionDebuggerClassDrawer.cs
+  uploadId: 624806
