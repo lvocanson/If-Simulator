@@ -218,7 +218,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2137447027650884516, guid: 27bfd1222bb28e64984db701bd576917, type: 3}
       propertyPath: _initialState
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2767451794909013831, guid: 27bfd1222bb28e64984db701bd576917, type: 3}
       propertyPath: m_LocalPosition.x
@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 591834962}
   m_Layer: 3
   m_Name: Physics
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -573,6 +573,7 @@ MonoBehaviour:
   _doors:
   - {fileID: 927824506}
   - {fileID: 257173505}
+  _roomType: 0
 --- !u!1 &1066584606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,7 +2774,7 @@ GameObject:
   - component: {fileID: 1365979019}
   m_Layer: 3
   m_Name: BodyCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
