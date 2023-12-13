@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using GameMode;
 using UnityEngine;
 
 public class LevelContext : MonoBehaviour
@@ -11,6 +11,21 @@ public class LevelContext : MonoBehaviour
     [Header("Managers")]
     [SerializeField] private LevelManager _levelManager;
     
+    [Header("Events")]
+    [SerializeField] private EventSo _levelContextInitialized;
+    [SerializeField] private EventSo _levelContextStarted;
+    
+    
+    public event Action<GameModeStartMode> OnStarted;
+    public event Action<GameModeStartMode> OnInitialized;
+    public event Action<GameModeQuitMode> OnQuit;
+    
+    
+    private GameModeStartMode _currentStartMode;
+    public GameModeStartMode CurrentStartMode => _currentStartMode;
+    
+    
+    #region Singleton 
     private void Awake()
     {
         if (!Instance)
@@ -29,5 +44,26 @@ public class LevelContext : MonoBehaviour
         {
             Instance = null;
         }
+    }
+    
+    #endregion
+    
+    public void InitializeContext(GameModeStartMode startMode)
+    {
+        _currentStartMode = startMode;
+        
+        OnInitialized?.Invoke(_currentStartMode);
+        _levelContextInitialized.Invoke();
+    }
+
+    public void StartContext()
+    {
+        OnStarted?.Invoke(_currentStartMode);
+        _levelContextStarted.Invoke();
+    }
+
+    public void QuitContext(GameModeQuitMode quitMode)
+    {
+        OnQuit?.Invoke(quitMode);
     }
 }

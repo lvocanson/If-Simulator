@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentLevel: {fileID: 0}
+  _playerPrefab: {fileID: 6197885105219783949, guid: f813c1bececb1a0488ad9b595e0f9ff6, type: 3}
+  _playerSpawnPoint: {fileID: 0}
 --- !u!1 &6410777074490989867
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,3 +93,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelManager: {fileID: 6043326052714304290}
+  _levelContextInitialized: {fileID: 11400000, guid: 4bf5c5f77e306c549986f626845ed91e, type: 2}
+  _levelContextStarted: {fileID: 11400000, guid: 8e2a49aa856a31749916a00b9055414e, type: 2}
