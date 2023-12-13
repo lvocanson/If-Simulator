@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyDamage : MonoBehaviour
+public class EntityDamage : MonoBehaviour
 {
     private int _ignoreMask;
     
