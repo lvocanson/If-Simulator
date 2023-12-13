@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3698871190431304111}
   - component: {fileID: 5540728448906214869}
-  - component: {fileID: 757962826089233186}
+  - component: {fileID: 3407179542858764038}
   m_Layer: 3
   m_Name: Actions
   m_TagString: Untagged
@@ -62,7 +62,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 7502129016056758851, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
---- !u!114 &757962826089233186
+--- !u!114 &3407179542858764038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,10 +71,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2475921871988151956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3bb9f0735842694ea94923ebdd4156e, type: 3}
+  m_Script: {fileID: 11500000, guid: a7bba14331281e047a30686408065e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _bodyTransform: {fileID: 2873507226914812432}
+  _cursorPrefab: {fileID: 5976859743985783564, guid: cdffdfd42b1c0344e8911341572804e6, type: 3}
   _rotationInput: {fileID: -7280493881398489431, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
 --- !u!1 &2799416502423231899
 GameObject:
@@ -369,6 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2258649158215846201}
+  - component: {fileID: 4761457398783333148}
   - component: {fileID: 263370004781948735}
   m_Layer: 3
   m_Name: Brain
@@ -392,6 +394,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2873507226914812432}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4761457398783333148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6455209932745954752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e0a974187821d40bc4e0a8a6868497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _playerAttackManager: {fileID: 263370004781948735}
+  _playerMovement: {fileID: 5540728448906214869}
+  playerAim: {fileID: 3407179542858764038}
 --- !u!114 &263370004781948735
 MonoBehaviour:
   m_ObjectHideFlags: 0

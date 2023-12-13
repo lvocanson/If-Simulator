@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : DamageabaleEntity
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private PlayerAttackManager _playerAttackManager;
+    [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private PlayerAim playerAim;
+    
+    public PlayerAttackManager PlayerAttackManager => _playerAttackManager;
+    public PlayerMovement PlayerMovement => _playerMovement;
+    public PlayerAim PlayerAim => playerAim;
+    
 }

@@ -1,23 +1,28 @@
+using System;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Utility;
 
-public class PlayerRotation : MonoBehaviour
+public class PlayerAim : MonoBehaviour
 {
     [SerializeField] private Transform _bodyTransform;
+    [SerializeField] private GameObject _cursorPrefab;
+    
+    [SerializeField, BoxGroup("Inputs")] private InputActionReference _rotationInput;
+    
+    public GameObject Cursor => _cursor;
     
     [ShowNonSerializedField] private Vector2 _mousePosition;
     private Camera _mainCamera;
-    
-    [SerializeField, BoxGroup("Inputs")] private InputActionReference _rotationInput;
-
+    private GameObject _cursor;
     
     private void Awake()
     {
         _mainCamera = Camera.main;
+        _cursor = Instantiate(_cursorPrefab, transform);
     }
-    
+
     private void OnEnable()
     {
         _rotationInput.action.started += OnRotationAction;
@@ -32,9 +37,10 @@ public class PlayerRotation : MonoBehaviour
         _rotationInput.action.canceled -= OnRotationAction;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         RotateAim();
+        MoveCursor();
     }
 
     private void RotateAim()
@@ -49,5 +55,11 @@ public class PlayerRotation : MonoBehaviour
     private void OnRotationAction(InputAction.CallbackContext context)
     {
         _mousePosition = context.ReadValue<Vector2>();
+    }
+
+    private void MoveCursor()
+    {
+        
+        _cursor.transform.position = (Vector2)_mainCamera.ScreenToWorldPoint(_mousePosition);;
     }
 }
