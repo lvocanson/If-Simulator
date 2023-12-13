@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
-namespace Ability.List
+namespace Ability
 {
     public class BulletBehavior : MonoBehaviour
     {
@@ -9,21 +10,26 @@ namespace Ability.List
         
         [SerializeField] private float _speed;
         [SerializeField] private float _lifeTime;
-        private Rigidbody2D _rb;
+        [SerializeField] private Rigidbody2D _rb;
+
+        public event Action OnDestroy;
         
-        private void Awake()
+        private void OnEnable()
         {
-            _rb = gameObject.GetComponent<Rigidbody2D>();
+            StartCoroutine(DestroyAfterDelay());
             _rb.velocity = transform.up * _speed;
         }
-
-        private void Update()
+        
+        private IEnumerator DestroyAfterDelay()
         {
-            _lifeTime -= Time.deltaTime;
-            if (_lifeTime <= 0)
+            float timer = 0f;
+            while (timer < _lifeTime)
             {
-                Destroy(gameObject);
+                timer += Time.deltaTime;
+                yield return null;
             }
+            
+            OnDestroy?.Invoke();
         }
     }
 }

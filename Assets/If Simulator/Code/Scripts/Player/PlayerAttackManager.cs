@@ -1,5 +1,4 @@
 using Ability;
-using Ability.List;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -52,10 +51,10 @@ public class PlayerAttackManager : MonoBehaviour
     {
         _primaryAttackAbilityBase.TryActivate();
     }
-    
+
     private void OnPrimaryAttackEndAction(InputAction.CallbackContext context)
     {
-       _primaryAttackAbilityBase.End();
+        _primaryAttackAbilityBase.End();
     }
 
     private void OnSecondaryAttackAction(InputAction.CallbackContext context)

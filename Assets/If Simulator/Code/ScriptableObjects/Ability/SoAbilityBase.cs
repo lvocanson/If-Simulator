@@ -5,27 +5,27 @@ namespace Ability
 {
     public class SoAbilityBase : ScriptableObject
     {
-        public string AbilityName => _abilityName;
+        public string Name => _name;
 
-        public string AbilityDescription => _abilityDescription;
+        public string Description => _description;
 
-        public Texture2D AbilityIcon => _abilityIcon;
+        public Texture2D Icon => _icon;
 
-        public ushort AbilityMaxLevel => _abilityMaxLevel;
+        public ushort MaxLevel => _maxLevel;
 
-        public float AbilityDamage => _abilityDamage;
+        public float Damage => _damage;
 
-        public float AbilityRange => _abilityRange;
+        public float Range => _range;
         
         public bool IsHoldable => _isHoldable;
 
         [Header("Ability info")] 
-        [SerializeField] private string _abilityName;
-        [SerializeField] private string _abilityDescription;
-        [SerializeField] private Texture2D _abilityIcon;
-        [SerializeField] private ushort _abilityMaxLevel;
-        [SerializeField] private float _abilityDamage;
-        [SerializeField] private float _abilityRange;
+        [SerializeField] private string _name;
+        [SerializeField] private string _description;
+        [SerializeField] private Texture2D _icon;
+        [SerializeField] private ushort _maxLevel;
+        [SerializeField] private float _damage;
+        [SerializeField] private float _range;
         [SerializeField] private bool _isHoldable;
     }
 }

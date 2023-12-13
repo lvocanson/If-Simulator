@@ -25,13 +25,13 @@ namespace Ability
         public float CurCooldown
         {
             get => _curCooldown;
-            set => _curCooldown = Mathf.Clamp(value, 0, _abilitySo.AbilityCooldown);
+            set => _curCooldown = Mathf.Clamp(value, 0, _abilitySo.Cooldown);
         }
 
         public float CurActiveCooldown
         {
             get => _curActiveCooldown;
-            set => _curActiveCooldown = Mathf.Clamp(value, 0, _abilitySo.AbilityActiveCooldown);
+            set => _curActiveCooldown = Mathf.Clamp(value, 0, _abilitySo.ActiveCooldown);
         }
 
         // Called when the ability is activated (corresponding key pressed)
@@ -43,7 +43,7 @@ namespace Ability
             
             // Mark the ability as active
             _state = AbilityState.ACTIVE;
-            _curActiveCooldown = _abilitySo.AbilityActiveCooldown;
+            _curActiveCooldown = _abilitySo.ActiveCooldown;
             
             _routine = StartCoroutine(Routine());
             return;
@@ -55,7 +55,7 @@ namespace Ability
                 {
                     OnEffectStart();
 
-                    yield return new WaitForSeconds(_abilitySo.AbilityActiveCooldown);
+                    yield return new WaitForSeconds(_abilitySo.ActiveCooldown);
                     
                     // If the ability is not holdable, end it
                     if (_abilitySo.IsHoldable is false) End();
@@ -63,7 +63,7 @@ namespace Ability
             }
         }
 
-        public sealed override void LevelUp() => CurrentLevel = (ushort)Mathf.Clamp(CurrentLevel + 1, 0, _abilitySo.AbilityMaxLevel);
+        public sealed override void LevelUp() => CurrentLevel = (ushort)Mathf.Clamp(CurrentLevel + 1, 0, _abilitySo.MaxLevel);
 
         private void Update()
         {
@@ -108,7 +108,7 @@ namespace Ability
             
             // Enter cooldown state
             _state = AbilityState.COOLDOWN;
-            _curCooldown = _abilitySo.AbilityCooldown;
+            _curCooldown = _abilitySo.Cooldown;
 
             // If the ability is active, stop the coroutine
             if (_routine != null)
