@@ -1,14 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class EnemyDamage : MonoBehaviour
 {
+    private int _ignoreMask;
+    
+    
+    public void IgnoreLayer(int layer)
+    {
+        _ignoreMask |= (1 << layer);
+    }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (TryGetComponent<DamageabaleEntity>(out DamageabaleEntity damageabaleEntity))
-            damageabaleEntity.ApplyDamage(5f);
+        if ((_ignoreMask & (1 << collision.gameObject.layer)) > 0) return;
+
+        if (collision.TryGetComponent<DamageabaleEntity>(out DamageabaleEntity damageabaleEntity))
+        {
+            damageabaleEntity.ApplyDamage(10f);
+        }
     }
 }

@@ -15,7 +15,9 @@ namespace Ability.List
         protected override void OnEffectUpdate()
         {
             //if (!_isShooting) return;
-            Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
+            EnemyDamage damageZone = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation).GetComponent<EnemyDamage>();
+            damageZone.IgnoreLayer(gameObject.layer);
+            Debug.Log(gameObject.layer);
         }
 
         protected override void OnEffectEnd()

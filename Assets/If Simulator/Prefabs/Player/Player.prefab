@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _abilitySo: {fileID: 11400000, guid: 2965c84f1be4d394da0db509c4a2ae7a, type: 2}
+  _bulletPrefab: {fileID: 3981262126783197580, guid: 4e2b0953374b140468376168987a6f0a, type: 3}
+  _bulletSpawnPoint: {fileID: 2873507226914812432}
 --- !u!1 &2799416502423231899
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2873507226914812432}
   - component: {fileID: 7800368948159628112}
+  - component: {fileID: 1640569864603432981}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -279,6 +282,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &1640569864603432981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6197885105219783949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e2bd85f0d5f4f498c98c840de34664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 10
 --- !u!1 &6455209932745954752
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +438,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -2028806386459919619, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
-  _primaryAttackAbilityBase: {fileID: 3393842684948229655, guid: 89f5d2fbbe132064a847955f380e99b2, type: 3}
+  _primaryAttackAbilityBase: {fileID: 9175856714650069211}
   _secondaryAttackAbilityBase: {fileID: 0}
   _firstSpellAbilityBase: {fileID: 0}
   _secondSpellAbilityBase: {fileID: 0}

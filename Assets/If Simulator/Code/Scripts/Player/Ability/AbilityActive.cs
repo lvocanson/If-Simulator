@@ -59,7 +59,7 @@ namespace Ability
 
         private void Update()
         {
-            Debug.Log(_state);
+            //Debug.Log(_state);
             switch (_state)
             {
                 case AbilityState.COOLDOWN:
