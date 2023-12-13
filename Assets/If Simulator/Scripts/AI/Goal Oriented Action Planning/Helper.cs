@@ -10,14 +10,12 @@ namespace GOAP
         protected override void Start()
         {
             base.Start();
-            SubGoal s1 = new SubGoal("isSafe", 1, true);
+            SubGoal s1 = new SubGoal("isIdle", 1, true);
             goals.Add(s1, 3);
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            SubGoal s2 = new SubGoal("isSafe", 1, true);
+            goals.Add(s2, 2);
+            SubGoal s3 = new SubGoal("isHungry", 1, true);
+            goals.Add(s3, 1);
         }
     }
 }

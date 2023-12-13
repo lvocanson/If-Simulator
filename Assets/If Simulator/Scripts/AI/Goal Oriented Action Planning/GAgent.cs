@@ -29,10 +29,6 @@ namespace GOAP
         public GAction currentAction;
         SubGoal currentGoal;
 
-        public SAP2DPathfindingConfig config;
-        public Vector2[] path;
-        public SAP2DPathfinder finder;
-
         // Start is called before the first frame update
         protected virtual void Start()
         {
@@ -56,11 +52,12 @@ namespace GOAP
         {
             if (currentAction != null && currentAction.running)
             {
-                if (currentAction.agent.Target && currentAction.agent.path.Length < 1f)
+                float distanceToTarget = Vector3.Distance(currentAction.agent.transform.position, currentAction.target.transform.position);
+                if (currentAction.agent.path != null && distanceToTarget < 0.5f)
                 {
                     if (!invoked)
                     {
-                        Invoke("Complete Action", currentAction.duration);
+                        Invoke("CompleteAction", currentAction.duration);
                         invoked = true;
                     }
                 }
@@ -99,14 +96,13 @@ namespace GOAP
                 {
                     if (currentAction.target == null && currentAction.targetTag != "")
                     {
-                        currentAction.target = GameObject.FindWithTag(currentAction.targetTag).transform;
+                        currentAction.target = GameObject.FindWithTag(currentAction.targetTag);
                     }
 
                     if (currentAction.targetTag != null)
                     {
                         currentAction.running = true;
-                        //modify this line
-                        finder.FindPath(currentAction.agent.transform.position, currentAction.target.position, config);
+                        currentAction.agent.Target = currentAction.target.transform;
                     }
                 }
                 else

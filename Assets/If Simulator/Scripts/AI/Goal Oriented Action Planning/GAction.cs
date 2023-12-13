@@ -9,7 +9,7 @@ namespace GOAP
     {
         public string actionName = "Action";
         public float cost = 1.0f;
-        public Transform target;
+        public GameObject target;
         public string targetTag;
         public float duration = 0;
         public WorldState[] preConditions;
@@ -31,7 +31,7 @@ namespace GOAP
 
         public void Awake()
         {
-            agent = gameObject.AddComponent<SAP2DAgent>();
+            agent = gameObject.GetComponent<SAP2DAgent>();
 
             if (preConditions != null)
             {
