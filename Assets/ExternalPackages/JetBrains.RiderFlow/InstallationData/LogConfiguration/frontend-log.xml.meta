@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5c94be9d6c37beb408ab0d54e8d35249
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218574
+  packageName: RiderFlow
+  packageVersion: 2023.1
+  assetPath: Assets/Plugins/Editor/JetBrains.RiderFlow/InstallationData/LogConfiguration/frontend-log.xml
+  uploadId: 565615

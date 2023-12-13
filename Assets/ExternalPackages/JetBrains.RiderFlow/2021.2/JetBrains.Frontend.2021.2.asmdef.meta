@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: dd2aa52db3544288be714675c4c5ac1d
+timeCreated: 1642602392
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218574
+  packageName: RiderFlow
+  packageVersion: 2023.1
+  assetPath: Assets/Plugins/Editor/JetBrains.RiderFlow/2021.2/JetBrains.Frontend.2021.2.asmdef
+  uploadId: 565615
