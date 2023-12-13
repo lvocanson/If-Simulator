@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2d4e1ad1f3774ad0a4e8e0d6db6dc95a
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218574
+  packageName: RiderFlow
+  packageVersion: 2023.1
+  assetPath: Assets/Plugins/Editor/JetBrains.RiderFlow/hash.macos-arm64.txt
+  uploadId: 565615

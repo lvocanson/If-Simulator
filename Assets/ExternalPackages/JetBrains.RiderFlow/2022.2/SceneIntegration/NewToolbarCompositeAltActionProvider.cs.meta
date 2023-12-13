@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d5f5d39ebf24e45008de96d2130edfdb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218574
+  packageName: RiderFlow
+  packageVersion: 2023.1
+  assetPath: Assets/Plugins/Editor/JetBrains.RiderFlow/2022.2/SceneIntegration/NewToolbarCompositeAltActionProvider.cs
+  uploadId: 565615
