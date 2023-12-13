@@ -1,3 +1,6 @@
+using UnityEditor;
+using UnityEngine;
+
 namespace BehaviorTree
 {
     public enum NodeState
@@ -11,8 +14,7 @@ namespace BehaviorTree
     /// <summary>
     /// Base class for all nodes of a tree.
     /// </summary>
-    [System.Serializable]
-    public abstract class Node
+    public abstract class Node : ScriptableObject
     {
         /// <summary>
         /// The state of the last evaluation of the node.
@@ -22,7 +24,7 @@ namespace BehaviorTree
         /// <summary>
         /// Gets the tree's blackboard.
         /// </summary>
-        [UnityEngine.SerializeReference]
+        [SerializeReference]
         protected Blackboard _blackboard;
 
         /// <summary>
@@ -60,5 +62,15 @@ namespace BehaviorTree
         /// Called after the last update of the node.
         /// </summary>
         protected virtual void OnExit() { }
+
+        #region Editor
+
+        [field: SerializeField]
+        public string Guid { get; set; }
+
+        [field: SerializeField]
+        public Vector2 GraphPosition { get; set; }
+
+        #endregion
     }
 }

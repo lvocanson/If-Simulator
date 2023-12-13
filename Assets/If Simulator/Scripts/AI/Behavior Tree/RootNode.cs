@@ -13,7 +13,13 @@ namespace BehaviorTree
 
         protected override void OnUpdate()
         {
-            State = _child?.Evaluate() ?? NodeState.Failure;
+            if (_child == null)
+            {
+                State = NodeState.Failure;
+                return;
+            }
+
+            State = _child.Evaluate();
         }
     }
 }
