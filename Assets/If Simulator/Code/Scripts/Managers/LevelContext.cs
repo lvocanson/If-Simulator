@@ -7,9 +7,12 @@ public class LevelContext : MonoBehaviour
     public static LevelContext Instance { get; private set; }
     
     public LevelManager LevelManager => Instance._levelManager;
-    
+    public CameraManager CameraManager => Instance._cameraManager;
+
     [Header("Managers")]
     [SerializeField] private LevelManager _levelManager;
+    [SerializeField] private CameraManager _cameraManager;
+
     
     [Header("Events")]
     [SerializeField] private EventSo _levelContextInitialized;
