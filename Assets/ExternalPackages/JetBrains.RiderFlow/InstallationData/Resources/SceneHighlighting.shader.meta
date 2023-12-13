@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 1c5b49dce5b34aaa839167fbb1e9fcff
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218574
+  packageName: RiderFlow
+  packageVersion: 2023.1
+  assetPath: Assets/Plugins/Editor/JetBrains.RiderFlow/InstallationData/Resources/SceneHighlighting.shader
+  uploadId: 565615

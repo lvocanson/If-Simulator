@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ba4ca94bf5194d6db7a5c3b7b45e7ff5
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218574
+  packageName: RiderFlow
+  packageVersion: 2023.1
+  assetPath: Assets/Plugins/Editor/JetBrains.RiderFlow/InstallationData/Resources/Fonts/JetBrainsMono-1.0.3/LICENSE
+  uploadId: 565615

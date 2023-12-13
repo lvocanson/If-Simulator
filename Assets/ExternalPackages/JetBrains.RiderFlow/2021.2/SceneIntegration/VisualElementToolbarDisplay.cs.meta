@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 709214f1e351a3b4bbf3ca204631945f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218574
+  packageName: RiderFlow
+  packageVersion: 2023.1
+  assetPath: Assets/Plugins/Editor/JetBrains.RiderFlow/2021.2/SceneIntegration/VisualElementToolbarDisplay.cs
+  uploadId: 565615
