@@ -10,13 +10,14 @@ namespace Ability.List
         
         protected override void OnEffectStart()
         {
+            GameObject bp = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
+            var bulletBehavior = bp.GetComponent<BulletBehavior>();
+            bulletBehavior.Damage = _abilitySo.AbilityDamage;
         }
 
         protected override void OnEffectUpdate()
         {
-            GameObject bp = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
-            var bulletBehavior = bp.GetComponent<BulletBehavior>();
-            bulletBehavior.Damage = _abilitySo.AbilityDamage;
+            
         }
 
         protected override void OnEffectEnd()

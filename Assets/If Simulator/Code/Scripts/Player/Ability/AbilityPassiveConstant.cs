@@ -4,10 +4,10 @@
     {
         public sealed override void TryActivate()
         {
-            if (_abilitySo.IsActivated) return;
+            if (_abilitySo._isActivated) return;
 
             OnEffectStart();
-            _abilitySo.IsActivated = true;
+            _abilitySo._isActivated = true;
         }
 
         public override void End()

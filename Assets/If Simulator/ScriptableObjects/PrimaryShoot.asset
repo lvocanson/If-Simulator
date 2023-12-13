@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1700e54995614abbae3defeec3f133c9, type: 3}
   m_Name: PrimaryShoot
   m_EditorClassIdentifier: 
-  AbilityName: M4
-  AbilityDescription: piou piou
-  AbilityIcon: {fileID: 0}
-  AbilityMaxLevel: 0
-  AbilityDamage: 10
-  AbilityRange: 15
-  AbilityCooldown: 0
-  AbilityActiveCooldown: 0.1
+  _abilityName: 
+  _abilityDescription: 
+  _abilityIcon: {fileID: 0}
+  _abilityMaxLevel: 0
+  _abilityDamage: 0
+  _abilityRange: 0
+  _isHoldable: 1
+  _abilityCooldown: 0
+  _abilityActiveCooldown: 0.1
