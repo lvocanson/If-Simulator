@@ -19,8 +19,8 @@ public class PlayerAttackManager : MonoBehaviour
     protected void OnEnable()
     {
         _primaryAttackInput.action.started += OnPrimaryAttackAction;
-        _primaryAttackInput.action.performed += OnPrimaryAttackAction;
-        _primaryAttackInput.action.canceled += OnPrimaryAttackAction;
+        //_primaryAttackInput.action.performed += OnPrimaryAttackAction;
+        _primaryAttackInput.action.canceled += OnPrimaryAttackEndAction;
 
         _secondaryAttackInput.action.started += OnSecondaryAttackAction;
         //_secondaryAttackInput.action.performed += OnSecondaryAttackAction;
@@ -57,9 +57,12 @@ public class PlayerAttackManager : MonoBehaviour
 
     private void OnPrimaryAttackAction(InputAction.CallbackContext context)
     {
-        if (context is { started: false, performed: false }) return;
-
         _primaryAttackAbilityBase.TryActivate();
+    }
+    
+    private void OnPrimaryAttackEndAction(InputAction.CallbackContext context)
+    {
+        _primaryAttackAbilityBase.End();
     }
 
     private void OnSecondaryAttackAction(InputAction.CallbackContext context)

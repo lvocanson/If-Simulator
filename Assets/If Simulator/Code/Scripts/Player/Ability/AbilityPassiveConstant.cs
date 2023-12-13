@@ -10,7 +10,7 @@
             _abilitySo.IsActivated = true;
         }
 
-        protected override void End()
+        public override void End()
         {
             OnEffectEnd();
         }

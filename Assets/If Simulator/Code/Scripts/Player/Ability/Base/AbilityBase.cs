@@ -11,7 +11,7 @@ namespace Ability
 
         public abstract void LevelUp();
 
-        protected abstract void End();
+        public abstract void End();
 
         [SerializeField] protected T _abilitySo;
     }

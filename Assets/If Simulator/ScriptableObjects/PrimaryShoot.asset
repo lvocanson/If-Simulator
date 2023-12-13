@@ -18,5 +18,5 @@ MonoBehaviour:
   AbilityMaxLevel: 0
   AbilityDamage: 10
   AbilityRange: 15
-  AbilityCooldown: 2
-  AbilityActiveCooldown: 0
+  AbilityCooldown: 0
+  AbilityActiveCooldown: 0.1

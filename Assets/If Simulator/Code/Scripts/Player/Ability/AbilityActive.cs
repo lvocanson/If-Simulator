@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -10,21 +11,22 @@ namespace Ability
         private enum AbilityState
         {
             READY,
-            ACTIVE,
             COOLDOWN
         }
-        
+
         private float _curCooldown;
         private float _curActiveCooldown;
-        
+
+        private Coroutine _routine;
+
         private AbilityState _state = AbilityState.READY;
-        
+
         public float CurCooldown
         {
             get => _curCooldown;
             set => _curCooldown = Mathf.Clamp(value, 0, _abilitySo.AbilityCooldown);
         }
-        
+
         public float CurActiveCooldown
         {
             get => _curActiveCooldown;
@@ -36,28 +38,30 @@ namespace Ability
         public sealed override void TryActivate()
         {
             if (_state != AbilityState.READY) return;
-            
-            _state = AbilityState.ACTIVE;
-            OnEffectStart();
-            _curActiveCooldown = _abilitySo.AbilityActiveCooldown;
+
+            _routine = StartCoroutine(Shoot());
+            return;
+
+            IEnumerator Shoot()
+            {
+                OnEffectStart();
+                float startTime = Time.time;
+                while (true)
+                {
+                    OnEffectUpdate();
+
+                    yield return new WaitForSeconds(_abilitySo.AbilityActiveCooldown);
+                }
+            }
         }
-        
-        public sealed override void LevelUp() => CurrentLevel = (ushort) Mathf.Clamp(CurrentLevel + 1, 0, _abilitySo.AbilityMaxLevel);
-        
+
+        public sealed override void LevelUp() => CurrentLevel = (ushort)Mathf.Clamp(CurrentLevel + 1, 0, _abilitySo.AbilityMaxLevel);
+
         private void Update()
         {
+            Debug.Log(_state);
             switch (_state)
             {
-                case AbilityState.ACTIVE:
-                {
-                    if (_curActiveCooldown > 0)
-                    {
-                        _curActiveCooldown -= Time.deltaTime;
-                        OnEffectUpdate();
-                    }
-                    else End();
-                    break;
-                }
                 case AbilityState.COOLDOWN:
                 {
                     if (_curCooldown > 0) _curCooldown -= Time.deltaTime;
@@ -73,14 +77,20 @@ namespace Ability
         protected abstract void OnEffectStart();
         protected abstract void OnEffectUpdate();
         protected abstract void OnEffectEnd();
-        
-        protected sealed override void End()
+
+        public sealed override void End()
         {
+            if (_state == AbilityState.COOLDOWN) return;
             _state = AbilityState.COOLDOWN;
             _curCooldown = _abilitySo.AbilityCooldown;
+
+            if (_routine != null)
+            {
+                StopCoroutine(_routine);
+                _routine = null;
+            }
+
             OnEffectEnd();
         }
-
-        
     }
 }

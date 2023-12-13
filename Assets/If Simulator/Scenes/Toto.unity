@@ -325,6 +325,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9175856714650069211, guid: f813c1bececb1a0488ad9b595e0f9ff6, type: 3}
+      propertyPath: _bulletPrefab
+      value: 
+      objectReference: {fileID: 3981262126783197580, guid: 4e2b0953374b140468376168987a6f0a, type: 3}
+    - target: {fileID: 9175856714650069211, guid: f813c1bececb1a0488ad9b595e0f9ff6, type: 3}
+      propertyPath: _bulletSpawnPoint
+      value: 
+      objectReference: {fileID: 1096914621}
     m_RemovedComponents:
     - {fileID: 757962826089233186, guid: f813c1bececb1a0488ad9b595e0f9ff6, type: 3}
     m_RemovedGameObjects: []

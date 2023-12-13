@@ -9,7 +9,7 @@ namespace Ability
             
         }
 
-        protected override void End()
+        public override void End()
         {
             
         }
