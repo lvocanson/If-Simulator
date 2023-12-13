@@ -11,16 +11,13 @@ public class PlayerAttackManager : MonoBehaviour
     [SerializeField, BoxGroup("Inputs")] private InputActionProperty _firstSpellInput;
     [SerializeField, BoxGroup("Inputs")] private InputActionProperty _secondSpellInput;
 
-    private AbilityActive _primaryAttackAbilityBase;
-    private AbilityActive _secondaryAttackAbilityBase;
-    private AbilityActive _firstSpellAbilityBase;
-    private AbilityActive _secondSpellAbilityBase;
+    [SerializeField] private AbilityActive _primaryAttackAbilityBase;
+    [SerializeField] private AbilityActive _secondaryAttackAbilityBase;
+    [SerializeField] private AbilityActive _firstSpellAbilityBase;
+    [SerializeField] private AbilityActive _secondSpellAbilityBase;
 
     protected void OnEnable()
     {
-        _primaryAttackAbilityBase = gameObject.AddComponent<AbilityPrimaryShoot>();
-        _primaryAttackAbilityBase.AbilitySoFilePath = "PrimaryShoot"; // TODO : Find a better way to do this
-
         _primaryAttackInput.action.started += OnPrimaryAttackAction;
         _primaryAttackInput.action.performed += OnPrimaryAttackAction;
         _primaryAttackInput.action.canceled += OnPrimaryAttackAction;
