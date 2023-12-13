@@ -59,7 +59,6 @@ namespace Ability
 
         private void Update()
         {
-            Debug.Log(_state);
             switch (_state)
             {
                 case AbilityState.COOLDOWN:
@@ -74,8 +73,13 @@ namespace Ability
             }
         }
 
+        // Called once when the click is started
         protected abstract void OnEffectStart();
+        
+        // Called every active cooldown time
         protected abstract void OnEffectUpdate();
+        
+        // Called once when the click is released
         protected abstract void OnEffectEnd();
 
         public sealed override void End()
