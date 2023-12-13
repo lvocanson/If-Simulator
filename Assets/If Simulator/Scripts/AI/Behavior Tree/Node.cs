@@ -1,93 +1,64 @@
-using System;
-
 namespace BehaviorTree
 {
     public enum NodeState
     {
+        None = 0,// The node has not been evaluated yet
+        Running, // The node is still running (Needs to be updated again)
         Success, // The node has finished running and succeeded
         Failure, // The node has finished running and failed
-        Running, // The node is still running (Needs to be evaluated again)
     }
 
     /// <summary>
     /// Base class for all nodes of a tree.
     /// </summary>
-    /// <remarks>
-    /// Your derived classes must use the following constructor:<br />
-    /// <c>T(BTree tree, params Node[] children) : base(tree, children)</c>
-    /// </remarks>
+    [System.Serializable]
     public abstract class Node
     {
         /// <summary>
         /// The state of the last evaluation of the node.
         /// </summary>
-        public NodeState State { get; protected set; } = NodeState.Running;
+        public NodeState State { get; protected set; } = NodeState.None;
 
-        /// <summary>
-        /// The parent of the node.
-        /// </summary>
-        public Node Parent { get; private set; } = null;
-
-        /// <summary>
-        /// The children of the node.
-        /// </summary>
-        public Node[] Children { get; }
-
-        private readonly BTreeRunner _tree;
         /// <summary>
         /// Gets the tree's blackboard.
         /// </summary>
-        protected virtual Blackboard Blackboard => _tree.Blackboard;
+        [UnityEngine.SerializeReference]
+        protected Blackboard _blackboard;
 
         /// <summary>
-        /// Creates a node of the given type attached to a tree with the given children.
+        /// Evaluates the node.
         /// </summary>
-        public static Node Create(string typeName, BTreeRunner tree, params Node[] children)
+        /// <returns>The state of the node after evaluation.</returns>
+        public NodeState Evaluate()
         {
-            Type type = Type.GetType(typeName) ?? throw new ArgumentException(
-                $"Type {typeName} not found. Possible causes:\n" +
-                $"- The type is not in the same assembly as the Node class.\n" +
-                $"- You forgot to add the namespace to the type name.\n" +
-                $"- The type name is misspelled.\n");
-
-            if (!type.IsSubclassOf(typeof(Node)))
-                throw new ArgumentException($"Type {typeName} is not a subclass of Node.");
-
-            var args = children == null || children.Length == 0
-                ? new object[] { tree }
-                : new object[] { tree, children };
-
-            return (Node)Activator.CreateInstance(type, args);
-        }
-
-        /// <summary>
-        /// Creates a node attached to a tree with the given children.
-        /// </summary>
-        public Node(BTreeRunner tree, params Node[] children)
-        {
-            _tree = tree;
-            Children = children;
-            foreach (Node child in Children)
+            if (State != NodeState.Running)
             {
-                child.Parent = this;
+                State = NodeState.Running;
+                OnEnter();
             }
-        }
 
-        /// <summary>
-        /// Evaluates the node and returns its state.
-        /// </summary>
-        public abstract NodeState Evaluate();
+            OnUpdate();
 
-        /// <summary>
-        /// Resets the node to its initial state.
-        /// </summary>
-        public virtual void Reset()
-        {
-            State = NodeState.Running;
-            foreach (Node child in Children)
+            if (State != NodeState.Running)
             {
-                child.Reset();
+                OnExit();
             }
+
+            return State;
         }
+
+        /// <summary>
+        /// Called before the first update of the node.
+        /// </summary>
+        protected virtual void OnEnter() { }
+        /// <summary>
+        /// Called every frame the node is running.
+        /// You should change the state of the node in this method.
+        /// </summary>
+        protected abstract void OnUpdate();
+        /// <summary>
+        /// Called after the last update of the node.
+        /// </summary>
+        protected virtual void OnExit() { }
     }
 }
