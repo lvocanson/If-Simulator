@@ -2787,6 +2787,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2268700379274735555, guid: 426514de797627f4e8ad9ba4883655d9, type: 3}
+      propertyPath: m_GroupFramingMode
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3492285193630600514, guid: 426514de797627f4e8ad9ba4883655d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2797,7 +2801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3492285193630600514, guid: 426514de797627f4e8ad9ba4883655d9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 3492285193630600514, guid: 426514de797627f4e8ad9ba4883655d9, type: 3}
       propertyPath: m_LocalRotation.w

@@ -54,7 +54,7 @@ public class LevelContext : MonoBehaviour
     public void InitializeContext(GameModeStartMode startMode)
     {
         _currentStartMode = startMode;
-        
+
         OnInitialized?.Invoke(_currentStartMode);
         _levelContextInitialized.Invoke();
     }
