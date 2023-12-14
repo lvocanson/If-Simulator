@@ -2,14 +2,13 @@ using UnityEngine;
 using CrashKonijn.Goap.Sensors;
 using CrashKonijn.Goap.Interfaces;
 using CrashKonijn.Goap.Classes;
+using UnityEngine.AI;
 
 namespace IfSimulator.GOAP.Sensors
 {
 
     public class WanderTargetSensor : LocalTargetSensorBase
     {
-        public GameObject target;
-
         public override void Created()
         {
         }
@@ -20,9 +19,9 @@ namespace IfSimulator.GOAP.Sensors
 
         public override ITarget Sense(IMonoAgent agent, IComponentReference references)
         {
-            var random = this.GetRandomPosition(agent);
+            Vector3 position = GetRandomPosition(agent);
 
-            return new PositionTarget(random);
+            return new PositionTarget(position);
         }
 
         private Vector3 GetRandomPosition(IMonoAgent agent)
@@ -31,10 +30,14 @@ namespace IfSimulator.GOAP.Sensors
 
             while (count < 5)
             {
-                Vector2 random = Random.insideUnitCircle * 5;
-                Vector3 position = agent.transform.position + new Vector3(random.x, 0, random.y);
 
-                position = target.transform.position;
+                Vector3 position = agent.transform.position + Random.insideUnitSphere * 5.0f;
+
+                if (NavMesh.SamplePosition(position, out NavMeshHit hit, 1.0f, NavMesh.AllAreas))
+                {
+                    return hit.position;
+                }
+
                 count++;
             }
 
