@@ -37,7 +37,6 @@ namespace Ability
 
         private GameObject CreateBullet()
         {
-            Debug.Log("Create bullet");
             // Spawn a new bullet at the spawn point (player position)
             GameObject bp = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation, _bulletContainer);
 

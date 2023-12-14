@@ -74,7 +74,6 @@ namespace Ability
                     if (_damage > 0)
                     {
                         damageable.Damage(_damage);
-                        Debug.Log("Hit entity with " + _damage);
                     }
                     OnHit?.Invoke();
                 }
