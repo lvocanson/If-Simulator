@@ -27,8 +27,8 @@ public class CameraManager : InGameManager
     
     private void AddPlayerAsTarget()
     {
-        AddTarget(_currentPlayerSo.Player.transform, 1, 6);
-        //AddTarget(_currentPlayerSo.Player.PlayerAim.Cursor.transform, 0.7f, 1);
+        AddTarget(_currentPlayerSo.Player.transform, 1, 7);
+        AddTarget(_currentPlayerSo.Player.PlayerAim.AimCursor.transform, 0.6f, 1);
     }
     
     public void AddTarget(Transform target, float weight, float radius)
