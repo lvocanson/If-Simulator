@@ -10,12 +10,17 @@ using IfSimulator.GOAP.WorldKeys;
 using IfSimulator.GOAP.Targets;
 using IfSimulator.GOAP.Sensors;
 
+using UnityEngine;
+
 namespace IfSimulator.GOAP.Factories
 {
+    [RequireComponent(typeof(DependencyInjector))]
     public class GoapSetConfigFactory : GoapSetFactoryBase
     {
+        private DependencyInjector Injector;
         public override IGoapSetConfig Create()
         {
+            Injector = GetComponent<DependencyInjector>();
             GoapSetBuilder builder = new("AllySet");
 
             BuildGoals(builder);
@@ -29,6 +34,10 @@ namespace IfSimulator.GOAP.Factories
         {
             builder.AddGoal<WanderGoal>()
                 .AddCondition<IsWandering>(Comparison.GreaterThanOrEqual, 1);
+
+            builder.AddGoal<AttackEnemy>()
+                .AddCondition<PlayerHealth>(Comparison.SmallerThanOrEqual, 0);
+
         }
 
         private void BuildActions(GoapSetBuilder builder)
@@ -38,12 +47,21 @@ namespace IfSimulator.GOAP.Factories
                 .AddEffect<IsWandering>(EffectType.Increase)
                 .SetBaseCost(5)
                 .SetInRange(10);
+
+            builder.AddAction<MeleeAction>()
+                .SetTarget<PlayerTarget>()
+                .AddEffect<PlayerHealth>(EffectType.Decrease)
+                .SetBaseCost(Injector.AttackConfig.MeleeAttackCost)
+                .SetInRange(Injector.AttackConfig.SensorRadius);
         }
 
         private void BuildSensors(GoapSetBuilder builder)
         {
             builder.AddTargetSensor<WanderTargetSensor>()
                 .SetTarget<WanderTarget>();
+
+            builder.AddTargetSensor<PlayerTargetSensor>()
+                .SetTarget<PlayerTarget>() ;
         }
     }
 }
