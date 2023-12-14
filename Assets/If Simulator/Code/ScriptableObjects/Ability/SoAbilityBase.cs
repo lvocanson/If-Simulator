@@ -16,8 +16,6 @@ namespace Ability
         public float Damage => _damage;
 
         public float Range => _range;
-        
-        public bool IsHoldable => _isHoldable;
 
         [Header("Ability info")] 
         [SerializeField] private string _name;
@@ -26,6 +24,5 @@ namespace Ability
         [SerializeField] private ushort _maxLevel;
         [SerializeField] private float _damage;
         [SerializeField] private float _range;
-        [SerializeField] private bool _isHoldable;
     }
 }

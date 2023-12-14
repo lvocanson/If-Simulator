@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using NaughtyAttributes;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Ability
@@ -7,10 +8,24 @@ namespace Ability
     public class SoAbilityCooldown : SoAbilityBase
     {
         public float Cooldown => _cooldown;
-        public float ActiveCooldown => _activeCooldown;
+        public bool IsHoldable => _isHoldable;
+        
+        public AnimationCurve EvolutionCurve => _evolutionCurve;
+        public float Delay => _delay;
         
         [Header("Ability cooldown")]
         [SerializeField] private float _cooldown;
-        [SerializeField] private float _activeCooldown;
+        [SerializeField] private bool _isHoldable;
+        
+        [SerializeField, HideIf("IsHoldable")] private AnimationCurve _evolutionCurve;
+        [SerializeField, ShowIf("IsHoldable")] private float _delay;
+    }
+    
+    public static class AnimationCurveExtension
+    {
+        public static float Duration(this AnimationCurve @this)
+        {
+            return @this.keys[@this.length - 1].time;
+        }
     }
 }

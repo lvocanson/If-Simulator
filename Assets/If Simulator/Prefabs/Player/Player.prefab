@@ -97,9 +97,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9064075562857467941}
-  - component: {fileID: 897441817857884725}
-  - component: {fileID: 4076566977513344765}
-  - component: {fileID: 185664996069343357}
+  - component: {fileID: 8930346733612622615}
+  - component: {fileID: 7233539237663781277}
+  - component: {fileID: 8589792041440272801}
   m_Layer: 3
   m_Name: Spells
   m_TagString: Untagged
@@ -122,25 +122,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3698871190431304111}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &897441817857884725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2577107505647941788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a718271a227d4fb9a56ec807e8a54f43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _abilitySo: {fileID: 11400000, guid: 2965c84f1be4d394da0db509c4a2ae7a, type: 2}
-  _bulletPrefab: {fileID: 3981262126783197580, guid: 4e2b0953374b140468376168987a6f0a, type: 3}
-  _bulletSpawnPoint: {fileID: 2873507226914812432}
-  _bulletContainer: {fileID: 0}
-  _numberOfBulletsPerDefault: 25
-  _numberOfBulletsMax: 100
---- !u!114 &4076566977513344765
+--- !u!114 &8930346733612622615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,10 +135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _abilitySo: {fileID: 11400000, guid: 83156b29a3143244eb33e0875148af16, type: 2}
-  _iemPrefab: {fileID: 399414093182519051, guid: 82919e7cbd774894b9c6e32d195308eb, type: 3}
+  _swPrefab: {fileID: 399414093182519051, guid: 82919e7cbd774894b9c6e32d195308eb, type: 3}
   _spawnPoint: {fileID: 2873507226914812432}
-  _speed: 10
---- !u!114 &185664996069343357
+--- !u!114 &7233539237663781277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,39 +152,24 @@ MonoBehaviour:
   _abilitySo: {fileID: 11400000, guid: 7ca9785ad7b1538429ff0187493cb2e5, type: 2}
   _playerMovement: {fileID: 5540728448906214869}
   _rb: {fileID: 7800368948159628112}
-  _dashPower:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 10
-      inSlope: 500
-      outSlope: 500
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.1
-      value: 60
-      inSlope: 200
-      outSlope: 200
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.6
-      value: 10
-      inSlope: -100
-      outSlope: -100
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+--- !u!114 &8589792041440272801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2577107505647941788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c35445522f2e9418b1f750fe47c158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _abilitySo: {fileID: 11400000, guid: 2965c84f1be4d394da0db509c4a2ae7a, type: 2}
+  _bulletPrefab: {fileID: 3981262126783197580, guid: 4e2b0953374b140468376168987a6f0a, type: 3}
+  _bulletSpawnPoint: {fileID: 2873507226914812432}
+  _bulletContainer: {fileID: 0}
+  _numberOfBulletsPerDefault: 25
+  _numberOfBulletsMax: 100
 --- !u!1 &2799416502423231899
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,7 +491,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -2028806386459919619, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
-  _primaryAttackAbilityBase: {fileID: 897441817857884725}
+  _primaryAttackAbilityBase: {fileID: 0}
   _secondaryAttackAbilityBase: {fileID: 0}
-  _firstSpellAbilityBase: {fileID: 4076566977513344765}
-  _secondSpellAbilityBase: {fileID: 185664996069343357}
+  _firstSpellAbilityBase: {fileID: 0}
+  _secondSpellAbilityBase: {fileID: 0}

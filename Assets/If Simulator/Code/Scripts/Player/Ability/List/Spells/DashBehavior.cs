@@ -2,22 +2,12 @@
 
 namespace Ability
 {
-    public static class AnimationCurveExtension
-    {
-        public static float Duration(this AnimationCurve @this)
-        {
-            return @this.keys[@this.length - 1].time;
-        }
-    }
     
     public class DashBehavior : AbilityActive
     {
         [Header("References")]
         [SerializeField] private PlayerMovement _playerMovement;
         [SerializeField] private Rigidbody2D _rb;
-
-        [Header("Settings")]
-        [SerializeField] private AnimationCurve _dashPower;
 
         private float _start;
         
@@ -29,7 +19,7 @@ namespace Ability
         protected override void OnEffectUpdate()
         {
             float time = Time.time - _start;
-            float power = _dashPower.Evaluate(time);
+            float power = _abilitySo.EvolutionCurve.Evaluate(time);
             _rb.velocity = _playerMovement.MovementValue * power;
         }
 
@@ -38,4 +28,7 @@ namespace Ability
             
         }
     }
+    
+    
+
 }

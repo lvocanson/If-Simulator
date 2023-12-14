@@ -5,12 +5,12 @@ namespace Ability
 {
     public class AbilityPrimaryShoot : AbilityActive
     {
-        [Header("Components")] 
+        [Header("References")]
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform _bulletSpawnPoint;
         [SerializeField] private Transform _bulletContainer;
 
-        [Header("Settings")] 
+        [Header("Settings")]
         [SerializeField] private int _numberOfBulletsPerDefault;
         [SerializeField] private int _numberOfBulletsMax;
 
@@ -18,14 +18,13 @@ namespace Ability
 
         private void Awake()
         {
-            _bulletPool = new ObjectPool<GameObject>(CreateBullet, OnBulletTakeFromPool, 
-                OnBulletReturnToPool, OnBulletDestroy, true, _numberOfBulletsPerDefault,
-                _numberOfBulletsMax);
+            _bulletPool = new ObjectPool<GameObject>(CreateBullet, OnBulletTakeFromPool,
+                OnBulletReturnToPool, OnBulletDestroy, true, _numberOfBulletsPerDefault, _numberOfBulletsMax);
         }
 
         protected override void OnEffectStart()
         {
-            GameObject bullet = _bulletPool.Get();
+            _bulletPool.Get();
         }
 
         protected override void OnEffectUpdate()
