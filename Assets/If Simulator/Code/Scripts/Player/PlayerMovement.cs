@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _deceleration;
     [SerializeField] private float _drag;
     
+    public Vector2 MovementValue => _movementValue;
     [ShowNonSerializedField] private Vector2 _movementValue;
 
     [SerializeField, BoxGroup("Inputs")] private InputActionProperty _movementInput;

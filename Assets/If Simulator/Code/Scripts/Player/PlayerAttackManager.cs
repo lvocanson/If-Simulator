@@ -30,22 +30,14 @@ public class PlayerAttackManager : MonoBehaviour
     protected void OnDisable()
     {
         _primaryAttackInput.action.started -= OnPrimaryAttackAction;
-        _primaryAttackInput.action.performed -= OnPrimaryAttackAction;
         _primaryAttackInput.action.canceled -= OnPrimaryAttackAction;
 
         _secondaryAttackInput.action.started -= OnSecondaryAttackAction;
-        //_secondaryAttackInput.action.performed -= OnSecondaryAttackAction;
-        _secondaryAttackInput.action.canceled -= OnSecondaryAttackAction;
 
         _firstSpellInput.action.started -= OnFirstSpellAction;
-        //_firstSpellInput.action.performed -= OnFirstSpellAction;
-        _firstSpellInput.action.canceled -= OnFirstSpellAction;
 
         _secondSpellInput.action.started -= OnSecondSpellAction;
-        //_secondSpellInput.action.performed -= OnSecondSpellAction;
-        _secondSpellInput.action.canceled -= OnSecondSpellAction;
     }
-
 
     private void OnPrimaryAttackAction(InputAction.CallbackContext context)
     {
