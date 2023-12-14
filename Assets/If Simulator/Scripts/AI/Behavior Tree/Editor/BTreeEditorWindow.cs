@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -12,7 +14,19 @@ namespace BehaviorTree
         [SerializeField, Tooltip("The StyleSheet (USS) that defines the UI of the window")]
         private StyleSheet _styleSheet = default;
 
+        // The tree view that displays the tree.
         private BTreeView _treeView;
+
+        // Keyboard shortcuts.
+        private readonly KeyboardShortcut _deleteShortcut = new(KeyCode.Delete);
+        private readonly KeyboardShortcut _duplicateShortcut = new(KeyCode.D, true);
+
+        [MenuItem("CUSTOM AIs/BTreeEditorWindow")]
+        public static void Open()
+        {
+            BTreeEditorWindow wnd = GetWindow<BTreeEditorWindow>();
+            wnd.titleContent = new GUIContent("BTreeEditorWindow");
+        }
 
         public static void Open(BTree tree)
         {
@@ -30,6 +44,26 @@ namespace BehaviorTree
             _treeView = root.Q<BTreeView>();
         }
 
+        private void OnGUI()
+        {
+            // Handle keyboard shortcuts.
+            var e = Event.current;
+            if (e.type == EventType.KeyDown)
+            {
+                if (_deleteShortcut.IsPressed(e))
+                {
+                    _treeView.DeleteSelection();
+                    e.Use();
+                }
+                else if (_duplicateShortcut.IsPressed(e))
+                {
+                    _treeView.DuplicateSelection();
+                    e.Use();
+                }
+            }
+        }
+
+        // Called when the selection in the project window changes.
         private void OnSelectionChange()
         {
             if (Selection.activeObject is BTree tree)
@@ -38,6 +72,8 @@ namespace BehaviorTree
             }
         }
     }
+
+    #region Custom Inspectors
 
     [CustomEditor(typeof(BTree))]
     public class BTreeEditor : Editor
@@ -52,4 +88,24 @@ namespace BehaviorTree
             }
         }
     }
+
+    [CustomEditor(typeof(BTreeRunner))]
+    public class BTreeRunnerEditor : Editor
+    {
+        private readonly FieldInfo _treeField = typeof(BTreeRunner).GetField("_tree", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+
+            BTree tree = (BTree)_treeField.GetValue(target);
+
+            if (GUILayout.Button("Open Editor"))
+            {
+                BTreeEditorWindow.Open(tree);
+            }
+        }
+    }
+
+    #endregion
 }

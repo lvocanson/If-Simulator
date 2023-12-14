@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -104,6 +105,16 @@ namespace BehaviorTree
         {
             NodeView nodeView = new(node);
             AddElement(nodeView);
+        }
+
+        public void DuplicateSelection()
+        {
+            if (selection.Count == 0) return;
+            var nodes = selection.OfType<NodeView>();
+            foreach (var node in nodes)
+            {
+                CreateNode(node.Node.GetType(), node.GetPosition().position + Vector2.right * 20);
+            }
         }
     }
 }
