@@ -11,16 +11,19 @@ public class PlayerAim : MonoBehaviour
     
     [SerializeField, BoxGroup("Inputs")] private InputActionReference _rotationInput;
     
-    public GameObject Cursor => _cursor;
+    public GameObject AimCursor => _aimCursor;
     
     [ShowNonSerializedField] private Vector2 _mousePosition;
     private Camera _mainCamera;
-    private GameObject _cursor;
+    private GameObject _aimCursor;
     
     private void Awake()
     {
         _mainCamera = Camera.main;
-        _cursor = Instantiate(_cursorPrefab, transform);
+        _aimCursor = Instantiate(_cursorPrefab, transform);
+        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void OnEnable()
@@ -59,7 +62,6 @@ public class PlayerAim : MonoBehaviour
 
     private void MoveCursor()
     {
-        
-        _cursor.transform.position = (Vector2)_mainCamera.ScreenToWorldPoint(_mousePosition);;
+        _aimCursor.transform.position = (Vector2)_mainCamera.ScreenToWorldPoint(_mousePosition);;
     }
 }
