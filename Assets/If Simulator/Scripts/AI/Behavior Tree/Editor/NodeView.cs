@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 
 namespace BehaviorTree
 {
@@ -9,19 +11,115 @@ namespace BehaviorTree
         /// </summary>
         public Node Node { get; }
 
+        public Port InputPort { get; } = null;
+        public Port OutputPort { get; } = null;
 
         public NodeView(Node node)
         {
             Node = node;
             title = node.name;
-            viewDataKey = node.Guid;
             SetPosition(new Rect(node.GraphPosition, Vector2.zero));
+
+            // Input ports (except for root node).
+            if (node is ActionNode || node is CompositeNode || node is DecoratorNode)
+            {
+                InputPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
+            }
+
+            // Output ports.
+            switch (node)
+            {
+                case ActionNode:
+                    break;
+                case CompositeNode:
+                    OutputPort = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Multi, typeof(bool));
+                    break;
+                default:
+                    OutputPort = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
+                    break;
+            }
+
+            if (InputPort != null)
+            {
+                InputPort.portName = "Input";
+                inputContainer.Add(InputPort);
+            }
+
+            if (OutputPort != null)
+            {
+                OutputPort.portName = "Output";
+                outputContainer.Add(OutputPort);
+            }
         }
 
+        // Called when the user drags the node.
         public override void SetPosition(Rect newPos)
         {
             base.SetPosition(newPos);
             Node.GraphPosition = newPos.position;
+        }
+
+        // Called when the user clicks on the node.
+        public override void OnSelected()
+        {
+            // Select the node in the inspector.
+            UnityEditor.Selection.activeObject = Node;
+        }
+
+        public void AddChild(NodeView child)
+        {
+            if (Node is CompositeNode composite)
+            {
+                composite.Children = composite.Children.Concat(new[] { child.Node }).ToArray();
+            }
+            else if (Node is DecoratorNode decorator)
+            {
+                decorator.Child = child.Node;
+            }
+            else if (Node is RootNode root)
+            {
+                root.Child = child.Node;
+            }
+        }
+
+        public void RemoveChild(NodeView child)
+        {
+            if (Node is CompositeNode composite)
+            {
+                composite.Children = composite.Children.Where(c => c != child.Node).ToArray();
+            }
+            else if (Node is DecoratorNode decorator)
+            {
+                decorator.Child = null;
+            }
+            else if (Node is RootNode root)
+            {
+                root.Child = null;
+            }
+        }
+
+        /// <summary>
+        /// Gets the children of this node.
+        /// </summary>
+        public Node[] GetChildren()
+        {
+            if (Node is CompositeNode composite)
+            {
+                return composite.Children;
+            }
+            if (Node is DecoratorNode decorator)
+            {
+                if (decorator.Child == null)
+                    return new Node[0];
+                return new[] { decorator.Child };
+            }
+            if (Node is RootNode root)
+            {
+                if (root.Child == null)
+                    return new Node[0];
+                return new[] { root.Child };
+            }
+            return new Node[0];
         }
     }
 }

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
@@ -42,6 +42,8 @@ namespace BehaviorTree
             _visualTreeAsset.CloneTree(root);
 
             _treeView = root.Q<BTreeView>();
+
+            OnSelectionChange();
         }
 
         private void OnGUI()
@@ -52,11 +54,13 @@ namespace BehaviorTree
             {
                 if (_deleteShortcut.IsPressed(e))
                 {
+                    _treeView.RemoveFromSelection(_treeView.RootNodeView);
                     _treeView.DeleteSelection();
                     e.Use();
                 }
                 else if (_duplicateShortcut.IsPressed(e))
                 {
+                    _treeView.RemoveFromSelection(_treeView.RootNodeView);
                     _treeView.DuplicateSelection();
                     e.Use();
                 }
@@ -66,7 +70,8 @@ namespace BehaviorTree
         // Called when the selection in the project window changes.
         private void OnSelectionChange()
         {
-            if (Selection.activeObject is BTree tree)
+            // Make sure the asset is persistant.
+            if (Selection.activeObject is BTree tree && AssetDatabase.IsMainAsset(tree))
             {
                 _treeView.Open(tree);
             }

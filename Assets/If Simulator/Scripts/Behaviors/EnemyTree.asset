@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3377567561503953265
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89ad9c8e6ce90e24581276388e227681, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 186.95999, y: 88.64}
+  <Child>k__BackingField: {fileID: 1343042330968001885}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353e8d864f941e4459016abf3a4a31d4, type: 3}
+  m_Name: EnemyTree
+  m_EditorClassIdentifier: 
+  <Root>k__BackingField: {fileID: -3377567561503953265}
+  <AllNodes>k__BackingField:
+  - {fileID: 1343042330968001885}
+--- !u!114 &1343042330968001885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843eabcfe77db0f41bd8bb1db6f94a17, type: 3}
+  m_Name: Logger
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 345, y: 177}
+  _message: Hi from logger

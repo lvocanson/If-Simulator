@@ -5,7 +5,6 @@ namespace BehaviorTree
 {
     public enum NodeState
     {
-        None = 0,// The node has not been evaluated yet
         Running, // The node is still running (Needs to be updated again)
         Success, // The node has finished running and succeeded
         Failure, // The node has finished running and failed
@@ -19,13 +18,10 @@ namespace BehaviorTree
         /// <summary>
         /// The state of the last evaluation of the node.
         /// </summary>
-        public NodeState State { get; protected set; } = NodeState.None;
+        public NodeState State { get; protected set; } = NodeState.Running;
+        private bool _entered = false;
 
-        /// <summary>
-        /// Gets the tree's blackboard.
-        /// </summary>
-        [SerializeReference]
-        protected Blackboard _blackboard;
+        // TODO: Blackboard
 
         /// <summary>
         /// Evaluates the node.
@@ -33,9 +29,9 @@ namespace BehaviorTree
         /// <returns>The state of the node after evaluation.</returns>
         public NodeState Evaluate()
         {
-            if (State != NodeState.Running)
+            if (!_entered)
             {
-                State = NodeState.Running;
+                _entered = true;
                 OnEnter();
             }
 
@@ -44,6 +40,7 @@ namespace BehaviorTree
             if (State != NodeState.Running)
             {
                 OnExit();
+                _entered = false;
             }
 
             return State;
@@ -65,10 +62,7 @@ namespace BehaviorTree
 
         #region Editor
 
-        [field: SerializeField]
-        public string Guid { get; set; }
-
-        [field: SerializeField]
+        [field: SerializeField, HideInInspector]
         public Vector2 GraphPosition { get; set; }
 
         #endregion

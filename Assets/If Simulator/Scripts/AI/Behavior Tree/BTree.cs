@@ -8,10 +8,10 @@ namespace BehaviorTree
     [CreateAssetMenu(fileName = "New BTree", menuName = "Scriptable Objects/Behavior Tree")]
     public class BTree : ScriptableObject
     {
-        [SerializeField]
-        private RootNode _root;
+        [field: SerializeField, HideInInspector]
+        public RootNode Root { get; set; }
 
-        [field: SerializeField]
+        [field: SerializeField, HideInInspector]
         public List<Node> AllNodes { get; private set; } = new();
 
         /// <summary>
@@ -22,21 +22,21 @@ namespace BehaviorTree
         /// <summary>
         /// State of the tree.
         /// </summary>
-        public NodeState State => _root.State;
+        public NodeState State => Root.State;
 
         public void Update()
         {
             if (State == NodeState.Running)
-                _root.Evaluate();
+                Root.Evaluate();
         }
+
+        #region Editor Utilities
 
         public Node CreateNode(Type nodeType)
         {
             Node node = (Node)CreateInstance(nodeType);
             AllNodes.Add(node);
             node.name = nodeType.Name;
-            node.Guid = Guid.NewGuid().ToString();
-            node.hideFlags = HideFlags.HideInHierarchy;
             AssetDatabase.AddObjectToAsset(node, this);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
@@ -50,5 +50,51 @@ namespace BehaviorTree
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
+
+        /// <summary>
+        /// Checks if the tree is valid.
+        /// </summary>
+        /// <param name="message">If the tree is invalid, contains a message explaining why.</param>
+        /// <returns>True if the tree is valid, false otherwise.</returns>
+        public bool Validate(out string message)
+        {
+            message = string.Empty;
+
+            if (Root == null)
+            {
+                message = "The tree has no root node.";
+                return false;
+            }
+
+            if (Root.Child == null)
+            {
+                message = "The root node has no child.";
+                return false;
+            }
+
+            foreach (var node in AllNodes)
+            {
+                if (node is DecoratorNode decorator)
+                {
+                    if (decorator.Child == null)
+                    {
+                        message = $"The decorator node {node.name} has no child.";
+                        return false;
+                    }
+                }
+                else if (node is CompositeNode composite)
+                {
+                    if (composite.Children.Length == 0)
+                    {
+                        message = $"The composite node {node.name} has no children.";
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        #endregion
     }
 }
