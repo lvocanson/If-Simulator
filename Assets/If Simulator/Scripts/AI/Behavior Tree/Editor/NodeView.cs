@@ -21,23 +21,29 @@ namespace BehaviorTree
             title = node.name;
             SetPosition(new Rect(node.GraphPosition, Vector2.zero));
 
-            // Input ports (except for root node).
-            if (node is ActionNode || node is CompositeNode || node is DecoratorNode)
-            {
-                InputPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
-            }
-
-            // Output ports.
+            // Setup the ports.
             switch (node)
             {
                 case ActionNode:
+                    AddToClassList("action");
+                    InputPort = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Multi, typeof(bool));
                     break;
                 case CompositeNode:
+                    AddToClassList("composite");
+                    InputPort = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Multi, typeof(bool));
                     OutputPort = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Multi, typeof(bool));
                     break;
-                default:
+                case DecoratorNode:
+                    AddToClassList("decorator");
+                    InputPort = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Multi, typeof(bool));
                     OutputPort = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
                     break;
+                case RootNode:
+                    AddToClassList("root");
+                    OutputPort = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
+                    break;
+                default:
+                    throw new System.NotImplementedException("Unknown node type: " + node.GetType().Name);
             }
 
             if (InputPort != null)
