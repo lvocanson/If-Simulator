@@ -1,27 +1,32 @@
 using System;
+using NaughtyAttributes;
 using UnityEngine;
 
-public class DamageabaleEntity : MonoBehaviour
+public class DamageabaleEntity : MonoBehaviour, IDamageable
 {
     [SerializeField] private float _maxHealth;
-    private float _health;
+    [ShowNonSerializedField] private float _currentHealth;
+    
+    public float MaxHealth => _maxHealth;
+    public float CurrentHealth => _currentHealth;
     
     public event Action OnDeath;
 
     
     private void Start()
     {
-        _health = _maxHealth;
+        _currentHealth = _maxHealth;
     }
     
-    public void ApplyDamage(float damage)
+    public void Damage(float damage)
     {
-        _health -= damage;
-        if (_health <= 0)
+        _currentHealth -= damage;
+        if (_currentHealth <= 0)
         {
             Die();
         }
     }
+    
     protected virtual void Die()
     {
         OnDeath?.Invoke();

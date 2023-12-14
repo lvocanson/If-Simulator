@@ -42,7 +42,8 @@ namespace Ability
             GameObject bp = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation, _bulletContainer);
 
             var bulletBehavior = bp.GetComponent<BulletBehavior>();
-            bulletBehavior.Damage = _abilitySo.Damage;
+            bulletBehavior.Initialize(gameObject.layer, _bulletSpawnPoint.up);
+            bulletBehavior.SetDamage(_abilitySo.Damage);
             bulletBehavior.OnDestroy += () => _bulletPool.Release(bp);
 
             return bp;

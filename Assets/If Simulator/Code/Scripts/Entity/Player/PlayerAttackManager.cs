@@ -1,3 +1,4 @@
+using Ability;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,6 +10,7 @@ public class PlayerAttackManager : MonoBehaviour
     [SerializeField, BoxGroup("Inputs")] private InputActionReference _firstSpellInput;
     [SerializeField, BoxGroup("Inputs")] private InputActionReference _secondSpellInput;
     
+    [SerializeField] private AbilityActive _primaryAttack;
     
     protected void OnEnable()
     {
@@ -50,13 +52,13 @@ public class PlayerAttackManager : MonoBehaviour
     
     private void OnPrimaryAttackAction(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started || context.performed)
         {
-            Debug.Log("Primary Attack Started");
+            _primaryAttack.TryActivate();
         }
-        else if (context.performed)
+        else if (context.canceled)
         {
-            Debug.Log("Primary Attack Performed");
+            _primaryAttack.End();
         }
     }
     

@@ -15,8 +15,8 @@ MonoBehaviour:
   _name: 
   _description: 
   _icon: {fileID: 0}
-  _maxLevel: 0
-  _damage: 0
+  _maxLevel: 1
+  _damage: 10
   _range: 0
   _isHoldable: 1
   _cooldown: 0

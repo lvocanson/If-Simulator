@@ -772,10 +772,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2783816620709002995, guid: a1c8593ed03c5934386a6d1379ff3df5, type: 3}
-      propertyPath: _waypoints.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2783816620709002995, guid: a1c8593ed03c5934386a6d1379ff3df5, type: 3}
       propertyPath: '_waypoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1022567827}
@@ -5412,7 +5408,7 @@ MonoBehaviour:
   GraphDrawers:
   - ShowGrid: 1
     ShowGridInfo: 1
-    ShowGridParameters: 1
+    ShowGridParameters: 0
     ShowPathfindingSettings: 0
     ShowGridGraphSettigs: 0
     ScaleLvl: 1
@@ -5846,14 +5842,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1066584607}
     m_Modifications:
-    - target: {fileID: 2191407751077617983, guid: 27bfd1222bb28e64984db701bd576917, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.47000027
-      objectReference: {fileID: 0}
-    - target: {fileID: 2191407751077617983, guid: 27bfd1222bb28e64984db701bd576917, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.01849711
-      objectReference: {fileID: 0}
     - target: {fileID: 2767451794909013831, guid: 27bfd1222bb28e64984db701bd576917, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.03
@@ -5893,22 +5881,6 @@ PrefabInstance:
     - target: {fileID: 2767451794909013831, guid: 27bfd1222bb28e64984db701bd576917, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2820613488551714116, guid: 27bfd1222bb28e64984db701bd576917, type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503635925701019748, guid: 27bfd1222bb28e64984db701bd576917, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.52999973
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503635925701019748, guid: 27bfd1222bb28e64984db701bd576917, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.01849711
-      objectReference: {fileID: 0}
-    - target: {fileID: 4917770171745572057, guid: 27bfd1222bb28e64984db701bd576917, type: 3}
-      propertyPath: m_Size.x
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080639789903335460, guid: 27bfd1222bb28e64984db701bd576917, type: 3}
       propertyPath: m_Name
