@@ -314,5 +314,6 @@ MonoBehaviour:
   _collider: {fileID: 6347662752647041662}
   _renderer: {fileID: 7602685589310976295}
   _initialState: 1
-  _onRoomEntered: {fileID: 2556320877204740057}
-  _onRoomExited: {fileID: 0}
+  _openedColor: {r: 0, g: 0, b: 0, a: 0}
+  _unlockedColor: {r: 0.09156906, g: 0.9245283, b: 0, a: 1}
+  _lockedColor: {r: 1, g: 0, b: 0, a: 1}

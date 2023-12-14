@@ -9,7 +9,6 @@ public class RoomDoor : MonoBehaviour
         Opened,
         Unlocked,
         Locked,
-        Closed
     }
     
     [Header("References")]
@@ -19,9 +18,19 @@ public class RoomDoor : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private DoorState _initialState = DoorState.Unlocked;
     
+    [Header("Sprites")]
+    /* TODO : Replace color by sprites
+    [SerializeField] private Sprite _openedSprite;
+    [SerializeField] private Sprite _closedSprite;
+    [SerializeField] private Sprite _lockedSprite;
+    */
+    [SerializeField] private Color _openedColor;
+    [SerializeField] private Color _unlockedColor;
+    [SerializeField] private Color _lockedColor;
+
     [Header("Debug")]
     [ShowNonSerializedField] private DoorState _currentState = DoorState.Unlocked;
-    
+    [ShowNonSerializedField] private bool _isAlreadyOpened = false;
 
     public void Initialize()
     {
@@ -34,9 +43,6 @@ public class RoomDoor : MonoBehaviour
                 break;
             case DoorState.Unlocked:
                 UnlockDoor();
-                break;
-            case DoorState.Closed:
-                CloseDoor();
                 break;
             case DoorState.Opened:
                 OpenDoor();
@@ -60,20 +66,18 @@ public class RoomDoor : MonoBehaviour
     public void OpenDoor()
     {
         _currentState = DoorState.Opened;
+        _isAlreadyOpened = true;
+        
+        _renderer.color = _openedColor;
         _collider.enabled = false;
         _renderer.enabled = false;
-    }
-    
-    public void CloseDoor()
-    {
-        _currentState = DoorState.Closed;
-        _collider.enabled = true;
-        _renderer.enabled = true;
     }
     
     public void LockDoor()
     {
         _currentState = DoorState.Locked;
+        
+        _renderer.color = _lockedColor;
         _collider.enabled = true;
         _renderer.enabled = true;
     }
@@ -81,7 +85,15 @@ public class RoomDoor : MonoBehaviour
     public void UnlockDoor()
     {
         _currentState = DoorState.Unlocked;
-        _collider.enabled = true;
-        _renderer.enabled = true;
+        
+        if (_isAlreadyOpened)
+            OpenDoor();
+        else
+        {
+            _renderer.color = _unlockedColor;
+            _collider.enabled = true;
+            _renderer.enabled = true;
+        }
+    
     }
 }
