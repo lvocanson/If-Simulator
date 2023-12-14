@@ -24,8 +24,14 @@ namespace BehaviorTree
                 enabled = false;
                 return;
             }
-            _instance = _tree.Clone();
+            if (!_tree.Validate(out var message))
+            {
+                Debug.LogError("Tree validation failed: " + message, this);
+                enabled = false;
+                return;
+            }
 
+            _instance = _tree.Clone();
             if (_blackboardInitializer != null)
             {
                 var fields = _blackboardInitializer.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
