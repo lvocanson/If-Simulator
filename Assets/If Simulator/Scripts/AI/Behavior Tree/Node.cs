@@ -19,9 +19,12 @@ namespace BehaviorTree
         /// The state of the last evaluation of the node.
         /// </summary>
         public NodeState State { get; protected set; } = NodeState.Running;
-        private bool _entered = false;
+        private bool _entered = false; // Whether the node has been entered or not
 
-        // TODO: Blackboard
+        /// <summary>
+        /// The tree's blackboard.
+        /// </summary>
+        public Blackboard Blackboard { get; private set; }
 
         /// <summary>
         /// Evaluates the node.
@@ -44,6 +47,16 @@ namespace BehaviorTree
             }
 
             return State;
+        }
+
+        /// <summary>
+        /// Performs a deep copy of the node and initialize it with the given blackboard.
+        /// </summary>
+        public virtual Node DeepInitialize(Blackboard blackboard)
+        {
+            var clone = Instantiate(this);
+            clone.Blackboard = blackboard;
+            return clone;
         }
 
         /// <summary>

@@ -11,9 +11,6 @@ namespace BehaviorTree
         [field: SerializeField, HideInInspector]
         public RootNode Root { get; set; }
 
-        [field: SerializeField, HideInInspector]
-        public List<Node> AllNodes { get; private set; } = new();
-
         /// <summary>
         /// The tree's blackboard.
         /// </summary>
@@ -24,6 +21,19 @@ namespace BehaviorTree
         /// </summary>
         public NodeState State => Root.State;
 
+        /// <summary>
+        /// Clones the tree. Needed for running multiple instances of the same tree.
+        /// </summary>
+        public BTree Clone()
+        {
+            BTree clone = Instantiate(this);
+            clone.Root = (RootNode)Root.DeepInitialize(clone.Blackboard);
+            return clone;
+        }
+
+        /// <summary>
+        /// Evaluates the tree if it is still running.
+        /// </summary>
         public void Update()
         {
             if (State == NodeState.Running)
@@ -31,6 +41,9 @@ namespace BehaviorTree
         }
 
         #region Editor Utilities
+
+        [field: SerializeField, HideInInspector]
+        public List<Node> AllNodes { get; private set; } = new();
 
         public Node CreateNode(Type nodeType)
         {
