@@ -58,7 +58,11 @@ namespace Ability
                     yield return new WaitForSeconds(_abilitySo.ActiveCooldown);
                     
                     // If the ability is not holdable, end it
-                    if (_abilitySo.IsHoldable is false) End();
+                    if (_abilitySo.IsHoldable is false)
+                    {
+                        End();
+                        yield break;
+                    }
                 }
             }
         }

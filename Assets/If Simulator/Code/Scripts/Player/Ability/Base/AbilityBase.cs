@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using NaughtyAttributes;
+using UnityEngine;
 
 namespace Ability
 {
@@ -13,6 +14,6 @@ namespace Ability
 
         public abstract void End();
 
-        [SerializeField] protected T _abilitySo;
+        [SerializeField, Expandable] protected T _abilitySo;
     }
 }
