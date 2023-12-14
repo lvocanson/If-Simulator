@@ -19,11 +19,15 @@ public class PlayerAim : MonoBehaviour
     
     private void Awake()
     {
-        _mainCamera = Camera.main;
-        _aimCursor = Instantiate(_cursorPrefab, transform);
         
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    private void Start()
+    {
+        _mainCamera = Camera.main;
+        _aimCursor = Instantiate(_cursorPrefab, transform);
     }
 
     private void OnEnable()

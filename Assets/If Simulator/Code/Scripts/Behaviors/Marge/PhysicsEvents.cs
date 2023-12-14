@@ -11,14 +11,11 @@ public class PhysicsEvents : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("entered : " + other.name);
         OnEnter?.Invoke(other);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("exited : " + other.name);
-
         OnExit?.Invoke(other);
     }
 }

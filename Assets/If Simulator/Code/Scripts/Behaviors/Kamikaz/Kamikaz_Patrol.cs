@@ -19,7 +19,6 @@ public class Kamikaz_Patrol : BaseState
     
     [Header("Data")]
     [SerializeField] private float _speed = 1f;
-    [SerializeField] private float _playerRange = 2f;
     
     [Header("Debug Waypoint")]
     [ShowNonSerializedField] private int _index = 0;

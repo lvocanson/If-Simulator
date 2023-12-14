@@ -18,7 +18,6 @@ public class Kamikaz_Chase : BaseState
     
     [Header("Data")]
     [SerializeField] private float _speed = 1f;
-    [SerializeField] private float _chaseRange = 2f;
     
     [Header("Events")]
     [SerializeField] private PhysicsEvents _attackColEvent;
