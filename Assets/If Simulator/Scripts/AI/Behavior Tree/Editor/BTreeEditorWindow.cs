@@ -1,5 +1,5 @@
-using System.Reflection;
 using UnityEditor;
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -32,6 +32,17 @@ namespace BehaviorTree
             BTreeEditorWindow wnd = GetWindow<BTreeEditorWindow>();
             wnd.titleContent = new GUIContent("BTreeEditorWindow");
             wnd._treeView.Open(tree);
+        }
+
+        [OnOpenAsset]
+        public static bool OnOpenAsset(int instanceID, int _)
+        {
+            if (EditorUtility.InstanceIDToObject(instanceID) is BTree tree)
+            {
+                Open(tree);
+                return true;
+            }
+            return false;
         }
 
         private void CreateGUI()
@@ -76,40 +87,4 @@ namespace BehaviorTree
             }
         }
     }
-
-    #region Custom Inspectors
-
-    [CustomEditor(typeof(BTree))]
-    public class BTreeEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-
-            if (GUILayout.Button("Open Editor"))
-            {
-                BTreeEditorWindow.Open((BTree)target);
-            }
-        }
-    }
-
-    [CustomEditor(typeof(BTreeRunner))]
-    public class BTreeRunnerEditor : Editor
-    {
-        private readonly FieldInfo _treeField = typeof(BTreeRunner).GetField("_tree", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-
-            BTree tree = (BTree)_treeField.GetValue(target);
-
-            if (GUILayout.Button("Open Editor"))
-            {
-                BTreeEditorWindow.Open(tree);
-            }
-        }
-    }
-
-    #endregion
 }
