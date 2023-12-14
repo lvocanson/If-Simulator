@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace BehaviorTree
 {
@@ -14,7 +15,7 @@ namespace BehaviorTree
         public Port InputPort { get; } = null;
         public Port OutputPort { get; } = null;
 
-        public NodeView(Node node)
+        public NodeView(Node node) : base("Assets/If Simulator/Scripts/AI/Behavior Tree/Editor/NodeView.uxml")
         {
             Node = node;
             title = node.name;
@@ -41,13 +42,15 @@ namespace BehaviorTree
 
             if (InputPort != null)
             {
-                InputPort.portName = "Input";
+                InputPort.portName = "";
+                InputPort.style.flexDirection = FlexDirection.Column;
                 inputContainer.Add(InputPort);
             }
 
             if (OutputPort != null)
             {
-                OutputPort.portName = "Output";
+                OutputPort.portName = "";
+                OutputPort.style.flexDirection = FlexDirection.ColumnReverse;
                 outputContainer.Add(OutputPort);
             }
         }

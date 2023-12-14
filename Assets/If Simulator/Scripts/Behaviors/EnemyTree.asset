@@ -29,6 +29,7 @@ MonoBehaviour:
   <Root>k__BackingField: {fileID: -3377567561503953265}
   <AllNodes>k__BackingField:
   - {fileID: 1343042330968001885}
+  - {fileID: 7030074634813266788}
 --- !u!114 &1343042330968001885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,3 +44,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <GraphPosition>k__BackingField: {x: 345, y: 177}
   _message: Hi from logger
+--- !u!114 &7030074634813266788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e923fcb82a2d50c48a2d065cf01c0f1f, type: 3}
+  m_Name: Random
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 0, y: 0}
+  <Children>k__BackingField: []
