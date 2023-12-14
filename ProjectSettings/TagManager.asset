@@ -9,13 +9,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Entity
+  - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Ally
+  - AllySensor
+  - Potion
   - 
   - 
   - 
