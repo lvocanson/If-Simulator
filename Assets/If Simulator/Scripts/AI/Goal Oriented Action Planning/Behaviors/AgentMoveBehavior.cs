@@ -1,22 +1,24 @@
 using UnityEngine;
-using SAP2D;
+using UnityEngine.AI;
 using CrashKonijn.Goap.Behaviours;
 using CrashKonijn.Goap.Interfaces;
 
 namespace IfSimulator.GOAP.Behaviors
 {
     // TODO : ADD Animator in futur
-    [RequireComponent(typeof(SAP2DAgent), typeof(AgentBehaviour))]
+    [RequireComponent(typeof(NavMeshAgent), typeof(AgentBehaviour))]
     public class AgentMoveBehavior : MonoBehaviour
     {
-        private SAP2DAgent Agent;
+        private NavMeshAgent Agent;
         private AgentBehaviour AgentBehaviour;
         private ITarget CurrentTarget;
-        [SerializeField] private float MinMoveDistance = 0.25f;
+        [SerializeField] private float MinMoveDistance = 3f;
         private Vector3 LastPosition;
         private void Awake()
         {
-            Agent = GetComponent<SAP2DAgent>();
+            Agent = GetComponent<NavMeshAgent>();
+            Agent.updateRotation = false;
+            Agent.updateUpAxis = false;
             AgentBehaviour = GetComponent<AgentBehaviour>();
         }
 
@@ -36,7 +38,9 @@ namespace IfSimulator.GOAP.Behaviors
         {
             CurrentTarget = target;
             LastPosition = CurrentTarget.Position;
-            Agent.transform.position = target.Position;
+            Agent.SetDestination(target.Position);
+
+            Debug.Log(target);
         }
 
         private void EventsOnTargetOutOfRange(ITarget target)
@@ -46,7 +50,7 @@ namespace IfSimulator.GOAP.Behaviors
 
         private void Update()
         {
-            if (CurrentTarget != null)
+            if (CurrentTarget == null)
             {
                 return;
             }
@@ -54,7 +58,8 @@ namespace IfSimulator.GOAP.Behaviors
             if (MinMoveDistance <= Vector3.Distance(CurrentTarget.Position, LastPosition)) 
             {
                 LastPosition = CurrentTarget.Position;
-                Agent.transform.position = CurrentTarget.Position;
+                Agent.SetDestination(CurrentTarget.Position);
+                Debug.Log(Agent.transform);
             }
         }
     }

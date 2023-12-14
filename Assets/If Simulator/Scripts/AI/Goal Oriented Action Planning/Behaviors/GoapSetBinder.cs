@@ -1,7 +1,7 @@
 using CrashKonijn.Goap.Behaviours;
 using UnityEngine;
 
-namespace CrashKonijn.Goap.Behaviors
+namespace CrashKonijn.GOAP.Behaviors
 {
     [RequireComponent(typeof(AgentBehaviour))]
     public class GoapSetBinder : MonoBehaviour
