@@ -9,6 +9,8 @@ namespace Ability
         [SerializeField] private Transform _spawnPoint;
         
         private float _start;
+        [SerializeField] private AnimationCurve _evolutionCurve;
+        [SerializeField] private float _maxSize;
         
         private GameObject _swInstance;
 
@@ -26,8 +28,8 @@ namespace Ability
         protected override void OnEffectUpdate()
         {
             float time = Time.time - _start;
-            float power = _abilitySo.EvolutionCurve.Evaluate(time);
-            _swInstance.transform.localScale = Vector3.one * power;
+            float evolutionOverTime = _evolutionCurve.Evaluate(time);
+            _swInstance.transform.localScale = Vector3.one * (evolutionOverTime * _maxSize);
         }
 
         protected override void OnEffectEnd()

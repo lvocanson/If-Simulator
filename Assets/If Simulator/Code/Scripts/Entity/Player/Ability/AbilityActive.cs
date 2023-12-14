@@ -31,7 +31,7 @@ namespace Ability
 
         private float GetActiveCooldown()
         {
-            return _abilitySo.IsHoldable is true ? _abilitySo.Delay : _abilitySo.EvolutionCurve.Duration();
+            return _abilitySo.IsHoldable is true ? _abilitySo.Delay : _abilitySo.ActiveTime;
         }
 
         // Called when the ability is activated (corresponding key pressed)
