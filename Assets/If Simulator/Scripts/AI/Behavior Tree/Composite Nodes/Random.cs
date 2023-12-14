@@ -5,10 +5,16 @@ namespace BehaviorTree
     /// </summary>
     public class Random : CompositeNode
     {
+        private int _index;
+
+        protected override void OnEnter()
+        {
+            _index = UnityEngine.Random.Range(0, Children.Length);
+        }
+
         protected override void OnUpdate()
         {
-            var index = UnityEngine.Random.Range(0, Children.Length);
-            State = Children[index].Evaluate();
+            State = Children[_index].Evaluate();
         }
     }
 }
