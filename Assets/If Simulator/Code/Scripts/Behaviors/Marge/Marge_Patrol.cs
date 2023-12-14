@@ -27,6 +27,7 @@ public class Marge_Patrol : BaseState
     [Header("Event")]
     [SerializeField] private PhysicsEvents _chaseColEvent;
     
+    
     private void OnEnable()
     {
         _chaseColEvent.OnEnter += EnterOnChaseRange;
@@ -37,7 +38,9 @@ public class Marge_Patrol : BaseState
     private void EnterOnChaseRange(Collider2D obj)
     {
         if (obj.CompareTag("Player"))
+        {
             Manager.ChangeState(_chase);
+        }
     }
 
     // Update is called once per frame
