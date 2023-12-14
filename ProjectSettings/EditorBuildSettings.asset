@@ -6,10 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/If Simulator/Scenes/MainMenu.unity
+    path: Assets/If Simulator/Scenes/Game/_initialScene.unity
+    guid: 00e2a3ab5833d6c4b950fec80113010b
+  - enabled: 1
+    path: Assets/If Simulator/Scenes/Game/MainMenu.unity
     guid: 0aff69d6490cb3041898a3a498927d75
   - enabled: 1
-    path: Assets/If Simulator/Scenes/Level1.unity
+    path: Assets/If Simulator/Scenes/Game/Level1.unity
     guid: 4c238a01c2016214497ea9040f7fb0f9
+  - enabled: 1
+    path: Assets/If Simulator/Scenes/Game/UI.unity
+    guid: e108053ad20831d48bec1d10a7074418
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

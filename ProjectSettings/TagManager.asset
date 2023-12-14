@@ -16,6 +16,10 @@ TagManager:
   - Ally
   - AllySensor
   - Potion
+  - Trigger
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -41,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 2931673027
     locked: 0
