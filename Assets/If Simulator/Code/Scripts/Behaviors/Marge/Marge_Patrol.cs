@@ -24,24 +24,27 @@ public class Marge_Patrol : BaseState
     [Header("Debug Waypoint")]
     [ShowNonSerializedField] private int _index = 0;
     
-    
+    [Header("Event")]
+    [SerializeField] private PhysicsEvents _chaseColEvent;
     
     private void OnEnable()
     {
+        _chaseColEvent.OnEnter += EnterOnChaseRange;
         _SAPAgent.Target = _waypoints[_index];
+        _SAPAgent.MovementSpeed = _speed;
+    }
+
+    private void EnterOnChaseRange(Collider2D obj)
+    {
+        if (obj.CompareTag("Player"))
+            Manager.ChangeState(_chase);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Si le joueur est trop proche
-        if (Vector3.Distance(transform.position, _target.position) < _playerRange)
-        {
-            Manager.ChangeState(_chase);
-        }
-        
         //Changement de waypoint
-        else if(Vector3.Distance(transform.position, _waypoints[_index].position) < .5f)
+        if(Vector3.Distance(transform.position, _waypoints[_index].position) < .5f)
         {
             _index++;
             if (_index >= _waypoints.Length)
@@ -49,10 +52,9 @@ public class Marge_Patrol : BaseState
             
             _SAPAgent.Target = _waypoints[_index];
         }
-        
     }
     private void OnDisable()
     {
-        
+        _chaseColEvent.OnEnter -= EnterOnChaseRange;
     }
 }
