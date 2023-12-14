@@ -317,3 +317,4 @@ MonoBehaviour:
   _openedColor: {r: 0, g: 0, b: 0, a: 0}
   _unlockedColor: {r: 0.09156906, g: 0.9245283, b: 0, a: 1}
   _lockedColor: {r: 1, g: 0, b: 0, a: 1}
+  _closedColor: {r: 0, g: 0, b: 0, a: 1}

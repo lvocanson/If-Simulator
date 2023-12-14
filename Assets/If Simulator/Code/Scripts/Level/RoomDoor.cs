@@ -2,15 +2,16 @@ using System;
 using NaughtyAttributes;
 using UnityEngine;
 
+
+public enum DoorState
+{
+    Opened,
+    Unlocked,
+    Locked
+}
+
 public class RoomDoor : MonoBehaviour
 {
-    private enum DoorState
-    {
-        Opened,
-        Unlocked,
-        Locked,
-    }
-    
     [Header("References")]
     [SerializeField] private Collider2D _collider;
     [SerializeField] private SpriteRenderer _renderer;
@@ -31,11 +32,17 @@ public class RoomDoor : MonoBehaviour
     [Header("Debug")]
     [ShowNonSerializedField] private DoorState _currentState = DoorState.Unlocked;
     [ShowNonSerializedField] private bool _isAlreadyOpened = false;
-
+    
+    private DoorState _previousState;
+    
+    public DoorState CurrentState => _currentState;
+    public DoorState PreviousState => _previousState;
+    
     public void Initialize()
     {
         _currentState = _initialState;
-
+        _previousState = _currentState;
+        
         switch (_currentState)
         {
             case DoorState.Locked:
@@ -75,6 +82,7 @@ public class RoomDoor : MonoBehaviour
     
     public void LockDoor()
     {
+        _previousState = _currentState;
         _currentState = DoorState.Locked;
         
         _renderer.color = _lockedColor;
@@ -94,6 +102,5 @@ public class RoomDoor : MonoBehaviour
             _collider.enabled = true;
             _renderer.enabled = true;
         }
-    
     }
 }
