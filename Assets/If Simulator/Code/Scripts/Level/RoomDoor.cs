@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -16,6 +17,10 @@ public class RoomDoor : MonoBehaviour
     [SerializeField] private DoorState _initialState = DoorState.Unlocked;
     
     [ShowNonSerializedField] private DoorState _currentState = DoorState.Unlocked;
+    
+    public event Action OnPlayerEntered;
+    public event Action OnPlayerExited;
+    
 
     public void Initialize()
     {
@@ -43,7 +48,16 @@ public class RoomDoor : MonoBehaviour
         if (!other.gameObject.CompareTag("Player") || _currentState is not DoorState.Unlocked) return;
         
         Debug.Log("Player opened door");
+        OnPlayerEntered?.Invoke();
         OpenDoor();
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.gameObject.CompareTag("Player") || _currentState is not DoorState.Opened) return;
+        
+        Debug.Log("Player exited door");
+        OnPlayerExited?.Invoke();
     }
 
     public void OpenDoor()

@@ -35,7 +35,7 @@ public class Marge_Patrol : BaseState
     void Update()
     {
         //Si le joueur est trop proche
-        if (Vector3.Distance(transform.position, _target.position) < _playerRange)
+        if (_target != null && Vector3.Distance(transform.position, _target.position) < _playerRange)
         {
             Manager.ChangeState(_chase);
         }
