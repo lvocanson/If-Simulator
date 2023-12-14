@@ -2,7 +2,7 @@ using CrashKonijn.Goap.Behaviours;
 using CrashKonijn.Goap.Classes;
 using CrashKonijn.Goap.Enums;
 using CrashKonijn.Goap.Interfaces;
-
+using UnityEngine;
 namespace IfSimulator.GOAP.Actions
 {
     public class WanderAction : ActionBase<CommonData>
@@ -13,7 +13,7 @@ namespace IfSimulator.GOAP.Actions
 
         public override void Start(IMonoAgent agent, CommonData data)
         {
-            data.Timer = UnityEngine.Random.Range(0, 2);
+            data.Timer = Random.Range(1, 2);
         }
 
         public override ActionRunState Perform(IMonoAgent agent, CommonData data, ActionContext context)
