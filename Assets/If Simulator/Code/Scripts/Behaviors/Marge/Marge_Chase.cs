@@ -19,31 +19,34 @@ public class Marge_Chase : BaseState
     [Header("Data")]
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float _chaseRange = 2f;
-    [SerializeField] private float _attackRange = 0.1f;
     
+    [Header("Events")]
+    [SerializeField] private PhysicsEvents _attackColEvent;
+    [SerializeField] private PhysicsEvents _chaseColEvent;
     
     private void OnEnable()
     {
-        Debug.Log("Focus : " + _target.name + " OnEnabled.");
+        _chaseColEvent.OnExit += ExitOnChaseRange;
+        _attackColEvent.OnEnter += EnterOnAttackRange;
         _SAPAgent.Target = _target;
+        _SAPAgent.MovementSpeed = _speed;
     }
-    void Update()
-    {
-        //S'il n'est plus dans la range de chase
-        if(Vector3.Distance(transform.position, _target.position) > _chaseRange)
-        {
-            Manager.ChangeState(_patrolState);
-        }
 
-        // S'il est dans la range d'attaque alors : 
-        else if (Vector3.Distance(transform.position, _target.position) < _attackRange)
-        {
+    private void EnterOnAttackRange(Collider2D obj)
+    {
+        if (obj.CompareTag("Player"))
             Manager.ChangeState(_attackState);
-        }
+    }
+
+    private void ExitOnChaseRange(Collider2D obj)
+    {
+        if (obj.CompareTag("Player"))
+            Manager.ChangeState(_patrolState);
     }
 
     private void OnDisable()
     {
-
+        _chaseColEvent.OnEnter -= ExitOnChaseRange;
+        _attackColEvent.OnEnter -= EnterOnAttackRange;
     }
 }

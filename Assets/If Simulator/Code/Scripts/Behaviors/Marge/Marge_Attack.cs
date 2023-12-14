@@ -24,13 +24,14 @@ public class Marge_Attack : BaseState
     [SerializeField] private float _bulletTimeDestroy = 2f;
     [SerializeField] GameObject _bullet;
     
+    [Header("Event")]
+    [SerializeField] private PhysicsEvents _attackEvent;
+    
     private Coroutine _attackCoroutine;
-    private float _attackTimer;
-    bool _isAttacking = false;
 
     private void OnEnable()
     {
-        _attackTimer = _attackDelay + Time.timeSinceLevelLoad;
+        _attackEvent.OnExit += ExitAttackRange;
         _SAPAgent.CanMove = false;
         _SAPAgent.CanSearch = false;
         
@@ -39,15 +40,12 @@ public class Marge_Attack : BaseState
             _attackCoroutine = StartCoroutine(Attack());
         }
     }
-    
-    void Update()
+
+    private void ExitAttackRange(Collider2D obj)
     {
-        // Si le joueur est trop loin
-        if (!_isAttacking && Vector3.Distance(transform.position, _target.position) > 3f)
-        {
+        if (obj.CompareTag("Player"))
             Manager.ChangeState(_chaseState);
-        }
-    }
+    }    
 
     private void MargeShoot()
     {
@@ -56,10 +54,18 @@ public class Marge_Attack : BaseState
             .GetComponent<BulletBehavior>();
         bullet.Initialized(direction, _bulletSpeed,_bulletTimeDestroy);
     }
+    private IEnumerator Attack()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(_attackDelay);
+            MargeShoot();
+        }
+    }
 
     private void OnDisable()
     {
-        _isAttacking = false; // On a fini d'attaquer
+        _attackEvent.OnExit -= ExitAttackRange;
         _SAPAgent.CanMove = true;
         _SAPAgent.CanSearch = true;
         
@@ -70,15 +76,4 @@ public class Marge_Attack : BaseState
         }
     }
     
-    private IEnumerator Attack()
-    {
-        while (true)
-        {
-            MargeShoot();
-            _isAttacking = false;
-            Debug.Log("ATTACK");
-            yield return new WaitForSeconds(_attackDelay);
-            _isAttacking = true; 
-        }
-    }
 }
