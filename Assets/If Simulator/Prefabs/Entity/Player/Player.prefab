@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7bba14331281e047a30686408065e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bodyTransform: {fileID: 2873507226914812432}
+  _bodyRigidbody2D: {fileID: 7800368948159628112}
   _cursorPrefab: {fileID: 5976859743985783564, guid: cdffdfd42b1c0344e8911341572804e6, type: 3}
   _rotationInput: {fileID: -7280493881398489431, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
 --- !u!114 &1203350604134400144
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 2258649158215846201}
   - component: {fileID: 4761457398783333148}
   - component: {fileID: 263370004781948735}
-  - component: {fileID: 369667144307280120}
+  - component: {fileID: 6823956314062483985}
   - component: {fileID: 7721826243418371178}
   m_Layer: 8
   m_Name: Brain
@@ -343,7 +343,7 @@ MonoBehaviour:
   _firstSpellInput: {fileID: 5852425643557178782, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
   _secondSpellInput: {fileID: -2028806386459919619, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
   _primaryAttack: {fileID: 1203350604134400144}
---- !u!58 &369667144307280120
+--- !u!58 &6823956314062483985
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
