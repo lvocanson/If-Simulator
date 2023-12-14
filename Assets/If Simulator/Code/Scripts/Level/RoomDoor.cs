@@ -25,6 +25,10 @@ public class RoomDoor : MonoBehaviour
     
     [Header("Debug")]
     [ShowNonSerializedField] private DoorState _currentState = DoorState.Unlocked;
+    
+    public event Action OnPlayerEntered;
+    public event Action OnPlayerExited;
+    
 
     public event Action OnPlayerEnteredRoom;
     public event Action OnPlayerExitedRoom;
@@ -60,7 +64,16 @@ public class RoomDoor : MonoBehaviour
         if (!other.gameObject.CompareTag("Player") || _currentState is not DoorState.Unlocked) return;
         
         Debug.Log("Player opened door");
+        OnPlayerEntered?.Invoke();
         OpenDoor();
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.gameObject.CompareTag("Player") || _currentState is not DoorState.Opened) return;
+        
+        Debug.Log("Player exited door");
+        OnPlayerExited?.Invoke();
     }
 
     private void OnTriggerExit2D(Collider2D other)

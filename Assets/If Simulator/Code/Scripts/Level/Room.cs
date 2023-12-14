@@ -24,6 +24,18 @@ public class Room : MonoBehaviour
             door.Initialize();
             door.OnPlayerEnteredRoom += ActivateRoom;
         }
+        
+    }
+    
+    private void PlayerEnteredRoom()
+    {
+        switch (_roomType)
+        {
+            case RoomType.Basic:
+                break;
+            case RoomType.KillAllEnemies:
+                break;
+        }
     }
     
     private void ActivateRoom()
