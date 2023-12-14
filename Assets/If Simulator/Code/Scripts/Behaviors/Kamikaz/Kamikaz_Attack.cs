@@ -5,6 +5,7 @@ using System.Diagnostics;
 using Ability;
 using UnityEngine;
 using FiniteStateMachine;
+using NaughtyAttributes;
 using SAP2D;
 using UnityEngine.Serialization;
 using Debug = UnityEngine.Debug;
@@ -15,6 +16,7 @@ public class Kamikaz_Attack : BaseState
     [SerializeField, Tooltip("The target to move towards")]
     private Transform _target;
     [SerializeField] private int _timeToExplode = 2;
+    [SerializeField] private GameObject _explosion; 
     
     [Header("State Machine")]
     [SerializeField] private BaseState _chaseState;
@@ -23,7 +25,8 @@ public class Kamikaz_Attack : BaseState
     [Header("Event")]
     [SerializeField] private PhysicsEvents _attackEvent;
 
-    private Coroutine _attackCoroutine; 
+    private Coroutine _attackCoroutine;
+
     
 
     private void OnEnable()
@@ -41,8 +44,10 @@ public class Kamikaz_Attack : BaseState
     private IEnumerator Attack()
     {
         yield return new WaitForSeconds(_timeToExplode);
+        
         //TO DO APPLY DAMAGE TO PLAYER
         Destroy(gameObject);
+        Instantiate(_explosion, transform.position, Quaternion.identity);
     }
 
     private void ExitAttackRange(Collider2D obj)
