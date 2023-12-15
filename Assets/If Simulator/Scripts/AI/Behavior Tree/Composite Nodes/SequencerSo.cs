@@ -3,7 +3,7 @@ namespace BehaviorTree
     /// <summary>
     /// A sequencer is a composite node that evaluates its children in order until one fails.
     /// </summary>
-    public class Sequencer : CompositeNode
+    public class SequencerSo : CompositeNodeSo
     {
         int _index = 0;
 

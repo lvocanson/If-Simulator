@@ -10,12 +10,12 @@ namespace BehaviorTree
         /// <summary>
         /// The node being edited.
         /// </summary>
-        public Node Node { get; }
+        public NodeSo Node { get; }
 
         public Port InputPort { get; } = null;
         public Port OutputPort { get; } = null;
 
-        public NodeView(Node node) : base("Assets/If Simulator/Scripts/AI/Behavior Tree/Editor/NodeView.uxml")
+        public NodeView(NodeSo node) : base("Assets/If Simulator/Scripts/AI/Behavior Tree/Editor/NodeView.uxml")
         {
             Node = node;
             title = node.name;
@@ -24,16 +24,16 @@ namespace BehaviorTree
             // Setup the ports.
             switch (node)
             {
-                case ActionNode:
+                case ActionNodeSo:
                     AddToClassList("action");
                     InputPort = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Multi, typeof(bool));
                     break;
-                case CompositeNode:
+                case CompositeNodeSo:
                     AddToClassList("composite");
                     InputPort = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Multi, typeof(bool));
                     OutputPort = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Multi, typeof(bool));
                     break;
-                case DecoratorNode:
+                case DecoratorNodeSo:
                     AddToClassList("decorator");
                     InputPort = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Multi, typeof(bool));
                     OutputPort = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
@@ -77,11 +77,11 @@ namespace BehaviorTree
 
         public void AddChild(NodeView child)
         {
-            if (Node is CompositeNode composite)
+            if (Node is CompositeNodeSo composite)
             {
                 composite.Children = composite.Children.Concat(new[] { child.Node }).ToArray();
             }
-            else if (Node is DecoratorNode decorator)
+            else if (Node is DecoratorNodeSo decorator)
             {
                 decorator.Child = child.Node;
             }
@@ -93,11 +93,11 @@ namespace BehaviorTree
 
         public void RemoveChild(NodeView child)
         {
-            if (Node is CompositeNode composite)
+            if (Node is CompositeNodeSo composite)
             {
                 composite.Children = composite.Children.Where(c => c != child.Node).ToArray();
             }
-            else if (Node is DecoratorNode decorator)
+            else if (Node is DecoratorNodeSo decorator)
             {
                 decorator.Child = null;
             }
@@ -110,25 +110,25 @@ namespace BehaviorTree
         /// <summary>
         /// Gets the children of this node.
         /// </summary>
-        public Node[] GetChildren()
+        public NodeSo[] GetChildren()
         {
-            if (Node is CompositeNode composite)
+            if (Node is CompositeNodeSo composite)
             {
                 return composite.Children;
             }
-            if (Node is DecoratorNode decorator)
+            if (Node is DecoratorNodeSo decorator)
             {
                 if (decorator.Child == null)
-                    return new Node[0];
+                    return new NodeSo[0];
                 return new[] { decorator.Child };
             }
             if (Node is RootNode root)
             {
                 if (root.Child == null)
-                    return new Node[0];
+                    return new NodeSo[0];
                 return new[] { root.Child };
             }
-            return new Node[0];
+            return new NodeSo[0];
         }
     }
 }

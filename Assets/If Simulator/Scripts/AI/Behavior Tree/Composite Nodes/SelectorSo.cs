@@ -3,7 +3,7 @@ namespace BehaviorTree
     /// <summary>
     /// A selector is a composite node that evaluates its children in order until one succeeds.
     /// </summary>
-    public class Selector : CompositeNode
+    public class SelectorSo : CompositeNodeSo
     {
         protected override void OnUpdate()
         {

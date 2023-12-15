@@ -3,7 +3,7 @@ namespace BehaviorTree
     /// <summary>
     /// A random node chooses a random child to evaluate.
     /// </summary>
-    public class Random : CompositeNode
+    public class RandomSo : CompositeNodeSo
     {
         private int _index;
 

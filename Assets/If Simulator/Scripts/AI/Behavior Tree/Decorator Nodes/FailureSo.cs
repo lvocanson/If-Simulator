@@ -3,7 +3,7 @@ namespace BehaviorTree
     /// <summary>
     /// A failure node always returns failure or running.
     /// </summary>
-    public class Failure : DecoratorNode
+    public class FailureSo : DecoratorNodeSo
     {
         protected override void OnUpdate()
         {

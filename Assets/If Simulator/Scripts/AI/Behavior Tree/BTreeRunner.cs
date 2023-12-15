@@ -10,8 +10,8 @@ namespace BehaviorTree
     public class BTreeRunner : MonoBehaviour
     {
         [SerializeField, Tooltip("The tree this component will run.")]
-        private BTree _tree = null;
-        private BTree _instance = null;
+        private BTreeSo _tree = null;
+        private BTreeSo _instance = null;
 
         [SerializeField, Tooltip("The blackboard initializer. All fields marked with the SerializeField attribute will be copied to the tree's blackboard.")]
         private MonoBehaviour _blackboardInitializer = null;

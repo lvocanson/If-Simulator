@@ -16,7 +16,7 @@ namespace BehaviorTree
         /// <summary>
         /// The tree being edited.
         /// </summary>
-        BTree _tree;
+        BTreeSo _tree;
 
         public NodeView RootNodeView => FindNodeView(_tree.Root);
 
@@ -33,7 +33,7 @@ namespace BehaviorTree
             this.AddManipulator(new RectangleSelector());
         }
 
-        internal void Open(BTree tree)
+        internal void Open(BTreeSo tree)
         {
             _tree = tree;
             graphViewChanged -= OnGraphViewChanged;
@@ -63,10 +63,10 @@ namespace BehaviorTree
             foreach (var node in rootAndNodes)
             {
                 var parentView = FindNodeView(node);
-                Node[] children = parentView.GetChildren();
+                NodeSo[] children = parentView.GetChildren();
                 for (int i = 0; i < children.Length; i++)
                 {
-                    Node child = children[i];
+                    NodeSo child = children[i];
                     var childView = FindNodeView(child);
                     Edge edge = parentView.OutputPort.ConnectTo(childView.InputPort);
                     AddElement(edge);
@@ -77,7 +77,7 @@ namespace BehaviorTree
         /// <summary>
         /// Returns the view of the given node, or null if it doesn't exist.
         /// </summary>
-        private NodeView FindNodeView(Node node) => graphElements.ToList().OfType<NodeView>().FirstOrDefault(view => view.Node == node);
+        private NodeView FindNodeView(NodeSo node) => graphElements.ToList().OfType<NodeView>().FirstOrDefault(view => view.Node == node);
 
         /// <summary>
         /// Called when the user tries to create a new connection between two ports.
@@ -149,18 +149,18 @@ namespace BehaviorTree
             }
 
             // If the user right clicks on the background, show the menu to create a new node.
-            var types = TypeCache.GetTypesDerivedFrom<ActionNode>();
+            var types = TypeCache.GetTypesDerivedFrom<ActionNodeSo>();
             Vector2 position = evt.mousePosition - parent.layout.position;
             foreach (var type in types)
             {
                 evt.menu.AppendAction($"Action/{type.Name}", (a) => CreateNode(type, position));
             }
-            types = TypeCache.GetTypesDerivedFrom<CompositeNode>();
+            types = TypeCache.GetTypesDerivedFrom<CompositeNodeSo>();
             foreach (var type in types)
             {
                 evt.menu.AppendAction($"Composite/{type.Name}", (a) => CreateNode(type, position));
             }
-            types = TypeCache.GetTypesDerivedFrom<DecoratorNode>();
+            types = TypeCache.GetTypesDerivedFrom<DecoratorNodeSo>();
             foreach (var type in types)
             {
                 evt.menu.AppendAction($"Decorator/{type.Name}", (a) => CreateNode(type, position));
@@ -169,12 +169,12 @@ namespace BehaviorTree
 
         private void CreateNode(Type nodeType, Vector2 position = default)
         {
-            Node node = _tree.CreateNode(nodeType);
+            NodeSo node = _tree.CreateNode(nodeType);
             node.GraphPosition = position;
             CreateNodeView(node);
         }
 
-        private void CreateNodeView(Node node)
+        private void CreateNodeView(NodeSo node)
         {
             NodeView nodeView = new(node);
             AddElement(nodeView);

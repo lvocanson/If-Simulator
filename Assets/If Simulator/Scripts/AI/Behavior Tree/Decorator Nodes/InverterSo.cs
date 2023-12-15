@@ -3,7 +3,7 @@ namespace BehaviorTree
     /// <summary>
     /// An inverter node returns the opposite of its child.
     /// </summary>
-    public class Inverter : DecoratorNode
+    public class InverterSo : DecoratorNodeSo
     {
         protected override void OnUpdate()
         {

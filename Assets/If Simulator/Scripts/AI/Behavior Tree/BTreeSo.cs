@@ -6,7 +6,7 @@ using UnityEngine;
 namespace BehaviorTree
 {
     [CreateAssetMenu(fileName = "New BTree", menuName = "Scriptable Objects/Behavior Tree")]
-    public class BTree : ScriptableObject
+    public class BTreeSo : ScriptableObject
     {
         [field: SerializeField, HideInInspector]
         public RootNode Root { get; set; }
@@ -24,9 +24,9 @@ namespace BehaviorTree
         /// <summary>
         /// Clones the tree. Needed for running multiple instances of the same tree.
         /// </summary>
-        public BTree Clone()
+        public BTreeSo Clone()
         {
-            BTree clone = Instantiate(this);
+            BTreeSo clone = Instantiate(this);
             clone.Root = (RootNode)Root.DeepInitialize(clone.Blackboard);
             return clone;
         }
@@ -43,11 +43,11 @@ namespace BehaviorTree
         #region Editor Utilities
 
         [field: SerializeField, HideInInspector]
-        public List<Node> AllNodes { get; private set; } = new();
+        public List<NodeSo> AllNodes { get; private set; } = new();
 
-        public Node CreateNode(Type nodeType)
+        public NodeSo CreateNode(Type nodeType)
         {
-            Node node = (Node)CreateInstance(nodeType);
+            NodeSo node = (NodeSo)CreateInstance(nodeType);
             AllNodes.Add(node);
             node.name = nodeType.Name;
             AssetDatabase.AddObjectToAsset(node, this);
@@ -56,7 +56,7 @@ namespace BehaviorTree
             return node;
         }
 
-        public void DeleteNode(Node node)
+        public void DeleteNode(NodeSo node)
         {
             AllNodes.Remove(node);
             AssetDatabase.RemoveObjectFromAsset(node);
@@ -87,7 +87,7 @@ namespace BehaviorTree
 
             foreach (var node in AllNodes)
             {
-                if (node is DecoratorNode decorator)
+                if (node is DecoratorNodeSo decorator)
                 {
                     if (decorator.Child == null)
                     {
@@ -95,7 +95,7 @@ namespace BehaviorTree
                         return false;
                     }
                 }
-                else if (node is CompositeNode composite)
+                else if (node is CompositeNodeSo composite)
                 {
                     if (composite.Children.Length == 0)
                     {

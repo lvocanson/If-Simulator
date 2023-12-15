@@ -27,7 +27,7 @@ namespace BehaviorTree
             wnd.titleContent = new GUIContent("BTreeEditorWindow");
         }
 
-        public static void Open(BTree tree)
+        public static void Open(BTreeSo tree)
         {
             BTreeEditorWindow wnd = GetWindow<BTreeEditorWindow>();
             wnd.titleContent = new GUIContent("BTreeEditorWindow");
@@ -37,7 +37,7 @@ namespace BehaviorTree
         [OnOpenAsset]
         public static bool OnOpenAsset(int instanceID, int _)
         {
-            if (EditorUtility.InstanceIDToObject(instanceID) is BTree tree)
+            if (EditorUtility.InstanceIDToObject(instanceID) is BTreeSo tree)
             {
                 Open(tree);
                 return true;
@@ -81,7 +81,7 @@ namespace BehaviorTree
         private void OnSelectionChange()
         {
             // Make sure the asset is persistant.
-            if (Selection.activeObject is BTree tree && AssetDatabase.IsMainAsset(tree))
+            if (Selection.activeObject is BTreeSo tree && AssetDatabase.IsMainAsset(tree))
             {
                 _treeView.Open(tree);
             }

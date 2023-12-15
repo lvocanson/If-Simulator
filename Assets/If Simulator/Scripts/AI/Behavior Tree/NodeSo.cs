@@ -13,7 +13,7 @@ namespace BehaviorTree
     /// <summary>
     /// Base class for all nodes of a tree.
     /// </summary>
-    public abstract class Node : ScriptableObject
+    public abstract class NodeSo : ScriptableObject
     {
         /// <summary>
         /// The state of the last evaluation of the node.
@@ -52,7 +52,7 @@ namespace BehaviorTree
         /// <summary>
         /// Performs a deep copy of the node and initialize it with the given blackboard.
         /// </summary>
-        public virtual Node DeepInitialize(Blackboard blackboard)
+        public virtual NodeSo DeepInitialize(Blackboard blackboard)
         {
             var clone = Instantiate(this);
             clone.Blackboard = blackboard;

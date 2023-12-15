@@ -3,7 +3,7 @@ namespace BehaviorTree
     /// <summary>
     /// A success node always returns success or running.
     /// </summary>
-    public class Success : DecoratorNode
+    public class SuccessSo : DecoratorNodeSo
     {
         protected override void OnUpdate()
         {

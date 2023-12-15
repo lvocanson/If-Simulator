@@ -5,12 +5,12 @@ namespace BehaviorTree
     /// <summary>
     /// The root node of a tree.
     /// </summary>
-    public class RootNode : Node
+    public class RootNode : NodeSo
     {
         [field: SerializeField, HideInInspector]
-        public Node Child { get; set; }
+        public NodeSo Child { get; set; }
 
-        public override Node DeepInitialize(Blackboard blackboard)
+        public override NodeSo DeepInitialize(Blackboard blackboard)
         {
             var clone = (RootNode)base.DeepInitialize(blackboard);
             clone.Child = Child.DeepInitialize(blackboard);

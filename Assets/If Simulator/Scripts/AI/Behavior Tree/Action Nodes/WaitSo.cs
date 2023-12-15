@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace BehaviorTree
 {
-    public class Wait : ActionNode
+    public class WaitSo : ActionNodeSo
     {
         [SerializeField, Tooltip("The time to wait in seconds.")]
         private float _time = 1f;
