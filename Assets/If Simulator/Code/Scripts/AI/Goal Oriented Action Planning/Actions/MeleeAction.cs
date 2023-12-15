@@ -20,7 +20,6 @@ namespace IfSimulator.GOAP.Actions
             data.Timer = AttackConfig.AttackDelay;
         }
 
-
         public override ActionRunState Perform(IMonoAgent agent, AttackData data, ActionContext context)
         {
             data.Timer -= context.DeltaTime;
@@ -39,6 +38,12 @@ namespace IfSimulator.GOAP.Actions
         public override void End(IMonoAgent agent, AttackData data)
         {
             
+        }
+
+        public void Inject(DependencyInjector injector)
+        {
+            AttackConfig = injector.AttackConfig;
+            Debug.Log("AttackConfig injected: ");
         }
 
     }

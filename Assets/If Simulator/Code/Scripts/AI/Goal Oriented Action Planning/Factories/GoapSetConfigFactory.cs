@@ -35,7 +35,7 @@ namespace IfSimulator.GOAP.Factories
             builder.AddGoal<WanderGoal>()
                 .AddCondition<IsWandering>(Comparison.GreaterThanOrEqual, 1);
 
-            builder.AddGoal<AttackEnemy>()
+            builder.AddGoal<KillEnemy>()
                 .AddCondition<PlayerHealth>(Comparison.SmallerThanOrEqual, 0);
 
         }
@@ -61,7 +61,7 @@ namespace IfSimulator.GOAP.Factories
                 .SetTarget<WanderTarget>();
 
             builder.AddTargetSensor<PlayerTargetSensor>()
-                .SetTarget<PlayerTarget>() ;
+                .SetTarget<PlayerTarget>();
         }
     }
 }

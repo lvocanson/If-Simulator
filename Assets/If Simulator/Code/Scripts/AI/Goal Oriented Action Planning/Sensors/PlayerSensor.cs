@@ -20,13 +20,14 @@ namespace IfSimulator.GOAP.Sensors
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            OnPlayerEnter.Invoke(collision.transform);
+            if (collision.TryGetComponent(out Player player))
+                OnPlayerEnter?.Invoke(player.transform);
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-                OnPlayerExit?.Invoke(collision.transform.position);
+            if (collision.TryGetComponent(out Player player))
+                OnPlayerExit?.Invoke(player.transform.position);
         }
     }
-
 }

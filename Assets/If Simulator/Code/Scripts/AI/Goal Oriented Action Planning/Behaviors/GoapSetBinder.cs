@@ -1,19 +1,17 @@
 using CrashKonijn.Goap.Behaviours;
 using UnityEngine;
 
-namespace CrashKonijn.GOAP.Behaviors
+namespace IfSimulator.GOAP.Behaviors
 {
     [RequireComponent(typeof(AgentBehaviour))]
     public class GoapSetBinder : MonoBehaviour
     {
         [SerializeField] private GoapRunnerBehaviour GoapRunner;
-        private AgentBehaviour AgentBehaviour;
 
         private void Awake()
         {
-            AgentBehaviour = GetComponent<AgentBehaviour>();
-            AgentBehaviour.GoapSet = GoapRunner.GetGoapSet("AllySet");
+            AgentBehaviour agent = GetComponent<AgentBehaviour>();
+            agent.GoapSet = GoapRunner.GetGoapSet("AllySet");
         }
     }
-
 }
