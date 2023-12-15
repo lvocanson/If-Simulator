@@ -5,10 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttackManager : MonoBehaviour
 {
-    [SerializeField, BoxGroup("Inputs")] private InputActionProperty _primaryAttackInput;
-    [SerializeField, BoxGroup("Inputs")] private InputActionProperty _secondaryAttackInput;
-    [SerializeField, BoxGroup("Inputs")] private InputActionProperty _firstSpellInput;
-    [SerializeField, BoxGroup("Inputs")] private InputActionProperty _secondSpellInput;
+    [SerializeField, BoxGroup("Inputs")] private InputActionReference _primaryAttackInput;
+    [SerializeField, BoxGroup("Inputs")] private InputActionReference _secondaryAttackInput;
+    [SerializeField, BoxGroup("Inputs")] private InputActionReference _firstSpellInput;
+    [SerializeField, BoxGroup("Inputs")] private InputActionReference _secondSpellInput;
 
     [SerializeField] private AbilityActive _primaryAttackAbilityBase;
     [SerializeField] private AbilityActive _secondaryAttackAbilityBase;
