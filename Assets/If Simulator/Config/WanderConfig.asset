@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30602b2fd78422c44923061a20ed3b5a, type: 3}
   m_Name: WanderConfig
   m_EditorClassIdentifier: 
-  WaitRangeBetweenWanders: {x: 1, y: 5}
+  WaitRangeBetweenWanders: {x: 1, y: 4}
   WanderRadius: 5
