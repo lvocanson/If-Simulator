@@ -20,8 +20,7 @@ namespace IfSimulator.GOAP.Sensors
 
         public override ITarget Sense(IMonoAgent agent, IComponentReference references)
         {
-            Debug.Log(agent);
-            if (Physics2D.OverlapCircleNonAlloc(agent.transform.position, AttackConfig.MeleeAttackRadius, 
+            if (Physics2D.OverlapCircleNonAlloc(agent.transform.position, AttackConfig.SensorRadius, 
                 _colliders, AttackConfig.AttackableLayerMask) > 0)
             {
                 return new TransformTarget(_colliders[0].transform);
@@ -35,5 +34,4 @@ namespace IfSimulator.GOAP.Sensors
             AttackConfig = injector.AttackConfig;
         }
     }
-
 }

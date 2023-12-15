@@ -1,14 +1,17 @@
 using UnityEngine;
+using UnityEngine.AI;
+
 using CrashKonijn.Goap.Sensors;
 using CrashKonijn.Goap.Interfaces;
 using CrashKonijn.Goap.Classes;
-using UnityEngine.AI;
+
+using IfSimulator.GOAP.Config;
 
 namespace IfSimulator.GOAP.Sensors
 {
-
-    public class WanderTargetSensor : LocalTargetSensorBase
+    public class WanderTargetSensor : LocalTargetSensorBase, IInjectable
     {
+        private WanderConfigSO WanderConfig;
         public override void Created()
         {
         }
@@ -31,7 +34,7 @@ namespace IfSimulator.GOAP.Sensors
             while (count < 5)
             {
 
-                Vector3 position = agent.transform.position + Random.insideUnitSphere * 5.0f;
+                Vector3 position = agent.transform.position + Random.insideUnitSphere * WanderConfig.WanderRadius;
 
                 if (NavMesh.SamplePosition(position, out NavMeshHit hit, 1.0f, NavMesh.AllAreas))
                 {
@@ -42,6 +45,11 @@ namespace IfSimulator.GOAP.Sensors
             }
 
             return agent.transform.position;
+        }
+
+        public void Inject(DependencyInjector injector)
+        {
+            WanderConfig = injector.WanderConfig;
         }
     }
 }

@@ -8,6 +8,7 @@ namespace IfSimulator.GOAP
     public class DependencyInjector : GoapConfigInitializerBase, IGoapInjector
     {
         public AttackConfigSO AttackConfig;
+        public WanderConfigSO WanderConfig;
 
         public override void InitConfig(GoapConfig config)
         {
@@ -38,5 +39,4 @@ namespace IfSimulator.GOAP
                 injectable.Inject(this);
         }
     }
-
 }

@@ -39,13 +39,10 @@ namespace IfSimulator.GOAP.Behaviors
             CurrentTarget = target;
             LastPosition = CurrentTarget.Position;
             Agent.SetDestination(target.Position);
-
-            Debug.Log(target);
         }
 
         private void EventsOnTargetOutOfRange(ITarget target)
         {
-
         }
 
         private void Update()
@@ -59,9 +56,7 @@ namespace IfSimulator.GOAP.Behaviors
             {
                 LastPosition = CurrentTarget.Position;
                 Agent.SetDestination(CurrentTarget.Position);
-                Debug.Log(Agent.transform);
             }
         }
     }
-
 }
