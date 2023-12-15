@@ -44,6 +44,11 @@ namespace Ability
         
         public event Action OnDestroy;
         public event Action OnHit;
+        
+        public void Kill()
+        {
+            Death();
+        }
 
         
         private void Start()

@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 7429918993202385571}
   m_Layer: 8
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 3763282448011404525}
   m_Layer: 8
   m_Name: Spells
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,6 +360,12 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxSize: 25
+  _layers:
+    serializedVersion: 2
+    m_Bits: 128
+  _damageableEntityLayers:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &6197885105219783949
 GameObject:
   m_ObjectHideFlags: 0

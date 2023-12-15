@@ -15,8 +15,8 @@ namespace Ability
         [SerializeField] private float _maxSize;
         
         [Header("Ability Damage Management")]
-        [SerializeField] private LayerMask _layers;
-        [SerializeField] private LayerMask _damageableEntityLayers;
+        [SerializeField] private LayerMask _layers; //proj layer
+        [SerializeField] private LayerMask _damageableEntityLayers; // enemy layer
         
         protected int _ownerLayer;
         public event Action OnHit;
@@ -31,14 +31,16 @@ namespace Ability
             if (((1 << otherLayer) & _layers.value) == 0) return;
             if (otherLayer == _ownerLayer) return;
             
-            // Assert that the other layer is a damageable entity
-            if (((1 << otherLayer) & _damageableEntityLayers.value) == 0) return;
-
-            // Assert that the other entity is a bullet and get its behavior
-            if (!other.TryGetComponent(out BulletBehavior bullet)) return;
-            
-            //bullet.ForceDestroy();
-            OnHit?.Invoke();
+            if (otherLayer == _layers.value)
+                Destroy(other.gameObject);
+            else if (otherLayer == _damageableEntityLayers.value)
+            {
+                if (other.TryGetComponent(out Rigidbody2D rb))
+                {
+                    Vector2 dir = (other.transform.position - transform.position).normalized;
+                    rb.AddForce(dir * 1000, ForceMode2D.Impulse);
+                }
+            }
         }
         
         protected override void OnEffectStart()
