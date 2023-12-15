@@ -1,64 +1,69 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Ability
 {
-    public class ShockWaveBehavior : AbilityActive
+    public class ShockWaveBehavior : MonoBehaviour
     {
-        [Header("References")]
-        [SerializeField] private GameObject _swPrefab;
-        [SerializeField] private Transform _spawnPoint;
-        
-        [Header("Ability Settings")]
+        [Header("Settings")]
         private float _timer;
         [SerializeField] private AnimationCurve _evolutionCurve;
         [SerializeField] private float _maxSize;
+        [SerializeField] private float _enemyPushBackForce;
         
-        [Header("Ability Damage Management")]
+        private float _damage;
+        
+        [Header("Layer Management")]
         [SerializeField] private LayerMask _layers; //proj layer
         [SerializeField] private LayerMask _damageableEntityLayers; // enemy layer
         
-        protected int _ownerLayer;
-        public event Action OnHit;
+        [Header("References")]
+        [SerializeField] private SpriteRenderer _spriteRenderer;
         
-        private GameObject _swInstance;
-
         private void OnTriggerEnter2D(Collider2D other)
         {
             int otherLayer = other.gameObject.layer;
             
             // Skip unwanted layers
-            if (((1 << otherLayer) & _layers.value) == 0) return;
-            if (otherLayer == _ownerLayer) return;
+            bool isBullet = ((1 << otherLayer) & _layers.value) == 0;
+            bool isDamageableEntity = ((1 << otherLayer) & _damageableEntityLayers.value) == 0;
+            if (isBullet is false && isDamageableEntity is false) return;
             
-            if (otherLayer == _layers.value)
+            // Get the binary value of the layer
+            int otherLayerMask = 1 << otherLayer;
+            
+            // Destroy enemies' bullets
+            if (otherLayerMask == _layers.value && other.CompareTag("Player") is false)
                 Destroy(other.gameObject);
-            else if (otherLayer == _damageableEntityLayers.value)
+            
+            // Push back enemies and damage them
+            else if (otherLayerMask == _damageableEntityLayers.value)
             {
-                if (other.TryGetComponent(out Rigidbody2D rb))
-                {
-                    Vector2 dir = (other.transform.position - transform.position).normalized;
-                    rb.AddForce(dir * 1000, ForceMode2D.Impulse);
-                }
+                if (other.TryGetComponent(out Rigidbody2D rb) is false || other.TryGetComponent(out IDamageable damageable) is false) return;
+                
+                // Push back
+                Vector2 dir = (other.transform.position - transform.position).normalized;
+                rb.AddForce(dir * _enemyPushBackForce, ForceMode2D.Impulse);
+                
+                // Damage
+                damageable.Damage(_damage);
             }
         }
-        
-        protected override void OnEffectStart()
+
+        public void Init(float damage)
         {
-            _swInstance = Instantiate(_swPrefab, _spawnPoint.position, Quaternion.identity);
             _timer = 0;
+            _damage = damage;
         }
 
-        protected override void OnEffectUpdate()
+        public void OnUpdate(float duration)
         {
-            _timer += Time.fixedDeltaTime / _abilitySo.AbilityDuration;
+            _timer += Time.fixedDeltaTime / duration;
             float power = _evolutionCurve.Evaluate(_timer);
-            _swInstance.transform.localScale = Vector3.one * (power * _maxSize);
-        }
-
-        protected override void OnEffectEnd()
-        {
-            Destroy(_swInstance);
+            
+            _spriteRenderer.color = new Color(0.5f, 0.5f, 0.9f, 1 - power );
+            transform.localScale = Vector3.one * (power * _maxSize);
+            
+            //_collider.radius = power * _maxSize;
         }
     }
 }

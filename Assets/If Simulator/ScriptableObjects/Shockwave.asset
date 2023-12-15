@@ -16,9 +16,9 @@ MonoBehaviour:
   _description: area damage
   _icon: {fileID: 0}
   _maxLevel: 3
-  _damage: 15
+  _damage: 2
   _range: 3
-  _cooldown: 5
+  _cooldown: 2
   _isHoldable: 0
   _delay: 0
-  _abilityDuration: 7
+  _abilityDuration: 2
