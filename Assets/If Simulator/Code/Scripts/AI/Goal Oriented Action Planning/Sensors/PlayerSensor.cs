@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace IfSimulator.GOAP.Sensors
@@ -7,11 +8,8 @@ namespace IfSimulator.GOAP.Sensors
     {
         public CircleCollider2D Collider;
 
-        public delegate void PlayerEnterEvent(Transform player);
-        public delegate void PlayerExitEvent(Vector3 lastKnowPosition);
-
-        public event PlayerEnterEvent OnPlayerEnter;
-        public event PlayerExitEvent OnPlayerExit;
+        public event Action<Transform> OnPlayerEnter;
+        public event Action<Vector3> OnPlayerExit;
 
         private void Awake()
         {
@@ -20,14 +18,21 @@ namespace IfSimulator.GOAP.Sensors
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.TryGetComponent(out Player player))
-                OnPlayerEnter?.Invoke(player.transform);
+            var p = collision.GetComponentInChildren<Player>();
+            if (p != null)
+            {
+                OnPlayerEnter?.Invoke(p.transform);
+            }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.TryGetComponent(out Player player))
-                OnPlayerExit?.Invoke(player.transform.position);
+            var p = collision.GetComponentInChildren<Player>();
+
+            if (p != null)
+            {
+                OnPlayerExit?.Invoke(p.transform.position);
+            }
         }
     }
 }
