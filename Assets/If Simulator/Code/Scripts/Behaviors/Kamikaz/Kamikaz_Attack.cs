@@ -15,7 +15,7 @@ public class Kamikaz_Attack : BaseState
     [Header("Data")]
     [SerializeField, Tooltip("The target to move towards")]
     private Transform _target;
-    [FormerlySerializedAs("_timeToExplode")] [SerializeField] private int _explosionDelay = 2;
+    [FormerlySerializedAs("_timeToExplode")] [SerializeField] private float _explosionDelay = 2f;
     [SerializeField] private GameObject _explosionPrefab;
     [SerializeField] private float _explosionRadius = 5f;
     [SerializeField] private AnimationCurve _explosionCurve;
@@ -34,7 +34,7 @@ public class Kamikaz_Attack : BaseState
     private Coroutine _attackCoroutine;
     private GameObject _explosionInstance;
 
-    
+    public void SetTarget(Transform target) => _target = target;
 
     private void OnEnable()
     {

@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 7634800495616012281}
   - component: {fileID: 3762870253303094257}
   - component: {fileID: 6604726639235763081}
+  - component: {fileID: 3734679234218163395}
   - component: {fileID: 7299784548321892437}
   - component: {fileID: 8481704610789467419}
   - component: {fileID: 6514407667865663083}
   - component: {fileID: 600574708586748271}
   - component: {fileID: 1368171944416493816}
   - component: {fileID: 6284057064356520435}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: MargeFinal
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -139,6 +140,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.8828125}
   m_EdgeRadius: 0
+--- !u!50 &3734679234218163395
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772047841111923917}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &7299784548321892437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4b1adcd1c95f7409790cbd75b37a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
   _chase: {fileID: 600574708586748271}
   _waypoints:
   - {fileID: 0}
@@ -201,7 +228,6 @@ MonoBehaviour:
   - {fileID: 0}
   _SAPAgent: {fileID: 8481704610789467419}
   _speed: 1
-  _playerRange: 4
   _chaseColEvent: {fileID: 5535838779829924784}
 --- !u!114 &600574708586748271
 MonoBehaviour:
@@ -215,12 +241,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81139c81b7dffc4f9e9bbbe965a54f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
+  _chaseCol: {fileID: 6414294324195957393}
+  _SAPAgent: {fileID: 8481704610789467419}
   _patrolState: {fileID: 6514407667865663083}
   _attackState: {fileID: 1368171944416493816}
-  _SAPAgent: {fileID: 8481704610789467419}
-  _speed: 1
-  _chaseRange: 4
+  _speed: 10
+  _chaseRange: 8
   _attackColEvent: {fileID: 4060335984500121313}
   _chaseColEvent: {fileID: 5535838779829924784}
 --- !u!114 &1368171944416493816
@@ -235,14 +261,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b8ad6d68c785b4b8b485f6794dfa56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _attackRange: 2
-  _attackDelay: 0.5
-  _chaseState: {fileID: 600574708586748271}
+  _bulletPrefab: {fileID: 740895394917663843, guid: cb6e4be07c0d22f429760327321c0c67, type: 3}
+  _attackCol: {fileID: 4620439536270340928}
   _SAPAgent: {fileID: 8481704610789467419}
-  _bulletSpeed: 2
-  _bulletTimeDestroy: 2
-  _bullet: {fileID: 740895394917663843, guid: cb6e4be07c0d22f429760327321c0c67, type: 3}
+  _chaseState: {fileID: 600574708586748271}
+  _attackRange: 7
+  _attackDelay: 0.5
   _attackEvent: {fileID: 4060335984500121313}
 --- !u!114 &6284057064356520435
 MonoBehaviour:
@@ -268,7 +292,7 @@ GameObject:
   - component: {fileID: 8475646824116265809}
   - component: {fileID: 4620439536270340928}
   - component: {fileID: 4060335984500121313}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +373,7 @@ GameObject:
   - component: {fileID: 4236770814458259592}
   - component: {fileID: 6414294324195957393}
   - component: {fileID: 5535838779829924784}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: ChaseRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -8,12 +8,11 @@ using UnityEngine.Serialization;
 
 public class Kamikaz_Chase : BaseState
 {
-    [SerializeField, Tooltip("The target to move towards")]
     private Transform _target;
     
     [Header("State Machine")]
-    [SerializeField] private BaseState _patrolState;
-    [SerializeField] private BaseState _attackState;
+    [SerializeField] private Kamikaz_Patrol _patrolState;
+    [SerializeField] private Kamikaz_Attack _attackState;
     [SerializeField] SAP2DAgent _SAPAgent;
     
     [Header("Data")]
@@ -22,19 +21,27 @@ public class Kamikaz_Chase : BaseState
     [Header("Events")]
     [SerializeField] private PhysicsEvents _attackColEvent;
     [SerializeField] private PhysicsEvents _chaseColEvent;
+
+    public void SetTarget(Transform target)
+    {
+        _target = target;
+        _SAPAgent.Target = _target;
+    }
     
     private void OnEnable()
     {
         _chaseColEvent.OnExit += ExitOnChaseRange;
         _attackColEvent.OnEnter += EnterOnAttackRange;
-        _SAPAgent.Target = _target;
         _SAPAgent.MovementSpeed = _speed;
     }
 
     private void EnterOnAttackRange(Collider2D obj)
     {
         if (obj.CompareTag("Player"))
+        {
+            _attackState.SetTarget(obj.transform);
             Manager.ChangeState(_attackState);
+        }
     }
 
     private void ExitOnChaseRange(Collider2D obj)

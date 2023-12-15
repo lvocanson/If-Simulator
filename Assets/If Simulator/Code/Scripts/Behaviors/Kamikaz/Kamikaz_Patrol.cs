@@ -13,7 +13,7 @@ public class Kamikaz_Patrol : BaseState
     private Transform _target;
     
     [Header("State Machine")]
-    [SerializeField] private BaseState _chase;
+    [SerializeField] private Kamikaz_Chase _chase;
     [SerializeField] private Transform[] _waypoints;
     [SerializeField] private SAP2DAgent _SAPAgent;
     
@@ -36,7 +36,10 @@ public class Kamikaz_Patrol : BaseState
     private void EnterOnChaseRange(Collider2D obj)
     {
         if (obj.CompareTag("Player"))
+        {
+            _chase.SetTarget(obj.transform);
             Manager.ChangeState(_chase);
+        }
     }
 
     // Update is called once per frame
