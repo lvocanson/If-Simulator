@@ -1,4 +1,3 @@
-using System;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,7 +5,7 @@ using Utility;
 
 public class PlayerAim : MonoBehaviour
 {
-    [SerializeField] private Transform _bodyTransform;
+    [SerializeField] private Rigidbody2D _bodyRigidbody2D;
     [SerializeField] private GameObject _cursorPrefab;
     
     [SerializeField, BoxGroup("Inputs")] private InputActionReference _rotationInput;
@@ -14,20 +13,21 @@ public class PlayerAim : MonoBehaviour
     public GameObject AimCursor => _aimCursor;
     
     [ShowNonSerializedField] private Vector2 _mousePosition;
+    
     private Camera _mainCamera;
     private GameObject _aimCursor;
     
+
     private void Awake()
     {
-        
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
+        _mainCamera = LevelContext.Instance.CameraManager.MainCamera;
+        _mousePosition = _mainCamera.WorldToScreenPoint(transform.position);
+        _aimCursor = Instantiate(_cursorPrefab, transform.position, Quaternion.identity);
     }
 
     private void Start()
     {
-        _mainCamera = Camera.main;
-        _aimCursor = Instantiate(_cursorPrefab, transform);
+        
     }
 
     private void OnEnable()
@@ -44,9 +44,13 @@ public class PlayerAim : MonoBehaviour
         _rotationInput.action.canceled -= OnRotationAction;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         RotateAim();
+    }
+
+    private void Update()
+    {
         MoveCursor();
     }
 
@@ -55,8 +59,8 @@ public class PlayerAim : MonoBehaviour
         Vector2 positionOnScreen = _mainCamera.WorldToScreenPoint(transform.position);
 
         float angle = TransformUtility.AngleBetweenTwoPoints(positionOnScreen, _mousePosition);
-
-        _bodyTransform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        
+        _bodyRigidbody2D.MoveRotation(Quaternion.Euler(new Vector3(0f, 0f, angle)));
     }
 
     private void OnRotationAction(InputAction.CallbackContext context)
@@ -66,6 +70,6 @@ public class PlayerAim : MonoBehaviour
 
     private void MoveCursor()
     {
-        _aimCursor.transform.position = (Vector2)_mainCamera.ScreenToWorldPoint(_mousePosition);;
+        _aimCursor.transform.position = (Vector2)_mainCamera.ScreenToWorldPoint(_mousePosition);
     }
 }
