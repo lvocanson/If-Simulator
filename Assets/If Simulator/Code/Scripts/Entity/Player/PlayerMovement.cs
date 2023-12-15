@@ -9,8 +9,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _acceleration;
     [SerializeField] private float _deceleration;
     [SerializeField] private float _drag;
+
+    public bool IsControllable { get; set; } = true;
     
+    public Vector2 MovementValue => _movementValue;
     [ShowNonSerializedField] private Vector2 _movementValue;
+
+    public Vector2 UnclampedMovementValue => _movementValue * _maxSpeed;
 
     [SerializeField, BoxGroup("Inputs")] private InputActionProperty _movementInput;
 
@@ -31,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!IsControllable) return;
+        
         ProcessHorizontalMovement(_movementValue.x, _maxSpeed, _acceleration, _deceleration, _drag);
         ProcessVerticalMovement(_movementValue.y, _maxSpeed, _acceleration, _deceleration, _drag);
     }

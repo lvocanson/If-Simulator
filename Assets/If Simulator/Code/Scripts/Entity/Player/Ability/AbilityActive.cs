@@ -16,7 +16,6 @@ namespace Ability
         }
 
         private float _curCooldown;
-        private float _curActiveCooldown;
 
         private Coroutine _routine;
 
@@ -28,10 +27,11 @@ namespace Ability
             set => _curCooldown = Mathf.Clamp(value, 0, _abilitySo.Cooldown);
         }
 
-        public float CurActiveCooldown
+        public float CurActiveCooldown { get; private set; }
+
+        private float GetActiveCooldown()
         {
-            get => _curActiveCooldown;
-            set => _curActiveCooldown = Mathf.Clamp(value, 0, _abilitySo.ActiveCooldown);
+            return _abilitySo.IsHoldable is true ? _abilitySo.Delay : _abilitySo.AbilityDuration;
         }
 
         // Called when the ability is activated (corresponding key pressed)
@@ -43,7 +43,7 @@ namespace Ability
             
             // Mark the ability as active
             _state = AbilityState.ACTIVE;
-            _curActiveCooldown = _abilitySo.ActiveCooldown;
+            CurActiveCooldown = GetActiveCooldown();
             
             _routine = StartCoroutine(Routine());
             return;
@@ -54,11 +54,13 @@ namespace Ability
                 while (true)
                 {
                     OnEffectStart();
-
-                    yield return new WaitForSeconds(_abilitySo.ActiveCooldown);
+                    yield return new WaitForSeconds(CurActiveCooldown);
                     
                     // If the ability is not holdable, end it
-                    if (_abilitySo.IsHoldable is false) End();
+                    if (_abilitySo.IsHoldable is true) continue;
+                    
+                    End();
+                    yield break;
                 }
             }
         }
@@ -79,9 +81,9 @@ namespace Ability
                 // If the ability is active, decrease the active cooldown and call the update method
                 case AbilityState.ACTIVE:
                 {
-                    if (_curActiveCooldown > 0)
+                    if (CurActiveCooldown > 0)
                     {
-                        _curActiveCooldown -= Time.deltaTime;
+                        if (_abilitySo.IsHoldable is false) CurActiveCooldown -= Time.deltaTime;
                         OnEffectUpdate();
                     }
                     break;
@@ -95,10 +97,10 @@ namespace Ability
         // Called once when the click is started
         protected abstract void OnEffectStart();
         
-        // Called every active cooldown time
+        // Called every frame during the active time
         protected abstract void OnEffectUpdate();
         
-        // Called once if the ability is not holdable or TO CALL when the click is released if the ability is holdable
+        // Called once when the spell ends, the spell will go on cooldown after this method is called
         protected abstract void OnEffectEnd();
 
         public sealed override void End()
