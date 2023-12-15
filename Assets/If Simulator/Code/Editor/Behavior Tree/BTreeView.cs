@@ -22,7 +22,7 @@ namespace BehaviorTree
 
         public BTreeView()
         {
-            StyleSheet _styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/If Simulator/Scripts/AI/Behavior Tree/Editor/BTreeEditorWindow.uss");
+            StyleSheet _styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/If Simulator/Code/Editor/Behavior Tree/BTreeEditorWindow.uss");
             styleSheets.Add(_styleSheet);
 
             Insert(0, new GridBackground());

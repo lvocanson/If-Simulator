@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 namespace BehaviorTree
 {
-    public class NodeView : UnityEditor.Experimental.GraphView.Node
+    public class NodeView : Node
     {
         /// <summary>
         /// The node being edited.
@@ -15,7 +15,7 @@ namespace BehaviorTree
         public Port InputPort { get; } = null;
         public Port OutputPort { get; } = null;
 
-        public NodeView(NodeSo node) : base("Assets/If Simulator/Scripts/AI/Behavior Tree/Editor/NodeView.uxml")
+        public NodeView(NodeSo node) : base("Assets/If Simulator/Code/Editor/Behavior Tree/NodeView.uxml")
         {
             Node = node;
             title = node.name;
