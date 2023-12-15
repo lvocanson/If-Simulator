@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4419410267802930010}
   m_Layer: 7
   m_Name: PlayerBullet
-  m_TagString: Player
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +183,6 @@ MonoBehaviour:
   _damageableEntityLayers:
     serializedVersion: 2
     m_Bits: 8
-  _speed: 15
+  _speed: 25
   _lifeTime: 2
   _damage: 100

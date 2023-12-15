@@ -32,7 +32,7 @@ namespace Ability
             int otherLayerMask = 1 << otherLayer;
             
             // Destroy enemies' bullets
-            if (otherLayerMask == _layers.value && other.CompareTag("Player") is false)
+            if (otherLayerMask == _layers.value && other.CompareTag("PlayerProjectile") is false)
                 Destroy(other.gameObject);
             
             // Push back enemies and damage them

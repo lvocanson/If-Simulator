@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4586797308806031170}
   - component: {fileID: 5570540335073866277}
   - component: {fileID: 3758894104440636533}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Kamikaz
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -227,7 +227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae66fadf36864f4690b283722b26e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
   _patrolState: {fileID: 9183220552370722672}
   _attackState: {fileID: 5570540335073866277}
   _SAPAgent: {fileID: 5557827651850121821}
@@ -304,7 +303,7 @@ GameObject:
   - component: {fileID: 6390606446443538482}
   - component: {fileID: 1373142475341139452}
   - component: {fileID: 8919522550655574771}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +384,7 @@ GameObject:
   - component: {fileID: 3028581564904495866}
   - component: {fileID: 1550068659038415781}
   - component: {fileID: 5839639195492332}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChaseRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -168,7 +168,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxSize: 25
-  _enemyPushBackForce: 75
+  _enemyPushBackForce: 40
   _layers:
     serializedVersion: 2
     m_Bits: 128
