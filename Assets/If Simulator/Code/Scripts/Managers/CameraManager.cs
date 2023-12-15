@@ -5,19 +5,25 @@ using UnityEngine;
 
 public class CameraManager : InGameManager
 {
-    [SerializeField] private CinemachineVirtualCamera _mainCamera;
+    [SerializeField] private CinemachineVirtualCamera _currentCamera;
     [SerializeField] private CinemachineTargetGroup _targetGroup;
     
     [SerializeField] private CurrentPlayerSo _currentPlayerSo;
+
+    private Camera _mainCamera;
+    public Camera MainCamera => _mainCamera;
     
 
     protected override void OnContextInitialized(GameModeStartMode mode)
     {
-        _currentPlayerSo.OnPlayerLoaded += AddPlayerAsTarget;
+        _mainCamera = Camera.main;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     protected override void OnContextStarted(GameModeStartMode mode)
     {
+        _currentPlayerSo.OnPlayerLoaded += AddPlayerAsTarget;
     }
 
     protected override void OnContextQuit(GameModeQuitMode mode)

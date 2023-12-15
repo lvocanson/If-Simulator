@@ -15,15 +15,10 @@ MonoBehaviour:
   _name: M4
   _description: piou piou
   _icon: {fileID: 0}
-  _maxLevel: 0
+  _maxLevel: 1
   _damage: 10
   _range: 15
   _cooldown: 0
   _isHoldable: 1
-  _evolutionCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   _delay: 0.1
+  _abilityDuration: 0

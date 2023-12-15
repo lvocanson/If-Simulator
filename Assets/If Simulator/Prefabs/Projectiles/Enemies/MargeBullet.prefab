@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6238005410192856291}
   - component: {fileID: 1009386259272215435}
-  - component: {fileID: 2962201285659424275}
   - component: {fileID: 6058050865115098019}
+  - component: {fileID: 2962201285659424275}
   - component: {fileID: 4943362776108547337}
-  m_Layer: 8
-  m_Name: Marge_Bullet
+  m_Layer: 7
+  m_Name: MargeBullet
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 740895394917663843}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.67, y: -1.364, z: -0.13993743}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.28374594, y: 0.29504687, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87,6 +87,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &6058050865115098019
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740895394917663843}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!61 &2962201285659424275
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133,33 +160,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &6058050865115098019
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740895394917663843}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!114 &4943362776108547337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +172,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a8e50d34ae401aa21d2da27ea65429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 6058050865115098019}
+  _layers:
+    serializedVersion: 2
+    m_Bits: 257
+  _damageableEntityLayers:
+    serializedVersion: 2
+    m_Bits: 256
   _speed: 2
   _lifeTime: 4
-  _rb: {fileID: 6058050865115098019}
+  _damage: 10
