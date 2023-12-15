@@ -255,8 +255,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1209539366}
-  _timeToExplode: 2
-  _explosion: {fileID: 8493438459916198879, guid: b8a6391f3be7bae4da8536b276484e0f, type: 3}
+  _explosionDelay: 2
+  _explosionPrefab: {fileID: 8493438459916198879, guid: b8a6391f3be7bae4da8536b276484e0f, type: 3}
+  _explosionRadius: 5
+  _explosionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _explosionDuration: 1
+  _sprite: {fileID: 335954992}
+  _collider: {fileID: 335954991}
   _chaseState: {fileID: 335954986}
   _SAPAgent: {fileID: 335954990}
   _attackEvent: {fileID: 646855946}

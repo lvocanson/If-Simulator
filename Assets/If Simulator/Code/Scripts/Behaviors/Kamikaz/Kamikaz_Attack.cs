@@ -15,8 +15,14 @@ public class Kamikaz_Attack : BaseState
     [Header("Data")]
     [SerializeField, Tooltip("The target to move towards")]
     private Transform _target;
-    [SerializeField] private int _timeToExplode = 2;
-    [SerializeField] private GameObject _explosion; 
+    [FormerlySerializedAs("_timeToExplode")] [SerializeField] private int _explosionDelay = 2;
+    [SerializeField] private GameObject _explosionPrefab;
+    [SerializeField] private float _explosionRadius = 5f;
+    [SerializeField] private AnimationCurve _explosionCurve;
+    [SerializeField] private float _explosionDuration = 1f;
+
+    [SerializeField] private SpriteRenderer _sprite;
+    [SerializeField] private Collider2D _collider;
     
     [Header("State Machine")]
     [SerializeField] private BaseState _chaseState;
@@ -26,6 +32,7 @@ public class Kamikaz_Attack : BaseState
     [SerializeField] private PhysicsEvents _attackEvent;
 
     private Coroutine _attackCoroutine;
+    private GameObject _explosionInstance;
 
     
 
@@ -43,12 +50,32 @@ public class Kamikaz_Attack : BaseState
 
     private IEnumerator Attack()
     {
-        yield return new WaitForSeconds(_timeToExplode);
-        
+        yield return new WaitForSeconds(_explosionDelay);
         //TO DO APPLY DAMAGE TO PLAYER
+        
+        _explosionInstance = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+        
+        //Disable Renderer & Collider
+        _sprite.enabled = false;
+        _collider.enabled = false;
+        
+        yield return Explode(); 
+        IEnumerator Explode()
+        {
+            float timer = 0;
+            while (timer < 1)
+            {
+                timer += Time.fixedDeltaTime / _explosionDuration;
+                float power = _explosionCurve.Evaluate(timer);
+                _explosionInstance.transform.localScale = Vector3.one * (power * _explosionRadius);
+                yield return new WaitForFixedUpdate(); 
+            }
+        }
+        Destroy(_explosionInstance);
         Destroy(gameObject);
-        Instantiate(_explosion, transform.position, Quaternion.identity);
     }
+    
+    
 
     private void ExitAttackRange(Collider2D obj)
     {
