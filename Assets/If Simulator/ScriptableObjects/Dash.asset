@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1700e54995614abbae3defeec3f133c9, type: 3}
-  m_Name: Shockwave
+  m_Name: Dash
   m_EditorClassIdentifier: 
-  _name: Wave
-  _description: area damage
+  _name: Dash
+  _description: 'I''M TRAVELLING AT THE SPEED OF LIGHT '
   _icon: {fileID: 0}
   _maxLevel: 3
-  _damage: 15
-  _range: 3
-  _cooldown: 5
+  _damage: 0
+  _range: 0
+  _cooldown: 0.5
   _isHoldable: 0
   _delay: 0
-  _abilityDuration: 7
+  _abilityDuration: 0.2
