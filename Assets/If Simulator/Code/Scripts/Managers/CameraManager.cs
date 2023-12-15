@@ -12,7 +12,17 @@ public class CameraManager : InGameManager
 
     private Camera _mainCamera;
     public Camera MainCamera => _mainCamera;
-    
+
+
+    private void OnEnable()
+    {
+        _currentPlayerSo.OnPlayerLoaded += AddPlayerAsTarget;
+    }
+
+    private void OnDisable()
+    {
+        _currentPlayerSo.OnPlayerLoaded -= AddPlayerAsTarget;
+    }
 
     protected override void OnContextInitialized(GameModeStartMode mode)
     {
@@ -23,12 +33,10 @@ public class CameraManager : InGameManager
 
     protected override void OnContextStarted(GameModeStartMode mode)
     {
-        _currentPlayerSo.OnPlayerLoaded += AddPlayerAsTarget;
     }
 
     protected override void OnContextQuit(GameModeQuitMode mode)
     {
-        _currentPlayerSo.OnPlayerLoaded -= AddPlayerAsTarget;
     }
     
     private void AddPlayerAsTarget()
