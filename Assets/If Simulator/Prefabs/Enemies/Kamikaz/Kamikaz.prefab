@@ -124,7 +124,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -274,9 +274,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _explosionDuration: 1
+  _enemy: {fileID: 3758894104440636533}
   _sprite: {fileID: 4382358356406130700}
   _collider: {fileID: 5661901254895042289}
-  _chaseState: {fileID: 4586797308806031170}
   _SAPAgent: {fileID: 5557827651850121821}
   _attackEvent: {fileID: 8919522550655574771}
 --- !u!114 &3758894104440636533
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 6390606446443538482}
   - component: {fileID: 1373142475341139452}
   - component: {fileID: 8919522550655574771}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 3028581564904495866}
   - component: {fileID: 1550068659038415781}
   - component: {fileID: 5839639195492332}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: ChaseRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}

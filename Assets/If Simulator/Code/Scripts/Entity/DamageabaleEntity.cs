@@ -32,4 +32,9 @@ public class DamageabaleEntity : MonoBehaviour, IDamageable
         OnDeath?.Invoke();
         Destroy(gameObject);
     }
+    
+    public void Kill()
+    {
+        Die();
+    }
 }
