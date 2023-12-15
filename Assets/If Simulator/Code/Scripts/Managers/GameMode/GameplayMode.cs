@@ -31,6 +31,7 @@ namespace GameMode
             yield return OnLoad(GameModeStartMode.Start);
 
             _state = GameModeState.Started;
+            App.InputManager.SwitchMode(InputManager.InputMode.Gameplay);
         }
 
         public IEnumerator OnStartEditor()

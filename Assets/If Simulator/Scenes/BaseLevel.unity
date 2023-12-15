@@ -2745,7 +2745,7 @@ MonoBehaviour:
     ShowGridParameters: 0
     ShowPathfindingSettings: 0
     ShowGridGraphSettigs: 0
-    ScaleLvl: 2
+    ScaleLvl: 1
   EditorSettings: {fileID: 11400000, guid: f54fe2e0866d59148bb49fcb7b6fd41b, type: 2}
   grids:
   - GridName: Default Grid 0
@@ -4035,6 +4035,10 @@ PrefabInstance:
       propertyPath: _targetGroup
       value: 
       objectReference: {fileID: 1564715311}
+    - target: {fileID: 890092921793073788, guid: 5acf1feb0ac87c34f8885801de6f0f97, type: 3}
+      propertyPath: _currentCamera
+      value: 
+      objectReference: {fileID: 974814647}
     - target: {fileID: 5566196646264193762, guid: 5acf1feb0ac87c34f8885801de6f0f97, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -38,12 +38,12 @@ Physics2DSettings:
     m_IslandSolverJointCostScale: 10
     m_IslandSolverBodiesPerJob: 50
     m_IslandSolverContactsPerJob: 50
-  m_SimulationMode: 1
+  m_SimulationMode: 0
   m_SimulationLayers:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxSubStepCount: 4
-  m_MinSubStepFPS: 30
+  m_MinSubStepFPS: 50
   m_UseSubStepping: 0
   m_UseSubStepContacts: 0
   m_QueriesHitTriggers: 1
