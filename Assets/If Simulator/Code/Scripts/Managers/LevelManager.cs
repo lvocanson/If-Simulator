@@ -16,7 +16,8 @@ public class LevelManager : InGameManager
 
     protected override void OnContextInitialized(GameModeStartMode mode)
     {
-        _currentLevel.Initialize();
+        if (_currentLevel)
+            _currentLevel.Initialize();
     }
 
     protected override void OnContextStarted(GameModeStartMode mode)

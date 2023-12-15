@@ -2,39 +2,68 @@
 
 namespace Ability
 {
-    public class ShockWaveBehavior : AbilityActive
+    public class ShockWaveBehavior : MonoBehaviour
     {
-        [Header("References")]
-        [SerializeField] private GameObject _swPrefab;
-        [SerializeField] private Transform _spawnPoint;
-        
+        [Header("Settings")]
         private float _timer;
         [SerializeField] private AnimationCurve _evolutionCurve;
         [SerializeField] private float _maxSize;
+        [SerializeField] private float _enemyPushBackForce;
         
-        private GameObject _swInstance;
-
-        private void OnTriggerEnter(Collider other)
+        private float _damage;
+        
+        [Header("Layer Management")]
+        [SerializeField] private LayerMask _layers; //proj layer
+        [SerializeField] private LayerMask _damageableEntityLayers; // enemy layer
+        
+        [Header("References")]
+        [SerializeField] private SpriteRenderer _spriteRenderer;
+        
+        private void OnTriggerEnter2D(Collider2D other)
         {
+            int otherLayer = other.gameObject.layer;
             
+            // Skip unwanted layers
+            bool isBullet = ((1 << otherLayer) & _layers.value) == 0;
+            bool isDamageableEntity = ((1 << otherLayer) & _damageableEntityLayers.value) == 0;
+            if (isBullet is false && isDamageableEntity is false) return;
+            
+            // Get the binary value of the layer
+            int otherLayerMask = 1 << otherLayer;
+            
+            // Destroy enemies' bullets
+            if (otherLayerMask == _layers.value && other.CompareTag("Player") is false)
+                Destroy(other.gameObject);
+            
+            // Push back enemies and damage them
+            else if (otherLayerMask == _damageableEntityLayers.value)
+            {
+                if (other.TryGetComponent(out Rigidbody2D rb) is false || other.TryGetComponent(out IDamageable damageable) is false) return;
+                
+                // Push back
+                Vector2 dir = (other.transform.position - transform.position).normalized;
+                rb.AddForce(dir * _enemyPushBackForce, ForceMode2D.Impulse);
+                
+                // Damage
+                damageable.Damage(_damage);
+            }
         }
-        
-        protected override void OnEffectStart()
+
+        public void Init(float damage)
         {
-            _swInstance = Instantiate(_swPrefab, _spawnPoint.position, Quaternion.identity);
             _timer = 0;
+            _damage = damage;
         }
 
-        protected override void OnEffectUpdate()
+        public void OnUpdate(float duration)
         {
-            _timer += Time.fixedDeltaTime / _abilitySo.AbilityDuration;
+            _timer += Time.fixedDeltaTime / duration;
             float power = _evolutionCurve.Evaluate(_timer);
-            _swInstance.transform.localScale = Vector3.one * (power * _maxSize);
-        }
-
-        protected override void OnEffectEnd()
-        {
-            Destroy(_swInstance);
+            
+            _spriteRenderer.color = new Color(0.5f, 0.5f, 0.9f, 1 - power );
+            transform.localScale = Vector3.one * (power * _maxSize);
+            
+            //_collider.radius = power * _maxSize;
         }
     }
 }

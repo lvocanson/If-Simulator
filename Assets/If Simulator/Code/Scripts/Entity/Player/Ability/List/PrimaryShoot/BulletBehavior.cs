@@ -44,7 +44,6 @@ namespace Ability
         
         public event Action OnDestroy;
         public event Action OnHit;
-
         
         private void Start()
         {
