@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: aee5e8156587628bf980b60dd6c19710
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 218574
+  packageName: RiderFlow
+  packageVersion: 2023.1
+  assetPath: Assets/Plugins/Editor/JetBrains.RiderFlow/2020.2/JetBrains.Frontend.2020.2.asmdef
+  uploadId: 565615

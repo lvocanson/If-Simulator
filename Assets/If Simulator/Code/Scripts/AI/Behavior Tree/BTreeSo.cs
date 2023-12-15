@@ -9,7 +9,7 @@ namespace BehaviorTree
     public class BTreeSo : ScriptableObject
     {
         [field: SerializeField, HideInInspector]
-        public RootNode Root { get; set; }
+        public RootNodeSo Root { get; set; }
 
         /// <summary>
         /// The tree's blackboard.
@@ -27,7 +27,7 @@ namespace BehaviorTree
         public BTreeSo Clone()
         {
             BTreeSo clone = Instantiate(this);
-            clone.Root = (RootNode)Root.DeepInitialize(clone.Blackboard);
+            clone.Root = (RootNodeSo)Root.DeepInitialize(clone.Blackboard);
             return clone;
         }
 

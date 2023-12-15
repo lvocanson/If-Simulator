@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 436bc0f096be0d34ba379a789d03ec45
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109184
+  packageName: SAP2D Beta
+  packageVersion: 1.1.1
+  assetPath: Assets/SAP2D/Resources/Main/System/SAP2DAgent.cs
+  uploadId: 342305

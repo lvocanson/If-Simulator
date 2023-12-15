@@ -44,7 +44,7 @@ namespace BehaviorTree
 
             if (_tree.Root == null)
             {
-                _tree.Root = ScriptableObject.CreateInstance<RootNode>();
+                _tree.Root = ScriptableObject.CreateInstance<RootNodeSo>();
                 _tree.Root.name = "Root";
                 _tree.Root.hideFlags = HideFlags.HideInHierarchy;
                 AssetDatabase.AddObjectToAsset(_tree.Root, _tree);

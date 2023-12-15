@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c221962c990f4fb4db23fbfb510aed22
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109184
+  packageName: SAP2D Beta
+  packageVersion: 1.1.1
+  assetPath: Assets/SAP2D/Resources/Main/ChangeLog.txt
+  uploadId: 342305

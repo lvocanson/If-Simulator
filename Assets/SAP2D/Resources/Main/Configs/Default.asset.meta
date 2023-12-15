@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b326ffdf8cda603499980307d04a352b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109184
+  packageName: SAP2D Beta
+  packageVersion: 1.1.1
+  assetPath: Assets/SAP2D/Resources/Main/Configs/Default.asset
+  uploadId: 342305

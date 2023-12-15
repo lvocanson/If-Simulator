@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 013079affae5ba24bad744f569696fab
+timeCreated: 1522862713
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109184
+  packageName: SAP2D Beta
+  packageVersion: 1.1.1
+  assetPath: Assets/SAP2D/Resources/Main/Prefabs/Agent.prefab
+  uploadId: 342305

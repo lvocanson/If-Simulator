@@ -38,7 +38,7 @@ namespace BehaviorTree
                     InputPort = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Multi, typeof(bool));
                     OutputPort = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
                     break;
-                case RootNode:
+                case RootNodeSo:
                     AddToClassList("root");
                     OutputPort = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
                     break;
@@ -85,7 +85,7 @@ namespace BehaviorTree
             {
                 decorator.Child = child.Node;
             }
-            else if (Node is RootNode root)
+            else if (Node is RootNodeSo root)
             {
                 root.Child = child.Node;
             }
@@ -101,7 +101,7 @@ namespace BehaviorTree
             {
                 decorator.Child = null;
             }
-            else if (Node is RootNode root)
+            else if (Node is RootNodeSo root)
             {
                 root.Child = null;
             }
@@ -122,7 +122,7 @@ namespace BehaviorTree
                     return new NodeSo[0];
                 return new[] { decorator.Child };
             }
-            if (Node is RootNode root)
+            if (Node is RootNodeSo root)
             {
                 if (root.Child == null)
                     return new NodeSo[0];
