@@ -55,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -193,14 +193,18 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      crosshair152_0: 5175479273531418470
+      crosshair152_1: 2017434932790924440
+      crosshair152_2: 5282572185642459062
+      crosshair152_3: -6018737487870254737
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
