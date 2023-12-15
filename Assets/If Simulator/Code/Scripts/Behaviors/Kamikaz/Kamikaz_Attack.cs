@@ -1,14 +1,8 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ability;
 using UnityEngine;
 using FiniteStateMachine;
-using NaughtyAttributes;
 using SAP2D;
 using UnityEngine.Serialization;
-using Debug = UnityEngine.Debug;
 
 public class Kamikaz_Attack : BaseState
 {
