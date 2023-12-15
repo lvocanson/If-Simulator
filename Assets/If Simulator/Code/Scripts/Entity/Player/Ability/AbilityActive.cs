@@ -31,7 +31,7 @@ namespace Ability
 
         private float GetActiveCooldown()
         {
-            return _abilitySo.IsHoldable is true ? _abilitySo.Delay : _abilitySo.ActiveTime;
+            return _abilitySo.IsHoldable is true ? _abilitySo.Delay : _abilitySo.AbilityDuration;
         }
 
         // Called when the ability is activated (corresponding key pressed)
@@ -54,7 +54,6 @@ namespace Ability
                 while (true)
                 {
                     OnEffectStart();
-
                     yield return new WaitForSeconds(CurActiveCooldown);
                     
                     // If the ability is not holdable, end it

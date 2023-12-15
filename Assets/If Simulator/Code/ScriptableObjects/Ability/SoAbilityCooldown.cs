@@ -11,14 +11,14 @@ namespace Ability
         public bool IsHoldable => _isHoldable;
         
         public float Delay => _delay;
-        public float ActiveTime => _activeTime;
+        public float AbilityDuration => _abilityDuration;
         
         [Header("Ability cooldown")]
         [SerializeField] private float _cooldown;
         [SerializeField] private bool _isHoldable;
         
         [SerializeField, ShowIf("IsHoldable")] private float _delay;
-        [SerializeField, HideIf("IsHoldable")] private float _activeTime;
+        [SerializeField, HideIf("IsHoldable")] private float _abilityDuration;
     }
     
     public static class AnimationCurveExtension

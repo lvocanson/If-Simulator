@@ -59,17 +59,12 @@ public class PlayerAttackManager : MonoBehaviour
 
     private void OnFirstSpellAction(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            _firstSpellAbilityBase.TryActivate();
-        }
+        _firstSpellAbilityBase.TryActivate();
+        Debug.Log("First spell");
     }
 
     private void OnSecondSpellAction(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            _secondSpellAbilityBase.TryActivate();
-        }
+        _secondSpellAbilityBase.TryActivate();
     }
 }

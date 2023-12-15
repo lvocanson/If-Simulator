@@ -2,13 +2,13 @@
 
 namespace Ability
 {
-    public class ChockWaveBehavior : AbilityActive
+    public class ShockWaveBehavior : AbilityActive
     {
         [Header("References")]
         [SerializeField] private GameObject _swPrefab;
         [SerializeField] private Transform _spawnPoint;
         
-        private float _start;
+        private float _timer;
         [SerializeField] private AnimationCurve _evolutionCurve;
         [SerializeField] private float _maxSize;
         
@@ -22,14 +22,14 @@ namespace Ability
         protected override void OnEffectStart()
         {
             _swInstance = Instantiate(_swPrefab, _spawnPoint.position, Quaternion.identity);
-            _start = Time.time;
+            _timer = 0;
         }
 
         protected override void OnEffectUpdate()
         {
-            float time = Time.time - _start;
-            float evolutionOverTime = _evolutionCurve.Evaluate(time);
-            _swInstance.transform.localScale = Vector3.one * (evolutionOverTime * _maxSize);
+            _timer += Time.fixedDeltaTime / _abilitySo.AbilityDuration;
+            float power = _evolutionCurve.Evaluate(_timer);
+            _swInstance.transform.localScale = Vector3.one * (power * _maxSize);
         }
 
         protected override void OnEffectEnd()

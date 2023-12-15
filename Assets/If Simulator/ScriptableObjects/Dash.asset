@@ -21,4 +21,4 @@ MonoBehaviour:
   _cooldown: 0.5
   _isHoldable: 0
   _delay: 0
-  _activeTime: 0.4
+  _abilityDuration: 0.2
