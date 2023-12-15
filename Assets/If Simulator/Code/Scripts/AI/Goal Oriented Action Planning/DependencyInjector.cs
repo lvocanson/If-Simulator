@@ -2,7 +2,6 @@ using CrashKonijn.Goap.Behaviours;
 using CrashKonijn.Goap.Classes;
 using CrashKonijn.Goap.Interfaces;
 using IfSimulator.GOAP.Config;
-using System;
 
 namespace IfSimulator.GOAP
 {

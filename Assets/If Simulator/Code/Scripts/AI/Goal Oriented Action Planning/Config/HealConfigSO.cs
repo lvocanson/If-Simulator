@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HealConfigSO : MonoBehaviour
+namespace IfSimulator.GOAP.Config
 {
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(menuName ="AI/Heal Config", fileName ="Heal Config", order = 1)]
+    public class HealConfigSO : ScriptableObject
     {
-        
-    }
+        public float SensorHealRadius = 10f;
+        public float HealRadius = 2f;
+        public int HealCost = 1;
+        public float HealDelay = 1f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public LayerMask HealableLayerMask;    
     }
 }

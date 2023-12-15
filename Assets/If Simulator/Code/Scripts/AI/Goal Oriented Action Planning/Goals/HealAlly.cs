@@ -1,18 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using CrashKonijn.Goap.Behaviours;
 
-public class HealAlly : MonoBehaviour
+namespace IfSimulator.GOAP.Goals
 {
-    // Start is called before the first frame update
-    void Start()
+    public class HealAlly : GoalBase
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
