@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1700e54995614abbae3defeec3f133c9, type: 3}
   m_Name: PrimaryShoot
   m_EditorClassIdentifier: 
-  _name: 
-  _description: 
+  _name: M4
+  _description: piou piou
   _icon: {fileID: 0}
   _maxLevel: 1
   _damage: 10
-  _range: 0
-  _isHoldable: 1
+  _range: 15
   _cooldown: 0
-  _activeCooldown: 0.1
+  _isHoldable: 1
+  _delay: 0.1
+  _abilityDuration: 0
