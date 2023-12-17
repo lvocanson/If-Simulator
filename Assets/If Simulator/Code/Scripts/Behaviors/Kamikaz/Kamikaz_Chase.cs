@@ -52,7 +52,7 @@ public class Kamikaz_Chase : BaseState
 
     private void OnDisable()
     {
-        _chaseColEvent.OnEnter -= ExitOnChaseRange;
+        _chaseColEvent.OnExit -= ExitOnChaseRange;
         _attackColEvent.OnEnter -= EnterOnAttackRange;
     }
 }

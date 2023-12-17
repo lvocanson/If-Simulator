@@ -1,14 +1,8 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ability;
 using UnityEngine;
 using FiniteStateMachine;
-using NaughtyAttributes;
 using SAP2D;
 using UnityEngine.Serialization;
-using Debug = UnityEngine.Debug;
 
 public class Kamikaz_Attack : BaseState
 {
@@ -20,16 +14,13 @@ public class Kamikaz_Attack : BaseState
     [SerializeField] private float _explosionRadius = 5f;
     [SerializeField] private AnimationCurve _explosionCurve;
     [SerializeField] private float _explosionDuration = 1f;
-
+    [SerializeField] private Enemy _enemy;
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private Collider2D _collider;
     
     [Header("State Machine")]
-    [SerializeField] private BaseState _chaseState;
     [SerializeField] private SAP2DAgent _SAPAgent;
     
-    [Header("Event")]
-    [SerializeField] private PhysicsEvents _attackEvent;
 
     private Coroutine _attackCoroutine;
     private GameObject _explosionInstance;
@@ -38,7 +29,6 @@ public class Kamikaz_Attack : BaseState
 
     private void OnEnable()
     {
-        _attackEvent.OnExit += ExitAttackRange;
         _SAPAgent.CanMove = false;
         _SAPAgent.CanSearch = false;
         
@@ -59,6 +49,7 @@ public class Kamikaz_Attack : BaseState
         _sprite.enabled = false;
         _collider.enabled = false;
         
+        // TODO : Move this to the explosion prefab script
         yield return Explode(); 
         IEnumerator Explode()
         {
@@ -71,29 +62,29 @@ public class Kamikaz_Attack : BaseState
                 yield return new WaitForFixedUpdate(); 
             }
         }
-        Destroy(_explosionInstance);
-        Destroy(gameObject);
+        
+        _enemy.Kill();
     }
-    
-    
-
-    private void ExitAttackRange(Collider2D obj)
-    {
-        if (obj.CompareTag("Player"))
-            Manager.ChangeState(_chaseState);
-    }    
     
 
     private void OnDisable()
     {
-        _attackEvent.OnExit -= ExitAttackRange;
         _SAPAgent.CanMove = true;
         _SAPAgent.CanSearch = true;
+        
         if (_attackCoroutine != null)
         {
             StopCoroutine(_attackCoroutine);
             _attackCoroutine = null;
         }
     }
-    
+
+    private void OnDestroy()
+    {
+        if (_attackCoroutine != null)
+        {
+            StopCoroutine(_attackCoroutine);
+            _attackCoroutine = null;
+        }
+    }
 }
