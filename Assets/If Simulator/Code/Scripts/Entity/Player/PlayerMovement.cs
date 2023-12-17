@@ -57,14 +57,14 @@ public class PlayerMovement : MonoBehaviour
                 float lastSign = Mathf.Sign(_rigidbody2D.velocity.x);
                 float newX = Mathf.Max(Mathf.Abs(_rigidbody2D.velocity.x) - drag * maxSpeed * Time.fixedDeltaTime, scaledMaxSpeed) * lastSign; // clamp vel to max ground speed
 
-                _rigidbody2D.velocity.Set(newX, _rigidbody2D.velocity.y);
+                _rigidbody2D.velocity = new(newX, _rigidbody2D.velocity.y);
             }
             else // clamped accel
             {
                 float lastSign = Mathf.Sign(_rigidbody2D.velocity.x + addedVelocity);
                 float newX = Mathf.Min(Mathf.Abs(_rigidbody2D.velocity.x + addedVelocity), scaledMaxSpeed) * lastSign; // clamp vel to max ground speed
 
-                _rigidbody2D.velocity.Set(newX, _rigidbody2D.velocity.y);
+                _rigidbody2D.velocity = new(newX, _rigidbody2D.velocity.y);
             }
         }
         else // deceleration
@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
             float lastSign = Mathf.Sign(_rigidbody2D.velocity.x);
             float newX = Mathf.Max(0, Mathf.Abs(_rigidbody2D.velocity.x) - deceleration * maxSpeed * Time.fixedDeltaTime) * lastSign; // clamp vel to 0
 
-            _rigidbody2D.velocity.Set(newX, _rigidbody2D.velocity.y);
+            _rigidbody2D.velocity = new(newX, _rigidbody2D.velocity.y);
         }
     }
 
@@ -91,14 +91,14 @@ public class PlayerMovement : MonoBehaviour
                 float lastSign = Mathf.Sign(_rigidbody2D.velocity.y);
                 float newY = Mathf.Max(Mathf.Abs(_rigidbody2D.velocity.y) - drag * maxSpeed * Time.fixedDeltaTime, scaledMaxSpeed) * lastSign; // clamp vel to max ground speed
 
-                _rigidbody2D.velocity.Set(_rigidbody2D.velocity.x, newY);
+                _rigidbody2D.velocity = new(_rigidbody2D.velocity.x, newY);
             }
             else // clamped accel
             {
                 float lastSign = Mathf.Sign(_rigidbody2D.velocity.y + addedVelocity);
                 float newY = Mathf.Min(Mathf.Abs(_rigidbody2D.velocity.y + addedVelocity), scaledMaxSpeed) * lastSign; // clamp vel to max ground speed
 
-                _rigidbody2D.velocity.Set(_rigidbody2D.velocity.x, newY);
+                _rigidbody2D.velocity = new(_rigidbody2D.velocity.x, newY);
             }
         }
         else // deceleration
@@ -106,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
             float lastSign = Mathf.Sign(_rigidbody2D.velocity.y);
             float newY = Mathf.Max(0, Mathf.Abs(_rigidbody2D.velocity.y) - deceleration * maxSpeed * Time.fixedDeltaTime) * lastSign; // clamp vel to 0
 
-            _rigidbody2D.velocity.Set(_rigidbody2D.velocity.x, newY);
+            _rigidbody2D.velocity = new(_rigidbody2D.velocity.x, newY);
         }
     }
 
