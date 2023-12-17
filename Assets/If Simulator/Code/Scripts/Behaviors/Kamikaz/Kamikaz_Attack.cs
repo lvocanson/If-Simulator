@@ -7,8 +7,6 @@ public class Kamikaz_Attack : BaseState
 {
     [Header("References")]
     [SerializeField] private Enemy _enemy;
-    [SerializeField] private SpriteRenderer _sprite;
-    [SerializeField] private Collider2D _collider;
     
     [Header("Data")]
     [SerializeField] private float _explosionDelay = 2f;
@@ -26,18 +24,14 @@ public class Kamikaz_Attack : BaseState
         _SAPAgent.CanMove = false;
         _SAPAgent.CanSearch = false;
         
-        StartCoroutine(Attack());
+        StartCoroutine(ExplodeHimself());
     }
 
-    private IEnumerator Attack()
+    private IEnumerator ExplodeHimself()
     {
         yield return new WaitForSeconds(_explosionDelay);
         
         Instantiate(_explosionPrefab, transform.position, Quaternion.identity).GetComponent<ExplosionBehavior>().StartExplosion(gameObject.layer);
-        
-        //Disable Renderer & Collider
-        _sprite.enabled = false;
-        _collider.enabled = false;
         
         _enemy.Kill();
     }
