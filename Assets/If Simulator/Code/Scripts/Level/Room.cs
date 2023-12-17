@@ -10,17 +10,17 @@ public class Room : MonoBehaviour
         Basic,
         KillAllEnemies,
     }
-    
+
     [Header("References")]
     [SerializeField] private List<Enemy> _allEnemies;
     [SerializeField] private List<RoomDoor> _doors;
-    
+
     [Header("Room Settings")]
     [SerializeField] private RoomType _roomType = RoomType.Basic;
-    
+
     [Header("Events")]
     [SerializeField] private PhysicsEvents _enteredRoomTrigger;
-    
+
     [Header("Debug")]
     [ShowNonSerializedField] private bool _isCleared = false;
     [ShowNonSerializedField] private bool _isActivated = false;
@@ -28,7 +28,6 @@ public class Room : MonoBehaviour
     [ShowNonSerializedField] private int _totalEnemies = 0;
 
     public event Action OnRoomCleared;
-
 
     private void OnEnable()
     {
@@ -45,23 +44,23 @@ public class Room : MonoBehaviour
     public void Initialize()
     {
         if (_roomType is RoomType.Basic) _isCleared = true;
-        
+
         foreach (var door in _doors)
         {
             door.Initialize();
         }
-        
+
         foreach (var enemy in _allEnemies)
         {
             if (!enemy) continue;
-            
+
             enemy.OnDeath += OnEnemyKilled;
             _enemiesAlive++;
         }
-        
+
         _totalEnemies = _enemiesAlive;
     }
-    
+
     private void OnRoomEnter(Collider2D other)
     {
         if (_isCleared || _isActivated || !other.CompareTag("Player")) return;
@@ -77,12 +76,12 @@ public class Room : MonoBehaviour
                 break;
         }
     }
-    
+
     private void OnRoomExit(Collider2D other)
     {
         if (_isCleared || _isActivated || !other.CompareTag("Player")) return;
         if (!other.GetComponent<Player>()) return;
-            
+
         switch (_roomType)
         {
             case RoomType.Basic:
@@ -91,13 +90,13 @@ public class Room : MonoBehaviour
                 break;
         }
     }
-    
+
     private void ActivateRoom()
     {
         Debug.Log("Room is activated");
-        
+
         _isActivated = true;
-        
+
         switch (_roomType)
         {
             case RoomType.Basic:
@@ -119,16 +118,16 @@ public class Room : MonoBehaviour
             door.LockDoor();
         }
     }
-    
+
     private void RoomCleared()
     {
         Debug.Log("Room Cleared");
-        
+
         _isCleared = true;
         UnlockRoom();
         OnRoomCleared?.Invoke();
     }
-    
+
     private void UnlockRoom()
     {
         Debug.Log("Room is unlocked");
@@ -138,7 +137,6 @@ public class Room : MonoBehaviour
             door.UnlockDoor();
         }
     }
-
 
     private void OnEnemyKilled()
     {

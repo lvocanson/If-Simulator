@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _drag;
 
     public bool IsControllable { get; set; } = true;
-    
+
     public Vector2 MovementValue => _movementValue;
     [ShowNonSerializedField] private Vector2 _movementValue;
 
@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField, BoxGroup("Inputs")] private InputActionProperty _movementInput;
 
-    
+
     protected void OnEnable()
     {
         _movementInput.action.started += OnMovementAction;
@@ -37,11 +37,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (!IsControllable) return;
-        
+
         ProcessHorizontalMovement(_movementValue.x, _maxSpeed, _acceleration, _deceleration, _drag);
         ProcessVerticalMovement(_movementValue.y, _maxSpeed, _acceleration, _deceleration, _drag);
     }
-    
+
     private void ProcessHorizontalMovement(float xMovementInput, float maxSpeed, float acceleration, float deceleration, float drag)
     {
         float scaledMaxSpeed = maxSpeed * Mathf.Abs(xMovementInput);
@@ -75,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
             _rigidbody2D.velocity = new Vector2(newX, _rigidbody2D.velocity.y);
         }
     }
+
     private void ProcessVerticalMovement(float yMovementInput, float maxSpeed, float acceleration, float deceleration, float drag)
     {
         float scaledMaxSpeed = maxSpeed * Mathf.Abs(yMovementInput);
@@ -109,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    
+
     private void OnMovementAction(InputAction.CallbackContext context)
     {
         _movementValue = context.ReadValue<Vector2>();

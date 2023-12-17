@@ -30,24 +30,24 @@ public class App : MonoBehaviour
         }
     }
     #endregion
-    
+
     public GameModeManager GameMode { get; private set; }
     public BackdropManager Backdrop { get; private set; }
     public PlayerInput Input { get; private set; }
-    
+
     public static InputManager InputManager => Instance._inputManager;
 
     private InputManager _inputManager;
-    
+
     private void Load()
     {
         Random.InitState((int)DateTime.Now.Ticks);
-        
+
         GameMode = GetComponentInChildren<GameModeManager>();
         Backdrop = GetComponentInChildren<BackdropManager>();
         Input = GetComponentInChildren<PlayerInput>();
         _inputManager = GetComponentInChildren<InputManager>();
-        
+
         Application.targetFrameRate = -1;
         QualitySettings.vSyncCount = 0;
     }

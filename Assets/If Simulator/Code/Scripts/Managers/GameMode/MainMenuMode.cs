@@ -35,7 +35,7 @@ namespace GameMode
         {
             yield return null;
             _mainScene = SceneManager.GetActiveScene().name;
-            
+
             foreach (var scene in otherScene)
             {
                 yield return SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
@@ -81,7 +81,7 @@ namespace GameMode
             _state = GameModeState.Ending;
 
             yield return UnLoadAllSceneAsync();
-            
+
             _state = GameModeState.Ended;
         }
 
@@ -102,7 +102,6 @@ namespace GameMode
         public void StartContext()
         {
             Time.timeScale = 1f;
-            //throw new NotImplementedException();
         }
     }
 }

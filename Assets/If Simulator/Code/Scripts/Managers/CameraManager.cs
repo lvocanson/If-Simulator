@@ -7,12 +7,11 @@ public class CameraManager : InGameManager
 {
     [SerializeField] private CinemachineVirtualCamera _currentCamera;
     [SerializeField] private CinemachineTargetGroup _targetGroup;
-    
+
     [SerializeField] private CurrentPlayerSo _currentPlayerSo;
 
     private Camera _mainCamera;
     public Camera MainCamera => _mainCamera;
-
 
     private void OnEnable()
     {
@@ -51,12 +50,12 @@ public class CameraManager : InGameManager
             _currentCamera.Follow = _currentPlayerSo.Player.transform;
         }
     }
-    
+
     public void AddTarget(Transform target, float weight, float radius)
     {
         _targetGroup.AddMember(target, weight, radius);
     }
-    
+
     public void RemoveTarget(Transform target)
     {
         _targetGroup.RemoveMember(target);

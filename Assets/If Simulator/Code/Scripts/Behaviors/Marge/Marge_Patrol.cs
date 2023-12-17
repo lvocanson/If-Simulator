@@ -9,21 +9,20 @@ public class Marge_Patrol : BaseState
     [SerializeField] private Marge_Chase _chase;
     [SerializeField] private Transform[] _waypoints;
     [SerializeField] private SAP2DAgent _SAPAgent;
-    
+
     [Header("Data")]
     [SerializeField] private float _speed = 1f;
-    
+
     [Header("Debug")]
     [ShowNonSerializedField] private int _index = 0;
 
     [Header("Event")]
     [SerializeField] private PhysicsEvents _chaseColEvent;
-    
 
     private void OnEnable()
     {
         _chaseColEvent.OnEnter += EnterOnChaseRange;
-        
+
         _SAPAgent.Target = _waypoints[_index];
         _SAPAgent.MovementSpeed = _speed;
     }
@@ -39,8 +38,7 @@ public class Marge_Patrol : BaseState
 
     private void Update()
     {
-        //Changement de waypoint
-        if(Vector3.Distance(transform.position, _waypoints[_index].position) < .5f)
+        if (Vector3.Distance(transform.position, _waypoints[_index].position) < .5f)
         {
             _index++;
             if (_index >= _waypoints.Length)
@@ -49,6 +47,7 @@ public class Marge_Patrol : BaseState
             _SAPAgent.Target = _waypoints[_index];
         }
     }
+
     private void OnDisable()
     {
         _chaseColEvent.OnEnter -= EnterOnChaseRange;

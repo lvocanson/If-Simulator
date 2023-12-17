@@ -11,37 +11,37 @@ public class Marge_Attack : BaseState
     [SerializeField] GameObject _bulletPrefab;
     [SerializeField] private CircleCollider2D _attackCol;
     [SerializeField] private SAP2DAgent _SAPAgent;
-    
+
     [Header("State Machine")]
     [SerializeField] private Marge_Chase _chaseState;
-    
+
     [Header("Data")]
     [SerializeField] private float _attackRange = 2;
     [SerializeField] private float _attackDelay = 2f;
-    
+
     [Header("Bullet Data")]
-    
+
     [Header("Event")]
     [SerializeField] private PhysicsEvents _attackEvent;
-    
+
     [Header("Debug")]
     [ShowNonSerializedField] private Transform _target;
 
     private Coroutine _attackCoroutine;
-    
+
     public void SetTarget(Transform target) => _target = target;
-    
+
     private void Awake()
     {
         _attackCol.radius = _attackRange;
     }
-    
+
     private void OnEnable()
     {
         _attackEvent.OnExit += ExitAttackRange;
         _SAPAgent.CanMove = false;
         _SAPAgent.CanSearch = false;
-        
+
         _attackCoroutine ??= StartCoroutine(Attack());
     }
 
@@ -49,15 +49,16 @@ public class Marge_Attack : BaseState
     {
         if (obj.CompareTag("Player"))
             Manager.ChangeState(_chaseState);
-    }    
+    }
 
     private void MargeShoot()
     {
         Vector3 direction = _target.transform.position - transform.position;
         BulletBehavior bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity)
             .GetComponent<BulletBehavior>();
-        bullet.Initialize(gameObject.layer ,direction);
+        bullet.Initialize(gameObject.layer, direction);
     }
+
     private IEnumerator Attack()
     {
         while (true)
@@ -72,12 +73,12 @@ public class Marge_Attack : BaseState
         _attackEvent.OnExit -= ExitAttackRange;
         _SAPAgent.CanMove = true;
         _SAPAgent.CanSearch = true;
-        
+
         if (_attackCoroutine != null)
         {
             StopCoroutine(_attackCoroutine);
             _attackCoroutine = null;
         }
     }
-    
+
 }

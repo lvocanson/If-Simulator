@@ -8,9 +8,9 @@ public class LevelManager : InGameManager
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private Transform _playerSpawnPoint;
     [SerializeField] private CurrentPlayerSo _currentPlayerSo;
-    
+
     private Player _spawnedPlayer;
-    
+
     public Player SpawnedPlayer => _spawnedPlayer;
     public CurrentPlayerSo CurrentPlayerSo => _currentPlayerSo;
 
@@ -28,6 +28,5 @@ public class LevelManager : InGameManager
 
     protected override void OnContextQuit(GameModeQuitMode mode)
     {
-        
     }
 }
