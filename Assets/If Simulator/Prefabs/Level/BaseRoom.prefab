@@ -43,7 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2818904770257274705}
   - component: {fileID: 2013695412124576250}
-  - component: {fileID: 4349527109589809993}
+  - component: {fileID: 7320694346403871252}
   m_Layer: 0
   m_Name: BaseRoom
   m_TagString: Untagged
@@ -82,7 +82,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &4349527109589809993
+--- !u!114 &7320694346403871252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,14 +91,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1432384542949103541}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e001e4366cfc4614fad18facb3ef9d31, type: 3}
+  m_Script: {fileID: 11500000, guid: 0858673ef701417ebb0a307bd3e3bcac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _allEnemies: []
   _doors:
   - {fileID: 1799382461661175786}
   - {fileID: 4129435621929926345}
-  _roomType: 0
   _enteredRoomTrigger: {fileID: 5363121459719170374}
 --- !u!1 &3222685473716187409
 GameObject:

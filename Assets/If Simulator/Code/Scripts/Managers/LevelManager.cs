@@ -1,32 +1,36 @@
+using Game.Level;
 using GameMode;
-using Managers;
 using UnityEngine;
 
-public class LevelManager : InGameManager
+namespace Managers
 {
-    [SerializeField] private Level _currentLevel;
-    [SerializeField] private GameObject _playerPrefab;
-    [SerializeField] private Transform _playerSpawnPoint;
-    [SerializeField] private CurrentPlayerSo _currentPlayerSo;
-
-    private Player _spawnedPlayer;
-
-    public Player SpawnedPlayer => _spawnedPlayer;
-    public CurrentPlayerSo CurrentPlayerSo => _currentPlayerSo;
-
-    protected override void OnContextInitialized(GameModeStartMode mode)
+    public class LevelManager : InGameManager
     {
-        if (_currentLevel)
-            _currentLevel.Initialize();
-    }
+        [SerializeField] private Level _currentLevel;
+        [SerializeField] private GameObject _playerPrefab;
+        [SerializeField] private Transform _playerSpawnPoint;
+        [SerializeField] private CurrentPlayerSo _currentPlayerSo;
 
-    protected override void OnContextStarted(GameModeStartMode mode)
-    {
-        _spawnedPlayer = Instantiate(_playerPrefab, _playerSpawnPoint.position, Quaternion.identity).GetComponentInChildren<Player>();
-        _currentPlayerSo.Load(_spawnedPlayer);
-    }
+        private Player _spawnedPlayer;
 
-    protected override void OnContextQuit(GameModeQuitMode mode)
-    {
+        public Player SpawnedPlayer => _spawnedPlayer;
+        public CurrentPlayerSo CurrentPlayerSo => _currentPlayerSo;
+
+        
+        protected override void OnContextInitialized(GameModeStartMode mode)
+        {
+            if (_currentLevel)
+                _currentLevel.Initialize();
+        }
+
+        protected override void OnContextStarted(GameModeStartMode mode)
+        {
+            _spawnedPlayer = Instantiate(_playerPrefab, _playerSpawnPoint.position, Quaternion.identity).GetComponentInChildren<Player>();
+            _currentPlayerSo.Load(_spawnedPlayer);
+        }
+
+        protected override void OnContextQuit(GameModeQuitMode mode)
+        {
+        }
     }
 }

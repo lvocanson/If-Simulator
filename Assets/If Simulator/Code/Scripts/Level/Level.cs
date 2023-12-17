@@ -1,15 +1,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level : MonoBehaviour
+namespace Game.Level
 {
-    [SerializeField] private List<Room> _rooms;
-
-    public void Initialize()
+    public class Level : MonoBehaviour
     {
-        foreach (var room in _rooms)
+        [SerializeField] private List<Room> _rooms;
+
+        public void Initialize()
         {
-            room.Initialize();
+            if (_rooms.Count == 0)
+            {
+                Debug.LogError("Rooms in this level arn't set");
+                return;
+            }
+        
+            foreach (var room in _rooms)
+            {
+                if (room == null)
+                {
+                    Debug.LogError("Room is null");
+                    continue;
+                }
+            
+                room.InitializeDoors();
+                room.InitializeRoom();
+            }
         }
     }
 }
+
