@@ -2,66 +2,42 @@ using System.Collections;
 using UnityEngine;
 using FiniteStateMachine;
 using SAP2D;
-using UnityEngine.Serialization;
 
 public class Kamikaz_Attack : BaseState
 {
-    [Header("Data")]
-    [SerializeField, Tooltip("The target to move towards")]
-    private Transform _target;
-    [FormerlySerializedAs("_timeToExplode")] [SerializeField] private float _explosionDelay = 2f;
-    [SerializeField] private GameObject _explosionPrefab;
-    [SerializeField] private float _explosionRadius = 5f;
-    [SerializeField] private AnimationCurve _explosionCurve;
-    [SerializeField] private float _explosionDuration = 1f;
+    [Header("References")]
     [SerializeField] private Enemy _enemy;
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private Collider2D _collider;
+    
+    [Header("Data")]
+    [SerializeField] private float _explosionDelay = 2f;
+    [SerializeField] private GameObject _explosionPrefab;
     
     [Header("State Machine")]
     [SerializeField] private SAP2DAgent _SAPAgent;
     
 
-    private Coroutine _attackCoroutine;
-    private GameObject _explosionInstance;
-
-    public void SetTarget(Transform target) => _target = target;
-
+    private ExplosionBehavior _explosionInstance;
+    
+    
     private void OnEnable()
     {
         _SAPAgent.CanMove = false;
         _SAPAgent.CanSearch = false;
         
-        if (_attackCoroutine == null)
-        {
-            _attackCoroutine = StartCoroutine(Attack());
-        }
+        StartCoroutine(Attack());
     }
 
     private IEnumerator Attack()
     {
         yield return new WaitForSeconds(_explosionDelay);
-        //TO DO APPLY DAMAGE TO PLAYER
         
-        _explosionInstance = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+        Instantiate(_explosionPrefab, transform.position, Quaternion.identity).GetComponent<ExplosionBehavior>().StartExplosion(gameObject.layer);
         
         //Disable Renderer & Collider
         _sprite.enabled = false;
         _collider.enabled = false;
-        
-        // TODO : Move this to the explosion prefab script
-        yield return Explode(); 
-        IEnumerator Explode()
-        {
-            float timer = 0;
-            while (timer < 1)
-            {
-                timer += Time.fixedDeltaTime / _explosionDuration;
-                float power = _explosionCurve.Evaluate(timer);
-                _explosionInstance.transform.localScale = Vector3.one * (power * _explosionRadius);
-                yield return new WaitForFixedUpdate(); 
-            }
-        }
         
         _enemy.Kill();
     }
@@ -71,20 +47,5 @@ public class Kamikaz_Attack : BaseState
     {
         _SAPAgent.CanMove = true;
         _SAPAgent.CanSearch = true;
-        
-        if (_attackCoroutine != null)
-        {
-            StopCoroutine(_attackCoroutine);
-            _attackCoroutine = null;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (_attackCoroutine != null)
-        {
-            StopCoroutine(_attackCoroutine);
-            _attackCoroutine = null;
-        }
     }
 }

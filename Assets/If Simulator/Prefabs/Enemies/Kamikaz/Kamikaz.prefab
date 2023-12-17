@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4382358356406130700}
   - component: {fileID: 5661901254895042289}
   - component: {fileID: 5557827651850121821}
-  - component: {fileID: 2986539742469688635}
   - component: {fileID: 5651733788626543141}
   - component: {fileID: 9183220552370722672}
   - component: {fileID: 4586797308806031170}
@@ -169,18 +168,6 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4292990208
   path: []
---- !u!114 &2986539742469688635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7749005207515173894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd58b5e355956e40b14e301de0397f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5651733788626543141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,40 +232,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92b84ed55511f649b15a825e40d54d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _explosionDelay: 2
-  _explosionPrefab: {fileID: 8493438459916198879, guid: b8a6391f3be7bae4da8536b276484e0f, type: 3}
-  _explosionRadius: 5
-  _explosionCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _explosionDuration: 1
   _enemy: {fileID: 3758894104440636533}
   _sprite: {fileID: 4382358356406130700}
   _collider: {fileID: 5661901254895042289}
+  _target: {fileID: 0}
+  _explosionDelay: 2
+  _explosionPrefab: {fileID: 8493438459916198879, guid: b8a6391f3be7bae4da8536b276484e0f, type: 3}
   _SAPAgent: {fileID: 5557827651850121821}
-  _attackEvent: {fileID: 8919522550655574771}
 --- !u!114 &3758894104440636533
 MonoBehaviour:
   m_ObjectHideFlags: 0
