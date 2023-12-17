@@ -40,7 +40,7 @@ namespace Ability
             // Spawn a new bullet at the spawn point (player position)
             GameObject bp = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation, _bulletContainer);
 
-            var bulletBehavior = bp.GetComponent<BulletBehavior>();
+            var bulletBehavior = bp.GetComponent<Projectile>();
             bulletBehavior.Initialize(gameObject.layer, _bulletSpawnPoint.up);
             bulletBehavior.SetDamage(_abilitySo.Damage);
             bulletBehavior.OnDestroy += () => _bulletPool.Release(bp);
