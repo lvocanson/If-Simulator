@@ -6,7 +6,6 @@ public class DamageZoneEnter : MonoBehaviour
     
     private int _ignoreMask;
     
-    
     public void IgnoreLayer(int layer)
     {
         _ignoreMask |= (1 << layer);
@@ -14,8 +13,10 @@ public class DamageZoneEnter : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((_ignoreMask & (1 << collision.gameObject.layer)) > 0) return;
+        if ((_ignoreMask & (1 << collision.gameObject.layer)) > 0)
+            return;
 
-        if (collision.TryGetComponent(out DamageabaleEntity damageabaleEntity)) damageabaleEntity.Damage(_damage);
+        if (collision.TryGetComponent(out DamageabaleEntity damageabaleEntity))
+            damageabaleEntity.Damage(_damage);
     }
 }

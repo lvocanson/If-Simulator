@@ -27,5 +27,5 @@ public class VoidEventListener : MonoBehaviour
     public void OnEventRaised()
     {
         _response.Invoke();
-    }   
+    }
 }

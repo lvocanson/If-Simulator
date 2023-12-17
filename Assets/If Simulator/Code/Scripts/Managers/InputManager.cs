@@ -6,21 +6,20 @@ public class InputManager : MonoBehaviour
 {
     public InputMode CurrentInputMode => _currentInputMode;
     public PlayerInput PlayerInput => _playerInput;
-    
+
     private InputMode _currentInputMode = InputMode.Gameplay;
     private PlayerInput _playerInput;
     private bool _isLocked = false;
-    
+
     public Action<InputMode> OnInputModeChanged;
 
-    
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
 
         SwitchMode(_currentInputMode);
     }
-    
+
     public void SwitchMode(InputMode inputMode)
     {
         string actionMapName = GetInputModeName(inputMode);
@@ -29,7 +28,7 @@ public class InputManager : MonoBehaviour
         OnInputModeChanged?.Invoke(_currentInputMode);
         if (!_isLocked) _playerInput.SwitchCurrentActionMap(actionMapName);
     }
-    
+
     public void Lock()
     {
         _playerInput.DeactivateInput();
@@ -43,7 +42,7 @@ public class InputManager : MonoBehaviour
         _playerInput.SwitchCurrentActionMap(actionMapName);
         _isLocked = false;
     }
-    
+
     private string GetInputModeName(InputMode inputMode)
     {
         return inputMode switch
@@ -53,7 +52,7 @@ public class InputManager : MonoBehaviour
             _ => "",
         };
     }
-    
+
     public enum InputMode
     {
         Gameplay,
