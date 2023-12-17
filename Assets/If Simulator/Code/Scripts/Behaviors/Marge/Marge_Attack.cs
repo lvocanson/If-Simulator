@@ -54,8 +54,8 @@ public class Marge_Attack : BaseState
     private void MargeShoot()
     {
         Vector3 direction = _target.transform.position - transform.position;
-        BulletBehavior bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity)
-            .GetComponent<BulletBehavior>();
+        Projectile bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity)
+            .GetComponent<Projectile>();
         bullet.Initialize(gameObject.layer, direction);
     }
 

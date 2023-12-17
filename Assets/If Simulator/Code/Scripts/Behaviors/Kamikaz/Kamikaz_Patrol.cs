@@ -1,17 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using FiniteStateMachine;
 using NaughtyAttributes;
 using SAP2D;
-using UnityEngine.Serialization;
 
 public class Kamikaz_Patrol : BaseState
 {
-    [SerializeField, Tooltip("The target to move towards")]
-    private Transform _target;
-    
     [Header("State Machine")]
     [SerializeField] private Kamikaz_Chase _chase;
     [SerializeField] private Transform[] _waypoints;

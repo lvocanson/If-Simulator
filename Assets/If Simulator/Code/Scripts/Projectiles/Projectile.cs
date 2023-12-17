@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Ability
 {
-    public class BulletBehavior : MonoBehaviour
+    public class Projectile : MonoBehaviour
     {
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
@@ -110,11 +110,12 @@ namespace Ability
                 yield return null;
             }
 
-            Destroy(gameObject);
+            Death();
         }
         
         private void Death()
         {
+            OnDestroy?.Invoke();
             Destroy(gameObject);
         }
     }
