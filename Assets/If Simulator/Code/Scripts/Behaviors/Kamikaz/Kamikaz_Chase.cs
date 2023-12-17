@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using FiniteStateMachine;
 using SAP2D;
-using UnityEngine.Serialization;
 
 public class Kamikaz_Chase : BaseState
 {
@@ -39,7 +35,6 @@ public class Kamikaz_Chase : BaseState
     {
         if (obj.CompareTag("Player"))
         {
-            _attackState.SetTarget(obj.transform);
             Manager.ChangeState(_attackState);
         }
     }
