@@ -1,63 +1,65 @@
 using Cinemachine;
 using GameMode;
-using Managers;
 using UnityEngine;
 
-public class CameraManager : InGameManager
+namespace Managers
 {
-    [SerializeField] private CinemachineVirtualCamera _currentCamera;
-    [SerializeField] private CinemachineTargetGroup _targetGroup;
-
-    [SerializeField] private CurrentPlayerSo _currentPlayerSo;
-
-    private Camera _mainCamera;
-    public Camera MainCamera => _mainCamera;
-
-    private void OnEnable()
+    public class CameraManager : InGameManager
     {
-        _currentPlayerSo.OnPlayerLoaded += AddPlayerAsTarget;
-    }
-
-    private void OnDisable()
-    {
-        _currentPlayerSo.OnPlayerLoaded -= AddPlayerAsTarget;
-    }
-
-    protected override void OnContextInitialized(GameModeStartMode mode)
-    {
-        _mainCamera = Camera.main;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
-    }
-
-    protected override void OnContextStarted(GameModeStartMode mode)
-    {
-    }
-
-    protected override void OnContextQuit(GameModeQuitMode mode)
-    {
-    }
-
-    private void AddPlayerAsTarget()
-    {
-        if (_targetGroup != null)
+        [SerializeField] private CinemachineVirtualCamera _currentCamera;
+        [SerializeField] private CinemachineTargetGroup _targetGroup;
+    
+        [SerializeField] private CurrentPlayerSo _currentPlayerSo;
+    
+        private Camera _mainCamera;
+        public Camera MainCamera => _mainCamera;
+    
+        private void OnEnable()
         {
-            AddTarget(_currentPlayerSo.Player.transform, 1, 7);
-            AddTarget(_currentPlayerSo.Player.PlayerAim.AimCursor.transform, 0.6f, 1);
+            _currentPlayerSo.OnPlayerLoaded += AddPlayerAsTarget;
         }
-        else
+    
+        private void OnDisable()
         {
-            _currentCamera.Follow = _currentPlayerSo.Player.transform;
+            _currentPlayerSo.OnPlayerLoaded -= AddPlayerAsTarget;
         }
-    }
-
-    public void AddTarget(Transform target, float weight, float radius)
-    {
-        _targetGroup.AddMember(target, weight, radius);
-    }
-
-    public void RemoveTarget(Transform target)
-    {
-        _targetGroup.RemoveMember(target);
+    
+        protected override void OnContextInitialized(GameModeStartMode mode)
+        {
+            _mainCamera = Camera.main;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+    
+        protected override void OnContextStarted(GameModeStartMode mode)
+        {
+        }
+    
+        protected override void OnContextQuit(GameModeQuitMode mode)
+        {
+        }
+    
+        private void AddPlayerAsTarget()
+        {
+            if (_targetGroup != null)
+            {
+                AddTarget(_currentPlayerSo.Player.transform, 1, 7);
+                AddTarget(_currentPlayerSo.Player.PlayerAim.AimCursor.transform, 0.6f, 1);
+            }
+            else
+            {
+                _currentCamera.Follow = _currentPlayerSo.Player.transform;
+            }
+        }
+    
+        public void AddTarget(Transform target, float weight, float radius)
+        {
+            _targetGroup.AddMember(target, weight, radius);
+        }
+    
+        public void RemoveTarget(Transform target)
+        {
+            _targetGroup.RemoveMember(target);
+        }
     }
 }
