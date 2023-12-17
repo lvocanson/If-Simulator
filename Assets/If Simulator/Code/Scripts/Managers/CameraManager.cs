@@ -37,7 +37,7 @@ public class CameraManager : InGameManager
     protected override void OnContextQuit(GameModeQuitMode mode)
     {
     }
-    
+
     private void AddPlayerAsTarget()
     {
         if (_targetGroup != null)

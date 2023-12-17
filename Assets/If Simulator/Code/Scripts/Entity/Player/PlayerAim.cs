@@ -24,11 +24,6 @@ public class PlayerAim : MonoBehaviour
         _aimCursor = Instantiate(_cursorPrefab, transform.position, Quaternion.identity);
     }
 
-    private void Start()
-    {
-        
-    }
-
     private void OnEnable()
     {
         _rotationInput.action.started += OnRotationAction;
@@ -58,8 +53,8 @@ public class PlayerAim : MonoBehaviour
         Vector2 positionOnScreen = _mainCamera.WorldToScreenPoint(transform.position);
 
         float angle = TransformUtility.AngleBetweenTwoPoints(positionOnScreen, _mousePosition);
-        _bodyRigidbody2D.MoveRotation(Quaternion.Euler(new Vector3(0f, 0f, angle)));
 
+        _bodyRigidbody2D.MoveRotation(angle);
     }
 
     private void OnRotationAction(InputAction.CallbackContext context)

@@ -30,16 +30,9 @@ public class Sprinter_Patrol : BaseState
 
         else if (Vector3.Distance(transform.position, _waypoints[_index].position) < .5f)
         {
-            _index++;
-            if (_index >= _waypoints.Length)
-                _index = 0;
-            
+            _index = (_index + 1) % _waypoints.Length;
             _SAPAgent.Target = _waypoints[_index];
         }
-        
-    }
-    private void OnDisable()
-    {
-        
+
     }
 }

@@ -11,15 +11,15 @@ public class App : MonoBehaviour
 
     private void Awake()
     {
-        if (!Instance)
+        if (Instance != null)
         {
-            Instance = this;
-            Load();
-        }
-        else
-        {
+            Debug.LogError("Multiple App instances!");
             Destroy(gameObject);
+            return;
         }
+
+        Instance = this;
+        Load();
     }
 
     private void OnDestroy()

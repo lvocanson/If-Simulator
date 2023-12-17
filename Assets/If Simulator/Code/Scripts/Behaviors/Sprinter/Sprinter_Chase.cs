@@ -31,9 +31,4 @@ public class Sprinter_Chase : BaseState
             Manager.ChangeState(_attackState);
         }
     }
-
-    private void OnDisable()
-    {
-
-    }
 }

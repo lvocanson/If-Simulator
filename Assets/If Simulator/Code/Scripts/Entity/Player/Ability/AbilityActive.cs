@@ -85,7 +85,6 @@ namespace Ability
                     }
                     break;
                 }
-                case AbilityState.READY:
                 default:
                     break;
             }

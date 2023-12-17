@@ -84,9 +84,7 @@ public class Room : MonoBehaviour
 
         switch (_roomType)
         {
-            case RoomType.Basic:
-                break;
-            case RoomType.KillAllEnemies:
+            default:
                 break;
         }
     }
@@ -99,12 +97,11 @@ public class Room : MonoBehaviour
 
         switch (_roomType)
         {
-            case RoomType.Basic:
-                break;
-            case RoomType.KillAllEnemies:
 
+            case RoomType.KillAllEnemies:
                 LockRoom();
-                
+                break;
+            default:
                 break;
         }
     }
@@ -140,11 +137,9 @@ public class Room : MonoBehaviour
 
     private void OnEnemyKilled()
     {
-        _enemiesAlive--;
+        if (--_enemiesAlive == 0)
+            RoomCleared();
+
         Debug.Log("Enemy killed: " + _enemiesAlive + " enemies left");
-
-        if (_enemiesAlive > 0) return;
-
-        RoomCleared();
     }
 }

@@ -58,14 +58,8 @@ public class RoomDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.gameObject.CompareTag("Player") || _currentState is not DoorState.Unlocked) return;
-        
-        OpenDoor();
-    }
-    
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (!other.gameObject.CompareTag("Player") || _currentState is not DoorState.Opened) return;
+        if (other.gameObject.CompareTag("Player") && _currentState == DoorState.Unlocked)
+            OpenDoor();
     }
 
     public void OpenDoor()

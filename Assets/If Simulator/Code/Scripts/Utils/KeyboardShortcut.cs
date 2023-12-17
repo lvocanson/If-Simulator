@@ -3,10 +3,10 @@ using UnityEngine;
 [System.Serializable]
 public class KeyboardShortcut
 {
-    private KeyCode _keyCode;
-    private bool _ctrl;
-    private bool _shift;
-    private bool _alt;
+    private readonly KeyCode _keyCode;
+    private readonly bool _ctrl;
+    private readonly bool _shift;
+    private readonly bool _alt;
 
     public KeyboardShortcut(KeyCode keyCode, bool ctrl = false, bool shift = false, bool alt = false)
     {
