@@ -4,9 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Potion
   - Projectile
   - Enemy
-  - Potion
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX

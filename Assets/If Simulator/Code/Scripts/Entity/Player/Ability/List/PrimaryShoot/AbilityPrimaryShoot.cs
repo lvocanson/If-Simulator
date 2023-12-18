@@ -38,14 +38,13 @@ namespace Ability
         private GameObject CreateBullet()
         {
             // Spawn a new bullet at the spawn point (player position)
-            GameObject bp = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation, _bulletContainer);
+            Projectile bp = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation, _bulletContainer).GetComponent<Projectile>();
 
-            var bulletBehavior = bp.GetComponent<BulletBehavior>();
-            bulletBehavior.Initialize(gameObject.layer, _bulletSpawnPoint.up);
-            bulletBehavior.SetDamage(_abilitySo.Damage);
-            bulletBehavior.OnDestroy += () => _bulletPool.Release(bp);
+            bp.Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
+            bp.SetDamage(_abilitySo.Damage);
+            bp.OnDestroy += () => _bulletPool.Release(bp.gameObject);
 
-            return bp;
+            return bp.gameObject;
         }
 
         private void OnBulletTakeFromPool(GameObject bullet)
@@ -53,6 +52,8 @@ namespace Ability
             bullet.transform.position = _bulletSpawnPoint.position;
             bullet.transform.rotation = _bulletSpawnPoint.rotation;
             bullet.SetActive(true);
+            bullet.GetComponent<Projectile>().Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
+
         }
 
         private void OnBulletReturnToPool(GameObject bullet) => bullet.SetActive(false);

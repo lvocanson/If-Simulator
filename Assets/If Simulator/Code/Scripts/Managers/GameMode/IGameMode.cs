@@ -29,7 +29,7 @@ namespace GameMode
         Restart,
         Retry
     }
-    
+
     public enum GameModeQuitMode
     {
         Restart,

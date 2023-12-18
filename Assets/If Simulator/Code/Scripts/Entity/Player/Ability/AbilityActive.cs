@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
-
 
 namespace Ability
 {
@@ -40,11 +37,11 @@ namespace Ability
         {
             // If the ability is not ready, do nothing
             if (_state != AbilityState.READY) return;
-            
+
             // Mark the ability as active
             _state = AbilityState.ACTIVE;
             CurActiveCooldown = GetActiveCooldown();
-            
+
             _routine = StartCoroutine(Routine());
             return;
 
@@ -55,10 +52,10 @@ namespace Ability
                 {
                     OnEffectStart();
                     yield return new WaitForSeconds(CurActiveCooldown);
-                    
+
                     // If the ability is not holdable, end it
                     if (_abilitySo.IsHoldable is true) continue;
-                    
+
                     End();
                     yield break;
                 }
@@ -88,7 +85,6 @@ namespace Ability
                     }
                     break;
                 }
-                case AbilityState.READY:
                 default:
                     break;
             }
@@ -96,10 +92,10 @@ namespace Ability
 
         // Called once when the click is started
         protected abstract void OnEffectStart();
-        
+
         // Called every frame during the active time
         protected abstract void OnEffectUpdate();
-        
+
         // Called once when the spell ends, the spell will go on cooldown after this method is called
         protected abstract void OnEffectEnd();
 
@@ -107,7 +103,7 @@ namespace Ability
         {
             // Prevent ending the ability if it is already on cooldown
             if (_state == AbilityState.COOLDOWN) return;
-            
+
             // Enter cooldown state
             _state = AbilityState.COOLDOWN;
             _curCooldown = _abilitySo.Cooldown;

@@ -12,12 +12,12 @@ namespace Managers
         [Scene]
         [SerializeField] private string _initialScene;
 
-        [Header("Game Modes")] 
+        [Header("Game Modes")]
         [SerializeField] private GameplayMode _gameplayMode;
         [SerializeField] private MainMenuMode _mainMenuMode;
 
         private IGameMode _currentMode;
-        
+
         private bool _isSwitching;
 
         private void Awake()
@@ -48,7 +48,6 @@ namespace Managers
         {
             StartCoroutine(SwitchMode(_mainMenuMode));
         }
-        
 
         private IEnumerator SwitchMode(IGameMode mode, string mainScene = null)
         {
@@ -66,11 +65,11 @@ namespace Managers
             {
                 App.Instance.Backdrop.SetActivePanel();
             }
-            
+
             // Switch mode
             _currentMode = mode;
             yield return _currentMode.OnStart(mainScene);
-        
+
             // Fade out
             yield return App.Instance.Backdrop.Release();
             App.InputManager.Unlock();
@@ -81,19 +80,18 @@ namespace Managers
             _isSwitching = false;
         }
 
-        
         private IEnumerator SwitchMainScene(string newScene)
         {
             if (_currentMode == null) yield break;
             if (_isSwitching) yield break;
 
             _isSwitching = true;
-            
+
             App.InputManager.Lock();
             yield return App.Instance.Backdrop.Activate();
 
             yield return _currentMode.OnSwitchMainScene(newScene);
-            
+
             yield return App.Instance.Backdrop.Release();
             App.InputManager.Unlock();
 
@@ -102,12 +100,11 @@ namespace Managers
             _isSwitching = false;
         }
 
-        
         public void SwitchScene(string newScene)
         {
             StartCoroutine(SwitchMainScene(newScene));
         }
-        
+
         public void SwitchToMainMenu(string mainScene = null)
         {
             StartCoroutine(SwitchMode(_mainMenuMode, mainScene));
@@ -117,17 +114,17 @@ namespace Managers
         {
             StartCoroutine(SwitchMode(_gameplayMode, mainScene));
         }
-        
+
         public void ReloadCurrentMode()
         {
             StartCoroutine(ReloadMode());
         }
-        
+
         public void RetryCurrentMode()
         {
             StartCoroutine(ReloadMode(true));
         }
-        
+
         private IEnumerator ReloadMode(bool isRetry = false)
         {
             if (_isSwitching) yield break;
@@ -144,7 +141,7 @@ namespace Managers
 
             if (isRetry)
                 yield return _currentMode.OnRetry();
-            else 
+            else
                 yield return _currentMode.OnRestart();
 
             yield return App.Instance.Backdrop.Release();

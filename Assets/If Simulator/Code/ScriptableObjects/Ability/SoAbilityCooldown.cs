@@ -1,6 +1,5 @@
 ﻿using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Ability
 {
@@ -9,7 +8,6 @@ namespace Ability
     {
         public float Cooldown => _cooldown;
         public bool IsHoldable => _isHoldable;
-        
         public float Delay => _delay;
         public float AbilityDuration => _abilityDuration;
         

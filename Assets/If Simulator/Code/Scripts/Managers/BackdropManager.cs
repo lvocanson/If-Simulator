@@ -10,7 +10,7 @@ namespace Managers
         [SerializeField] private float _time = 1.5f;
 
         [SerializeField] private AnimationCurve _curve;
-    
+
         public IEnumerator Activate()
         {
             _backdrop.gameObject.SetActive(true);
@@ -19,11 +19,11 @@ namespace Managers
             while (timer <= 1f)
             {
                 timer += Time.unscaledDeltaTime / _time;
-            
+
                 var newColor = _backdrop.color;
                 newColor.a = _curve.Evaluate(timer);
                 _backdrop.color = newColor;
-            
+
                 yield return null;
             }
         }
@@ -34,11 +34,11 @@ namespace Managers
             while (timer <= 1f)
             {
                 timer += Time.unscaledDeltaTime / _time;
-            
+
                 var newColor = _backdrop.color;
                 newColor.a = _curve.Evaluate(1 - timer);
                 _backdrop.color = newColor;
-            
+
                 yield return null;
             }
 

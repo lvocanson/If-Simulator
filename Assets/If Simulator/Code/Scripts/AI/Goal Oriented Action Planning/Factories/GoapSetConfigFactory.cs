@@ -37,7 +37,6 @@ namespace IfSimulator.GOAP.Factories
 
             builder.AddGoal<KillEnemy>()
                 .AddCondition<PlayerHealth>(Comparison.SmallerThanOrEqual, 0);
-
         }
 
         private void BuildActions(GoapSetBuilder builder)

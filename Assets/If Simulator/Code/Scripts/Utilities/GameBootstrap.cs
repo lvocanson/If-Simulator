@@ -9,11 +9,10 @@ namespace Utility
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Bootstrap()
         {
-            var app = Object.Instantiate(Resources.Load("App")) as GameObject;
-            if (app == null)
+            if (Object.Instantiate(Resources.Load("App")) is GameObject app)
+                Object.DontDestroyOnLoad(app);
+            else
                 throw new ApplicationException();
-            
-            Object.DontDestroyOnLoad(app);
         }
     }
 }

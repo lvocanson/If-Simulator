@@ -26,8 +26,6 @@ namespace IfSimulator.GOAP.Actions
 
             bool shouldAttack = data.Target != null && Vector3.Distance(data.Target.Position, agent.transform.position) <= AttackConfig.MeleeAttackRadius;
 
-            Debug.Log("Should attack: " + shouldAttack);
-
             if (shouldAttack)
             {
                 agent.transform.LookAt(data.Target.Position);
@@ -43,9 +41,7 @@ namespace IfSimulator.GOAP.Actions
         public void Inject(DependencyInjector injector)
         {
             AttackConfig = injector.AttackConfig;
-            Debug.Log("AttackConfig injected: ");
         }
-
     }
 }
 

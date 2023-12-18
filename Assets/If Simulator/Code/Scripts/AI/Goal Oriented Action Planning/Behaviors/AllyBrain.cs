@@ -45,7 +45,5 @@ namespace IfSimulator.GOAP.Behaviors
         {
             AgentBehaviour.SetGoal<WanderGoal>(true);
         }
-
     }
-
 }
