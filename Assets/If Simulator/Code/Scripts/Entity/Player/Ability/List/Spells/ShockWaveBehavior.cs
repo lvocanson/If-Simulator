@@ -13,18 +13,19 @@ namespace Ability
         private float _damage;
         
         [Header("Layer Management")]
-        [SerializeField] private LayerMask _layers; //proj layer
-        [SerializeField] private LayerMask _damageableEntityLayers; // enemy layer
+        [SerializeField] private LayerMask _projLayer; 
+        [SerializeField] private LayerMask _damageableEntityLayers; 
         
         [Header("References")]
         [SerializeField] private SpriteRenderer _spriteRenderer;
+        
         
         private void OnTriggerEnter2D(Collider2D other)
         {
             int otherLayer = other.gameObject.layer;
             
             // Skip unwanted layers
-            bool isBullet = ((1 << otherLayer) & _layers.value) == 0;
+            bool isBullet = ((1 << otherLayer) & _projLayer.value) == 0;
             bool isDamageableEntity = ((1 << otherLayer) & _damageableEntityLayers.value) == 0;
             if (isBullet is false && isDamageableEntity is false) return;
             
@@ -32,7 +33,7 @@ namespace Ability
             int otherLayerMask = 1 << otherLayer;
             
             // Destroy enemies' bullets
-            if (otherLayerMask == _layers.value && other.CompareTag("PlayerProjectile") is false)
+            if (otherLayerMask == _projLayer.value && other.CompareTag("PlayerProjectile") is false)
                 Destroy(other.gameObject);
             
             // Push back enemies and damage them

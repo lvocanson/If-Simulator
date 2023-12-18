@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6058050865115098019}
   - component: {fileID: 2962201285659424275}
   - component: {fileID: 4943362776108547337}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: MargeBullet
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -177,10 +177,10 @@ MonoBehaviour:
   _renderer: {fileID: 1009386259272215435}
   _layers:
     serializedVersion: 2
-    m_Bits: 257
+    m_Bits: 65
   _damageableEntityLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 64
   _speed: 1
   _lifeTime: 6
   _damage: 10

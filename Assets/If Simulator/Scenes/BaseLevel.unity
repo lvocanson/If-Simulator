@@ -23656,6 +23656,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Marge05
       objectReference: {fileID: 0}
+    - target: {fileID: 3734679234218163395, guid: 2bf62916df06df34b8f64ae709fd0ab8, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734679234218163395, guid: 2bf62916df06df34b8f64ae709fd0ab8, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734679234218163395, guid: 2bf62916df06df34b8f64ae709fd0ab8, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6514407667865663083, guid: 2bf62916df06df34b8f64ae709fd0ab8, type: 3}
       propertyPath: _waypoints.Array.size
       value: 2
