@@ -4,12 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Projectile
+  - Enemy
   - Potion
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Entity
   - Water
   - UI
   - Player
@@ -17,8 +19,7 @@ TagManager:
   - AllySensor
   - Potion
   - Trigger
-  - 
-  - 
+  - Projectile
   - 
   - 
   - 

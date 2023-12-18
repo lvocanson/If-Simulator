@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class DamageZoneEnter : MonoBehaviour
 {
+    [SerializeField] private int _damage;
+    
     private int _ignoreMask;
     
     
@@ -14,9 +16,6 @@ public class DamageZoneEnter : MonoBehaviour
     {
         if ((_ignoreMask & (1 << collision.gameObject.layer)) > 0) return;
 
-        if (collision.TryGetComponent<DamageabaleEntity>(out DamageabaleEntity damageabaleEntity))
-        {
-            damageabaleEntity.ApplyDamage(10f);
-        }
+        if (collision.TryGetComponent(out DamageabaleEntity damageabaleEntity)) damageabaleEntity.Damage(_damage);
     }
 }

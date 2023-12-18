@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3503635925701019748}
   - component: {fileID: 4917770171745572057}
+  - component: {fileID: 2556320877204740057}
   m_Layer: 6
-  m_Name: DoorTrigger
+  m_Name: DoorOpenTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +77,20 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.63, y: 1}
+  m_Size: {x: 1.93, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2556320877204740057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6249572813264750526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd58b5e355956e40b14e301de0397f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9080639789903335460
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,8 +103,9 @@ GameObject:
   - component: {fileID: 7602685589310976295}
   - component: {fileID: 9172649830757384188}
   - component: {fileID: 6347662752647041662}
+  - component: {fileID: 6015595609952465426}
   - component: {fileID: 2137447027650884516}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,6 +253,52 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!61 &6015595609952465426
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080639789903335460}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &2137447027650884516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,3 +314,7 @@ MonoBehaviour:
   _collider: {fileID: 6347662752647041662}
   _renderer: {fileID: 7602685589310976295}
   _initialState: 1
+  _openedColor: {r: 0, g: 0, b: 0, a: 0}
+  _unlockedColor: {r: 0.09156906, g: 0.9245283, b: 0, a: 1}
+  _lockedColor: {r: 1, g: 0, b: 0, a: 1}
+  _closedColor: {r: 0, g: 0, b: 0, a: 1}

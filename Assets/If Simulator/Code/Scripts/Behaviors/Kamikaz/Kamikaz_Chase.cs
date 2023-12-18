@@ -1,41 +1,32 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using FiniteStateMachine;
-using NaughtyAttributes;
 using SAP2D;
+using UnityEngine.Serialization;
 
-public class Marge_Chase : BaseState
+public class Kamikaz_Chase : BaseState
 {
-    [ShowNonSerializedField, Tooltip("The target to move towards")] private Transform _target;
+    [SerializeField, Tooltip("The target to move towards")]
+    private Transform _target;
     
-    [Header("References")]
-    [SerializeField] private CircleCollider2D _chaseCol;
-    [SerializeField] SAP2DAgent _SAPAgent;
-
     [Header("State Machine")]
-    [SerializeField] private Marge_Patrol _patrolState;
-    [SerializeField] private Marge_Attack _attackState;
+    [SerializeField] private BaseState _patrolState;
+    [SerializeField] private BaseState _attackState;
+    [SerializeField] SAP2DAgent _SAPAgent;
     
     [Header("Data")]
     [SerializeField] private float _speed = 1f;
-    [SerializeField] private float _chaseRange = 2f;
     
     [Header("Events")]
     [SerializeField] private PhysicsEvents _attackColEvent;
     [SerializeField] private PhysicsEvents _chaseColEvent;
     
-    public void SetTarget(Transform target) => _target = target;
-    
-    
-    private void Awake()
-    {
-        _chaseCol.radius = _chaseRange;
-    }
-    
     private void OnEnable()
     {
         _chaseColEvent.OnExit += ExitOnChaseRange;
         _attackColEvent.OnEnter += EnterOnAttackRange;
-        
         _SAPAgent.Target = _target;
         _SAPAgent.MovementSpeed = _speed;
     }
@@ -43,10 +34,7 @@ public class Marge_Chase : BaseState
     private void EnterOnAttackRange(Collider2D obj)
     {
         if (obj.CompareTag("Player"))
-        {
-            _attackState.SetTarget(obj.transform);
             Manager.ChangeState(_attackState);
-        }
     }
 
     private void ExitOnChaseRange(Collider2D obj)
