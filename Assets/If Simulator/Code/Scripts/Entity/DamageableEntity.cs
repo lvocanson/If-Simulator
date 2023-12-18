@@ -140,7 +140,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
         float lerpVal = 0f;
         while (timer > 0)
         {
-            if (timer > duration / 2f)
+            if (timer > duration * 0.5f)
             {
                 lerpVal += Time.deltaTime / duration;
 

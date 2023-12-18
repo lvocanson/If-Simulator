@@ -13,7 +13,7 @@ public class DamageZoneStay : MonoBehaviour
     private string _ownerTag;
     private bool _isAlreadyTriggered;
 
-    private List<DamageabaleEntity> _hitEnemies = new();
+    private List<DamageableEntity> _hitEnemies = new();
 
     
     private void Awake()
@@ -48,7 +48,7 @@ public class DamageZoneStay : MonoBehaviour
             OnHit?.Invoke();
         }
         
-        if (!collision.TryGetComponent(out DamageabaleEntity entity)) return;
+        if (!collision.TryGetComponent(out DamageableEntity entity)) return;
         if (!entity.enabled) return;
         if (_hitEnemies.Contains(entity)) return;
 
