@@ -337,6 +337,10 @@ PrefabInstance:
       propertyPath: '_allEnemies.Array.data[2]'
       value: 
       objectReference: {fileID: 989904177}
+    - target: {fileID: 6549331900624084297, guid: e935191c92074154f927686f0dc5e685, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -24249,7 +24253,7 @@ Transform:
   m_GameObject: {fileID: 1022794079}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.89, y: -0.77, z: 0}
+  m_LocalPosition: {x: 41, y: -6.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25933,6 +25937,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2818904770257274705, guid: e935191c92074154f927686f0dc5e685, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887261951840681066, guid: e935191c92074154f927686f0dc5e685, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -7,10 +7,11 @@ namespace Behaviors
     public class TurretSeek : BaseState
     {
         [SerializeField] private Transform _root;
+        [SerializeField] private float _rotationSpeed;
 
         private void Update()
         {
-            _root.Rotate(Vector3.forward, 10f * Time.deltaTime);
+            _root.Rotate(Vector3.forward, _rotationSpeed * Time.deltaTime);
         }
     }
 }

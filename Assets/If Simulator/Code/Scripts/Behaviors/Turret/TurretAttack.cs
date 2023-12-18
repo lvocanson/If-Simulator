@@ -4,6 +4,7 @@ using Ability;
 using FiniteStateMachine;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Pool;
 using Utility;
 
 namespace Behaviors
@@ -13,37 +14,60 @@ namespace Behaviors
         /*
          * Args 0: Transform target
          * Args 1: Attack delay
-         * Args 2: Attack damage
-         * Args 3: ObjectPool<GameObject> bulletPool
+         * Args 2: ObjectPool<GameObject> bulletPool
          */
 
         [SerializeField] private Rigidbody2D _rb;
+        
         [SerializeField, ReadOnly] private Transform _target;
+        [SerializeField, ReadOnly] private ObjectPool<GameObject> _bulletPool;
+        [SerializeField, ReadOnly] private float _attackDelay;
+        
+        private Coroutine _attackCoroutine;
 
-        private void OnEnable()
+        public override void Enter(StateMachine manager, params object[] args)
         {
+            base.Enter(manager, args);
+            
             _target = (Transform)Args[0];
+            _attackDelay = (float)Args[1];
+            _bulletPool = (ObjectPool<GameObject>)Args[2];
+            _attackCoroutine = StartCoroutine(Attack());
 
-            float angle = TransformUtility.AngleBetweenTwoPoints(_target.position, transform.position);
-            //Debug.Log("Angle between turret and target: " + angle + " Target position: " + _target.position + " Turret position: " + transform.position);
-
-            _rb.MoveRotation(angle);
         }
 
-        private void MargeShoot()
+        public override void Exit()
         {
-            // Vector3 direction = _target.transform.position - transform.position;
-            // Projectile bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
-            // bullet.Initialize(gameObject.layer, direction);
+            base.Exit();
+            if (_attackCoroutine != null)
+            {
+                StopCoroutine(_attackCoroutine);
+            }
+        }
+
+        private void Shoot()
+        {
+            _bulletPool.Get();
         }
 
         private IEnumerator Attack()
         {
             while (true)
             {
-                yield return new WaitForSeconds((float)Args[1]);
-                MargeShoot();
+                Shoot();
+                yield return new WaitForSeconds(_attackDelay);
             }
+        }
+
+        private void Update()
+        {
+            if (_target == null)
+            {
+                return;
+            }
+            
+            float angle = Vector2.SignedAngle(Vector2.right, _target.position - transform.position) - 90;
+            _rb.MoveRotation(angle);
         }
     }
 }

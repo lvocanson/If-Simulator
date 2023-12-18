@@ -15,14 +15,14 @@ namespace FiniteStateMachine
             enabled = false; // Disable the state by default.
         }
 
-        public void Enter(StateMachine manager, params object[] args)
+        public virtual void Enter(StateMachine manager, params object[] args)
         {
             Manager = manager;
             Args = args;
             enabled = true;
         }
 
-        public void Exit()
+        public virtual void Exit()
         {
             enabled = false;
         }

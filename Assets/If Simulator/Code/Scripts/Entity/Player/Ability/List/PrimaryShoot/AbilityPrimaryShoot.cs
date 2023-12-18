@@ -43,9 +43,16 @@ namespace Ability
             var bulletBehavior = bp.GetComponent<Projectile>();
             bulletBehavior.Initialize(gameObject.layer, _bulletSpawnPoint.up);
             bulletBehavior.SetDamage(_abilitySo.Damage);
-            bulletBehavior.OnDestroy += () => _bulletPool.Release(bp);
+            bulletBehavior.OnDestroy += CleanProjectile;
 
             return bp;
+        }
+        
+        private void CleanProjectile(Projectile p)
+        {
+            p.OnDestroy -= CleanProjectile;
+
+            _bulletPool.Release(p.gameObject);
         }
 
         private void OnBulletTakeFromPool(GameObject bullet)
