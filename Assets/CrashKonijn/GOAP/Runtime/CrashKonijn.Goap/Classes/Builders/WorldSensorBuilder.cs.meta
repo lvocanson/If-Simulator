@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: fdbb928f99f14b3d8dfd8f0164a545ad
+timeCreated: 1681463085
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Runtime/CrashKonijn.Goap/Classes/Builders/WorldSensorBuilder.cs
+  uploadId: 624806

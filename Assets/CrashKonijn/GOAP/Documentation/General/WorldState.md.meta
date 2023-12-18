@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1fc2acc7ed1e1ee4d9a3730bf0f3e661
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Documentation/General/WorldState.md
+  uploadId: 624806

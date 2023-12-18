@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 92f9e19adaaf1ca4a86c9f97cc493abb
+timeCreated: 1651599876
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Runtime/CrashKonijn.Goap/Serializables/SerializableEffect.cs
+  uploadId: 624806

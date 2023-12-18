@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 430ed25029da2094baad0eb43b0db866
+timeCreated: 1651479344
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Runtime/CrashKonijn.Goap/GlobalWorldData.cs
+  uploadId: 624806

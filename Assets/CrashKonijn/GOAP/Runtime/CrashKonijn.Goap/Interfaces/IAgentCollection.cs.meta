@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 4a0e767861904357935fd9a1cd70361f
+timeCreated: 1681377199
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Runtime/CrashKonijn.Goap/Interfaces/IAgentCollection.cs
+  uploadId: 624806
