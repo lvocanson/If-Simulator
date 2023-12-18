@@ -12,8 +12,10 @@ public class LevelManager : InGameManager
     private Player _spawnedPlayer;
 
     public Player SpawnedPlayer => _spawnedPlayer;
+    public Level CurrentLevel => _currentLevel;
     public CurrentPlayerSo CurrentPlayerSo => _currentPlayerSo;
 
+    
     protected override void OnContextInitialized(GameModeStartMode mode)
     {
         if (_currentLevel)

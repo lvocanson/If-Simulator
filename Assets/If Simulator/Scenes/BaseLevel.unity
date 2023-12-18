@@ -1434,7 +1434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203321610}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7069834, y: -0, z: -0, w: 0.70723015}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -23677,6 +23677,7 @@ MonoBehaviour:
   - {fileID: 978774945}
   - {fileID: 365684818}
   - {fileID: 570128490}
+  _navMeshSurface: {fileID: 203321613}
 --- !u!1 &1300358333
 GameObject:
   m_ObjectHideFlags: 0
@@ -25756,6 +25757,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2818904770257274705, guid: e935191c92074154f927686f0dc5e685, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721167022274182704, guid: e935191c92074154f927686f0dc5e685, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
