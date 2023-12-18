@@ -1,14 +1,15 @@
+using System;
 using UnityEngine;
 using FiniteStateMachine;
 using NaughtyAttributes;
-using SAP2D;
 
 public class Marge_Patrol : BaseState
 {
+    [SerializeField] private Enemy _enemy;
+    
     [Header("State Machine")]
     [SerializeField] private Marge_Chase _chase;
     [SerializeField] private Transform[] _waypoints;
-    [SerializeField] private SAP2DAgent _SAPAgent;
 
     [Header("Data")]
     [SerializeField] private float _speed = 1f;
@@ -19,12 +20,13 @@ public class Marge_Patrol : BaseState
     [Header("Event")]
     [SerializeField] private PhysicsEvents _chaseColEvent;
 
+    
     private void OnEnable()
     {
         _chaseColEvent.OnEnter += EnterOnChaseRange;
 
-        _SAPAgent.Target = _waypoints[_index];
-        _SAPAgent.MovementSpeed = _speed;
+        _enemy.Agent.SetDestination(_waypoints[_index].position) ;
+        _enemy.Agent.speed = _speed;
     }
 
     private void EnterOnChaseRange(Collider2D obj)
@@ -41,7 +43,7 @@ public class Marge_Patrol : BaseState
         if (Vector3.Distance(transform.position, _waypoints[_index].position) < .5f)
         {
             _index = (_index + 1) % _waypoints.Length;
-            _SAPAgent.Target = _waypoints[_index];
+            _enemy.Agent.SetDestination(_waypoints[_index].position);
         }
     }
 
