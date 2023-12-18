@@ -1,15 +1,13 @@
 using UnityEngine;
 using FiniteStateMachine;
-using SAP2D;
 
 public class Kamikaz_Chase : BaseState
 {
-    private Transform _target;
-    
+    [SerializeField] Enemy _enemy;
+
     [Header("State Machine")]
     [SerializeField] private Kamikaz_Patrol _patrolState;
     [SerializeField] private Kamikaz_Attack _attackState;
-    [SerializeField] SAP2DAgent _SAPAgent;
     
     [Header("Data")]
     [SerializeField] private float _speed = 1f;
@@ -17,18 +15,21 @@ public class Kamikaz_Chase : BaseState
     [Header("Events")]
     [SerializeField] private PhysicsEvents _attackColEvent;
     [SerializeField] private PhysicsEvents _chaseColEvent;
+    
+    private Transform _target;
 
+    
     public void SetTarget(Transform target)
     {
         _target = target;
-        _SAPAgent.Target = _target;
+        _enemy.Agent.SetDestination(_target.position);
     }
     
     private void OnEnable()
     {
         _chaseColEvent.OnExit += ExitOnChaseRange;
         _attackColEvent.OnEnter += EnterOnAttackRange;
-        _SAPAgent.MovementSpeed = _speed;
+        _enemy.Agent.speed = _speed;
     }
 
     private void EnterOnAttackRange(Collider2D obj)

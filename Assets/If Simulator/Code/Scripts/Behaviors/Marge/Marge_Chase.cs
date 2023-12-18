@@ -1,7 +1,7 @@
+using System;
 using UnityEngine;
 using FiniteStateMachine;
 using NaughtyAttributes;
-using SAP2D;
 
 public class Marge_Chase : BaseState
 {
@@ -9,7 +9,7 @@ public class Marge_Chase : BaseState
 
     [Header("References")]
     [SerializeField] private CircleCollider2D _chaseCol;
-    [SerializeField] SAP2DAgent _SAPAgent;
+    [SerializeField] Enemy _enemy;
 
     [Header("State Machine")]
     [SerializeField] private Marge_Patrol _patrolState;
@@ -35,8 +35,8 @@ public class Marge_Chase : BaseState
         _chaseColEvent.OnExit += ExitOnChaseRange;
         _attackColEvent.OnEnter += EnterOnAttackRange;
 
-        _SAPAgent.Target = _target;
-        _SAPAgent.MovementSpeed = _speed;
+        _enemy.Agent.SetDestination(_target.position);
+        _enemy.Agent.speed = _speed;
     }
 
     private void EnterOnAttackRange(Collider2D obj)
@@ -56,7 +56,7 @@ public class Marge_Chase : BaseState
 
     private void OnDisable()
     {
-        _chaseColEvent.OnEnter -= ExitOnChaseRange;
+        _chaseColEvent.OnExit -= ExitOnChaseRange;
         _attackColEvent.OnEnter -= EnterOnAttackRange;
     }
 }

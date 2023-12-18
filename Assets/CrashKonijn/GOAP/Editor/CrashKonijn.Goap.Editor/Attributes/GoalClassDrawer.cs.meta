@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: fabb488aad1b4ad7bf524f713d494943
+timeCreated: 1669913569
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Editor/CrashKonijn.Goap.Editor/Attributes/GoalClassDrawer.cs
+  uploadId: 624806

@@ -24,12 +24,14 @@ namespace BehaviorTree
                 enabled = false;
                 return;
             }
+#if UNITY_EDITOR
             if (!_tree.Validate(out var message))
             {
                 Debug.LogError("Tree validation failed: " + message, this);
                 enabled = false;
                 return;
             }
+#endif
 
             _instance = _tree.Clone();
             if (_blackboardInitializer != null)

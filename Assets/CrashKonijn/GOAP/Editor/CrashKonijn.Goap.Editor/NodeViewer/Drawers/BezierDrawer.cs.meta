@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 1bcc19177fce4cfcb54dac2ebdb7f91a
+timeCreated: 1677667256
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Editor/CrashKonijn.Goap.Editor/NodeViewer/Drawers/BezierDrawer.cs
+  uploadId: 624806

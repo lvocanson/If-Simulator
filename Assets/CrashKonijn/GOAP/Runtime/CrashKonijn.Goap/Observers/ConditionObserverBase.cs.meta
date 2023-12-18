@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 4d45e49ca81d42f4d8439ed4c723a342
+timeCreated: 1651482472
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Runtime/CrashKonijn.Goap/Observers/ConditionObserverBase.cs
+  uploadId: 624806

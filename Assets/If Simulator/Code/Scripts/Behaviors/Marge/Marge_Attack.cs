@@ -3,14 +3,13 @@ using Ability;
 using UnityEngine;
 using FiniteStateMachine;
 using NaughtyAttributes;
-using SAP2D;
 
 public class Marge_Attack : BaseState
 {
     [Header("References")]
     [SerializeField] GameObject _bulletPrefab;
     [SerializeField] private CircleCollider2D _attackCol;
-    [SerializeField] private SAP2DAgent _SAPAgent;
+    [SerializeField] private Enemy _enemy;
 
     [Header("State Machine")]
     [SerializeField] private Marge_Chase _chaseState;
@@ -39,8 +38,7 @@ public class Marge_Attack : BaseState
     private void OnEnable()
     {
         _attackEvent.OnExit += ExitAttackRange;
-        _SAPAgent.CanMove = false;
-        _SAPAgent.CanSearch = false;
+        _enemy.Agent.isStopped = true;
 
         _attackCoroutine ??= StartCoroutine(Attack());
     }
@@ -71,8 +69,7 @@ public class Marge_Attack : BaseState
     private void OnDisable()
     {
         _attackEvent.OnExit -= ExitAttackRange;
-        _SAPAgent.CanMove = true;
-        _SAPAgent.CanSearch = true;
+        _enemy.Agent.isStopped = false;
 
         if (_attackCoroutine != null)
         {

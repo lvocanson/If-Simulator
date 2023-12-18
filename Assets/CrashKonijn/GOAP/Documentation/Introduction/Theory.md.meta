@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 577e62bbc05d0c943819bbab2294d1c1
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Documentation/Introduction/Theory.md
+  uploadId: 624806

@@ -234,6 +234,8 @@ GameObject:
   - component: {fileID: 1488394469061868232}
   - component: {fileID: 3531842843903909668}
   - component: {fileID: 819405732021810805}
+  - component: {fileID: 630253770657932932}
+  - component: {fileID: 1092168514788603007}
   m_Layer: 0
   m_Name: Room1.Wall
   m_TagString: Untagged
@@ -2417,6 +2419,38 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 7172537585334516675}
+--- !u!114 &630253770657932932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172537585334516675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
+--- !u!114 &1092168514788603007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172537585334516675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709c8d6349be44c68dff3d220992400c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TileModifiers:
+  - tile: {fileID: 11400000, guid: 08002d404144b40bf842342dda8fa3e4, type: 2}
+    overrideArea: 0
+    area: 0
 --- !u!1 &7277432595357506825
 GameObject:
   m_ObjectHideFlags: 0

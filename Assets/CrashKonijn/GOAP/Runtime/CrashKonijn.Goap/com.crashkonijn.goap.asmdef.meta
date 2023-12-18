@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6eb7f39de256eea4bb8708df2c32e1ba
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Runtime/CrashKonijn.Goap/com.crashkonijn.goap.asmdef
+  uploadId: 624806

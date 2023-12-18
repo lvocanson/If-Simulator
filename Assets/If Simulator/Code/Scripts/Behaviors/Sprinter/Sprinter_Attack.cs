@@ -1,14 +1,14 @@
 using UnityEngine;
 using FiniteStateMachine;
-using SAP2D;
 
 public class Sprinter_Attack : BaseState
 {
+    [SerializeField] private Enemy _enemy;
+
     [SerializeField, Tooltip("The target to move towards")]
     private Transform _target;
     [SerializeField] private BaseState _previousState;
     [SerializeField] private float _attackRange;
-    [SerializeField] private SAP2DAgent _SAPAgent;
     [SerializeField] private float _attackDelay = 2f;
 
     private float _attackTimer;
@@ -18,8 +18,7 @@ public class Sprinter_Attack : BaseState
     {
         _isAttacking = true; // On est en train d'attaquer
         _attackTimer = _attackDelay + Time.timeSinceLevelLoad;
-        _SAPAgent.CanMove = false;
-        _SAPAgent.CanSearch = false;
+        _enemy.Agent.isStopped = true;
     }
 
     void Update()
@@ -39,7 +38,6 @@ public class Sprinter_Attack : BaseState
     private void OnDisable()
     {
         _isAttacking = false; // On a fini d'attaquer
-        _SAPAgent.CanMove = true;
-        _SAPAgent.CanSearch = true;
+        _enemy.Agent.isStopped = false;
     }
 }
