@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1805404537095440609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843eabcfe77db0f41bd8bb1db6f94a17, type: 3}
+  m_Name: LoggerSo
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 524, y: 290}
+  _message: Hi from logger
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353e8d864f941e4459016abf3a4a31d4, type: 3}
+  m_Name: Nebula Tree
+  m_EditorClassIdentifier: 
+  <Root>k__BackingField: {fileID: 282241372355560515}
+  <AllNodes>k__BackingField:
+  - {fileID: -1805404537095440609}
+--- !u!114 &282241372355560515
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8c580eaa7cb03b4188cb9de0fb81cf3, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 524, y: 104}
+  <Child>k__BackingField: {fileID: 0}
