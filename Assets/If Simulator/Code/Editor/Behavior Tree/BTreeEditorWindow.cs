@@ -18,6 +18,7 @@ namespace BehaviorTree
 
         // Keyboard shortcuts.
         private readonly KeyboardShortcut _deleteShortcut = new(KeyCode.Delete);
+        private readonly KeyboardShortcut _renameShortcut = new(KeyCode.F2);
         private readonly KeyboardShortcut _duplicateShortcut = new(KeyCode.D, true);
 
         [MenuItem("CUSTOM AIs/BTreeEditorWindow")]
@@ -68,12 +69,22 @@ namespace BehaviorTree
                     _treeView.DeleteSelection();
                     e.Use();
                 }
+                else if (_renameShortcut.IsPressed(e))
+                {
+                    _treeView.RenameSelection();
+                    e.Use();
+                }
                 else if (_duplicateShortcut.IsPressed(e))
                 {
                     _treeView.RemoveFromSelection(_treeView.RootNodeView);
                     _treeView.DuplicateSelection();
                     e.Use();
                 }
+            }
+            
+            if (_treeView?.RenamePending == true)
+            {
+                _treeView.RenameSelection();
             }
         }
 

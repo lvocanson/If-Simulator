@@ -20,6 +20,8 @@ namespace BehaviorTree
 
         public NodeView RootNodeView => FindNodeView(_tree.Root);
 
+        public bool RenamePending { get; private set; }
+
         public BTreeView()
         {
             StyleSheet _styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/If Simulator/Code/Editor/Behavior Tree/BTreeEditorWindow.uss");
@@ -142,9 +144,12 @@ namespace BehaviorTree
             // If the user right clicks on a node, show the menu to delete it.
             if (evt.target is NodeView nodeView)
             {
+                evt.menu.AppendAction("Rename", (a) => RenamePending = true);
                 if (nodeView.Node != _tree.Root)
-                    evt.menu.AppendAction("Delete", (a) => DeleteElements(new[] { nodeView }));
-
+                {
+                    evt.menu.AppendAction("Duplicate", (a) => DuplicateSelection());
+                    evt.menu.AppendAction("Delete", (a) => DeleteSelection());
+                }
                 return;
             }
 
@@ -178,6 +183,20 @@ namespace BehaviorTree
         {
             NodeView nodeView = new(node);
             AddElement(nodeView);
+        }
+
+        public void RenameSelection()
+        {
+            if (selection.Count == 0) return;
+            if (selection.First() is NodeView nodeView)
+            {
+                StringQueryPopup.Create("Rename", "Enter a new name for the node:", nodeView.title, (name) =>
+                {
+                    nodeView.Node.name = name;
+                    nodeView.title = name;
+                });
+            }
+            RenamePending = false;
         }
 
         public void DuplicateSelection()
