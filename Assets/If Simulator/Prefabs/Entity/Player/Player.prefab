@@ -444,10 +444,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e0a974187821d40bc4e0a8a6868497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sprite: {fileID: 7429918993202385571}
   _maxHealth: 100
+  _invulnerabilityDuration: 1
+  _hitMaterial: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
+  _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
+  _scaleEffectOffset: 0.2
   _playerAttackManager: {fileID: 263370004781948735}
   _playerMovement: {fileID: 5540728448906214869}
   playerAim: {fileID: 3407179542858764038}
+  _data: {fileID: 11400000, guid: 0a0b0f884ace5ed41b10f57eb03db9b9, type: 2}
 --- !u!114 &263370004781948735
 MonoBehaviour:
   m_ObjectHideFlags: 0

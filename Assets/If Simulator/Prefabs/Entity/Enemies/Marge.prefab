@@ -179,7 +179,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3998c70e51258c44bafa35cbde8e33fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sprite: {fileID: 3762870253303094257}
   _maxHealth: 50
+  _invulnerabilityDuration: 0.2
+  _hitMaterial: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
+  _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
+  _scaleEffectOffset: 0.2
   _agent: {fileID: 2644387088934892128}
 --- !u!114 &7299784548321892437
 MonoBehaviour:
@@ -208,10 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy: {fileID: 6284057064356520435}
   _chase: {fileID: 600574708586748271}
-  _waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _waypoints: []
   _speed: 1
   _chaseColEvent: {fileID: 5535838779829924784}
 --- !u!114 &600574708586748271

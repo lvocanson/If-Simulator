@@ -17,6 +17,7 @@ public class PlayerAim : MonoBehaviour
     private Camera _mainCamera;
     private GameObject _aimCursor;
 
+    
     private void Awake()
     {
         _mainCamera = LevelContext.Instance.CameraManager.MainCamera;
