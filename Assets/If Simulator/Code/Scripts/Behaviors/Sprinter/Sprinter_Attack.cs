@@ -9,6 +9,12 @@ public class Sprinter_Attack : BaseState
     [Header("References")]
     [SerializeField] private Enemy _enemy;
     
+    [Header("State Machine")]
+    [SerializeField] private Sprinter_Chase _chaseState;
+    
+    [Header("Event")]
+    [SerializeField] private PhysicsEvents _attackEvent;
+    
     public void SetTarget(Transform target) => _target = target;
     private Coroutine _attackSprinter;
 
@@ -16,8 +22,14 @@ public class Sprinter_Attack : BaseState
     private void OnEnable()
     {
         _enemy.Agent.isStopped = true;
-
+        _attackEvent.OnExit += ExitAttackRange;
         _attackSprinter ??= StartCoroutine(Attack());
+    }
+    
+    private void ExitAttackRange(Collider2D obj)
+    {
+        if (obj.CompareTag("Player"))
+            Manager.ChangeState(_chaseState);
     }
 
     private IEnumerator Attack()
@@ -30,6 +42,9 @@ public class Sprinter_Attack : BaseState
 
     private void OnDisable()
     {
+        _attackEvent.OnExit -= ExitAttackRange;
+        _enemy.Agent.isStopped = false;
+        
         if (_enemy.gameObject != null)
             return; // If the enemy is dead, don't do anything
         
@@ -38,6 +53,5 @@ public class Sprinter_Attack : BaseState
             StopCoroutine(_attackSprinter);
             _attackSprinter = null;
         }
-        _enemy.Agent.isStopped = false;
     }
 }
