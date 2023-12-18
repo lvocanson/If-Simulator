@@ -1,19 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using FiniteStateMachine;
 using NaughtyAttributes;
 using SAP2D;
-using UnityEngine.Serialization;
 
 public class Kamikaz_Patrol : BaseState
 {
-    [SerializeField, Tooltip("The target to move towards")]
-    private Transform _target;
-    
     [Header("State Machine")]
-    [SerializeField] private BaseState _chase;
+    [SerializeField] private Kamikaz_Chase _chase;
     [SerializeField] private Transform[] _waypoints;
     [SerializeField] private SAP2DAgent _SAPAgent;
     
@@ -36,7 +29,10 @@ public class Kamikaz_Patrol : BaseState
     private void EnterOnChaseRange(Collider2D obj)
     {
         if (obj.CompareTag("Player"))
+        {
+            _chase.SetTarget(obj.transform);
             Manager.ChangeState(_chase);
+        }
     }
 
     // Update is called once per frame

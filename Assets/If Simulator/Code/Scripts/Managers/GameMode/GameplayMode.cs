@@ -14,11 +14,10 @@ namespace GameMode
         [Header("Scenes")]
         [SerializeField, Scene] private string _mainScene;
         [SerializeField, Scene] private string _uiScene;
-        
+
         [Header("Events")]
         [SerializeField] private EventSo _onMainSceneLoad;
 
-        
         public IEnumerator OnStart(string mainScene = null)
         {
             if (_state != GameModeState.Ended) yield break;
@@ -84,7 +83,7 @@ namespace GameMode
 
             yield return OnLoad(GameModeStartMode.Restart);
         }
-        
+
         public IEnumerator OnRetry()
         {
             if (LevelContext.Instance) LevelContext.Instance.QuitContext(GameModeQuitMode.Retry);
@@ -102,16 +101,16 @@ namespace GameMode
             _state = GameModeState.Ending;
 
             if (LevelContext.Instance) LevelContext.Instance.QuitContext(GameModeQuitMode.Quit);
-            
+
             yield return UnLoadAllSceneAsync();
-            
+
             _state = GameModeState.Ended;
         }
 
         private IEnumerator UnLoadAllSceneAsync()
         {
             yield return SceneManager.UnloadSceneAsync(_mainScene);
-            
+
             yield return SceneManager.UnloadSceneAsync(_uiScene);
         }
 

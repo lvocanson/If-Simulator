@@ -8,7 +8,7 @@ namespace Utility
     {
         [SerializeField, SortingLayer] private int _sortingLayer;
         private Canvas _canvas;
-    
+
         private void Awake()
         {
             _canvas = GetComponent<Canvas>();

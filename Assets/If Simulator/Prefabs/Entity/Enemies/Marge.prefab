@@ -255,6 +255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1294867530323652223}
+  - component: {fileID: 8781777171398738213}
   - component: {fileID: 7468298486574473291}
   - component: {fileID: 196330621703279049}
   - component: {fileID: 6702433441452844599}
@@ -262,6 +263,7 @@ GameObject:
   - component: {fileID: 1030090431320821253}
   - component: {fileID: 1418591540945922653}
   - component: {fileID: 4929999339416742412}
+  - component: {fileID: 5580491224492510570}
   m_Layer: 3
   m_Name: Marge
   m_TagString: Enemy
@@ -287,6 +289,33 @@ Transform:
   - {fileID: 146441872885758066}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &8781777171398738213
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099673424039847688}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &7468298486574473291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -394,8 +423,8 @@ MonoBehaviour:
   _SAPAgent: {fileID: 4929999339416742412}
   _patrolState: {fileID: 2783816620709002995}
   _attackState: {fileID: 1418591540945922653}
-  _speed: 1
-  _chaseRange: 4
+  _speed: 10
+  _chaseRange: 8
   _attackColEvent: {fileID: 685843440365937434}
   _chaseColEvent: {fileID: 749325914802467150}
 --- !u!114 &1418591540945922653
@@ -414,8 +443,8 @@ MonoBehaviour:
   _attackCol: {fileID: 6165186862005646082}
   _SAPAgent: {fileID: 4929999339416742412}
   _chaseState: {fileID: 1030090431320821253}
-  _attackRange: 2
-  _attackDelay: 2
+  _attackRange: 5
+  _attackDelay: 0.5
   _attackEvent: {fileID: 685843440365937434}
 --- !u!114 &4929999339416742412
 MonoBehaviour:
@@ -446,3 +475,16 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4292990208
   path: []
+--- !u!114 &5580491224492510570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099673424039847688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ac64e123b7aaa40adecd5611222db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Config: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}

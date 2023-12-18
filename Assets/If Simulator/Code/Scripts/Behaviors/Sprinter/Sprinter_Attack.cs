@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using FiniteStateMachine;
 using SAP2D;
-using UnityEngine.Serialization;
 
 public class Sprinter_Attack : BaseState
 {
@@ -14,7 +10,7 @@ public class Sprinter_Attack : BaseState
     [SerializeField] private float _attackRange;
     [SerializeField] private SAP2DAgent _SAPAgent;
     [SerializeField] private float _attackDelay = 2f;
-    
+
     private float _attackTimer;
     bool _isAttacking = false;
 
@@ -25,14 +21,14 @@ public class Sprinter_Attack : BaseState
         _SAPAgent.CanMove = false;
         _SAPAgent.CanSearch = false;
     }
-    
+
     void Update()
     {
         if (Time.time > _attackTimer)
         {
             _isAttacking = false;
         }
-        
+
         // Si le joueur est trop loin
         if (!_isAttacking && Vector3.Distance(transform.position, _target.position) > 1f)
         {

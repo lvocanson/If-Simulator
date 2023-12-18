@@ -1,0 +1,83 @@
+.node {
+    min-width: 150px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+#node-border {
+    background-color: rgb(56, 56, 56);
+    border-left-color: rgb(40, 40, 40);
+    border-right-color: rgb(40, 40, 40);
+    border-top-color: rgb(40, 40, 40);
+    border-bottom-color: rgb(40, 40, 40);
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#selection-border {
+    border-left-color: rgb(70, 96, 124);
+    border-right-color: rgb(70, 96, 124);
+    border-top-color: rgb(70, 96, 124);
+    border-bottom-color: rgb(70, 96, 124);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+:hover > #selection-border {
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+:selected > #selection-border {
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+:hover:selected > #selection-border {
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+}
+
+#title {
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+#input {
+}
+
+#output {
+}
+
+.port {
+    align-self: center;
+}
+
+.input {
+    flex-direction: column;
+}
+
+.output {
+    flex-direction: column-reverse;
+}

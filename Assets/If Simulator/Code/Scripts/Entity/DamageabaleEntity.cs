@@ -11,7 +11,6 @@ public class DamageabaleEntity : MonoBehaviour, IDamageable
     public float CurrentHealth => _currentHealth;
     
     public event Action OnDeath;
-
     
     private void Start()
     {
@@ -31,5 +30,10 @@ public class DamageabaleEntity : MonoBehaviour, IDamageable
     {
         OnDeath?.Invoke();
         Destroy(gameObject);
+    }
+    
+    public void Kill()
+    {
+        Die();
     }
 }

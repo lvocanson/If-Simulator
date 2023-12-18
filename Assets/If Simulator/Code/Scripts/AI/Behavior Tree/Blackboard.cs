@@ -12,9 +12,9 @@ namespace BehaviorTree
         /// <summary>
         /// Reads a value from the blackboard, and casts it to the specified type.
         /// </summary>
-        public T Read<T>(string key)
+        public void Read<T>(string key, out T value)
         {
-            return (T)_dict[key];
+            value = (T)_dict[key];
         }
 
         /// <summary>
