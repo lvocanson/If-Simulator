@@ -10,7 +10,6 @@ namespace IfSimulator.GOAP.Sensors
     public class PlayerTargetSensor : LocalTargetSensorBase, IInjectable
     {
         private AttackConfigSO AttackConfig;
-        private Collider2D[] _colliders = new Collider2D[1];
         public override void Created()
         {
         }
@@ -20,13 +19,33 @@ namespace IfSimulator.GOAP.Sensors
 
         public override ITarget Sense(IMonoAgent agent, IComponentReference references)
         {
-            if (Physics2D.OverlapCircleNonAlloc(agent.transform.position, AttackConfig.SensorRadius, 
-                _colliders, AttackConfig.AttackableLayerMask) > 0)
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(agent.transform.position, AttackConfig.SensorRadius, AttackConfig.AttackableLayerMask);
+
+            if (hitColliders.Length > 0)
             {
-                return new TransformTarget(_colliders[0].transform);
+                Collider2D closestCollider = FindClosestCollider(agent.transform.position, hitColliders);
+                return new TransformTarget(closestCollider.transform);
             }
 
             return null;
+        }
+
+        private Collider2D FindClosestCollider(Vector2 position, Collider2D[] colliders)
+        {
+            Collider2D closestCollider = colliders[0];
+            float closestDistance = Vector2.Distance(position, closestCollider.transform.position);
+
+            for (int i = 1; i < colliders.Length; i++)
+            {
+                float distance = Vector2.Distance(position, colliders[i].transform.position);
+                if (distance < closestDistance)
+                {
+                    closestCollider = colliders[i];
+                    closestDistance = distance;
+                }
+            }
+
+            return closestCollider;
         }
 
         public void Inject(DependencyInjector injector)
