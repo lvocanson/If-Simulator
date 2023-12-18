@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 7692015030703075093}
   - component: {fileID: 4382358356406130700}
   - component: {fileID: 5661901254895042289}
-  - component: {fileID: 5557827651850121821}
+  - component: {fileID: 3758894104440636533}
   - component: {fileID: 5651733788626543141}
   - component: {fileID: 9183220552370722672}
   - component: {fileID: 4586797308806031170}
   - component: {fileID: 5570540335073866277}
-  - component: {fileID: 3758894104440636533}
+  - component: {fileID: 7785838368978051415}
   m_Layer: 3
   m_Name: Kamikaz
   m_TagString: Enemy
@@ -139,7 +139,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0.03
---- !u!114 &5557827651850121821
+--- !u!114 &3758894104440636533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,26 +148,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7749005207515173894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 436bc0f096be0d34ba379a789d03ec45, type: 3}
+  m_Script: {fileID: 11500000, guid: 3998c70e51258c44bafa35cbde8e33fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Config: {fileID: 11400000, guid: 3893f7b5b0ba548479367fcdfa6a3fb6, type: 2}
-  MouseControl: 0
-  Target: {fileID: 0}
-  CanMove: 1
-  MovementSpeed: 5
-  RotationSpeed: 500
-  isMoving: 0
-  pathIndex: 0
-  posInGrid: {x: 0, y: 0, z: 0}
-  CanSearch: 1
-  PathUpdateRate: 0.15
-  GetNextPointDistance: 0.1
-  ShowGraphic: 1
-  color:
-    serializedVersion: 2
-    rgba: 4292990208
-  path: []
+  _maxHealth: 50
+  _agent: {fileID: 7785838368978051415}
 --- !u!114 &5651733788626543141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,13 +178,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43c0011f1a17324aa53008d5d79f7ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
+  _enemy: {fileID: 3758894104440636533}
   _chase: {fileID: 4586797308806031170}
   _waypoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _SAPAgent: {fileID: 5557827651850121821}
   _speed: 1
   _chaseColEvent: {fileID: 5839639195492332}
 --- !u!114 &4586797308806031170
@@ -214,9 +198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae66fadf36864f4690b283722b26e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemy: {fileID: 3758894104440636533}
   _patrolState: {fileID: 9183220552370722672}
   _attackState: {fileID: 5570540335073866277}
-  _SAPAgent: {fileID: 5557827651850121821}
   _speed: 4
   _attackColEvent: {fileID: 8919522550655574771}
   _chaseColEvent: {fileID: 5839639195492332}
@@ -233,25 +217,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 3758894104440636533}
-  _sprite: {fileID: 4382358356406130700}
-  _collider: {fileID: 5661901254895042289}
-  _target: {fileID: 0}
   _explosionDelay: 2
   _explosionPrefab: {fileID: 8493438459916198879, guid: b8a6391f3be7bae4da8536b276484e0f, type: 3}
-  _SAPAgent: {fileID: 5557827651850121821}
---- !u!114 &3758894104440636533
-MonoBehaviour:
+--- !u!195 &7785838368978051415
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7749005207515173894}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3998c70e51258c44bafa35cbde8e33fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 50
+  m_AgentTypeID: 0
+  m_Radius: 0.49999917
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.0000002
+  m_BaseOffset: 0.5000001
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8161702882696385097
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,15 +1,15 @@
 using UnityEngine;
 using FiniteStateMachine;
-using SAP2D;
-using UnityEngine.Serialization;
 
 public class Sprinter_Chase : BaseState
 {
+    [SerializeField] Enemy _enemy;
     [SerializeField, Tooltip("The target to move towards")]
     private Transform _target;
-    [FormerlySerializedAs("_previousState"), SerializeField] private BaseState _patrolState;
-    [FormerlySerializedAs("_nextState"), SerializeField] private BaseState _attackState;
-    [SerializeField] SAP2DAgent _SAPAgent;
+    
+    [Header("State Machine")]
+    [SerializeField] private BaseState _patrolState;
+    [SerializeField] private BaseState _attackState;
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float _chaseRange = 2f;
     [SerializeField] private float _attackRange = 0.1f;
@@ -17,7 +17,8 @@ public class Sprinter_Chase : BaseState
     private void OnEnable()
     {
         Debug.Log("Focus : " + _target.name + " OnEnabled.");
-        _SAPAgent.Target = _target;
+        _enemy.Agent.SetDestination(_target.position);
+        _enemy.Agent.speed = _speed;
     }
 
     void Update()
