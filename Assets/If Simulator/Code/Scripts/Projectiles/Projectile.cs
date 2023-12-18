@@ -70,7 +70,7 @@ namespace Ability
         public void Initialize(int ownerId, Vector2 dir, bool managedByPool = false)
         {
             _ownerLayer = ownerId;
-            _rb.velocity = dir * _speed;
+            _rb.velocity = dir.normalized * _speed;
             _managedFromPool = managedByPool;
         }
         

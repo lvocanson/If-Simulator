@@ -181,6 +181,6 @@ MonoBehaviour:
   _damageableEntityLayers:
     serializedVersion: 2
     m_Bits: 64
-  _speed: 1
+  _speed: 5
   _lifeTime: 6
   _damage: 10
