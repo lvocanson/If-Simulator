@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Pool;
 
 namespace Ability
@@ -41,7 +42,7 @@ namespace Ability
             GameObject bp = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation, _bulletContainer);
 
             var bulletBehavior = bp.GetComponent<Projectile>();
-            bulletBehavior.Initialize(gameObject.layer, _bulletSpawnPoint.up);
+            bulletBehavior.Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
             bulletBehavior.SetDamage(_abilitySo.Damage);
             bulletBehavior.OnDestroy += CleanProjectile;
 
@@ -50,8 +51,6 @@ namespace Ability
         
         private void CleanProjectile(Projectile p)
         {
-            p.OnDestroy -= CleanProjectile;
-
             _bulletPool.Release(p.gameObject);
         }
 
@@ -61,7 +60,6 @@ namespace Ability
             bullet.transform.rotation = _bulletSpawnPoint.rotation;
             bullet.SetActive(true);
             bullet.GetComponent<Projectile>().Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
-
         }
 
         private void OnBulletReturnToPool(GameObject bullet) => bullet.SetActive(false);

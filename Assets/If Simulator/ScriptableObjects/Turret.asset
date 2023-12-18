@@ -17,7 +17,7 @@ MonoBehaviour:
   _icon: {fileID: 0}
   _maxLevel: 0
   _damage: 10
-  _range: 297.62
+  _range: 70
   _cooldown: 120
   _isHoldable: 0
   _delay: 0.2

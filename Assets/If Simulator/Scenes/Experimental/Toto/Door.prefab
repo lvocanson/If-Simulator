@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3503635925701019748}
   - component: {fileID: 4917770171745572057}
   - component: {fileID: 2556320877204740057}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: DoorOpenTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 2c94b551080a8ad45850d69eb8f4258e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,7 +168,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 39c98374a334722478ef5f487588e471, type: 3}
   m_Color: {r: 0.4056604, g: 0.12526666, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0

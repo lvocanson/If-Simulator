@@ -117,7 +117,7 @@ namespace Ability
 
         void CleanProjectile(Projectile p)
         {
-            p.OnDestroy -= CleanProjectile;
+            //p.OnDestroy -= CleanProjectile;
             //Debug.LogWarning("Cleaning projectile");
             _bulletPool.Release(p.gameObject);
         }

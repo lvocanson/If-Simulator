@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2728036162082443792}
   - component: {fileID: 4419410267802930010}
   m_Layer: 7
-  m_Name: TurretBullet
+  m_Name: PlayerBullet
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 2c94b551080a8ad45850d69eb8f4258e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 33cd966e81e308749960060b199f871a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -176,15 +176,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a8e50d34ae401aa21d2da27ea65429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _managedFromPool: 1
+  _managedFromPool: 0
   _rb: {fileID: 3859353762324603953}
   _renderer: {fileID: 5158183046418414025}
   _layers:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 0
   _damageableEntityLayers:
     serializedVersion: 2
-    m_Bits: 8
-  _speed: 20
-  _lifeTime: 3
-  _damage: 5
+    m_Bits: 0
+  _speed: 0
+  _lifeTime: 0
+  _damage: 0

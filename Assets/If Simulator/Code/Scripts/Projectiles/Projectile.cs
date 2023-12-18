@@ -54,7 +54,6 @@ namespace Ability
         private void OnEnable()
         {
             _selfDestructCoroutine ??= StartCoroutine(SelfDestruct());
-            //Debug.Log("Projectile enabled");
             _renderer.color = Color.white;
             _isDestroyed = false;
         }
@@ -77,12 +76,13 @@ namespace Ability
         
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (_isDestroyed) return;
+            //if (_isDestroyed) return;
             
             // skip unwanted layers
             int otherLayer = col.gameObject.layer;
             if (((1 << otherLayer) & _layers.value) == 0) return;
             if (otherLayer == _ownerLayer) return;
+
 
             if (_selfDestructCoroutine != null)
             {

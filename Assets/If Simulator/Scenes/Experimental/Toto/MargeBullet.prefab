@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6058050865115098019}
   - component: {fileID: 2962201285659424275}
   - component: {fileID: 4943362776108547337}
-  m_Layer: 11
+  m_Layer: 7
   m_Name: MargeBullet
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 2c94b551080a8ad45850d69eb8f4258e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 39c98374a334722478ef5f487588e471, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -177,10 +177,10 @@ MonoBehaviour:
   _renderer: {fileID: 1009386259272215435}
   _layers:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 257
   _damageableEntityLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
   _speed: 1
   _lifeTime: 6
   _damage: 10
