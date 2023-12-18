@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1805404537095440609
+--- !u!114 &-4789074765532570175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843eabcfe77db0f41bd8bb1db6f94a17, type: 3}
-  m_Name: LoggerSo
+  m_Script: {fileID: 11500000, guid: ae99e079bb335e847a591ac7a62860d1, type: 3}
+  m_Name: RepeatSo
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 524, y: 290}
-  _message: Hi from logger
+  <GraphPosition>k__BackingField: {x: 629.3333, y: 353}
+  <Child>k__BackingField: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,7 +29,8 @@ MonoBehaviour:
   <Root>k__BackingField: {fileID: 282241372355560515}
   <AllNodes>k__BackingField:
   - {fileID: 8120558180055828690}
-  - {fileID: -1805404537095440609}
+  - {fileID: -4789074765532570175}
+  - {fileID: 5760196467035025631}
 --- !u!114 &282241372355560515
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -44,6 +45,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <GraphPosition>k__BackingField: {x: 524, y: 104}
   <Child>k__BackingField: {fileID: 8120558180055828690}
+--- !u!114 &5760196467035025631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46a3acf717731d242ba99c6ebe40cac1, type: 3}
+  m_Name: WaitSo
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 0, y: 0}
+  _time: 1
 --- !u!114 &8120558180055828690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,6 +71,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e923fcb82a2d50c48a2d065cf01c0f1f, type: 3}
   m_Name: RandomSo
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 524, y: 185}
+  <GraphPosition>k__BackingField: {x: 577, y: 223.66667}
   <Children>k__BackingField:
-  - {fileID: -1805404537095440609}
+  - {fileID: -4789074765532570175}
