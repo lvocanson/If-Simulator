@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2728036162082443792}
   - component: {fileID: 4419410267802930010}
   m_Layer: 7
-  m_Name: PlayerBullet
+  m_Name: TurretBullet
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,10 +179,10 @@ MonoBehaviour:
   _rb: {fileID: 3859353762324603953}
   _layers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 9
   _damageableEntityLayers:
     serializedVersion: 2
-    m_Bits: 0
-  _speed: 0
-  _lifeTime: 0
-  _damage: 0
+    m_Bits: 8
+  _speed: 10
+  _lifeTime: 3
+  _damage: 5
