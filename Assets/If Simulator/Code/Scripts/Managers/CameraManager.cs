@@ -8,12 +8,13 @@ namespace Managers
     {
         [SerializeField] private CinemachineVirtualCamera _currentCamera;
         [SerializeField] private CinemachineTargetGroup _targetGroup;
-    
         [SerializeField] private CurrentPlayerSo _currentPlayerSo;
     
         private Camera _mainCamera;
+        
         public Camera MainCamera => _mainCamera;
-    
+        
+
         private void OnEnable()
         {
             _currentPlayerSo.OnPlayerLoaded += AddPlayerAsTarget;
@@ -33,10 +34,13 @@ namespace Managers
     
         protected override void OnContextStarted(GameModeStartMode mode)
         {
+            
         }
     
         protected override void OnContextQuit(GameModeQuitMode mode)
         {
+            Debug.Log("CameraManager.OnContextQuit");
+            ClearTargets();
         }
     
         private void AddPlayerAsTarget()
@@ -60,6 +64,14 @@ namespace Managers
         public void RemoveTarget(Transform target)
         {
             _targetGroup.RemoveMember(target);
+        }
+        
+        public void ClearTargets()
+        {
+            foreach (var target in _targetGroup.m_Targets)
+            {
+                _targetGroup.RemoveMember(target.target);
+            }
         }
     }
 }
