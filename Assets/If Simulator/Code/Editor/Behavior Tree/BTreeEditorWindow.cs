@@ -81,6 +81,11 @@ namespace BehaviorTree
                     e.Use();
                 }
             }
+            
+            if (_treeView?.RenamePending == true)
+            {
+                _treeView.RenameSelection();
+            }
         }
 
         // Called when the selection in the project window changes.
