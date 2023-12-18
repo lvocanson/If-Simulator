@@ -1,43 +1,43 @@
+using System.Collections;
 using UnityEngine;
 using FiniteStateMachine;
+using NaughtyAttributes;
 
 public class Sprinter_Attack : BaseState
 {
+    [ShowNonSerializedField, Tooltip("The target to move towards")] private Transform _target;
+    [Header("References")]
     [SerializeField] private Enemy _enemy;
+    
+    public void SetTarget(Transform target) => _target = target;
+    private Coroutine _attackSprinter;
 
-    [SerializeField, Tooltip("The target to move towards")]
-    private Transform _target;
-    [SerializeField] private BaseState _previousState;
-    [SerializeField] private float _attackRange;
-    [SerializeField] private float _attackDelay = 2f;
-
-    private float _attackTimer;
-    bool _isAttacking = false;
 
     private void OnEnable()
     {
-        _isAttacking = true; // On est en train d'attaquer
-        _attackTimer = _attackDelay + Time.timeSinceLevelLoad;
         _enemy.Agent.isStopped = true;
+
+        _attackSprinter ??= StartCoroutine(Attack());
     }
 
-    void Update()
+    private IEnumerator Attack()
     {
-        if (Time.time > _attackTimer)
-        {
-            _isAttacking = false;
-        }
-
-        // Si le joueur est trop loin
-        if (!_isAttacking && Vector3.Distance(transform.position, _target.position) > 1f)
-        {
-            Manager.ChangeState(_previousState);
-        }
+        yield return new WaitForSeconds(1f);
+        
+        //TODO ATTACK PLAYER
     }
+
 
     private void OnDisable()
     {
-        _isAttacking = false; // On a fini d'attaquer
+        if (_enemy.gameObject != null)
+            return; // If the enemy is dead, don't do anything
+        
+        if (_attackSprinter != null)
+        {
+            StopCoroutine(_attackSprinter);
+            _attackSprinter = null;
+        }
         _enemy.Agent.isStopped = false;
     }
 }
