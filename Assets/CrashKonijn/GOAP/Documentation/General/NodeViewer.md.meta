@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 32a2d25fea974884cb3421d7ddf89eed
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Documentation/General/NodeViewer.md
+  uploadId: 624806

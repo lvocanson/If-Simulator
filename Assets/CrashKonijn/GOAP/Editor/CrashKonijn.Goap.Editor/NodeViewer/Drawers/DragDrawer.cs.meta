@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 5d88ab04124f435bb312902a49ced465
+timeCreated: 1677664208
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252687
+  packageName: Goap
+  packageVersion: 2.1.14
+  assetPath: Assets/CrashKonijn/GOAP/Editor/CrashKonijn.Goap.Editor/NodeViewer/Drawers/DragDrawer.cs
+  uploadId: 624806

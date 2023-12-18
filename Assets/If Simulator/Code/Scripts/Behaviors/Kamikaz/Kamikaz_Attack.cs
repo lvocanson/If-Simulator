@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using FiniteStateMachine;
-using SAP2D;
 
 public class Kamikaz_Attack : BaseState
 {
@@ -12,17 +11,13 @@ public class Kamikaz_Attack : BaseState
     [SerializeField] private float _explosionDelay = 2f;
     [SerializeField] private GameObject _explosionPrefab;
     
-    [Header("State Machine")]
-    [SerializeField] private SAP2DAgent _SAPAgent;
-    
 
     private ExplosionBehavior _explosionInstance;
     
     
     private void OnEnable()
     {
-        _SAPAgent.CanMove = false;
-        _SAPAgent.CanSearch = false;
+        _enemy.Agent.isStopped = true;
         
         StartCoroutine(ExplodeHimself());
     }
@@ -39,7 +34,6 @@ public class Kamikaz_Attack : BaseState
 
     private void OnDisable()
     {
-        _SAPAgent.CanMove = true;
-        _SAPAgent.CanSearch = true;
+        _enemy.Agent.isStopped = false;
     }
 }

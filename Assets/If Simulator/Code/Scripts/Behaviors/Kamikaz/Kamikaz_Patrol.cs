@@ -1,14 +1,14 @@
 using UnityEngine;
 using FiniteStateMachine;
 using NaughtyAttributes;
-using SAP2D;
 
 public class Kamikaz_Patrol : BaseState
 {
+    [SerializeField] private Enemy _enemy;
+
     [Header("State Machine")]
     [SerializeField] private Kamikaz_Chase _chase;
     [SerializeField] private Transform[] _waypoints;
-    [SerializeField] private SAP2DAgent _SAPAgent;
     
     [Header("Data")]
     [SerializeField] private float _speed = 1f;
@@ -22,8 +22,8 @@ public class Kamikaz_Patrol : BaseState
     private void OnEnable()
     {
         _chaseColEvent.OnEnter += EnterOnChaseRange;
-        _SAPAgent.Target = _waypoints[_index];
-        _SAPAgent.MovementSpeed = _speed;
+        _enemy.Agent.SetDestination(_waypoints[_index].position);
+        _enemy.Agent.speed = _speed;
     }
 
     private void EnterOnChaseRange(Collider2D obj)
@@ -45,7 +45,7 @@ public class Kamikaz_Patrol : BaseState
             if (_index >= _waypoints.Length)
                 _index = 0;
             
-            _SAPAgent.Target = _waypoints[_index];
+            _enemy.Agent.SetDestination(_waypoints[_index].position);
         }
     }
     private void OnDisable()
