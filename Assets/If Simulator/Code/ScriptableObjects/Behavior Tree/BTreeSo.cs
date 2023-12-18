@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace BehaviorTree
@@ -40,7 +42,7 @@ namespace BehaviorTree
                 Root.Evaluate();
         }
 
-        #region Editor Utilities
+#if UNITY_EDITOR
 
         [field: SerializeField, HideInInspector]
         public List<NodeSo> AllNodes { get; private set; } = new();
@@ -108,6 +110,6 @@ namespace BehaviorTree
             return true;
         }
 
-        #endregion
+#endif
     }
 }
