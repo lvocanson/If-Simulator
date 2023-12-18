@@ -1,0 +1,712 @@
+fileFormatVersion: 2
+guid: 9f7f3f3628c06aa41a64e62b09907ffe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4314114747020793628
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_0
+  - first:
+      213: 1282760507006680253
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_1
+  - first:
+      213: 8706220570870644906
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_2
+  - first:
+      213: 6523066742165529007
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_3
+  - first:
+      213: -5296549770404243195
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_4
+  - first:
+      213: -7485682144286885783
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_5
+  - first:
+      213: -2243013733971338988
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_6
+  - first:
+      213: 1165282499021048471
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_7
+  - first:
+      213: -7450637430530287734
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_8
+  - first:
+      213: -672252455045847827
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_9
+  - first:
+      213: -6448769440123102420
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_10
+  - first:
+      213: 3517525898044513390
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_11
+  - first:
+      213: 7523515765011634795
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_12
+  - first:
+      213: -3985297629849769608
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_13
+  - first:
+      213: 8364543836118539653
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_14
+  - first:
+      213: 2826036705662100483
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_15
+  - first:
+      213: 5929342537417323988
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_16
+  - first:
+      213: -1571510176538430841
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_17
+  - first:
+      213: -919114398635482642
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_18
+  - first:
+      213: 269737407494981483
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_19
+  - first:
+      213: 903652462398385012
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_20
+  - first:
+      213: -1794338615133054720
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_21
+  - first:
+      213: 5084521901017344296
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_22
+  - first:
+      213: -3969588278861222112
+    second: BasicConstruction__0000s_0000s_0003_Infrastructure-1_23
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 163
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c17d2785180dedb30800000000000000
+      internalID: 4314114747020793628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 163
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbc780082e74dc110800000000000000
+      internalID: 1282760507006680253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_2
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 163
+        width: 38
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa081fe4b75b2d870800000000000000
+      internalID: 8706220570870644906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_3
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 163
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa1e0fc24a6968a50800000000000000
+      internalID: 6523066742165529007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_4
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 163
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 509d0efcb00ee76b0800000000000000
+      internalID: -5296549770404243195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_5
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 163
+        width: 95
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 968bb4820c38d1890800000000000000
+      internalID: -7485682144286885783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_6
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 171
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 419d05894e63fd0e0800000000000000
+      internalID: -2243013733971338988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_7
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 163
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79a0129424aeb2010800000000000000
+      internalID: 1165282499021048471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 79
+        width: 10
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a87530b6bb40a9890800000000000000
+      internalID: -7450637430530287734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_9
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 145
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de4ab9134fdaba6f0800000000000000
+      internalID: -672252455045847827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_10
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 79
+        width: 18
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2b511b7c5e5186a0800000000000000
+      internalID: -6448769440123102420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_11
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 79
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6c1e29ea23c0d030800000000000000
+      internalID: 3517525898044513390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_12
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 132
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6ad19b1ab5e86860800000000000000
+      internalID: 7523515765011634795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_13
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 79
+        width: 105
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8792990bbe061b8c0800000000000000
+      internalID: -3985297629849769608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_14
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 99
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58d570c3d44d41470800000000000000
+      internalID: 8364543836118539653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_15
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 79
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 304643b2969183720800000000000000
+      internalID: 2826036705662100483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_16
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 91
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d57f5e6f91494250800000000000000
+      internalID: 5929342537417323988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_17
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 79
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 782f38612dfd03ae0800000000000000
+      internalID: -1571510176538430841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_18
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 79
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee1a269f256ae33f0800000000000000
+      internalID: -919114398635482642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 9
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b678f543ebc4eb300800000000000000
+      internalID: 269737407494981483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_20
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 20
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ba9a5702b6a8c00800000000000000
+      internalID: 903652462398385012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_21
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 0
+        width: 52
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0095a3e498a3917e0800000000000000
+      internalID: -1794338615133054720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_22
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 24
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82925d2eab9df8640800000000000000
+      internalID: 5084521901017344296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0003_Infrastructure-1_23
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 0
+        width: 102
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f2cedfd7039e8c0800000000000000
+      internalID: -3969588278861222112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_0: 4314114747020793628
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_1: 1282760507006680253
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_10: -6448769440123102420
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_11: 3517525898044513390
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_12: 7523515765011634795
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_13: -3985297629849769608
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_14: 8364543836118539653
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_15: 2826036705662100483
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_16: 5929342537417323988
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_17: -1571510176538430841
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_18: -919114398635482642
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_19: 269737407494981483
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_2: 8706220570870644906
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_20: 903652462398385012
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_21: -1794338615133054720
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_22: 5084521901017344296
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_23: -3969588278861222112
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_3: 6523066742165529007
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_4: -5296549770404243195
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_5: -7485682144286885783
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_6: -2243013733971338988
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_7: 1165282499021048471
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_8: -7450637430530287734
+      BasicConstruction__0000s_0000s_0003_Infrastructure-1_9: -672252455045847827
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

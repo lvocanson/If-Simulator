@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: dbdf943e8fd0fd447a8193b578c3e83b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5142403186623830494
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_0
+  - first:
+      213: 1553098312463271777
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_1
+  - first:
+      213: 7530056331984101190
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_2
+  - first:
+      213: 1769133791826419703
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_3
+  - first:
+      213: 3674390720539239914
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_4
+  - first:
+      213: 4011186873630889802
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_5
+  - first:
+      213: 5560266630029892561
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_6
+  - first:
+      213: 7448466448201972704
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_7
+  - first:
+      213: 1323152546144480260
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_8
+  - first:
+      213: 8171248937638556882
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_9
+  - first:
+      213: -705477125253136045
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_10
+  - first:
+      213: 1715964986005518745
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_11
+  - first:
+      213: 1696394131529193884
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_12
+  - first:
+      213: -6451330479008041285
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_13
+  - first:
+      213: 748043018224184990
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_14
+  - first:
+      213: -6766871419516046969
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_15
+  - first:
+      213: 4587120499252280637
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_16
+  - first:
+      213: 7354324135422636544
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_17
+  - first:
+      213: -8468307837084036467
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_18
+  - first:
+      213: -7648340824331608975
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_19
+  - first:
+      213: 408484801427701460
+    second: BasicConstruction__0000s_0000s_0002_Ventilator_20
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 125
+        width: 32
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed9dc8ed37c7d5740800000000000000
+      internalID: 5142403186623830494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_1
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 190
+        width: 97
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 167c1afbfa6bd8510800000000000000
+      internalID: 1553098312463271777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_2
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 160
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64fd7968652208860800000000000000
+      internalID: 7530056331984101190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_3
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 190
+        width: 92
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ff14f57fc93d8810800000000000000
+      internalID: 1769133791826419703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_4
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 160
+        width: 71
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae5abbf74ee0ef230800000000000000
+      internalID: 3674390720539239914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_5
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 126
+        width: 32
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a479a7a95399aa730800000000000000
+      internalID: 4011186873630889802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_6
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 81
+        width: 51
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dbd36b5a090a2d40800000000000000
+      internalID: 5560266630029892561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_7
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 99
+        width: 55
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eb7e7e55c44e5760800000000000000
+      internalID: 7448466448201972704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_8
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 126
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40c6898fa38cc5210800000000000000
+      internalID: 1323152546144480260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_9
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 127
+        width: 42
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d4fb3b9d9b166170800000000000000
+      internalID: 8171248937638556882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_10
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 114
+        width: 50
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3518f18da44a536f0800000000000000
+      internalID: -705477125253136045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_11
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 101
+        width: 51
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 999fddd201550d710800000000000000
+      internalID: 1715964986005518745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 52
+        width: 30
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c99dad8897dca8710800000000000000
+      internalID: 1696394131529193884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_13
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 60
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb633162c154876a0800000000000000
+      internalID: -6451330479008041285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_14
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 61
+        width: 45
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9ea6f96925916a00800000000000000
+      internalID: 748043018224184990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_15
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 87
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 781b00fdb4e3712a0800000000000000
+      internalID: -6766871419516046969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_16
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 50
+        width: 32
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3d38db5ac9b8af30800000000000000
+      internalID: 4587120499252280637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_17
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 98
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 002b2f616decf0660800000000000000
+      internalID: 7354324135422636544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_18
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 19
+        width: 73
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8213f1a3e68a7a80800000000000000
+      internalID: -8468307837084036467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_19
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 19
+        width: 78
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17c989cfa82abd590800000000000000
+      internalID: -7648340824331608975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0002_Ventilator_20
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 0
+        width: 91
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4de7e3d33ca3ba500800000000000000
+      internalID: 408484801427701460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      BasicConstruction__0000s_0000s_0002_Ventilator_0: 5142403186623830494
+      BasicConstruction__0000s_0000s_0002_Ventilator_1: 1553098312463271777
+      BasicConstruction__0000s_0000s_0002_Ventilator_10: -705477125253136045
+      BasicConstruction__0000s_0000s_0002_Ventilator_11: 1715964986005518745
+      BasicConstruction__0000s_0000s_0002_Ventilator_12: 1696394131529193884
+      BasicConstruction__0000s_0000s_0002_Ventilator_13: -6451330479008041285
+      BasicConstruction__0000s_0000s_0002_Ventilator_14: 748043018224184990
+      BasicConstruction__0000s_0000s_0002_Ventilator_15: -6766871419516046969
+      BasicConstruction__0000s_0000s_0002_Ventilator_16: 4587120499252280637
+      BasicConstruction__0000s_0000s_0002_Ventilator_17: 7354324135422636544
+      BasicConstruction__0000s_0000s_0002_Ventilator_18: -8468307837084036467
+      BasicConstruction__0000s_0000s_0002_Ventilator_19: -7648340824331608975
+      BasicConstruction__0000s_0000s_0002_Ventilator_2: 7530056331984101190
+      BasicConstruction__0000s_0000s_0002_Ventilator_20: 408484801427701460
+      BasicConstruction__0000s_0000s_0002_Ventilator_3: 1769133791826419703
+      BasicConstruction__0000s_0000s_0002_Ventilator_4: 3674390720539239914
+      BasicConstruction__0000s_0000s_0002_Ventilator_5: 4011186873630889802
+      BasicConstruction__0000s_0000s_0002_Ventilator_6: 5560266630029892561
+      BasicConstruction__0000s_0000s_0002_Ventilator_7: 7448466448201972704
+      BasicConstruction__0000s_0000s_0002_Ventilator_8: 1323152546144480260
+      BasicConstruction__0000s_0000s_0002_Ventilator_9: 8171248937638556882
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
