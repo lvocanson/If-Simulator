@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using NavMeshPlus.Components;
 using UnityEngine;
 
 
@@ -14,7 +15,8 @@ public class RoomDoor : MonoBehaviour
     [Header("References")]
     [SerializeField] private Collider2D _collider;
     [SerializeField] private SpriteRenderer _renderer;
-
+    [SerializeField] private NavMeshModifier _navMeshModifier;
+    
     [Header("Settings")]
     [SerializeField] private DoorState _initialState = DoorState.Unlocked;
 
@@ -31,11 +33,13 @@ public class RoomDoor : MonoBehaviour
     [Header("Debug")]
     [ShowNonSerializedField] private DoorState _currentState = DoorState.Unlocked;
     [ShowNonSerializedField] private bool _isAlreadyOpened = false;
-
+    
+    
     private DoorState _previousState;
 
     public DoorState CurrentState => _currentState;
     public DoorState PreviousState => _previousState;
+    
 
     public void Initialize()
     {
@@ -70,6 +74,9 @@ public class RoomDoor : MonoBehaviour
         _renderer.color = _openedColor;
         _collider.enabled = false;
         _renderer.enabled = false;
+        
+        _navMeshModifier.area = 0;
+        LevelContext.Instance.LevelManager.CurrentLevel.UpdateNavMesh();
     }
 
     public void LockDoor()
@@ -80,6 +87,9 @@ public class RoomDoor : MonoBehaviour
         _renderer.color = _lockedColor;
         _collider.enabled = true;
         _renderer.enabled = true;
+        
+        _navMeshModifier.area = 1; 
+        LevelContext.Instance.LevelManager.CurrentLevel.UpdateNavMesh();
     }
 
     public void UnlockDoor()
