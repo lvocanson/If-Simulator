@@ -14,6 +14,7 @@ namespace Managers
         private Player _spawnedPlayer;
 
         public Player SpawnedPlayer => _spawnedPlayer;
+        public Level CurrentLevel => _currentLevel;
         public CurrentPlayerSo CurrentPlayerSo => _currentPlayerSo;
 
         

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using NavMeshPlus.Components;
 using UnityEngine;
 
 namespace Game.Level
@@ -6,6 +7,7 @@ namespace Game.Level
     public class Level : MonoBehaviour
     {
         [SerializeField] private List<Room> _rooms;
+        [SerializeField] private NavMeshSurface _navMeshSurface;
 
         public void Initialize()
         {
@@ -26,6 +28,11 @@ namespace Game.Level
                 room.InitializeDoors();
                 room.InitializeRoom();
             }
+        }
+        
+        public void UpdateNavMesh()
+        {
+            _navMeshSurface.UpdateNavMesh(_navMeshSurface.navMeshData);
         }
     }
 }
