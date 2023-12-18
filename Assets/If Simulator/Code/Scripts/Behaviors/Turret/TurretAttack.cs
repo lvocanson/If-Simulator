@@ -22,6 +22,7 @@ namespace Behaviors
         [SerializeField, ReadOnly] private Transform _target;
         [SerializeField, ReadOnly] private ObjectPool<GameObject> _bulletPool;
         [SerializeField, ReadOnly] private float _attackDelay;
+        private float nextAttackTimestamp = 0;
         
         private Coroutine _attackCoroutine;
 
@@ -32,8 +33,8 @@ namespace Behaviors
             _target = (Transform)Args[0];
             _attackDelay = (float)Args[1];
             _bulletPool = (ObjectPool<GameObject>)Args[2];
-            _attackCoroutine = StartCoroutine(Attack());
-
+            
+            Debug.Log(_attackDelay);
         }
 
         public override void Exit()
@@ -54,7 +55,6 @@ namespace Behaviors
         {
             while (true)
             {
-                Shoot();
                 yield return new WaitForSeconds(_attackDelay);
             }
         }
@@ -65,7 +65,11 @@ namespace Behaviors
             {
                 return;
             }
-            
+            if (Time.time >= nextAttackTimestamp)
+            {
+                Shoot();
+                nextAttackTimestamp = Time.time + _attackDelay;
+            }
             float angle = Vector2.SignedAngle(Vector2.right, _target.position - transform.position) - 90;
             _rb.MoveRotation(angle);
         }

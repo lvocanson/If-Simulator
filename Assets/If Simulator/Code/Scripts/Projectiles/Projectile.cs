@@ -54,6 +54,7 @@ namespace Ability
         private void OnEnable()
         {
             _selfDestructCoroutine ??= StartCoroutine(SelfDestruct());
+            //Debug.Log("Projectile enabled");
             _renderer.color = Color.white;
             _isDestroyed = false;
         }
