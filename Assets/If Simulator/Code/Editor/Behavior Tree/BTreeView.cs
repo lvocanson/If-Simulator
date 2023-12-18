@@ -180,6 +180,19 @@ namespace BehaviorTree
             AddElement(nodeView);
         }
 
+        public void RenameSelection()
+        {
+            if (selection.Count == 0) return;
+            if (selection.First() is NodeView nodeView)
+            {
+                StringQueryPopup.Create("Rename", "Enter a new name for the node:", (name) =>
+                {
+                    nodeView.Node.name = name;
+                    nodeView.title = name;
+                });
+            }
+        }
+
         public void DuplicateSelection()
         {
             if (selection.Count == 0) return;
