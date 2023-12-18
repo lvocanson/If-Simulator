@@ -12,7 +12,7 @@ namespace FiniteStateMachine
 
         private void Awake()
         {
-            enabled = false; // Disable the state by default.
+            enabled = false; // Disable the state by default
         }
 
         public void Enter(StateMachine manager, params object[] args)

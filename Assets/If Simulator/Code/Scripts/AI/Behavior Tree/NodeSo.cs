@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 namespace BehaviorTree
@@ -73,11 +72,11 @@ namespace BehaviorTree
         /// </summary>
         protected virtual void OnExit() { }
 
-        #region Editor
+#if UNITY_EDITOR
 
         [field: SerializeField, HideInInspector]
         public Vector2 GraphPosition { get; set; }
 
-        #endregion
+#endif
     }
 }

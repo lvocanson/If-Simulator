@@ -6,8 +6,11 @@ namespace Ability
 {
     public class Projectile : MonoBehaviour
     {
+        [SerializeField] private bool _managedFromPool;
+        
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
+        [SerializeField] private SpriteRenderer _renderer;
         
         [Header("Data")]
         [SerializeField] private LayerMask _layers;
@@ -16,8 +19,10 @@ namespace Ability
         [SerializeField] private float _lifeTime;
         [SerializeField, Min(0)] private float _damage;
         
+        private Coroutine _selfDestructCoroutine;
         protected int _ownerLayer;
-
+        private bool _isDestroyed;
+        
         public float Damage => _damage;
         
         public void SetDamage(float damage)
@@ -44,27 +49,46 @@ namespace Ability
         
         public event Action OnDestroy;
         public event Action OnHit;
+
         
-        private void Start()
+        private void OnEnable()
         {
-            StartCoroutine(SelfDestruct());
+            _selfDestructCoroutine ??= StartCoroutine(SelfDestruct());
+            _renderer.color = Color.white;
+            _isDestroyed = false;
         }
-        
-        public void Initialize(int ownerId, Vector2 dir)
+
+        private void OnDisable()
+        {
+            if (_selfDestructCoroutine != null)
+            {
+                StopCoroutine(_selfDestructCoroutine);
+                _selfDestructCoroutine = null;
+            }
+        }
+
+        public void Initialize(int ownerId, Vector2 dir, bool managedByPool = false)
         {
             _ownerLayer = ownerId;
             _rb.velocity = dir * _speed;
+            _managedFromPool = managedByPool;
         }
         
         private void OnTriggerEnter2D(Collider2D col)
         {
+            if (_isDestroyed) return;
+            
             // skip unwanted layers
             int otherLayer = col.gameObject.layer;
             if (((1 << otherLayer) & _layers.value) == 0) return;
             if (otherLayer == _ownerLayer) return;
-            
-            StopCoroutine(SelfDestruct());
 
+            if (_selfDestructCoroutine != null)
+            {
+                StopCoroutine(_selfDestructCoroutine);
+                _selfDestructCoroutine = null;
+            }
+            
             // damage
             if (((1 << otherLayer) & _damageableEntityLayers.value) != 0)
             {
@@ -87,23 +111,21 @@ namespace Ability
         
         private IEnumerator SelfDestruct()
         {
-            SpriteRenderer renderer = GetComponentInChildren<SpriteRenderer>();
-
             float timer = 0;
             while (timer < _lifeTime)
             {
                 timer += Time.deltaTime;
 
-                if (renderer)
+                if (_renderer)
                 {
                     // fade
                     if (timer > _lifeTime - 0.2f)
                     {
-                        Color color = renderer.color;
+                        Color color = _renderer.color;
 
                         float ratio = (timer - (_lifeTime - 0.2f)) / 0.2f;
                         color.a = Mathf.Lerp(1, 0, ratio);
-                        renderer.color = color;
+                        _renderer.color = color;
                     }
                 }
 
@@ -115,8 +137,11 @@ namespace Ability
         
         private void Death()
         {
+            _isDestroyed = true;
             OnDestroy?.Invoke();
-            Destroy(gameObject);
+            
+            if (!_managedFromPool)
+                Destroy(gameObject);
         }
     }
 }
