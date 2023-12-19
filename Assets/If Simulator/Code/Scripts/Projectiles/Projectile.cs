@@ -47,7 +47,7 @@ namespace Ability
                 Debug.LogWarning("Lifetime must be greater than 0");
         }
         
-        public event Action OnDestroy;
+        public event Action<Projectile> OnDestroy;
         public event Action OnHit;
 
         
@@ -76,12 +76,11 @@ namespace Ability
         
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (_isDestroyed) return;
-            
             // skip unwanted layers
             int otherLayer = col.gameObject.layer;
             if (((1 << otherLayer) & _layers.value) == 0) return;
             if (otherLayer == _ownerLayer) return;
+
 
             if (_selfDestructCoroutine != null)
             {
@@ -138,7 +137,7 @@ namespace Ability
         private void Death()
         {
             _isDestroyed = true;
-            OnDestroy?.Invoke();
+            OnDestroy?.Invoke(this);
             
             if (!_managedFromPool)
                 Destroy(gameObject);

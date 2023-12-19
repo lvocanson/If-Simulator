@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Pool;
 
 namespace Ability
@@ -38,13 +39,19 @@ namespace Ability
         private GameObject CreateBullet()
         {
             // Spawn a new bullet at the spawn point (player position)
-            Projectile bp = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation, _bulletContainer).GetComponent<Projectile>();
+            GameObject bp = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation, _bulletContainer);
 
-            bp.Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
-            bp.SetDamage(_abilitySo.Damage);
-            bp.OnDestroy += () => _bulletPool.Release(bp.gameObject);
+            var bulletBehavior = bp.GetComponent<Projectile>();
+            bulletBehavior.Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
+            bulletBehavior.SetDamage(_abilitySo.Damage);
+            bulletBehavior.OnDestroy += CleanProjectile;
 
-            return bp.gameObject;
+            return bp;
+        }
+        
+        private void CleanProjectile(Projectile p)
+        {
+            _bulletPool.Release(p.gameObject);
         }
 
         private void OnBulletTakeFromPool(GameObject bullet)
@@ -53,7 +60,6 @@ namespace Ability
             bullet.transform.rotation = _bulletSpawnPoint.rotation * Quaternion.Euler(0,0,90);
             bullet.SetActive(true);
             bullet.GetComponent<Projectile>().Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
-
         }
 
         private void OnBulletReturnToPool(GameObject bullet) => bullet.SetActive(false);

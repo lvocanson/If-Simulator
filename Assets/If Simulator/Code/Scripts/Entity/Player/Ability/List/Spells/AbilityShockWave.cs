@@ -9,19 +9,19 @@ namespace Ability
         [SerializeField] private GameObject _swPrefab;
         [SerializeField] private Transform _spawnPoint;
         
-        private ShockWaveBehavior _swInstance;
+        private AbilityExplosionBehavior _swInstance;
         
         protected override void OnEffectStart()
         {
             GameObject swGo = Instantiate(_swPrefab, _spawnPoint.position, Quaternion.identity);
             
-            _swInstance = swGo.GetComponent<ShockWaveBehavior>();
-            _swInstance.Init(_abilitySo.Damage);
+            _swInstance = swGo.GetComponent<AbilityExplosionBehavior>();
+            _swInstance.Init(_abilitySo);
         }
 
         protected override void OnEffectUpdate()
         {
-            _swInstance.OnUpdate(_abilitySo.AbilityDuration);
+            _swInstance.OnUpdate();
         }
 
         protected override void OnEffectEnd()
