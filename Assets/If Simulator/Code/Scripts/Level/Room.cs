@@ -3,143 +3,115 @@ using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 
-public class Room : MonoBehaviour
+namespace Game.Level
 {
-    private enum RoomType
+    /// <summary>
+    /// Abstract class that represents a room in the level, to create a new room type, create a new class that inherits from this class
+    /// </summary>
+    public abstract class Room : MonoBehaviour
     {
-        Basic,
-        KillAllEnemies,
-    }
-
-    [Header("References")]
-    [SerializeField] private List<Enemy> _allEnemies;
-    [SerializeField] private List<RoomDoor> _doors;
-
-    [Header("Room Settings")]
-    [SerializeField] private RoomType _roomType = RoomType.Basic;
-
-    [Header("Events")]
-    [SerializeField] private PhysicsEvents _enteredRoomTrigger;
-
-    [Header("Debug")]
-    [ShowNonSerializedField] private bool _isCleared = false;
-    [ShowNonSerializedField] private bool _isActivated = false;
-    [ShowNonSerializedField] private int _enemiesAlive = 0;
-    [ShowNonSerializedField] private int _totalEnemies = 0;
-
-    public event Action OnRoomCleared;
-
-    private void OnEnable()
-    {
-        _enteredRoomTrigger.OnEnter += OnRoomEnter;
-        _enteredRoomTrigger.OnExit += OnRoomExit;
-    }
-
-    private void OnDisable()
-    {
-        _enteredRoomTrigger.OnEnter -= OnRoomEnter;
-        _enteredRoomTrigger.OnExit -= OnRoomExit;
-    }
-
-    public void Initialize()
-    {
-        if (_roomType is RoomType.Basic) _isCleared = true;
-
-        foreach (var door in _doors)
+        protected enum RoomType
         {
-            door.Initialize();
+            Base,
+            KillAllEnemies,
         }
 
-        foreach (var enemy in _allEnemies)
-        {
-            if (!enemy) continue;
+        [Header("References")]
+        [SerializeField] protected List<RoomDoor> _doors;
+        
+        [Header("Events")]
+        [SerializeField] private PhysicsEvents _enteredRoomTrigger;
 
-            enemy.OnDeath += OnEnemyKilled;
-            _enemiesAlive++;
+        [Header("Debug")]
+        [ShowNonSerializedField] protected bool _isCleared = false;
+        [ShowNonSerializedField] protected bool _isActivated = false;
+        [ShowNonSerializedField] protected RoomType _roomType;
+
+        public event Action OnRoomCleared;
+
+        
+        private void OnEnable()
+        {
+            _enteredRoomTrigger.OnEnter += OnRoomEnter;
+            _enteredRoomTrigger.OnExit += OnRoomExit;
         }
 
-        _totalEnemies = _enemiesAlive;
-    }
-
-    private void OnRoomEnter(Collider2D other)
-    {
-        if (_isCleared || _isActivated || !other.CompareTag("Player")) return;
-        if (!other.GetComponent<Player>()) return;
-
-        Debug.Log("Player entered room: " + other.name);
-        switch (_roomType)
+        private void OnDisable()
         {
-            case RoomType.Basic:
-                break;
-            case RoomType.KillAllEnemies:
-                ActivateRoom();
-                break;
+            _enteredRoomTrigger.OnEnter -= OnRoomEnter;
+            _enteredRoomTrigger.OnExit -= OnRoomExit;
         }
-    }
 
-    private void OnRoomExit(Collider2D other)
-    {
-        if (_isCleared || _isActivated || !other.CompareTag("Player")) return;
-        if (!other.GetComponent<Player>()) return;
-
-        switch (_roomType)
+        public void InitializeDoors()
         {
-            default:
-                break;
+            if (_doors.Count == 0)
+            {
+                Debug.LogError("Doors in room: " + gameObject.name + " isn't set");
+                return;
+            }
+            
+            foreach (var door in _doors)
+            {
+                if (door == null)
+                {
+                    Debug.LogError("A door in room: " + gameObject.name + "is null");
+                    continue;
+                }
+                
+                door.Initialize();
+            }
         }
-    }
-
-    private void ActivateRoom()
-    {
-        Debug.Log("Room is activated");
-
-        _isActivated = true;
-
-        switch (_roomType)
+        
+        private void OnRoomEnter(Collider2D other)
         {
-
-            case RoomType.KillAllEnemies:
-                LockRoom();
-                break;
-            default:
-                break;
+            if (_isCleared || _isActivated || !other.CompareTag("Player")) return;
+            if (!other.GetComponent<Player>()) return;
+            
+            OnPlayerEnteredRoom();
         }
-    }
 
-    private void LockRoom()
-    {
-        Debug.Log("Room is locked");
-
-        foreach (var door in _doors)
+        private void OnRoomExit(Collider2D other)
         {
-            door.LockDoor();
+            if (_isCleared || _isActivated || !other.CompareTag("Player")) return;
+            if (!other.GetComponent<Player>()) return;
+            
+            OnPlayerExitedRoom();
         }
-    }
 
-    private void RoomCleared()
-    {
-        Debug.Log("Room Cleared");
-
-        _isCleared = true;
-        UnlockRoom();
-        OnRoomCleared?.Invoke();
-    }
-
-    private void UnlockRoom()
-    {
-        Debug.Log("Room is unlocked");
-
-        foreach (var door in _doors)
+        protected void LockRoom()
         {
-            door.UnlockDoor();
+            Debug.Log("Room is locked");
+
+            foreach (var door in _doors)
+            {
+                door.LockDoor();
+            }
         }
-    }
 
-    private void OnEnemyKilled()
-    {
-        if (--_enemiesAlive == 0)
-            RoomCleared();
+        protected void RoomCleared()
+        {
+            Debug.Log("Room Cleared");
+            
+            OnRoomCleared?.Invoke();
+            _isCleared = true;
+            OnPlayerClearedRoom();
+            
+            UnlockRoom();
+        }
 
-        Debug.Log("Enemy killed: " + _enemiesAlive + " enemies left");
+        protected void UnlockRoom()
+        {
+            Debug.Log("Room is unlocked");
+
+            foreach (var door in _doors)
+            {
+                door.UnlockDoor();
+            }
+        }
+        
+        public abstract void InitializeRoom();
+        protected abstract void OnPlayerEnteredRoom();
+        protected abstract void OnPlayerExitedRoom();
+        protected abstract void OnPlayerClearedRoom();
     }
 }

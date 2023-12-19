@@ -209,10 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy: {fileID: 6284057064356520435}
   _chase: {fileID: 600574708586748271}
-  _waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _waypoints: []
   _speed: 1
   _chaseColEvent: {fileID: 5535838779829924784}
 --- !u!114 &600574708586748271
@@ -273,7 +270,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.88281244
-  m_BaseOffset: 0.44140622
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &2424121374675573299
