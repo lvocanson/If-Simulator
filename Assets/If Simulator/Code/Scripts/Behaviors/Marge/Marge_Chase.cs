@@ -48,6 +48,11 @@ public class Marge_Chase : BaseState
         }
     }
 
+    private void Update()
+    {
+        gameObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, _enemy.Agent.velocity);
+    }
+
     private void ExitOnChaseRange(Collider2D obj)
     {
         if (obj.CompareTag("Player"))

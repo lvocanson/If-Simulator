@@ -1,10 +1,15 @@
+using System;
 using System.Collections;
+using System.Numerics;
 using Ability;
 using UnityEngine;
 using FiniteStateMachine;
 using NaughtyAttributes;
 using Unity.Mathematics;
 using Utility;
+using Quaternion = UnityEngine.Quaternion;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class Marge_Attack : BaseState
 {
@@ -12,6 +17,7 @@ public class Marge_Attack : BaseState
     [SerializeField] GameObject _bulletPrefab;
     [SerializeField] private CircleCollider2D _attackCol;
     [SerializeField] private Enemy _enemy;
+    [SerializeField] private GameObject ProjectileSpawnPoint; 
 
     [Header("State Machine")]
     [SerializeField] private Marge_Chase _chaseState;
@@ -44,6 +50,11 @@ public class Marge_Attack : BaseState
 
         _attackCoroutine ??= StartCoroutine(Attack());
     }
+    
+    private void Update()
+    {
+        transform.up = _target.position - transform.position;
+    }
 
     private void ExitAttackRange(Collider2D obj)
     {
@@ -54,7 +65,7 @@ public class Marge_Attack : BaseState
     private void MargeShoot()
     {
         Vector3 direction = _target.transform.position - transform.position;
-        Projectile bullet = Instantiate(_bulletPrefab, transform.position, quaternion.identity)
+        Projectile bullet = Instantiate(_bulletPrefab, ProjectileSpawnPoint.transform.position, quaternion.identity)
             .GetComponent<Projectile>();
         
         bullet.transform.rotation = Quaternion.AngleAxis(TransformUtility.AngleFromDirection(direction), Vector3.forward);
