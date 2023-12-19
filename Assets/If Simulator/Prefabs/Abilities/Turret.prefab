@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 6817591716481894186}
   - component: {fileID: 7057862611257369185}
   m_Layer: 9
-  m_Name: targetting
+  m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

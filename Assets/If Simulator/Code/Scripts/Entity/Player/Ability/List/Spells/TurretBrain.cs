@@ -29,8 +29,8 @@ namespace Ability
         [SerializeField] private LayerMask _wallLayer;
 
         [Header("Debug")] 
-        [SerializeField, ReadOnly] private readonly List<DamageabaleEntity> _closeEntities = new();
-        [SerializeField, ReadOnly] private DamageabaleEntity _currentTarget;
+        [SerializeField, ReadOnly] private readonly List<DamageableEntity> _closeEntities = new();
+        [SerializeField, ReadOnly] private DamageableEntity _currentTarget;
 
         private ObjectPool<GameObject> _bulletPool;
 
@@ -55,7 +55,7 @@ namespace Ability
         private void OnTriggerEnter2D(Collider2D other)
         {
             // Assert that the entity is damageable
-            if (other.transform.parent.TryGetComponent(out DamageabaleEntity damageable) is false) return;
+            if (other.transform.parent.TryGetComponent(out DamageableEntity damageable) is false) return;
             
             // Assert that the entity is not already in the list
             if (_closeEntities.Contains(damageable) is true) return;
@@ -76,7 +76,7 @@ namespace Ability
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.transform.parent.TryGetComponent(out DamageabaleEntity damageable) is false) return;
+            if (other.transform.parent.TryGetComponent(out DamageableEntity damageable) is false) return;
             
             if (_closeEntities.Contains(damageable) is false) return;
 

@@ -17,6 +17,29 @@ TagManager:
   - Player
   - Trigger
   - Projectile
+  - Target
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Ground
     uniqueID: 4208141361
