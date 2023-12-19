@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Potion
   - Projectile
   - Enemy
   - PlayerProjectile
@@ -16,31 +15,8 @@ TagManager:
   - Water
   - UI
   - Player
-  - Ally
-  - AllySensor
-  - Potion
   - Trigger
   - Projectile
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   m_SortingLayers:
   - name: Ground
     uniqueID: 4208141361
