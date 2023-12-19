@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3503635925701019748}
   - component: {fileID: 4917770171745572057}
   - component: {fileID: 2556320877204740057}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: DoorOpenTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

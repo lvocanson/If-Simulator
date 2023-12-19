@@ -9,6 +9,16 @@ namespace Game.Level
         [SerializeField] private List<Room> _rooms;
         [SerializeField] private NavMeshSurface _navMeshSurface;
 
+        private void Awake()
+        {
+            if (!_navMeshSurface)
+            {
+                _navMeshSurface = GetComponentInChildren<NavMeshSurface>();
+            }
+            
+            _navMeshSurface.hideEditorLogs = true;
+        }
+
         public void Initialize()
         {
             if (_rooms.Count == 0)
