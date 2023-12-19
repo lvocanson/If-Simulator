@@ -100,7 +100,6 @@ namespace Ability
 
         public void OnDeath()
         {
-            Debug.Log("Destroying turret");
             // Handle turret explosion
             _currentTarget = null;
             ChangeState(_destroyState);
@@ -122,10 +121,8 @@ namespace Ability
             return bp;
         }
 
-        void CleanProjectile(Projectile p)
+        private void CleanProjectile(Projectile p)
         {
-            //p.OnDestroy -= CleanProjectile;
-            //Debug.LogWarning("Cleaning projectile");
             _bulletPool.Release(p.gameObject);
         }
 

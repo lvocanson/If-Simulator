@@ -16,8 +16,8 @@ namespace Ability
         {
             _timer += Time.fixedDeltaTime / _so.AbilityDuration;
             float power = _evolutionCurve.Evaluate(_timer);
-            
-            _spriteRenderer.color = new Color(0.9f, 0.4f, 0.9f, 1 - power );
+
+            _spriteRenderer.color = new Color(_color.r, _color.g, _color.b, 1 - power);
             transform.localScale = Vector3.one * (power * _maxSize);
             
             if (_timer >= 1)

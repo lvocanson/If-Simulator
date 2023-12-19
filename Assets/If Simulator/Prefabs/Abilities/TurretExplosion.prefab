@@ -169,6 +169,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   _maxSize: 10
   _enemyPushBackForce: 2
+  _color: {r: 0.9, g: 0.4, b: 0.9, a: 0}
   _layersToCollide:
     serializedVersion: 2
     m_Bits: 0

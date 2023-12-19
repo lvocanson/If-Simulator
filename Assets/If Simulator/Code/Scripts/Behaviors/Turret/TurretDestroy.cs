@@ -20,11 +20,5 @@ namespace Behaviors
             _explosionInstance = go.GetComponent<AbilityExplosionBehavior>();
             _explosionInstance.Init(_so);
         }
-        
-        public override void Exit()
-        {
-            base.Exit();
-            //Destroy(_explosionInstance.gameObject);
-        }
     }
 }

@@ -11,6 +11,7 @@ namespace Ability
         [SerializeField] protected AnimationCurve _evolutionCurve;
         [SerializeField] protected float _maxSize;
         [SerializeField] protected float _enemyPushBackForce;
+        [SerializeField, Tooltip("Alpha value will not be used since it will be modified by animation curve")] protected Color _color;
         
         protected float _damage;
         

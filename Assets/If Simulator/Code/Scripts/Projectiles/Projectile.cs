@@ -76,8 +76,6 @@ namespace Ability
         
         private void OnTriggerEnter2D(Collider2D col)
         {
-            //if (_isDestroyed) return;
-            
             // skip unwanted layers
             int otherLayer = col.gameObject.layer;
             if (((1 << otherLayer) & _layers.value) == 0) return;
