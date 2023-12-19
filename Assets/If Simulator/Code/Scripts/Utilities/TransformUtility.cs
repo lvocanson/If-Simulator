@@ -8,5 +8,10 @@ namespace Utility
         {
             return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg + 90f;
         }
+
+        public static float AngleFromDirection(Vector2 dir)
+        {
+            return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg; 
+        }
     }
 }

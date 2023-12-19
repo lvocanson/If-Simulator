@@ -3,6 +3,8 @@ using Ability;
 using UnityEngine;
 using FiniteStateMachine;
 using NaughtyAttributes;
+using Unity.Mathematics;
+using Utility;
 
 public class Marge_Attack : BaseState
 {
@@ -52,8 +54,10 @@ public class Marge_Attack : BaseState
     private void MargeShoot()
     {
         Vector3 direction = _target.transform.position - transform.position;
-        Projectile bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity)
+        Projectile bullet = Instantiate(_bulletPrefab, transform.position, quaternion.identity)
             .GetComponent<Projectile>();
+        
+        bullet.transform.rotation = Quaternion.AngleAxis(TransformUtility.AngleFromDirection(direction), Vector3.forward);
         bullet.Initialize(gameObject.layer, direction);
     }
 
