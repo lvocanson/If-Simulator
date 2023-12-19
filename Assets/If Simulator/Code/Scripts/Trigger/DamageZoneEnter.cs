@@ -16,7 +16,7 @@ public class DamageZoneEnter : MonoBehaviour
         if ((_ignoreMask & (1 << collision.gameObject.layer)) > 0)
             return;
 
-        if (collision.TryGetComponent(out DamageabaleEntity damageabaleEntity))
+        if (collision.TryGetComponent(out DamageableEntity damageabaleEntity))
             damageabaleEntity.Damage(_damage);
     }
 }

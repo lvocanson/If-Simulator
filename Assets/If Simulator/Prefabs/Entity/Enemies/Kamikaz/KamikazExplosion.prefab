@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1116665829382032798}
   - component: {fileID: 3027794954324983634}
   - component: {fileID: 2011524279187864994}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: KamikazExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
