@@ -12,8 +12,11 @@ public class Enemy : DamageableEntity
     {
         base.Start();
         
+        _agent.baseOffset = -0.005293157f;
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
+        
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
     protected override void Die()
