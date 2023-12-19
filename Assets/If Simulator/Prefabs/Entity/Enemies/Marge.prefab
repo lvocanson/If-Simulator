@@ -180,7 +180,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3998c70e51258c44bafa35cbde8e33fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sprite: {fileID: 3762870253303094257}
   _maxHealth: 50
+  _invulnerabilityDuration: 0
+  _hitMaterial: {fileID: 0}
+  _invulnerabilityMaterial: {fileID: 0}
+  _scaleEffectOffset: 0.2
   _agent: {fileID: 2644387088934892128}
 --- !u!114 &7299784548321892437
 MonoBehaviour:
