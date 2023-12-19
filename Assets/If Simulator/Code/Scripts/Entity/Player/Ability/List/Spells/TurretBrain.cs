@@ -29,7 +29,7 @@ namespace Ability
         [SerializeField] private LayerMask _wallLayer;
 
         [Header("Debug")] 
-        [SerializeField, ReadOnly] private readonly List<DamageabaleEntity> _closeEntities = new List<DamageabaleEntity>();
+        [SerializeField, ReadOnly] private readonly List<DamageabaleEntity> _closeEntities = new();
         [SerializeField, ReadOnly] private DamageabaleEntity _currentTarget;
 
         private ObjectPool<GameObject> _bulletPool;
