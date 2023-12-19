@@ -167,12 +167,13 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 3981262126783197580, guid: 98c4c385fbae0d343b403f5e4988b8c9, type: 3}
   _bulletSpawnPoint: {fileID: 8155816173618837771}
   _bulletContainer: {fileID: 7841176222950211560}
-  _damageableLayer:
-    serializedVersion: 2
-    m_Bits: 8
   _numberOfBulletsPerDefault: 50
   _numberOfBulletsMax: 200
   _attackDelay: 0.2
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  _currentTarget: {fileID: 0}
 --- !u!1 &4448171052931335644
 GameObject:
   m_ObjectHideFlags: 0

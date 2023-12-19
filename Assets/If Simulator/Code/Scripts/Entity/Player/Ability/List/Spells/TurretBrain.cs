@@ -26,6 +26,7 @@ namespace Ability
         [SerializeField] private int _numberOfBulletsPerDefault;
         [SerializeField] private int _numberOfBulletsMax;
         [SerializeField] private float _attackDelay;
+        [SerializeField] private LayerMask _wallLayer;
 
         [Header("Debug")] 
         [SerializeField, ReadOnly] private readonly List<DamageabaleEntity> _closeEntities = new List<DamageabaleEntity>();
@@ -53,9 +54,15 @@ namespace Ability
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            // Assert that the entity is damageable
             if (other.transform.parent.TryGetComponent(out DamageabaleEntity damageable) is false) return;
             
+            // Assert that the entity is not already in the list
             if (_closeEntities.Contains(damageable) is true) return;
+            
+            // Assert that the entity is not behind a wall
+            // This is done at the end because it is the most expensive operation
+            if (Physics2D.Linecast(transform.position, other.transform.position, _wallLayer.value)) return;
             
             // Add the new entity to the list
             _closeEntities.Add(damageable);

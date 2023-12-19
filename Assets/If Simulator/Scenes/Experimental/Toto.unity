@@ -1534,6 +1534,10 @@ PrefabInstance:
       value: Marge
       objectReference: {fileID: 0}
     - target: {fileID: 6514407667865663083, guid: 2bf62916df06df34b8f64ae709fd0ab8, type: 3}
+      propertyPath: _waypoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514407667865663083, guid: 2bf62916df06df34b8f64ae709fd0ab8, type: 3}
       propertyPath: '_waypoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1692939497}
@@ -1628,6 +1632,10 @@ PrefabInstance:
     - target: {fileID: 1772047841111923917, guid: 2bf62916df06df34b8f64ae709fd0ab8, type: 3}
       propertyPath: m_Name
       value: Marge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514407667865663083, guid: 2bf62916df06df34b8f64ae709fd0ab8, type: 3}
+      propertyPath: _waypoints.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6514407667865663083, guid: 2bf62916df06df34b8f64ae709fd0ab8, type: 3}
       propertyPath: '_waypoints.Array.data[0]'
@@ -22336,17 +22344,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2818904770257274705, guid: e935191c92074154f927686f0dc5e685, type: 3}
   m_PrefabInstance: {fileID: 84085168}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &365684818 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4349527109589809993, guid: e935191c92074154f927686f0dc5e685, type: 3}
-  m_PrefabInstance: {fileID: 84085168}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e001e4366cfc4614fad18facb3ef9d31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &372971755 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7634800495616012281, guid: 2bf62916df06df34b8f64ae709fd0ab8, type: 3}
@@ -22563,17 +22560,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2818904770257274705, guid: e935191c92074154f927686f0dc5e685, type: 3}
   m_PrefabInstance: {fileID: 328275344}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &570128490 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4349527109589809993, guid: e935191c92074154f927686f0dc5e685, type: 3}
-  m_PrefabInstance: {fileID: 328275344}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e001e4366cfc4614fad18facb3ef9d31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &601580062
 GameObject:
   m_ObjectHideFlags: 0
@@ -22736,6 +22722,10 @@ PrefabInstance:
     - target: {fileID: 1772047841111923917, guid: 2bf62916df06df34b8f64ae709fd0ab8, type: 3}
       propertyPath: m_Name
       value: Marge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514407667865663083, guid: 2bf62916df06df34b8f64ae709fd0ab8, type: 3}
+      propertyPath: _waypoints.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6514407667865663083, guid: 2bf62916df06df34b8f64ae709fd0ab8, type: 3}
       propertyPath: '_waypoints.Array.data[0]'
@@ -23124,17 +23114,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2818904770257274705, guid: e935191c92074154f927686f0dc5e685, type: 3}
   m_PrefabInstance: {fileID: 5498449069974278310}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &978774945 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4349527109589809993, guid: e935191c92074154f927686f0dc5e685, type: 3}
-  m_PrefabInstance: {fileID: 5498449069974278310}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e001e4366cfc4614fad18facb3ef9d31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &989904171 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7634800495616012281, guid: 2bf62916df06df34b8f64ae709fd0ab8, type: 3}
@@ -23165,6 +23144,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3998c70e51258c44bafa35cbde8e33fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1014677600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7320694346403871252, guid: e935191c92074154f927686f0dc5e685, type: 3}
+  m_PrefabInstance: {fileID: 84085168}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0858673ef701417ebb0a307bd3e3bcac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1022794079
@@ -23674,9 +23664,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rooms:
-  - {fileID: 978774945}
-  - {fileID: 365684818}
-  - {fileID: 570128490}
+  - {fileID: 1930708793}
+  - {fileID: 1014677600}
+  - {fileID: 1688240704}
+  _navMeshSurface: {fileID: 203321613}
 --- !u!1 &1300358333
 GameObject:
   m_ObjectHideFlags: 0
@@ -24078,6 +24069,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1849603507}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1688240704 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7320694346403871252, guid: e935191c92074154f927686f0dc5e685, type: 3}
+  m_PrefabInstance: {fileID: 328275344}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0858673ef701417ebb0a307bd3e3bcac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1692939496
 GameObject:
   m_ObjectHideFlags: 0
@@ -24413,6 +24415,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01e7fd8bca7635049ab7769c5d4b3ab8, type: 3}
+--- !u!114 &1930708793 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7320694346403871252, guid: e935191c92074154f927686f0dc5e685, type: 3}
+  m_PrefabInstance: {fileID: 5498449069974278310}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0858673ef701417ebb0a307bd3e3bcac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1940538683
 GameObject:
   m_ObjectHideFlags: 0
