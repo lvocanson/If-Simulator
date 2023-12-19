@@ -82,7 +82,7 @@ MonoBehaviour:
   - dependency: {fileID: 6410777074490989867, guid: 5acf1feb0ac87c34f8885801de6f0f97, type: 3}
     instantiationMode: 0
   - dependency: {fileID: 6197885105219783949, guid: f813c1bececb1a0488ad9b595e0f9ff6, type: 3}
-    instantiationMode: 0
+    instantiationMode: 1
   - dependency: {fileID: 2800000, guid: d5b0e13ebe59cd64e9f67284457c6868, type: 3}
     instantiationMode: 1
   templatePipeline: {fileID: 0}
