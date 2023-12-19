@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8080207559555640838}
   - component: {fileID: 3414839370694143272}
   - component: {fileID: 4682350641996322111}
-  - component: {fileID: -4344326892044522608}
-  m_Layer: 7
-  m_Name: Shockwave
+  - component: {fileID: 1480525812029314947}
+  m_Layer: 6
+  m_Name: TurretExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,9 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
-    type: 3}
-  m_Color: {r: 0.17443931, g: 0.64386296, b: 0.754717, a: 0.28235295}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0.48655456, g: 0.18187076, b: 0.5754717, a: 0.28235295}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -123,7 +122,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &-4344326892044522608
+--- !u!114 &1480525812029314947
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,7 +131,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 399414093182519051}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b1fd195c28a4f318ef276e1290dbe4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 152346f0ea014c53a3cf6be421285d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _evolutionCurve:
@@ -150,11 +149,11 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.26223305
       value: 0.6094861
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 136
+      inSlope: 0.38690734
+      outSlope: 0.38690734
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.14928554
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
@@ -168,17 +167,17 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _maxSize: 25
-  _enemyPushBackForce: 40
-  _projLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  _color: {r: 0.5, g: 0.5, b: 0.9, a: 0}
+  _maxSize: 10
+  _enemyPushBackForce: 2
+  _color: {r: 0.9, g: 0.4, b: 0.9, a: 0}
   _layersToCollide:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 0
   _layersToDamage:
     serializedVersion: 2
     m_Bits: 8
   _spriteRenderer: {fileID: 3414839370694143272}
   _so: {fileID: 0}
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 1
