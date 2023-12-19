@@ -48,9 +48,7 @@ public class DamageZoneStay : MonoBehaviour
             OnHit?.Invoke();
         }
         
-        if (!collision.TryGetComponent(out DamageableEntity entity)) return;
-        if (!entity.enabled) return;
-        if (_hitEnemies.Contains(entity)) return;
+        if (!collision.TryGetComponent(out DamageableEntity entity) || !entity.enabled || _hitEnemies.Contains(entity)) return;
 
         if (!_continuousDamage)
             _hitEnemies.Add(entity);

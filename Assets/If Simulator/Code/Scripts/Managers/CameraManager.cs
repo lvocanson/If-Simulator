@@ -39,7 +39,6 @@ namespace Managers
     
         protected override void OnContextQuit(GameModeQuitMode mode)
         {
-            Debug.Log("CameraManager.OnContextQuit");
             ClearTargets();
         }
     
