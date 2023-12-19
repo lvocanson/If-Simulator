@@ -183,8 +183,8 @@ MonoBehaviour:
   _sprite: {fileID: 3762870253303094257}
   _maxHealth: 50
   _invulnerabilityDuration: 0
-  _hitMaterial: {fileID: 0}
-  _invulnerabilityMaterial: {fileID: 0}
+  _hitMaterial: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
+  _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
   _scaleEffectOffset: 0.2
   _agent: {fileID: 2644387088934892128}
 --- !u!114 &7299784548321892437
