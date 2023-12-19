@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3698871190431304111}
   - component: {fileID: 5540728448906214869}
   - component: {fileID: 3407179542858764038}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Actions
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -62,7 +62,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 7502129016056758851, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
+    m_Reference: {fileID: 7502129016056758851, guid: 5ffc78a209612b04c819e64a7c7d0572,
+      type: 3}
 --- !u!114 &3407179542858764038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,8 +77,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bodyRigidbody2D: {fileID: 7800368948159628112}
-  _cursorPrefab: {fileID: 5976859743985783564, guid: cdffdfd42b1c0344e8911341572804e6, type: 3}
-  _rotationInput: {fileID: -7280493881398489431, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
+  _cursorPrefab: {fileID: 5976859743985783564, guid: cdffdfd42b1c0344e8911341572804e6,
+    type: 3}
+  _rotationInput: {fileID: -7280493881398489431, guid: 5ffc78a209612b04c819e64a7c7d0572,
+    type: 3}
 --- !u!1 &2799416502423231899
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,7 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4131663215806318270}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Render
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -120,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 307254912974005669}
   - component: {fileID: 7429918993202385571}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Body
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -183,7 +186,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -206,7 +210,8 @@ GameObject:
   - component: {fileID: 7005681117116373979}
   - component: {fileID: 3239121802332896468}
   - component: {fileID: 3763282448011404525}
-  m_Layer: 8
+  - component: {fileID: 2452512995575623704}
+  m_Layer: 6
   m_Name: Spells
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -241,7 +246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _abilitySo: {fileID: 11400000, guid: 2965c84f1be4d394da0db509c4a2ae7a, type: 2}
-  _bulletPrefab: {fileID: 3981262126783197580, guid: 4e2b0953374b140468376168987a6f0a, type: 3}
+  _bulletPrefab: {fileID: 3981262126783197580, guid: 4e2b0953374b140468376168987a6f0a,
+    type: 3}
   _bulletSpawnPoint: {fileID: 2873507226914812432}
   _bulletContainer: {fileID: 0}
   _numberOfBulletsPerDefault: 25
@@ -333,7 +339,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _abilitySo: {fileID: 11400000, guid: 83156b29a3143244eb33e0875148af16, type: 2}
-  _swPrefab: {fileID: 399414093182519051, guid: 82919e7cbd774894b9c6e32d195308eb, type: 3}
+  _swPrefab: {fileID: 399414093182519051, guid: 82919e7cbd774894b9c6e32d195308eb,
+    type: 3}
+  _spawnPoint: {fileID: 2873507226914812432}
+--- !u!114 &2452512995575623704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5648217721370397452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41e1b1b481840649c44f4bcd97dca98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _abilitySo: {fileID: 11400000, guid: 650c4ac964c428140913c9b312d9d7f8, type: 2}
+  _prefab: {fileID: 2287961000315307828, guid: 97946923eefea7c4f855a5955bd063be, type: 3}
   _spawnPoint: {fileID: 2873507226914812432}
 --- !u!1 &6197885105219783949
 GameObject:
@@ -345,7 +367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2873507226914812432}
   - component: {fileID: 7800368948159628112}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -410,7 +432,7 @@ GameObject:
   - component: {fileID: 4761457398783333148}
   - component: {fileID: 263370004781948735}
   - component: {fileID: 6823956314062483985}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Brain
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -444,10 +466,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e0a974187821d40bc4e0a8a6868497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sprite: {fileID: 7429918993202385571}
   _maxHealth: 100
+  _invulnerabilityDuration: 1
+  _hitMaterial: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
+  _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a,
+    type: 2}
+  _scaleEffectOffset: 0.2
   _playerAttackManager: {fileID: 263370004781948735}
   _playerMovement: {fileID: 5540728448906214869}
   playerAim: {fileID: 3407179542858764038}
+  _data: {fileID: 11400000, guid: 0a0b0f884ace5ed41b10f57eb03db9b9, type: 2}
 --- !u!114 &263370004781948735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,14 +489,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0465ba9a91ca4474a90feb285159c0fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _primaryAttackInput: {fileID: 4756328208987351731, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
-  _secondaryAttackInput: {fileID: 3107184244943249471, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
-  _firstSpellInput: {fileID: 5852425643557178782, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
-  _secondSpellInput: {fileID: -2028806386459919619, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
+  _primaryAttackInput: {fileID: 4756328208987351731, guid: 5ffc78a209612b04c819e64a7c7d0572,
+    type: 3}
+  _secondaryAttackInput: {fileID: 3107184244943249471, guid: 5ffc78a209612b04c819e64a7c7d0572,
+    type: 3}
+  _dashInput: {fileID: 5768644624366424321, guid: 5ffc78a209612b04c819e64a7c7d0572,
+    type: 3}
+  _firstSpellInput: {fileID: 5852425643557178782, guid: 5ffc78a209612b04c819e64a7c7d0572,
+    type: 3}
+  _secondSpellInput: {fileID: -2028806386459919619, guid: 5ffc78a209612b04c819e64a7c7d0572,
+    type: 3}
   _primaryAttackAbilityBase: {fileID: 7005681117116373979}
   _secondaryAttackAbilityBase: {fileID: 0}
+  _dashAbilityBase: {fileID: 3239121802332896468}
   _firstSpellAbilityBase: {fileID: 3763282448011404525}
-  _secondSpellAbilityBase: {fileID: 3239121802332896468}
+  _secondSpellAbilityBase: {fileID: 2452512995575623704}
 --- !u!58 &6823956314062483985
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -513,7 +549,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6141166088696183152}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Physics
   m_TagString: Player
   m_Icon: {fileID: 0}

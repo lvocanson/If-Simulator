@@ -31,7 +31,6 @@ namespace Ability
             float power = _evolutionCurve.Evaluate(_timer);
             Vector2 direction = (_rb.velocity == Vector2.zero) ? _playerMovement.transform.up : _rb.velocity.normalized;
             _rb.velocity = direction * (power * _maxSpeed);
-            Debug.Log("Dash update");
         }
 
         protected override void OnEffectEnd()

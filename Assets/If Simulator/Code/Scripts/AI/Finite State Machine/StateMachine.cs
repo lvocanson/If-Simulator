@@ -26,9 +26,6 @@ namespace FiniteStateMachine
         /// <param name="args">Arguments forwarded to the state's Enter method.</param>
         public void ChangeState(BaseState newState, params object[] args)
         {
-            if (_currentState == newState)
-                return;
-
             if (_currentState != null)
                 _currentState.Exit();
 

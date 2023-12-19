@@ -62,7 +62,7 @@ public class RoomDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && _currentState == DoorState.Unlocked)
+        if (_currentState == DoorState.Unlocked && other.gameObject.CompareTag("Player") && other.GetComponent<Player>())
             OpenDoor();
     }
 

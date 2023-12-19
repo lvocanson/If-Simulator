@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Potion
   - Projectile
   - Enemy
   - PlayerProjectile
@@ -16,11 +15,11 @@ TagManager:
   - Water
   - UI
   - Player
-  - Ally
-  - AllySensor
-  - Potion
   - Trigger
   - Projectile
+  - Target
+  - 
+  - 
   - 
   - 
   - 
