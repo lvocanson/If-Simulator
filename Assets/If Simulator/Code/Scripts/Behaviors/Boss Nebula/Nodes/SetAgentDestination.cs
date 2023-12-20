@@ -9,5 +9,6 @@ public class SetAgentDestination : ActionNodeSo
     {
         Blackboard.Read("Destination", out Vector2 destination);
         _onDestinationChanged.Raise(destination);
+        State = NodeState.Success;
     }
 }
