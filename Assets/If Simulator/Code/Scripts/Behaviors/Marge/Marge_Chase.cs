@@ -41,11 +41,8 @@ public class Marge_Chase : BaseState
 
     private void EnterOnAttackRange(Collider2D obj)
     {
-        if (obj.CompareTag("Player"))
-        {
-            _attackState.SetTarget(obj.transform);
-            Manager.ChangeState(_attackState);
-        }
+        _attackState.SetTarget(obj.transform);
+        Manager.ChangeState(_attackState);
     }
 
     private void Update()
@@ -55,8 +52,7 @@ public class Marge_Chase : BaseState
 
     private void ExitOnChaseRange(Collider2D obj)
     {
-        if (obj.CompareTag("Player"))
-            Manager.ChangeState(_patrolState);
+        Manager.ChangeState(_patrolState);
     }
 
     private void OnDisable()

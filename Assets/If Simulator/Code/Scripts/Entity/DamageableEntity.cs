@@ -37,7 +37,6 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     public float CurrentHealth => _currentHealth;
     public bool IsInvulnerable => _isInvulnerable || _isInvulnerableInternal;
 
-    public event Action OnHit;
     public event Action OnDamage;
     public event Action<float, float> OnHealthChanged;
     public event Action OnDeath;
@@ -51,13 +50,13 @@ public class DamageableEntity : MonoBehaviour, IDamageable
         _baseMaterial = _sprite.material;
         _baseColor = _sprite.color;
         _baseSpriteScale = _sprite.transform.localScale;
-        
+        _currentHealth = _maxHealth;
         _isInvulnerable = false;
     }
 
     protected virtual void Start()
     {
-        _currentHealth = _maxHealth;
+        OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
     }
     
     public void SetInvulnerable(bool isInvulnerable) => _isInvulnerable = isInvulnerable;
@@ -68,7 +67,9 @@ public class DamageableEntity : MonoBehaviour, IDamageable
         if (_isInvulnerable) return;
         
         _currentHealth -= damage;
-        OnHit?.Invoke();
+        
+        OnDamageTaken();
+        OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
         
         StartCoroutine(InternalInvulnerability());
         if (_effectsCoroutine != null)

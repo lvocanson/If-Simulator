@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2728036162082443792}
   - component: {fileID: 4419410267802930010}
   - component: {fileID: 677547205806654086}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: TurretBullet
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
@@ -180,6 +180,7 @@ MonoBehaviour:
   _managedFromPool: 1
   _rb: {fileID: 3859353762324603953}
   _renderer: {fileID: 5158183046418414025}
+  _color: {r: 0.514774, g: 0.013216423, b: 0.9339623, a: 1}
   _layers:
     serializedVersion: 2
     m_Bits: 9
