@@ -4,13 +4,13 @@ using UnityEngine;
 namespace IfSimulator.GOAP.Sensors
 {
     [RequireComponent(typeof(CircleCollider2D))]
-    public class PlayerSensor : MonoBehaviour
+    public class EnemySensor : MonoBehaviour
     {
         public CircleCollider2D Collider;
 
-        public event Action<Transform> OnPlayerEnter;
-        public event Action<Transform> OnPlayerStay;
-        public event Action<Vector3> OnPlayerExit;
+        public event Action<Transform> OnEnemyEnter;
+        public event Action<Transform> OnEnemyStay;
+        public event Action<Vector3> OnEnemyExit;
 
         private void Awake()
         {
@@ -19,31 +19,31 @@ namespace IfSimulator.GOAP.Sensors
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            var p = collision.GetComponent<Player>();
+            var p = collision.GetComponent<Enemy>();
 
             if (p != null)
             {
-                OnPlayerEnter?.Invoke(p.transform);
+                OnEnemyEnter?.Invoke(p.transform);
             }
         }
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            var p = collision.GetComponent<Player>();
+            var p = collision.GetComponent<Enemy>();
 
             if (p != null)
             {
-                OnPlayerStay?.Invoke(p.transform);
+                OnEnemyStay?.Invoke(p.transform);
             }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            var p = collision.GetComponent<Player>();
+            var p = collision.GetComponent<Enemy>();
 
             if (p != null)
             {
-                OnPlayerExit?.Invoke(p.transform.position);
+                OnEnemyExit?.Invoke(p.transform.position);
             }
         }
     }

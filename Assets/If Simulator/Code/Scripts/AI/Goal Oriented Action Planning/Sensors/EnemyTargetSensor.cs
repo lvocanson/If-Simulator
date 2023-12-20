@@ -7,19 +7,19 @@ using IfSimulator.GOAP.Config;
 
 namespace IfSimulator.GOAP.Sensors
 {
-    public class PlayerTargetSensor : LocalTargetSensorBase, IInjectable
+    public class EnemyTargetSensor : LocalTargetSensorBase, IInjectable
     {
-        private HealConfigSO HealConfig;
+        private AttackConfigSO AttackConfig;
         public override void Created()
         {
         }
         public override void Update()
-        {  
+        {
         }
 
         public override ITarget Sense(IMonoAgent agent, IComponentReference references)
         {
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(agent.transform.position, HealConfig.SensorHealRadius, HealConfig.HealableLayerMask);
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(agent.transform.position, AttackConfig.SensorRadius, AttackConfig.AttackableLayerMask);
 
             if (hitColliders.Length > 0)
             {
@@ -50,7 +50,7 @@ namespace IfSimulator.GOAP.Sensors
 
         public void Inject(DependencyInjector injector)
         {
-            HealConfig = injector.HealConfig;
+            AttackConfig = injector.AttackConfig;
         }
     }
 }

@@ -11,31 +11,44 @@ namespace IfSimulator.GOAP.Actions
     {
 
         private AttackConfigSO AttackConfig;
+        private Enemy _enemy;
+        private float cooldownTimer = 0f;
+
         public override void Created()
         {
-            
+            cooldownTimer = 2f;
         }
+
         public override void Start(IMonoAgent agent, AttackData data)
         {
             data.Timer = AttackConfig.AttackDelay;
+            _enemy = (agent.CurrentActionData.Target as TransformTarget).Transform.GetComponent<Enemy>();
         }
 
         public override ActionRunState Perform(IMonoAgent agent, AttackData data, ActionContext context)
         {
-            data.Timer -= context.DeltaTime;
+            cooldownTimer -= context.DeltaTime;
 
-            bool shouldAttack = data.Target != null && Vector3.Distance(data.Target.Position, agent.transform.position) <= AttackConfig.MeleeAttackRadius;
-
-            if (shouldAttack)
+            if (cooldownTimer <= 0)
             {
-                agent.transform.LookAt(data.Target.Position);
+                data.Timer -= context.DeltaTime;
+
+                bool shouldAttack = data.Target != null && Vector3.Distance(data.Target.Position, agent.transform.position) <= AttackConfig.MeleeAttackRadius;
+
+                if (shouldAttack)
+                {
+                    agent.transform.up = data.Target.Position - agent.transform.position;
+                    _enemy.Damage(AttackConfig.AttackDamage);
+                    cooldownTimer = AttackConfig.AttackDelay;
+                    return ActionRunState.Continue;
+                }
             }
 
-            return data.Timer > 0 ? ActionRunState.Continue : ActionRunState.Stop;
+            return ActionRunState.Stop;
         }
+
         public override void End(IMonoAgent agent, AttackData data)
-        {
-            
+        { 
         }
 
         public void Inject(DependencyInjector injector)

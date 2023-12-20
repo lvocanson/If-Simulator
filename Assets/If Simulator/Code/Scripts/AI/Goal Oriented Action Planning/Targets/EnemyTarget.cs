@@ -1,18 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using CrashKonijn.Goap.Behaviours;
 
-public class EnemyTarget : MonoBehaviour
+namespace IfSimulator.GOAP.Targets
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public class EnemyTarget : TargetKeyBase { }
 }
