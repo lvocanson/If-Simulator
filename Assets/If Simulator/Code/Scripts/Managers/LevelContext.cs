@@ -16,8 +16,8 @@ public class LevelContext : MonoBehaviour
 
 
     [Header("Events")]
-    [SerializeField] private EventSo _levelContextInitialized;
-    [SerializeField] private EventSo _levelContextStarted;
+    [SerializeField] private EventSO _levelContextInitialized;
+    [SerializeField] private EventSO _levelContextStarted;
 
     public event Action<GameModeStartMode> OnStarted;
     public event Action<GameModeStartMode> OnInitialized;
