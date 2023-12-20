@@ -32,7 +32,7 @@ namespace Ability
                 rb.AddForce(dir * _enemyPushBackForce, ForceMode2D.Impulse);
                 
                 // Damage
-                damageable.Damage(_damage);
+                damageable.Damage(_so.Damage);
             }
         }
 
