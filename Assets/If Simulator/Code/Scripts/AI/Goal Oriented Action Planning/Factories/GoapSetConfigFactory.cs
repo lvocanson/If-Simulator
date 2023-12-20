@@ -36,7 +36,7 @@ namespace IfSimulator.GOAP.Factories
                 .AddCondition<IsWandering>(Comparison.GreaterThanOrEqual, 1);
 
             builder.AddGoal<HealAlly>()
-                .AddCondition<PlayerHealth>(Comparison.SmallerThanOrEqual, 50);
+                .AddCondition<PlayerHealth>(Comparison.GreaterThanOrEqual, 80);
 
             builder.AddGoal<KillEnemy>()
                 .AddCondition<EnemyHealth>(Comparison.SmallerThanOrEqual, 0);
@@ -52,7 +52,7 @@ namespace IfSimulator.GOAP.Factories
 
             builder.AddAction<HealAction>()
                 .SetTarget<PlayerTarget>()
-                .AddEffect<PlayerHealth>(EffectType.Decrease)
+                .AddEffect<PlayerHealth>(EffectType.Increase)
                 .SetBaseCost(Injector.HealConfig.HealCost)
                 .SetInRange(Injector.HealConfig.HealRadius);
 

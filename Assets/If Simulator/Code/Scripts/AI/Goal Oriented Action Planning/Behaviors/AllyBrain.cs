@@ -35,6 +35,10 @@ namespace IfSimulator.GOAP.Behaviors
             PlayerSensor.OnPlayerEnter += PlayerSensorOnPlayerEnter;
             PlayerSensor.OnPlayerStay += PlayerSensorOnPlayerStay;
             PlayerSensor.OnPlayerExit += PlayerSensorOnPlayerExit;
+
+            EnemySensor.OnEnemyEnter += EnemySensorOnEnemyEnter;
+            EnemySensor.OnEnemyStay += EnemySensorOnEnemyStay;
+            EnemySensor.OnEnemyExit += EnemySensorOnEnemyExit;
         }
 
         private void OnDisable()
@@ -42,6 +46,10 @@ namespace IfSimulator.GOAP.Behaviors
             PlayerSensor.OnPlayerEnter -= PlayerSensorOnPlayerEnter;
             PlayerSensor.OnPlayerStay -= PlayerSensorOnPlayerStay;
             PlayerSensor.OnPlayerExit -= PlayerSensorOnPlayerExit;
+
+            EnemySensor.OnEnemyEnter -= EnemySensorOnEnemyEnter;
+            EnemySensor.OnEnemyStay -= EnemySensorOnEnemyStay;
+            EnemySensor.OnEnemyExit -= EnemySensorOnEnemyExit;
         }
 
         private void PlayerSensorOnPlayerEnter(Transform Player)
@@ -51,10 +59,6 @@ namespace IfSimulator.GOAP.Behaviors
                 AgentBehaviour.SetGoal<HealAlly>(true);
             }
             else if (CurrentPlayerSo.Player.CurrentHealth > 80)
-            {
-                AgentBehaviour.SetGoal<WanderGoal>(true);
-            }
-            else
             {
                 AgentBehaviour.SetGoal<WanderGoal>(true);
             }
@@ -70,13 +74,26 @@ namespace IfSimulator.GOAP.Behaviors
             {
                 AgentBehaviour.SetGoal<WanderGoal>(true);
             }
-            else
-            {
-                AgentBehaviour.SetGoal<WanderGoal>(true);
-            }
         }
 
         private void PlayerSensorOnPlayerExit(Vector3 lastKnownPosition)
+        {
+            AgentBehaviour.SetGoal<WanderGoal>(true);
+        }
+
+        private void EnemySensorOnEnemyEnter(Transform Enemy)
+        {
+            if (CurrentPlayerSo.Player.CurrentHealth > 80)
+                AgentBehaviour.SetGoal<KillEnemy>(true);
+        }
+
+        private void EnemySensorOnEnemyStay(Transform Enemy)
+        {
+            if (CurrentPlayerSo.Player.CurrentHealth > 80)
+                AgentBehaviour.SetGoal<KillEnemy>(true);
+        }
+
+        private void EnemySensorOnEnemyExit(Vector3 lastKnownPosition)
         {
             AgentBehaviour.SetGoal<WanderGoal>(true);
         }

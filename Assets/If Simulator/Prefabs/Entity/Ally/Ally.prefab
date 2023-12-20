@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5964836120782002234
+--- !u!1 &2829507403385847181
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6215205677797995643}
-  - component: {fileID: 1142361609444426397}
-  - component: {fileID: 2283278867681999274}
-  m_Layer: 8
-  m_Name: Sensor
+  - component: {fileID: 3243894800889061792}
+  - component: {fileID: 8017066803261764164}
+  - component: {fileID: 4653921699072206533}
+  m_Layer: 12
+  m_Name: EnemySensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6215205677797995643
+--- !u!4 &3243894800889061792
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5964836120782002234}
+  m_GameObject: {fileID: 2829507403385847181}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -33,13 +33,95 @@ Transform:
   m_Children: []
   m_Father: {fileID: 268449439250110086}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1142361609444426397
+--- !u!58 &8017066803261764164
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5964836120782002234}
+  m_GameObject: {fileID: 2829507403385847181}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 10
+--- !u!114 &4653921699072206533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829507403385847181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ceb29c30a114f49bf8980f43fadcf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Collider: {fileID: 8017066803261764164}
+--- !u!1 &5481753674666730977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1737228855357368585}
+  - component: {fileID: 4192729179585117757}
+  - component: {fileID: 5156886488808935804}
+  m_Layer: 11
+  m_Name: AllySensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1737228855357368585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5481753674666730977}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 268449439250110086}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &4192729179585117757
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5481753674666730977}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -69,19 +151,19 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 5
---- !u!114 &2283278867681999274
+--- !u!114 &5156886488808935804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5964836120782002234}
+  m_GameObject: {fileID: 5481753674666730977}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc89e2740b8701f419df3b9a982d23a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collider: {fileID: 1142361609444426397}
+  Collider: {fileID: 4192729179585117757}
 --- !u!1 &8218941141542645601
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +200,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6215205677797995643}
+  - {fileID: 1737228855357368585}
+  - {fileID: 3243894800889061792}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3782318169468328604
@@ -270,8 +353,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c11b868c874f9248aa3f4af10eb5915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerSensor: {fileID: 2283278867681999274}
+  PlayerSensor: {fileID: 5156886488808935804}
+  EnemySensor: {fileID: 4653921699072206533}
+  HealConfig: {fileID: 11400000, guid: e284d7ac37415d548967720edfef079d, type: 2}
   AttackConfig: {fileID: 11400000, guid: c78ea30c6b26aeb478561f56eee5113d, type: 2}
+  CurrentPlayerSo: {fileID: 11400000, guid: 0a0b0f884ace5ed41b10f57eb03db9b9, type: 2}
 --- !u!114 &9069181165205015797
 MonoBehaviour:
   m_ObjectHideFlags: 0

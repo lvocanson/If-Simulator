@@ -13,7 +13,6 @@ namespace IfSimulator.GOAP.Actions
         private Player Player;
         private float cooldownTimer = 0f;
 
-
         public override void Created()
         {
         }
@@ -42,13 +41,10 @@ namespace IfSimulator.GOAP.Actions
                     if (Player.CurrentHealth > 80)
                     {
                         cooldownTimer = HealConfig.HealDelay;
-                        Debug.Log("Enough HP");
                         return ActionRunState.Stop;
                     }
 
-                    Debug.Log("Healed");
                     Debug.Log(Player.CurrentHealth);
-
                     cooldownTimer = HealConfig.HealDelay;
                     return ActionRunState.Continue;
                 }

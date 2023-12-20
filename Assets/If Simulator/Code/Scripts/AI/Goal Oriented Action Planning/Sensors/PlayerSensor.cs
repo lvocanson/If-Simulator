@@ -20,6 +20,7 @@ namespace IfSimulator.GOAP.Sensors
         private void OnTriggerEnter2D(Collider2D collision)
         {
             var p = collision.GetComponent<Player>();
+
             if (p != null)
             {
                 OnPlayerEnter?.Invoke(p.transform);

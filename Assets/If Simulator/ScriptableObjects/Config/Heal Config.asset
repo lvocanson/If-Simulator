@@ -16,7 +16,7 @@ MonoBehaviour:
   HealRadius: 5
   HealCost: 2
   HealDelay: 1
-  HealAmount: 10
+  HealAmount: 25
   HealableLayerMask:
     serializedVersion: 2
     m_Bits: 64

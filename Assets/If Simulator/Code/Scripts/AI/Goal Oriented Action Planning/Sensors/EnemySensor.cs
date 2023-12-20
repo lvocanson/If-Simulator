@@ -9,6 +9,7 @@ namespace IfSimulator.GOAP.Sensors
         public CircleCollider2D Collider;
 
         public event Action<Transform> OnEnemyEnter;
+        public event Action<Transform> OnEnemyStay;
         public event Action<Vector3> OnEnemyExit;
 
         private void Awake()
@@ -19,9 +20,20 @@ namespace IfSimulator.GOAP.Sensors
         private void OnTriggerEnter2D(Collider2D collision)
         {
             var p = collision.GetComponent<Enemy>();
+
             if (p != null)
             {
                 OnEnemyEnter?.Invoke(p.transform);
+            }
+        }
+
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            var p = collision.GetComponent<Enemy>();
+
+            if (p != null)
+            {
+                OnEnemyStay?.Invoke(p.transform);
             }
         }
 

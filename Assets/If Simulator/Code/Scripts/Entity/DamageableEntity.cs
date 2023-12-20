@@ -57,7 +57,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
 
     protected virtual void Start()
     {
-        _currentHealth = 50;
+        _currentHealth = _maxHealth;
     }
     
     public void SetInvulnerable(bool isInvulnerable) => _isInvulnerable = isInvulnerable;
