@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3968597673885763220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d2a8749e57c1d49abf55f8f140b7f9, type: 3}
+  m_Name: SequencerSo
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 524, y: 384}
+  <Children>k__BackingField:
+  - {fileID: 7662662209385309704}
+  - {fileID: 1426314562281020923}
+  - {fileID: 1126652462122529457}
 --- !u!114 &-1805404537095440609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,7 +29,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843eabcfe77db0f41bd8bb1db6f94a17, type: 3}
   m_Name: '"Hi" Log'
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 337, y: 290}
+  <GraphPosition>k__BackingField: {x: 374, y: 290}
   _message: '"Hi!" says Nebula'
 --- !u!114 &11400000
 MonoBehaviour:
@@ -31,6 +48,10 @@ MonoBehaviour:
   - {fileID: -1805404537095440609}
   - {fileID: 9196141375401226169}
   - {fileID: 1126652462122529457}
+  - {fileID: 4619722936577785502}
+  - {fileID: 7662662209385309704}
+  - {fileID: -3968597673885763220}
+  - {fileID: 1426314562281020923}
 --- !u!114 &282241372355560515
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -57,8 +78,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6a014d58bd30f449d8f2455d985d1f, type: 3}
   m_Name: SetAgentDestination
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 584, y: 290}
+  <GraphPosition>k__BackingField: {x: 674, y: 498}
   _onDestinationChanged: {fileID: 11400000, guid: afce6602e55f27840ace77bdc3e144d6, type: 2}
+--- !u!114 &1426314562281020923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045f970479e1cbd4180b1ce1de33674d, type: 3}
+  m_Name: RandomDestination
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 524, y: 498}
+  _min: {x: -19, y: -17}
+  _max: {x: 19, y: 17}
+--- !u!114 &4619722936577785502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae99e079bb335e847a591ac7a62860d1, type: 3}
+  m_Name: RepeatSo
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 524, y: 290}
+  <Child>k__BackingField: {fileID: -3968597673885763220}
+--- !u!114 &7662662209385309704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8152cfc5aed5a7d478477efd9a45ab40, type: 3}
+  m_Name: Cooldown
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 374, y: 498}
+  _cooldown: 5
 --- !u!114 &9196141375401226169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,4 +138,4 @@ MonoBehaviour:
   <GraphPosition>k__BackingField: {x: 524, y: 177}
   <Children>k__BackingField:
   - {fileID: -1805404537095440609}
-  - {fileID: 1126652462122529457}
+  - {fileID: 4619722936577785502}

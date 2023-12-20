@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 422e3a7408b9c5e4c97d1b22eebf2755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: {x: 0, y: -10, z: 0}
 --- !u!114 &3953214287197373651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +134,7 @@ MonoBehaviour:
   _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
   _scaleEffectOffset: 0.2
   _agent: {fileID: 7880431903634342679}
+  _objectToDestroyOnDeath: {fileID: 4346472286162694412}
 --- !u!114 &5365644634267308413
 MonoBehaviour:
   m_ObjectHideFlags: 0

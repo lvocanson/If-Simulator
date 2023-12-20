@@ -533,6 +533,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2043800193 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3953214287197373651, guid: 66c00676d3a3e8549aeb55d75b8d35a3, type: 3}
+  m_PrefabInstance: {fileID: 4749155546870189313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3998c70e51258c44bafa35cbde8e33fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &180418658104828826
 Transform:
   m_ObjectHideFlags: 0
@@ -2984,7 +2995,8 @@ MonoBehaviour:
   - {fileID: 1799382461745124954}
   - {fileID: 4129435621845972857}
   _enteredRoomTrigger: {fileID: 5796130753136477284}
-  _allEnemies: []
+  _allEnemies:
+  - {fileID: 2043800193}
 --- !u!1 &3222685473766455457
 GameObject:
   m_ObjectHideFlags: 0
