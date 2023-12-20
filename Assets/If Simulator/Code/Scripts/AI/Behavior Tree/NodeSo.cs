@@ -34,6 +34,7 @@ namespace BehaviorTree
             if (!_entered)
             {
                 _entered = true;
+                State = NodeState.Running;
                 OnEnter();
             }
 
