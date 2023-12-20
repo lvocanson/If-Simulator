@@ -7,7 +7,7 @@ public class SetAgentDestination : ActionNodeSo
 
     protected override void OnUpdate()
     {
-        Blackboard.Read("Destination", out Vector3 destination);
+        Blackboard.Read("Destination", out Vector2 destination);
         _onDestinationChanged.Raise(destination);
     }
 }
