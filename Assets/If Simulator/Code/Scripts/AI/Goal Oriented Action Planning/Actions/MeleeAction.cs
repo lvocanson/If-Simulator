@@ -40,7 +40,7 @@ namespace IfSimulator.GOAP.Actions
 
         public void Inject(DependencyInjector injector)
         {
-            AttackConfig = injector.AttackConfig;
+            //AttackConfig = injector.AttackConfig;
         }
     }
 }

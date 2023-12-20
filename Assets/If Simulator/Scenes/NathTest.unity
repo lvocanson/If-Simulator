@@ -279,8 +279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc09dabec5e9a8d40a79206cb3297750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackConfig: {fileID: 11400000, guid: c78ea30c6b26aeb478561f56eee5113d, type: 2}
   WanderConfig: {fileID: 11400000, guid: 486a76e14b319ca40a545cfc3b4ce7f1, type: 2}
+  HealConfig: {fileID: 11400000, guid: e284d7ac37415d548967720edfef079d, type: 2}
 --- !u!114 &261626102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.06666667
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
   m_NavMeshData: {fileID: 23800000, guid: 9e9d0f7ea6db58741ad57cd3d100ad49, type: 2}
@@ -507,7 +507,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSensor: {fileID: 341941614}
-  AttackConfig: {fileID: 11400000, guid: c78ea30c6b26aeb478561f56eee5113d, type: 2}
+  HealConfig: {fileID: 11400000, guid: e284d7ac37415d548967720edfef079d, type: 2}
+  CurrentPlayerSo: {fileID: 11400000, guid: 0a0b0f884ace5ed41b10f57eb03db9b9, type: 2}
 --- !u!114 &1000139905
 MonoBehaviour:
   m_ObjectHideFlags: 0
