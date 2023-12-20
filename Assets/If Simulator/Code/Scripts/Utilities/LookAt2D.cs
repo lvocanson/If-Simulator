@@ -2,17 +2,8 @@ using UnityEngine;
 
 public class LookAt2D : MonoBehaviour
 {
-    enum CardinalDirection
-    {
-        North,
-        East,
-        South,
-        West
-    }
-
     [SerializeField] private Transform _target;
-    [SerializeField] private CardinalDirection _cardinalDirection = CardinalDirection.East;
-
+    [SerializeField, Range(0, 360)] private float _angleOffset;
     public Transform Target
     {
         get => _target;
@@ -30,20 +21,8 @@ public class LookAt2D : MonoBehaviour
 
     private void Update()
     {
-        switch (_cardinalDirection)
-        {
-            case CardinalDirection.North:
-                transform.up = _target.position - transform.position;
-                break;
-            case CardinalDirection.East:
-                transform.right = _target.position - transform.position;
-                break;
-            case CardinalDirection.South:
-                transform.up = transform.position - _target.position;
-                break;
-            case CardinalDirection.West:
-                transform.right = transform.position - _target.position;
-                break;
-        }
+        var direction = _target.position - transform.position;
+        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle + _angleOffset, Vector3.forward);
     }
 }
