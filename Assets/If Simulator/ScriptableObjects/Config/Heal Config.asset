@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SensorHealRadius: 10
   HealRadius: 2
-  HealCost: 1
+  HealCost: 2
   HealDelay: 1
+  HealAmount: 10
   HealableLayerMask:
     serializedVersion: 2
     m_Bits: 64
