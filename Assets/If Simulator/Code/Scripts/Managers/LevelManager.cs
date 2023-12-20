@@ -1,3 +1,4 @@
+using System;
 using Game.Level;
 using GameMode;
 using UnityEngine;
@@ -16,6 +17,9 @@ namespace Managers
         public Player SpawnedPlayer => _spawnedPlayer;
         public Level CurrentLevel => _currentLevel;
         public CurrentPlayerSo CurrentPlayerSo => _currentPlayerSo;
+        
+        
+        public event Action OnRestart;
 
         
         protected override void OnContextInitialized(GameModeStartMode mode)
@@ -23,15 +27,27 @@ namespace Managers
             if (_currentLevel)
                 _currentLevel.Initialize();
         }
-
+        
         protected override void OnContextStarted(GameModeStartMode mode)
         {
+            SpawnPlayer();
+        }
+        
+        private void SpawnPlayer()
+        {
             _spawnedPlayer = Instantiate(_playerPrefab, _playerSpawnPoint.position, Quaternion.identity).GetComponentInChildren<Player>();
-            _currentPlayerSo.Load(_spawnedPlayer);
         }
 
         protected override void OnContextQuit(GameModeQuitMode mode)
         {
+        }
+        
+        
+        
+        public void RestartLevel()
+        {
+            OnRestart?.Invoke();
+            App.Instance.GameMode.ReloadCurrentMode();
         }
     }
 }
