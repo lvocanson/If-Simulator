@@ -14,11 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Turret
   _description: 
-  _icon: {fileID: 0}
-  _maxLevel: 0
-  _damage: 10
+  _icon: {fileID: 2323917800338813707, guid: 37979488decff2f4eb6c077c3f7189ed, type: 3}
+  _maxLevel: 2
   _range: 70
+  _value: 3
+  _valuePerLevel: 0
+  _rangePerLevel: 0
   _cooldown: 120
   _isHoldable: 0
   _delay: 0.2
   _abilityDuration: 30
+  _cooldownDecreasePerLevel: 0
+  _abilityDurationIncreasePerLevel: 0

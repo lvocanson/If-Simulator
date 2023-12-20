@@ -16,9 +16,13 @@ MonoBehaviour:
   _description: BOOM
   _icon: {fileID: 0}
   _maxLevel: 1
-  _damage: 12
   _range: 26
+  _value: 10
+  _valuePerLevel: 0
+  _rangePerLevel: 0
   _cooldown: 2
   _isHoldable: 0
   _delay: 0
   _abilityDuration: 2
+  _cooldownDecreasePerLevel: 0
+  _abilityDurationIncreasePerLevel: 0

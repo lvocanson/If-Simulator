@@ -399,8 +399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerLife: {fileID: 1687765575}
-  spellHolderUI: {fileID: 678696697}
-  passiveHolderUI: {fileID: 1826156566}
+  _spellHolderUI: {fileID: 678696697}
+  _passiveHolderUI: {fileID: 1826156566}
   _currentPlayerSo: {fileID: 11400000, guid: 0a0b0f884ace5ed41b10f57eb03db9b9, type: 2}
 --- !u!1 &1165112474
 GameObject:
@@ -693,6 +693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthSlider: {fileID: 1687765574}
+  _healthUpdateSpeed: 1
 --- !u!1 &1707599662
 GameObject:
   m_ObjectHideFlags: 0

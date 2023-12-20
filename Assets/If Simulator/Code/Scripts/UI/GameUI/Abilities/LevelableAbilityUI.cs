@@ -7,10 +7,8 @@ public class LevelableAbilityUI : AbilityIconUI
     [SerializeField] private LayoutGroup _levelStarLayoutGroup;
     [SerializeField] private GameObject _levelStarPrefab;
     
-    
     private List<LevelStarUI> _levelStars = new();
-
-
+    
     private void Awake()
     {
         _levelStars.Clear();
@@ -23,9 +21,6 @@ public class LevelableAbilityUI : AbilityIconUI
 
     public void InitPassiveLevels(int maxLevel)
     {
-        // TODO : Replace by sprite in so
-        //_icon.sprite = passive.Icon;
-        
         int levelStarInstantiated = _levelStarLayoutGroup.transform.childCount;
         
         if (levelStarInstantiated > maxLevel)
@@ -44,8 +39,6 @@ public class LevelableAbilityUI : AbilityIconUI
                 _levelStars.Add(star);
             }
         }
-        
-        LevelUpPassive(1);
     }
     
     public void LevelUpPassive(int nextLevel)

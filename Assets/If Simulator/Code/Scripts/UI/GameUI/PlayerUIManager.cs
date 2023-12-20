@@ -3,13 +3,13 @@ using UnityEngine;
 public class PlayerUIManager : MonoBehaviour
 {
     [SerializeField] private PlayerLifeUI _playerLife;
-    [SerializeField] private SpellHolderUI spellHolderUI;
-    [SerializeField] private PassiveHolderUI passiveHolderUI;
+    [SerializeField] private SpellHolderUI _spellHolderUI;
+    [SerializeField] private PassiveHolderUI _passiveHolderUI;
     [SerializeField] private CurrentPlayerSo _currentPlayerSo;
     
     
-    public SpellHolderUI SpellHolderUI => spellHolderUI;
-    public PassiveHolderUI PassiveHolderUI => passiveHolderUI;
+    public SpellHolderUI SpellHolderUI => _spellHolderUI;
+    public PassiveHolderUI PassiveHolderUI => _passiveHolderUI;
 
 
     private void OnEnable()
@@ -25,6 +25,8 @@ public class PlayerUIManager : MonoBehaviour
             return;
         }
         _currentPlayerSo.Player.OnHealthChanged += _playerLife.UpdateHealth;
+        _currentPlayerSo.Player.PlayerAttackManager.OnFirstSpellChanged += _spellHolderUI.UpdateFirstSpell;
+        _currentPlayerSo.Player.PlayerAttackManager.OnSecondSpellChanged += _spellHolderUI.UpdateSecondSpell;
     }
     
     private void OnDisable()
@@ -42,11 +44,11 @@ public class PlayerUIManager : MonoBehaviour
         }
         
         _currentPlayerSo.Player.OnHealthChanged -= _playerLife.UpdateHealth;
+        _currentPlayerSo.Player.PlayerAttackManager.OnFirstSpellChanged -= _spellHolderUI.UpdateFirstSpell;
+        _currentPlayerSo.Player.PlayerAttackManager.OnSecondSpellChanged -= _spellHolderUI.UpdateSecondSpell;
     }
 
     private void Start()
     {
-        SpellHolderUI.UpdateFirstSpell(null);
-        SpellHolderUI.UpdateSecondSpell(null);
     }
 }

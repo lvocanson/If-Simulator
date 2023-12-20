@@ -115,7 +115,7 @@ namespace Ability
 
             var proj = bp.GetComponent<Projectile>();
             proj.Initialize(gameObject.layer, _bulletSpawnPoint.up);
-            proj.SetDamage(So.Damage);
+            proj.SetDamage(So.Value);
             proj.OnDestroy += CleanProjectile;
 
             return bp;

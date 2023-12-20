@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Ability;
 using NaughtyAttributes;
 using UnityEngine;
@@ -13,12 +14,42 @@ public class PlayerAttackManager : MonoBehaviour
     [SerializeField, BoxGroup("Inputs")] private InputActionReference _secondSpellInput;
     
     public event Action<AbilityActive> OnAbilityActivated;
+    public event Action<AbilityActive> OnFirstSpellChanged;
+    public event Action<AbilityActive> OnSecondSpellChanged;
 
+    [Header("References")]
+    [SerializeField] private GameObject _spellsGo;
+    
+    [Header("Spells")]
     [SerializeField] private AbilityShoot _primaryAttackAbilityBase;
     [SerializeField] private AbilityShoot _secondaryAttackAbilityBase;
     [SerializeField] private DashBehavior _dashAbilityBase;
-    [SerializeField] private AbilityActive _firstSpellAbilityBase;
-    [SerializeField] private AbilityActive _secondSpellAbilityBase;
+    private AbilityActive _firstSpellAbilityBase;
+    private AbilityActive _secondSpellAbilityBase;
+    
+    public void ChangeFirstSpell(SoAbilityBase newSpell)
+    {
+        var spells = _spellsGo.GetComponents<AbilityActive>();
+        AbilityActive s = spells.First(e => e.CompareAbility(newSpell));
+        if (s == null)
+        {
+            Debug.LogError("Spell not found", this);
+        }
+        _firstSpellAbilityBase = s;
+        OnFirstSpellChanged?.Invoke(_firstSpellAbilityBase);
+    }
+    
+    public void ChangeSecondSpell(SoAbilityBase newSpell)
+    {
+        var spells = _spellsGo.GetComponents<AbilityActive>();
+        AbilityActive s = spells.First(e => e.CompareAbility(newSpell));
+        if (s == null)
+        {
+            Debug.LogError("Spell not found", this);
+        }
+        _secondSpellAbilityBase = s;
+        OnSecondSpellChanged?.Invoke(_secondSpellAbilityBase);
+    }
 
     protected void OnEnable()
     {

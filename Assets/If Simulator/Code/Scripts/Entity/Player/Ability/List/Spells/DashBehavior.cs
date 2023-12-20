@@ -27,7 +27,7 @@ namespace Ability
         
         protected override void OnEffectUpdate()
         {
-            _timer += Time.fixedDeltaTime / _abilitySo.AbilityDuration;
+            _timer += Time.fixedDeltaTime / RuntimeAbilitySo.AbilityDuration;
             float power = _evolutionCurve.Evaluate(_timer);
             Vector2 direction = (_rb.velocity == Vector2.zero) ? _playerMovement.transform.up : _rb.velocity.normalized;
             _rb.velocity = direction * (power * _maxSpeed);

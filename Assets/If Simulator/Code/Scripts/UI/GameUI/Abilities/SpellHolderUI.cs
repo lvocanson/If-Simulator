@@ -7,30 +7,22 @@ public class SpellHolderUI : MonoBehaviour
     [SerializeField] private LevelableAbilityUI _secondSpell;
     
 
-    public void UpdateFirstSpell(SoAbilityBase newSpell)
+    public void UpdateFirstSpell(AbilityActive newSpell)
     {
         UpdateSpell(_firstSpell, newSpell);
     }
     
-    public void UpdateSecondSpell(SoAbilityBase newSpell)
+    public void UpdateSecondSpell(AbilityActive newSpell)
     {
         UpdateSpell(_secondSpell, newSpell);
     }
     
-    private void UpdateSpell(LevelableAbilityUI spellUI, SoAbilityBase newSpell)
+    private void UpdateSpell(LevelableAbilityUI spellUI, AbilityActive newSpell)
     {
-        // test
-        if (newSpell == null)
-        {
-            spellUI.ChangeIcon(null);
-            spellUI.InitPassiveLevels(3);
-            spellUI.LevelUpPassive(1);
-        }
+        if (newSpell == null) return;
         
-        //TODO : Change the icon of the spell
-        //TODO : Cooldown of the spell
-        //TODO : Change level of the spell
-        
-        //spellUI.ChangeIcon(newSpell.Icon);
+        spellUI.ChangeIcon(newSpell.RuntimeAbilitySo.Icon);
+        spellUI.InitPassiveLevels(newSpell.RuntimeAbilitySo.MaxLevel);
+        spellUI.LevelUpPassive(newSpell.CurrentLevel);
     }
 }

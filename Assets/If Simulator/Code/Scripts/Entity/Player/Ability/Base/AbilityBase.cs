@@ -14,6 +14,24 @@ namespace Ability
 
         public abstract void End();
 
-        [SerializeField, Expandable] protected T _abilitySo;
+        [SerializeField, Expandable] private T _abilitySo;
+        
+        public T RuntimeAbilitySo { get; private set; }
+        
+        protected virtual void Awake()
+        {
+            ResetAbility();
+        }
+        
+        public void ResetAbility()
+        {
+            CurrentLevel = 1;
+            RuntimeAbilitySo = Instantiate(_abilitySo);
+        }
+        
+        public bool CompareAbility(SoAbilityBase otherAbility)
+        {
+            return _abilitySo == otherAbility;
+        }
     }
 }
