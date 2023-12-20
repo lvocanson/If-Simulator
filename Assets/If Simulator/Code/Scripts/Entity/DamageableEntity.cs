@@ -88,7 +88,8 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     protected virtual void OnDamageTaken()
     {
         OnDamage?.Invoke();
-        Instantiate(_damageParticle, transform.position, Quaternion.identity);
+        if(_damageParticle != null)
+            Instantiate(_damageParticle, transform.position, Quaternion.identity);
         _damageSound.Play();
     }
     
