@@ -37,32 +37,23 @@ public class Kamikaz_Chase : BaseState
 
     private void EnterOnAttackRange(Collider2D obj)
     {
-        if (obj.CompareTag("Player"))
-        {
-            Manager.ChangeState(_attackState);
-        }
+        Manager.ChangeState(_attackState);
     }
     
     private void PlayerStayInChaseRange(Collider2D obj)
     {
-        if (obj.CompareTag("Player"))
-        {
-            _enemy.Agent.SetDestination(obj.transform.position);
-        }
+        _enemy.Agent.SetDestination(obj.transform.position);
     }
 
     private void ExitOnChaseRange(Collider2D obj)
     {
-        if (obj.CompareTag("Player"))
-        {
-            StartCoroutine(GoToLastPlayerPostion());
+        StartCoroutine(GoToLastPlayerPostion());
             
-            IEnumerator GoToLastPlayerPostion()
-            {
-                _enemy.Agent.SetDestination(obj.transform.position);
-                yield return new WaitUntil(() => _enemy.Agent.isStopped);
-                Manager.ChangeState(_waitPlayerState);
-            }
+        IEnumerator GoToLastPlayerPostion()
+        {
+            _enemy.Agent.SetDestination(obj.transform.position);
+            yield return new WaitUntil(() => _enemy.Agent.isStopped);
+            Manager.ChangeState(_waitPlayerState);
         }
     }
 

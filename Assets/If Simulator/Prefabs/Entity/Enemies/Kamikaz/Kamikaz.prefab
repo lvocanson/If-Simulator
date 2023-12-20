@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 6390606446443538482}
   - component: {fileID: 1373142475341139452}
   - component: {fileID: 8919522550655574771}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 3028581564904495866}
   - component: {fileID: 1550068659038415781}
   - component: {fileID: 5839639195492332}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: ChaseRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
