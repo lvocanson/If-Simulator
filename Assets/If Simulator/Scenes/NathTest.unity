@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 341941616}
   - component: {fileID: 341941615}
   - component: {fileID: 341941614}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Sensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 1000139905}
   - component: {fileID: 1000139904}
   - component: {fileID: 1000139903}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Hexagon Flat Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
