@@ -3,11 +3,37 @@ using UnityEngine.AI;
 
 public class Enemy : DamageableEntity
 {
+    [Header("Enemy")]
     [SerializeField] private NavMeshAgent _agent;
+    [SerializeField] private GameObject _lifeBarPrefab;
+    [SerializeField] private Transform _lifeBarPosition;
+    
+    private InGameLifeBar _lifeBar;
     
     public NavMeshAgent Agent => _agent;
+
+
+    private void OnEnable()
+    {
+        OnHealthChanged += _lifeBar.SetHealth;
+    }
     
-    
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        
+        OnHealthChanged -= _lifeBar.SetHealth;
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        
+        _lifeBar = Instantiate(_lifeBarPrefab, transform.position, Quaternion.identity).GetComponent<InGameLifeBar>();
+        _lifeBar.Initialize(_lifeBarPosition, this);
+        _lifeBar.gameObject.name = $"{gameObject.name} LifeBar";
+    }
+
     protected override void Start()
     {
         base.Start();
@@ -24,5 +50,6 @@ public class Enemy : DamageableEntity
         base.Die();
         
         Destroy(gameObject);
+        Destroy(_lifeBar.gameObject);
     }
 }

@@ -22240,6 +22240,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room3
       objectReference: {fileID: 0}
+    - target: {fileID: 1609689453537896995, guid: e935191c92074154f927686f0dc5e685, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609689453537896995, guid: e935191c92074154f927686f0dc5e685, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609689453537896995, guid: e935191c92074154f927686f0dc5e685, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 1799382461661175786, guid: e935191c92074154f927686f0dc5e685, type: 3}
       propertyPath: _initialState
       value: 2
