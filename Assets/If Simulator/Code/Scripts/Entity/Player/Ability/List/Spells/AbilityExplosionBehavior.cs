@@ -13,8 +13,6 @@ namespace Ability
         [SerializeField] protected float _enemyPushBackForce;
         [SerializeField, Tooltip("Alpha value will not be used since it will be modified by animation curve")] protected Color _color;
         
-        protected float _damage;
-        
         [Header("Layer Management")]
         [SerializeField] protected LayerMask _layersToCollide; 
         [SerializeField] protected LayerMask _layersToDamage;

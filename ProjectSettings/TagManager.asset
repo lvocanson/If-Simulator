@@ -7,6 +7,7 @@ TagManager:
   - Projectile
   - Enemy
   - PlayerProjectile
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -18,11 +19,11 @@ TagManager:
   - Trigger
   - Projectile
   - Target
+  - Trigger Player
+  - Trigger Enemy
   - Ally
   - AllySensor
   - EnemySensor
-  - 
-  - 
   - 
   - 
   - 

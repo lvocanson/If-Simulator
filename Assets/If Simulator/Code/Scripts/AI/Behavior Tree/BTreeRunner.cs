@@ -32,8 +32,7 @@ namespace BehaviorTree
                 return;
             }
 #endif
-
-            _instance = _tree.Clone();
+            Blackboard blackboard = new();
             if (_blackboardInitializer != null)
             {
                 var fields = _blackboardInitializer.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
@@ -41,10 +40,12 @@ namespace BehaviorTree
 
                 foreach (var field in fields)
                 {
-                    _instance.Blackboard.Write(field.Name, field.GetValue(_blackboardInitializer));
+                    blackboard.Write(field.Name, field.GetValue(_blackboardInitializer));
                 }
             }
-            _instance.Blackboard.Write("GameObject", gameObject);
+            blackboard.Write("GameObject", gameObject);
+
+            _instance = _tree.Clone(blackboard);
         }
 
         private void Update()

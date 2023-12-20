@@ -20,6 +20,10 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     [SerializeField] private Material _invulnerabilityMaterial;
     [SerializeField] private float _scaleEffectOffset = 0.2f;
     
+    [Header("Feedback")]
+    [SerializeField] private AudioSource _damageSound;
+    [SerializeField] private GameObject _damageParticle;
+    
     [Header("Debug")]
     [ShowNonSerializedField] private float _currentHealth;
     
@@ -37,7 +41,6 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     public float CurrentHealth => _currentHealth;
     public bool IsInvulnerable => _isInvulnerable || _isInvulnerableInternal;
 
-    public event Action OnHit;
     public event Action OnDamage;
     public event Action<float, float> OnHealthChanged;
     public event Action OnDeath;
@@ -51,13 +54,13 @@ public class DamageableEntity : MonoBehaviour, IDamageable
         _baseMaterial = _sprite.material;
         _baseColor = _sprite.color;
         _baseSpriteScale = _sprite.transform.localScale;
-        
+        _currentHealth = _maxHealth;
         _isInvulnerable = false;
     }
 
     protected virtual void Start()
     {
-        _currentHealth = _maxHealth;
+        OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
     }
     
     public void SetInvulnerable(bool isInvulnerable) => _isInvulnerable = isInvulnerable;
@@ -68,7 +71,9 @@ public class DamageableEntity : MonoBehaviour, IDamageable
         if (_isInvulnerable) return;
         
         _currentHealth -= damage;
-        OnHit?.Invoke();
+        
+        OnDamageTaken();
+        OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
         
         StartCoroutine(InternalInvulnerability());
         if (_effectsCoroutine != null)
@@ -83,6 +88,9 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     protected virtual void OnDamageTaken()
     {
         OnDamage?.Invoke();
+        if(_damageParticle != null)
+            Instantiate(_damageParticle, transform.position, Quaternion.identity);
+        _damageSound.Play();
     }
     
     public void Heal(float heal)

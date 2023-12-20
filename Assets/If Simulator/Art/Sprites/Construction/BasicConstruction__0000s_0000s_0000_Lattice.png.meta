@@ -1,0 +1,537 @@
+fileFormatVersion: 2
+guid: 20272a99ca3de2d4a87c1fefa5760946
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3804187692218303585
+    second: BasicConstruction__0000s_0000s_0000_Lattice_0
+  - first:
+      213: 9095823135934427363
+    second: BasicConstruction__0000s_0000s_0000_Lattice_1
+  - first:
+      213: 8304432160835464342
+    second: BasicConstruction__0000s_0000s_0000_Lattice_2
+  - first:
+      213: 7400457632356772981
+    second: BasicConstruction__0000s_0000s_0000_Lattice_3
+  - first:
+      213: -6215426514714311297
+    second: BasicConstruction__0000s_0000s_0000_Lattice_4
+  - first:
+      213: -3197293857095378565
+    second: BasicConstruction__0000s_0000s_0000_Lattice_5
+  - first:
+      213: 6370011783910782210
+    second: BasicConstruction__0000s_0000s_0000_Lattice_6
+  - first:
+      213: 7787512662769593695
+    second: BasicConstruction__0000s_0000s_0000_Lattice_7
+  - first:
+      213: -6555592795362542359
+    second: BasicConstruction__0000s_0000s_0000_Lattice_8
+  - first:
+      213: -6239946470733577333
+    second: BasicConstruction__0000s_0000s_0000_Lattice_9
+  - first:
+      213: 5077055296569755630
+    second: BasicConstruction__0000s_0000s_0000_Lattice_10
+  - first:
+      213: 6922047248488366056
+    second: BasicConstruction__0000s_0000s_0000_Lattice_11
+  - first:
+      213: -139004852871733881
+    second: BasicConstruction__0000s_0000s_0000_Lattice_12
+  - first:
+      213: -1239501322154319025
+    second: BasicConstruction__0000s_0000s_0000_Lattice_13
+  - first:
+      213: 1829428277305392143
+    second: BasicConstruction__0000s_0000s_0000_Lattice_14
+  - first:
+      213: -9217858526080903449
+    second: BasicConstruction__0000s_0000s_0000_Lattice_15
+  - first:
+      213: 3237108825575924622
+    second: BasicConstruction__0000s_0000s_0000_Lattice_16
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 111
+        width: 81
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 164c595fc803bc430800000000000000
+      internalID: 3804187692218303585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_1
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 138
+        width: 123
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e0b62d43fada3e70800000000000000
+      internalID: 9095823135934427363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_2
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 132
+        width: 77
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69c6def2d054f3370800000000000000
+      internalID: 8304432160835464342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_3
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 105
+        width: 123
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57c24ffd105b3b660800000000000000
+      internalID: 7400457632356772981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_4
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 111
+        width: 77
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f75c8eef38e5eb9a0800000000000000
+      internalID: -6215426514714311297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 83
+        width: 80
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b799a4d4d2ee0a3d0800000000000000
+      internalID: -3197293857095378565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_6
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 83
+        width: 129
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 205fd0bb7f3d66850800000000000000
+      internalID: 6370011783910782210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 83
+        width: 77
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5dec3cb18dc21c60800000000000000
+      internalID: 7787512662769593695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 54
+        width: 81
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec3e4ce51bd505a0800000000000000
+      internalID: -6555592795362542359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_9
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 54
+        width: 123
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b83097adeb14769a0800000000000000
+      internalID: -6239946470733577333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_10
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 54
+        width: 77
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee74e0194e2557640800000000000000
+      internalID: 5077055296569755630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 27
+        width: 81
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ef7e944c4d001060800000000000000
+      internalID: 6922047248488366056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_12
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 27
+        width: 123
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78d5682a2d7221ef0800000000000000
+      internalID: -139004852871733881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_13
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 0
+        width: 90
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f436d5a5d186ccee0800000000000000
+      internalID: -1239501322154319025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_14
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 27
+        width: 77
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0cb7d2535f636910800000000000000
+      internalID: 1829428277305392143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 81
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e654234286931080800000000000000
+      internalID: -9217858526080903449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicConstruction__0000s_0000s_0000_Lattice_16
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 0
+        width: 123
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e832cbf63558cec20800000000000000
+      internalID: 3237108825575924622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      BasicConstruction__0000s_0000s_0000_Lattice_0: 3804187692218303585
+      BasicConstruction__0000s_0000s_0000_Lattice_1: 9095823135934427363
+      BasicConstruction__0000s_0000s_0000_Lattice_10: 5077055296569755630
+      BasicConstruction__0000s_0000s_0000_Lattice_11: 6922047248488366056
+      BasicConstruction__0000s_0000s_0000_Lattice_12: -139004852871733881
+      BasicConstruction__0000s_0000s_0000_Lattice_13: -1239501322154319025
+      BasicConstruction__0000s_0000s_0000_Lattice_14: 1829428277305392143
+      BasicConstruction__0000s_0000s_0000_Lattice_15: -9217858526080903449
+      BasicConstruction__0000s_0000s_0000_Lattice_16: 3237108825575924622
+      BasicConstruction__0000s_0000s_0000_Lattice_2: 8304432160835464342
+      BasicConstruction__0000s_0000s_0000_Lattice_3: 7400457632356772981
+      BasicConstruction__0000s_0000s_0000_Lattice_4: -6215426514714311297
+      BasicConstruction__0000s_0000s_0000_Lattice_5: -3197293857095378565
+      BasicConstruction__0000s_0000s_0000_Lattice_6: 6370011783910782210
+      BasicConstruction__0000s_0000s_0000_Lattice_7: 7787512662769593695
+      BasicConstruction__0000s_0000s_0000_Lattice_8: -6555592795362542359
+      BasicConstruction__0000s_0000s_0000_Lattice_9: -6239946470733577333
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

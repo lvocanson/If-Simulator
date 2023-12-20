@@ -11,6 +11,7 @@ namespace Ability
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private SpriteRenderer _renderer;
+        [SerializeField] private Color _color;
         
         [Header("Data")]
         [SerializeField] private LayerMask _layers;
@@ -54,7 +55,7 @@ namespace Ability
         private void OnEnable()
         {
             _selfDestructCoroutine ??= StartCoroutine(SelfDestruct());
-            _renderer.color = Color.white;
+            _renderer.color = _color;
             _isDestroyed = false;
         }
 

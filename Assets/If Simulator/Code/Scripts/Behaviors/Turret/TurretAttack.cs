@@ -33,8 +33,6 @@ namespace Behaviors
             _target = (Transform)Args[0];
             _attackDelay = (float)Args[1];
             _bulletPool = (ObjectPool<GameObject>)Args[2];
-            
-            Debug.Log(_attackDelay);
         }
 
         public override void Exit()

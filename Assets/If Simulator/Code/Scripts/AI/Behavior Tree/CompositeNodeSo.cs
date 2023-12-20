@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Linq;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ namespace BehaviorTree
         /// <summary>
         /// The children of this node.
         /// </summary>
-        [field: SerializeField, HideInInspector]
+        [field: SerializeField, ReadOnly]
         public NodeSo[] Children { get; set; } = new NodeSo[0];
 
         public override NodeSo DeepInitialize(Blackboard blackboard)
