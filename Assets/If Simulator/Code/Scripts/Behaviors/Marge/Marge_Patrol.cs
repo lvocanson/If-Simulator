@@ -40,7 +40,7 @@ public class Marge_Patrol : BaseState
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, _waypoints[_index].position) < .5f)
+        if (_waypoints.Length > 0 && Vector3.Distance(transform.position, _waypoints[_index].position) < .5f)
         {
             _index = (_index + 1) % _waypoints.Length;
             _enemy.Agent.SetDestination(_waypoints[_index].position);
