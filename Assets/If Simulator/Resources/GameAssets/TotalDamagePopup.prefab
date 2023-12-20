@@ -185,5 +185,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textMesh: {fileID: 6555511225211800337}
-  _duration: 3
-  _fadeSpeed: 3
+  _duration: 2
+  _fadeSpeed: 5

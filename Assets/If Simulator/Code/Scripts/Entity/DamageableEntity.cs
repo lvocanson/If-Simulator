@@ -80,7 +80,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
         }
         else
         {
-            _totalDamagePopup = TotalDamagePopup.Create(transform.position + _damagePopupPosition.localPosition, (int)damage).GetComponent<TotalDamagePopup>();
+            _totalDamagePopup = TotalDamagePopup.Create(transform, _damagePopupPosition.localPosition, (int)damage).GetComponent<TotalDamagePopup>();
         }
         
         SingleDamagePopup.Create(transform.position + _damagePopupPosition.localPosition, (int)damage);
@@ -122,7 +122,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
         
         if (_totalDamagePopup != null)
         {
-            Destroy(_totalDamagePopup.gameObject, 1f);
+            Destroy(_totalDamagePopup.gameObject, 0.5f);
         }
     }
     
