@@ -8,7 +8,8 @@ namespace IfSimulator.GOAP.Config
         public float SensorRadius = 10f;
         public float MeleeAttackRadius = 2f;
         public int MeleeAttackCost = 1;
-        public float AttackDelay = 1f;
+        public float AttackDelay = 2f;
+        public float AttackDamage = 10f;
 
         public LayerMask AttackableLayerMask;
     }
