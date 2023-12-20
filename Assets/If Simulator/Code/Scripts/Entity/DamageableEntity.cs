@@ -19,6 +19,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     [SerializeField] private Material _hitMaterial;
     [SerializeField] private Material _invulnerabilityMaterial;
     [SerializeField] private float _scaleEffectOffset = 0.2f;
+    [SerializeField] private Transform _damagePopupPosition;
     
     [Header("Feedback")]
     [SerializeField] private AudioSource _damageSound;
@@ -35,6 +36,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     private Material _baseMaterial;
     private Color _baseColor;
     private Vector2 _baseSpriteScale;
+    private TotalDamagePopup _totalDamagePopup;
     
     
     public float MaxHealth => _maxHealth;
@@ -72,6 +74,17 @@ public class DamageableEntity : MonoBehaviour, IDamageable
         
         _currentHealth -= damage;
         
+        if (_totalDamagePopup != null)
+        {
+            _totalDamagePopup.UpdateDamage((int)damage);
+        }
+        else
+        {
+            _totalDamagePopup = TotalDamagePopup.Create(transform.position + _damagePopupPosition.localPosition, (int)damage).GetComponent<TotalDamagePopup>();
+        }
+        
+        SingleDamagePopup.Create(transform.position + _damagePopupPosition.localPosition, (int)damage);
+        
         OnDamageTaken();
         OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
         
@@ -106,6 +119,11 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     protected virtual void Die()
     {
         OnDeath?.Invoke();
+        
+        if (_totalDamagePopup != null)
+        {
+            Destroy(_totalDamagePopup.gameObject, 1f);
+        }
     }
     
     public void Kill()

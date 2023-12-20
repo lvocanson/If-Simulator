@@ -9,10 +9,12 @@ public class LevelContext : MonoBehaviour
 
     public LevelManager LevelManager => Instance._levelManager;
     public CameraManager CameraManager => Instance._cameraManager;
+    public PrefabsHolder PrefabsHolder => Instance.prefabsHolder;
 
     [Header("Managers")]
     [SerializeField] private LevelManager _levelManager;
     [SerializeField] private CameraManager _cameraManager;
+    [SerializeField] private PrefabsHolder prefabsHolder;
 
 
     [Header("Events")]
