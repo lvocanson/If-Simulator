@@ -5,13 +5,23 @@ namespace BehaviorTree
     /// </summary>
     public class SelectorSo : CompositeNodeSo
     {
+        int _index = 0;
+
+        protected override void OnEnter()
+        {
+            _index = 0;
+        }
+
         protected override void OnUpdate()
         {
-            foreach (var child in Children)
+            State = Children[_index].Evaluate();
+
+            while (State == NodeState.Failure)
             {
-                State = child.Evaluate();
-                if (State != NodeState.Failure)
+                if (++_index == Children.Length)
                     return;
+
+                State = Children[_index].Evaluate();
             }
         }
     }
