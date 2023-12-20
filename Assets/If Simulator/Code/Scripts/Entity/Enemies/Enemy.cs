@@ -7,9 +7,11 @@ public class Enemy : DamageableEntity
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private GameObject _lifeBarPrefab;
     [SerializeField] private Transform _lifeBarPosition;
+    [SerializeField] private GameObject _objectToDestroyOnDeath;
+    
     
     private InGameLifeBar _lifeBar;
-    
+
     public NavMeshAgent Agent => _agent;
 
 
@@ -24,7 +26,7 @@ public class Enemy : DamageableEntity
         
         OnHealthChanged -= _lifeBar.SetHealth;
     }
-
+    
     protected override void Awake()
     {
         base.Awake();
@@ -33,7 +35,7 @@ public class Enemy : DamageableEntity
         _lifeBar.Initialize(_lifeBarPosition, this);
         _lifeBar.gameObject.name = $"{gameObject.name} LifeBar";
     }
-
+    
     protected override void Start()
     {
         base.Start();
@@ -49,7 +51,11 @@ public class Enemy : DamageableEntity
     {
         base.Die();
         
-        Destroy(gameObject);
+        if (_objectToDestroyOnDeath != null)
+            Destroy(_objectToDestroyOnDeath);
+        else
+            Destroy(gameObject);
+        
         Destroy(_lifeBar.gameObject);
     }
 }
