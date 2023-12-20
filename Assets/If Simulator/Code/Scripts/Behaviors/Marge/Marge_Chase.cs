@@ -45,6 +45,11 @@ public class Marge_Chase : BaseState
         Manager.ChangeState(_attackState);
     }
 
+    private void Update()
+    {
+        gameObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, _enemy.Agent.velocity);
+    }
+
     private void ExitOnChaseRange(Collider2D obj)
     {
         Manager.ChangeState(_patrolState);

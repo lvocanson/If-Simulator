@@ -20,6 +20,10 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     [SerializeField] private Material _invulnerabilityMaterial;
     [SerializeField] private float _scaleEffectOffset = 0.2f;
     
+    [Header("Feedback")]
+    [SerializeField] private AudioSource _damageSound;
+    [SerializeField] private GameObject _damageParticle;
+    
     [Header("Debug")]
     [ShowNonSerializedField] private float _currentHealth;
     
@@ -84,6 +88,8 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     protected virtual void OnDamageTaken()
     {
         OnDamage?.Invoke();
+        Instantiate(_damageParticle, transform.position, Quaternion.identity);
+        _damageSound.Play();
     }
     
     public bool Heal(float heal)
