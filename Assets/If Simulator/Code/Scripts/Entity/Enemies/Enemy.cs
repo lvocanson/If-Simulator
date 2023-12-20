@@ -3,7 +3,9 @@ using UnityEngine.AI;
 
 public class Enemy : DamageableEntity
 {
+    [Header("References")]
     [SerializeField] private NavMeshAgent _agent;
+    [SerializeField] private GameObject _objectToDestroyOnDeath;
     
     public NavMeshAgent Agent => _agent;
     
@@ -23,6 +25,9 @@ public class Enemy : DamageableEntity
     {
         base.Die();
         
-        Destroy(gameObject);
+        if (_objectToDestroyOnDeath != null)
+            Destroy(_objectToDestroyOnDeath);
+        else
+            Destroy(gameObject);
     }
 }
