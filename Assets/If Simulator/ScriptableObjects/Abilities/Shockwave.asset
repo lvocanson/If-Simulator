@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1700e54995614abbae3defeec3f133c9, type: 3}
+  m_Name: Shockwave
+  m_EditorClassIdentifier: 
+  _name: Wave
+  _description: area damage
+  _icon: {fileID: 0}
+  _maxLevel: 3
+  _damage: 1
+  _range: 3
+  _cooldown: 2
+  _isHoldable: 0
+  _delay: 0
+  _abilityDuration: 2

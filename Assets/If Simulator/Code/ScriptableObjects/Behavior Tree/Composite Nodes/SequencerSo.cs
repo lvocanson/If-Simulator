@@ -16,14 +16,13 @@ namespace BehaviorTree
         {
             State = Children[_index].Evaluate();
 
-            if (State != NodeState.Success)
-                return;
+            while (State == NodeState.Success)
+            {
+                if (++_index == Children.Length)
+                    return;
 
-            _index++;
-            if (_index == Children.Length)
-                return;
-
-            State = NodeState.Running;
+                State = Children[_index].Evaluate();
+            }
         }
     }
 }

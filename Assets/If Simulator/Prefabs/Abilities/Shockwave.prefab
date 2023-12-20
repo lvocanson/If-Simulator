@@ -149,11 +149,11 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.26223305
       value: 0.6094861
-      inSlope: 0.38690734
-      outSlope: 0.38690734
-      tangentMode: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 136
       weightedMode: 0
-      inWeight: 0.14928554
+      inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
@@ -169,10 +169,12 @@ MonoBehaviour:
     m_RotationOrder: 4
   _maxSize: 25
   _enemyPushBackForce: 40
-  _layers:
+  _color: {r: 0.5, g: 0.5, b: 0.9, a: 0}
+  _layersToCollide:
     serializedVersion: 2
-    m_Bits: 128
-  _damageableEntityLayers:
+    m_Bits: 256
+  _layersToDamage:
     serializedVersion: 2
     m_Bits: 8
   _spriteRenderer: {fileID: 3414839370694143272}
+  _so: {fileID: 0}

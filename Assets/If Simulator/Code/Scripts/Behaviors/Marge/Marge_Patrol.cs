@@ -29,18 +29,16 @@ public class Marge_Patrol : BaseState
         _enemy.Agent.speed = _speed;
     }
 
+    // Enemy trigger is on Trigger Enemy layer, which will only collide with Trigger Player layer (bound to the Trigger GameObject in the Player)
     private void EnterOnChaseRange(Collider2D obj)
     {
-        if (obj.CompareTag("Player"))
-        {
-            _chase.SetTarget(obj.transform);
-            Manager.ChangeState(_chase);
-        }
+        _chase.SetTarget(obj.transform);
+        Manager.ChangeState(_chase);
     }
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, _waypoints[_index].position) < .5f)
+        if (_waypoints.Length > 0 && Vector3.Distance(transform.position, _waypoints[_index].position) < .5f)
         {
             _index = (_index + 1) % _waypoints.Length;
             _enemy.Agent.SetDestination(_waypoints[_index].position);

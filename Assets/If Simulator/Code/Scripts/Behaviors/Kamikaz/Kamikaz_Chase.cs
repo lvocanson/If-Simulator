@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using FiniteStateMachine;
 
@@ -6,7 +7,7 @@ public class Kamikaz_Chase : BaseState
     [SerializeField] Enemy _enemy;
 
     [Header("State Machine")]
-    [SerializeField] private Kamikaz_Patrol _patrolState;
+    [SerializeField] private Kamikaz_WaitPlayer _waitPlayerState;
     [SerializeField] private Kamikaz_Attack _attackState;
     
     [Header("Data")]
@@ -28,27 +29,38 @@ public class Kamikaz_Chase : BaseState
     private void OnEnable()
     {
         _chaseColEvent.OnExit += ExitOnChaseRange;
+        _chaseColEvent.OnStay += PlayerStayInChaseRange;
         _attackColEvent.OnEnter += EnterOnAttackRange;
+        
         _enemy.Agent.speed = _speed;
     }
 
     private void EnterOnAttackRange(Collider2D obj)
     {
-        if (obj.CompareTag("Player"))
-        {
-            Manager.ChangeState(_attackState);
-        }
+        Manager.ChangeState(_attackState);
+    }
+    
+    private void PlayerStayInChaseRange(Collider2D obj)
+    {
+        _enemy.Agent.SetDestination(obj.transform.position);
     }
 
     private void ExitOnChaseRange(Collider2D obj)
     {
-        if (obj.CompareTag("Player"))
-            Manager.ChangeState(_patrolState);
+        StartCoroutine(GoToLastPlayerPostion());
+            
+        IEnumerator GoToLastPlayerPostion()
+        {
+            _enemy.Agent.SetDestination(obj.transform.position);
+            yield return new WaitUntil(() => _enemy.Agent.isStopped);
+            Manager.ChangeState(_waitPlayerState);
+        }
     }
 
     private void OnDisable()
     {
         _chaseColEvent.OnExit -= ExitOnChaseRange;
+        _chaseColEvent.OnStay -= PlayerStayInChaseRange;
         _attackColEvent.OnEnter -= EnterOnAttackRange;
     }
 }
