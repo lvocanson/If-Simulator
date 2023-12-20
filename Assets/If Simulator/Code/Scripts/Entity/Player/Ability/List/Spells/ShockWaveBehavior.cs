@@ -7,33 +7,32 @@ namespace Ability
         protected override void HandleCollision(Collider2D other)
         {
             int otherLayer = other.gameObject.layer;
-            
-            // Skip unwanted layers
-            bool isBullet = ((1 << otherLayer) & _layersToCollide.value) == 0;
-            bool isDamageableEntity = ((1 << otherLayer) & _layersToDamage.value) == 0;
-            if (isBullet is false && isDamageableEntity is false) return;
-            
             // Get the binary value of the layer
             int otherLayerMask = 1 << otherLayer;
+            
+            // Skip unwanted layers
+            bool isBullet = (otherLayerMask & _layersToCollide.value) == 0;
+            bool isDamageableEntity = (otherLayerMask & _layersToDamage.value) == 0;
+            if (isBullet is false && isDamageableEntity is false) return;
             
             // Destroy enemies' bullets
             if (otherLayerMask == _layersToCollide.value && other.CompareTag("PlayerProjectile") is false)
             {
                 Destroy(other.gameObject);
+                return;
             }
             
             // Push back enemies and damage them
-            else if (otherLayerMask == _layersToDamage.value)
-            {
-                if (other.TryGetComponent(out Rigidbody2D rb) is false || other.TryGetComponent(out IDamageable damageable) is false) return;
+            if (otherLayerMask != _layersToDamage.value) return;
+            
+            if (other.TryGetComponent(out Rigidbody2D rb) is false || other.TryGetComponent(out IDamageable damageable) is false) return;
                 
-                // Push back
-                Vector2 dir = (other.transform.position - transform.position).normalized;
-                rb.AddForce(dir * _enemyPushBackForce, ForceMode2D.Impulse);
+            // Push back
+            Vector2 dir = (other.transform.position - transform.position).normalized;
+            rb.AddForce(dir * _enemyPushBackForce, ForceMode2D.Impulse);
                 
-                // Damage
-                damageable.Damage(_so.Damage);
-            }
+            // Damage
+            damageable.Damage(_so.Damage);
         }
 
         public override void OnUpdate()
