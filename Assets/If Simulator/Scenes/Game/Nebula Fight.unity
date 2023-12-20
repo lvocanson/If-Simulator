@@ -548,8 +548,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0049505234, y: -0.006750107, z: 0}
-    m_Extent: {x: 20.50315, y: 24.49945, z: 0}
+    m_Center: {x: 0.003200531, y: -0.0025997162, z: 0}
+    m_Extent: {x: 20.5014, y: 24.4914, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -2536,18 +2536,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &549139150034785028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8241022385322771299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &630253770382226196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3060,18 +3048,6 @@ Transform:
   - {fileID: 3877148617702534554}
   m_Father: {fileID: 2134742248983923709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &2749707215086465575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6047205320876302912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2818904770206879457
 Transform:
   m_ObjectHideFlags: 0
@@ -3468,6 +3444,10 @@ PrefabInstance:
     - target: {fileID: 16418495951437707, guid: 66c00676d3a3e8549aeb55d75b8d35a3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346472286162694412, guid: 66c00676d3a3e8549aeb55d75b8d35a3, type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4346472286162694412, guid: 66c00676d3a3e8549aeb55d75b8d35a3, type: 3}
       propertyPath: m_Name
@@ -4136,7 +4116,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3877148617702534554}
   - component: {fileID: 4714813087718486311}
-  - component: {fileID: 2749707215086465575}
   m_Layer: 7
   m_Name: DoorOpenTrigger
   m_TagString: Untagged
@@ -4489,7 +4468,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1475040071682198713}
   - component: {fileID: 6978435944207175684}
-  - component: {fileID: 549139150034785028}
   m_Layer: 7
   m_Name: DoorOpenTrigger
   m_TagString: Untagged
