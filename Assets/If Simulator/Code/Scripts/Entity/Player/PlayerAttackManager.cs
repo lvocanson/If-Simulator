@@ -16,6 +16,9 @@ public class PlayerAttackManager : MonoBehaviour
     public event Action<AbilityActive> OnAbilityActivated;
     public event Action<AbilityActive> OnFirstSpellChanged;
     public event Action<AbilityActive> OnSecondSpellChanged;
+    
+    public AbilityActive FirstSpell => _firstSpellAbilityBase;
+    public AbilityActive SecondSpell => _secondSpellAbilityBase;
 
     [Header("References")]
     [SerializeField] private GameObject _spellsGo;

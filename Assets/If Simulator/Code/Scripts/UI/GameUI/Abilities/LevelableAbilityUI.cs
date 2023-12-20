@@ -19,7 +19,7 @@ public class LevelableAbilityUI : AbilityIconUI
         }
     }
 
-    public void InitPassiveLevels(int maxLevel)
+    public void InitStars(int maxLevel)
     {
         int levelStarInstantiated = _levelStarLayoutGroup.transform.childCount;
         
@@ -41,11 +41,11 @@ public class LevelableAbilityUI : AbilityIconUI
         }
     }
     
-    public void LevelUpPassive(int nextLevel)
+    public void EnableStars(int level)
     {
         for (int i = 0; i < _levelStars.Count; i++)
         {
-            _levelStars[i].EnableStar(i < nextLevel);
+            _levelStars[i].EnableStar(i < level);
         }
     } 
 }

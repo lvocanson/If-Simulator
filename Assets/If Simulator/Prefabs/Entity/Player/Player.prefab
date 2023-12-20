@@ -578,7 +578,7 @@ MonoBehaviour:
   _playerMovement: {fileID: 5540728448906214869}
   playerAim: {fileID: 3407179542858764038}
   _data: {fileID: 11400000, guid: 0a0b0f884ace5ed41b10f57eb03db9b9, type: 2}
-  _firstSpell: {fileID: 11400000, guid: 650c4ac964c428140913c9b312d9d7f8, type: 2}
+  _firstSpell: {fileID: 11400000, guid: 83156b29a3143244eb33e0875148af16, type: 2}
   _secondSpell: {fileID: 11400000, guid: 650c4ac964c428140913c9b312d9d7f8, type: 2}
 --- !u!114 &263370004781948735
 MonoBehaviour:

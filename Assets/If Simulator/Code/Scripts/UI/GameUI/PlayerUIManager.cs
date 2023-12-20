@@ -7,7 +7,6 @@ public class PlayerUIManager : MonoBehaviour
     [SerializeField] private PassiveHolderUI _passiveHolderUI;
     [SerializeField] private CurrentPlayerSo _currentPlayerSo;
     
-    
     public SpellHolderUI SpellHolderUI => _spellHolderUI;
     public PassiveHolderUI PassiveHolderUI => _passiveHolderUI;
 
@@ -25,8 +24,12 @@ public class PlayerUIManager : MonoBehaviour
             return;
         }
         _currentPlayerSo.Player.OnHealthChanged += _playerLife.UpdateHealth;
+        
         _currentPlayerSo.Player.PlayerAttackManager.OnFirstSpellChanged += _spellHolderUI.UpdateFirstSpell;
         _currentPlayerSo.Player.PlayerAttackManager.OnSecondSpellChanged += _spellHolderUI.UpdateSecondSpell;
+        
+        _currentPlayerSo.Player.PlayerAttackManager.FirstSpell.OnCooldownChanged += _spellHolderUI.UpdateFirstSpellCooldown;
+        _currentPlayerSo.Player.PlayerAttackManager.SecondSpell.OnCooldownChanged += _spellHolderUI.UpdateSecondSpellCooldown;
     }
     
     private void OnDisable()
@@ -44,8 +47,12 @@ public class PlayerUIManager : MonoBehaviour
         }
         
         _currentPlayerSo.Player.OnHealthChanged -= _playerLife.UpdateHealth;
+        
         _currentPlayerSo.Player.PlayerAttackManager.OnFirstSpellChanged -= _spellHolderUI.UpdateFirstSpell;
         _currentPlayerSo.Player.PlayerAttackManager.OnSecondSpellChanged -= _spellHolderUI.UpdateSecondSpell;
+        
+        _currentPlayerSo.Player.PlayerAttackManager.FirstSpell.OnCooldownChanged -= _spellHolderUI.UpdateFirstSpellCooldown;
+        _currentPlayerSo.Player.PlayerAttackManager.SecondSpell.OnCooldownChanged -= _spellHolderUI.UpdateSecondSpellCooldown;
     }
 
     private void Start()

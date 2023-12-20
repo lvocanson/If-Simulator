@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Ability
@@ -13,18 +14,15 @@ namespace Ability
         }
 
         private float _curCooldown;
+        public event Action<int, float> OnCooldownChanged;
 
         private Coroutine _routine;
 
         private AbilityState _state = AbilityState.READY;
 
-        public float CurCooldown
-        {
-            get => _curCooldown;
-            set => _curCooldown = Mathf.Clamp(value, 0, RuntimeAbilitySo.Cooldown);
-        }
+        private int CurCooldown => (int)_curCooldown;
 
-        public float CurActiveCooldown { get; private set; }
+        private float CurActiveCooldown { get; set; }
 
         private float GetActiveCooldown()
         {
@@ -84,8 +82,21 @@ namespace Ability
                 // If the ability is on cooldown, decrease the cooldown
                 case AbilityState.COOLDOWN:
                 {
-                    if (_curCooldown > 0) _curCooldown -= Time.deltaTime;
-                    else _state = AbilityState.READY;
+                    if (_curCooldown > 0)
+                    {
+                        var oldCooldown = (int)_curCooldown;
+                        _curCooldown -= Time.deltaTime;
+                        var newCooldown = (int)_curCooldown;
+                        
+                        if (oldCooldown != newCooldown)
+                        {
+                            OnCooldownChanged?.Invoke(CurCooldown, RuntimeAbilitySo.Cooldown);
+                        }
+                    }
+                    else
+                    {
+                        _state = AbilityState.READY;
+                    }
                     break;
                 }
                 // If the ability is active, decrease the active cooldown and call the update method

@@ -17,12 +17,23 @@ public class SpellHolderUI : MonoBehaviour
         UpdateSpell(_secondSpell, newSpell);
     }
     
+    public void UpdateFirstSpellCooldown(int newCooldown, float maxCooldown)
+    {
+        _firstSpell.UpdateCooldown(newCooldown, maxCooldown);
+    }
+    
+    public void UpdateSecondSpellCooldown(int newCooldown, float maxCooldown)
+    {
+        _secondSpell.UpdateCooldown(newCooldown, maxCooldown);
+    }
+    
     private void UpdateSpell(LevelableAbilityUI spellUI, AbilityActive newSpell)
     {
         if (newSpell == null) return;
-        
+
+        Debug.Log("Updating spell: " + newSpell.RuntimeAbilitySo.Name);
         spellUI.ChangeIcon(newSpell.RuntimeAbilitySo.Icon);
-        spellUI.InitPassiveLevels(newSpell.RuntimeAbilitySo.MaxLevel);
-        spellUI.LevelUpPassive(newSpell.CurrentLevel);
+        spellUI.InitStars(newSpell.RuntimeAbilitySo.MaxLevel);
+        spellUI.EnableStars(newSpell.CurrentLevel);
     }
 }
