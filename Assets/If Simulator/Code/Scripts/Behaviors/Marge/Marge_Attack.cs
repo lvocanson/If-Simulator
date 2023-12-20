@@ -45,8 +45,7 @@ public class Marge_Attack : BaseState
 
     private void ExitAttackRange(Collider2D obj)
     {
-        if (obj.CompareTag("Player"))
-            Manager.ChangeState(_chaseState);
+        Manager.ChangeState(_chaseState);
     }
 
     private void MargeShoot()

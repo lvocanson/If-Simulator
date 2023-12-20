@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 8475646824116265809}
   - component: {fileID: 4620439536270340928}
   - component: {fileID: 4060335984500121313}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 4236770814458259592}
   - component: {fileID: 6414294324195957393}
   - component: {fileID: 5535838779829924784}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: ChaseRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}

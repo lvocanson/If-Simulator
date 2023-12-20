@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3859353762324603953}
   - component: {fileID: 2728036162082443792}
   - component: {fileID: 4419410267802930010}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: TurretBullet
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}

@@ -130,9 +130,10 @@ namespace Ability
         {
             bullet.transform.position = _bulletSpawnPoint.position;
             bullet.transform.rotation = _bulletSpawnPoint.rotation;
+            bullet.SetActive(true);
+
             var proj = bullet.GetComponent<Projectile>();
             proj.Initialize(gameObject.layer, _bulletSpawnPoint.up, managedByPool:true);
-            bullet.SetActive(true);
         }
 
         private void OnBulletReturnToPool(GameObject bullet) => bullet.SetActive(false);

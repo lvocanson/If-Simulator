@@ -1,3 +1,4 @@
+using System;
 using Ability;
 using NaughtyAttributes;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class PlayerAttackManager : MonoBehaviour
     [SerializeField, BoxGroup("Inputs")] private InputActionReference _dashInput;
     [SerializeField, BoxGroup("Inputs")] private InputActionReference _firstSpellInput;
     [SerializeField, BoxGroup("Inputs")] private InputActionReference _secondSpellInput;
+    
+    public event Action<AbilityActive> OnAbilityActivated;
 
     [SerializeField] private AbilityActive _primaryAttackAbilityBase;
     [SerializeField] private AbilityActive _secondaryAttackAbilityBase;
@@ -48,6 +51,7 @@ public class PlayerAttackManager : MonoBehaviour
     private void OnPrimaryAttackAction(InputAction.CallbackContext context)
     {
         _primaryAttackAbilityBase.TryActivate();
+        OnAbilityActivated?.Invoke(_primaryAttackAbilityBase);
     }
 
     private void OnPrimaryAttackEndAction(InputAction.CallbackContext context)
@@ -58,20 +62,24 @@ public class PlayerAttackManager : MonoBehaviour
     private void OnSecondaryAttackAction(InputAction.CallbackContext context)
     {
         _secondaryAttackAbilityBase.TryActivate();
+        OnAbilityActivated?.Invoke(_secondaryAttackAbilityBase);
     }
     
     private void OnDashAction(InputAction.CallbackContext context)
     {
         _dashAbilityBase.TryActivate();
+        OnAbilityActivated?.Invoke(_dashAbilityBase);
     }
 
     private void OnFirstSpellAction(InputAction.CallbackContext context)
     {
         _firstSpellAbilityBase.TryActivate();
+        OnAbilityActivated?.Invoke(_firstSpellAbilityBase);
     }
 
     private void OnSecondSpellAction(InputAction.CallbackContext context)
     {
         _secondSpellAbilityBase.TryActivate();
+        OnAbilityActivated?.Invoke(_secondSpellAbilityBase);
     }
 }
