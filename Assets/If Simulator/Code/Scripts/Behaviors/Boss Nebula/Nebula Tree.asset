@@ -57,7 +57,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6a014d58bd30f449d8f2455d985d1f, type: 3}
   m_Name: SetAgentDestination
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 0, y: 0}
+  <GraphPosition>k__BackingField: {x: 584, y: 290}
+  _onDestinationChanged: {fileID: 11400000, guid: afce6602e55f27840ace77bdc3e144d6, type: 2}
 --- !u!114 &9196141375401226169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d2a8749e57c1d49abf55f8f140b7f9, type: 3}
   m_Name: SequencerSo
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 524, y: 178}
+  <GraphPosition>k__BackingField: {x: 524, y: 177}
   <Children>k__BackingField:
   - {fileID: -1805404537095440609}
+  - {fileID: 1126652462122529457}
