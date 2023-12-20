@@ -21,7 +21,7 @@ namespace IfSimulator.GOAP.Actions
         public override void Start(IMonoAgent agent, HealData data)
         {
             data.Timer = HealConfig.HealDelay;
-            Player = LevelContext.Instance.LevelManager.SpawnedPlayer;   // Caca beurk    
+            Player = LevelContext.Instance.LevelManager.SpawnedPlayer; // TODO refactor this    
         }
 
         public override ActionRunState Perform(IMonoAgent agent, HealData data, ActionContext context)
@@ -45,7 +45,6 @@ namespace IfSimulator.GOAP.Actions
                         return ActionRunState.Stop;
                     }
 
-                    Debug.Log(Player.CurrentHealth);
                     cooldownTimer = HealConfig.HealDelay;
                     return ActionRunState.Continue;
                 }

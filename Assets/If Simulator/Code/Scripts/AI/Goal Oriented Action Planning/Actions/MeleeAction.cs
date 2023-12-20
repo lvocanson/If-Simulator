@@ -37,11 +37,8 @@ namespace IfSimulator.GOAP.Actions
 
                 if (shouldAttack)
                 {
-                    Debug.Log("Attack");
                     agent.transform.up = data.Target.Position - agent.transform.position;
                     _enemy.Damage(AttackConfig.AttackDamage);
-
-                    Debug.Log(_enemy.CurrentHealth);
                     cooldownTimer = AttackConfig.AttackDelay;
                     return ActionRunState.Continue;
                 }
