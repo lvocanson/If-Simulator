@@ -85,14 +85,12 @@ public class DamageableEntity : MonoBehaviour, IDamageable
         OnDamage?.Invoke();
     }
     
-    public bool Heal(float heal)
+    public void Heal(float heal)
     {
-        if (_currentHealth >= _maxHealth) return false;
+        if (_currentHealth >= _maxHealth) return;
         _currentHealth = Mathf.Min(_maxHealth, _currentHealth + heal);
         
         OnHealthChanged?.Invoke(_currentHealth, MaxHealth);
-
-        return true;
     }
     
     protected virtual void Die()

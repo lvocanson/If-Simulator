@@ -10,7 +10,7 @@ namespace IfSimulator.GOAP.Actions
     public class HealAction : ActionBase<HealData>, IInjectable
     {
         private HealConfigSO HealConfig;
-        private DamageabaleEntity DamageabaleEntity;
+        private DamageableEntity DamageableEntity;
         public override void Created()
         {
         }
@@ -27,9 +27,9 @@ namespace IfSimulator.GOAP.Actions
             if (shouldHeal)
             {
                 agent.transform.up = data.Target.Position - agent.transform.position;
-                DamageabaleEntity.Heal(HealConfig.HealAmount);
+                DamageableEntity.Heal(HealConfig.HealAmount);
                 Debug.Log(HealConfig.HealAmount);
-                Debug.Log(DamageabaleEntity.CurrentHealth);
+                Debug.Log(DamageableEntity.CurrentHealth);
             }
 
             return data.Timer > 0 ? ActionRunState.Continue : ActionRunState.Stop;
