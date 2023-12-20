@@ -131,6 +131,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &76579707 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6133081045672806953, guid: 66c00676d3a3e8549aeb55d75b8d35a3, type: 3}
+  m_PrefabInstance: {fileID: 4749155546870189313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5230eccb8d67d4287ea6803889e819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &203321610
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,6 +261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1022794080}
+  - component: {fileID: 1022794081}
   m_Layer: 0
   m_Name: PlayerSpawnPoint
   m_TagString: Untagged
@@ -272,6 +284,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1267224989}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1022794081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022794079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b976fa613ef69408860e267ae166c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lookAt2D: {fileID: 76579707}
+  _playerSo: {fileID: 11400000, guid: 0a0b0f884ace5ed41b10f57eb03db9b9, type: 2}
 --- !u!1 &1034766273
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,8 +548,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0064992905, y: -0.006549835, z: 0}
-    m_Extent: {x: 20.500801, y: 24.49575, z: 0}
+    m_Center: {x: -0.0049505234, y: -0.006750107, z: 0}
+    m_Extent: {x: 20.50315, y: 24.49945, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
