@@ -10,7 +10,8 @@ namespace IfSimulator.GOAP.Behaviors
     public class AllyBrain : MonoBehaviour
     {
         [SerializeField] private PlayerSensor PlayerSensor;
-        [SerializeField] private AttackConfigSO AttackConfig;
+        [SerializeField] private HealConfigSO HealConfig;
+        [SerializeField] private CurrentPlayerSo CurrentPlayerSo;
         private AgentBehaviour AgentBehaviour;
 
         private void Awake()
@@ -21,7 +22,7 @@ namespace IfSimulator.GOAP.Behaviors
         private void Start()
         {
             AgentBehaviour.SetGoal<WanderGoal>(false);
-            PlayerSensor.Collider.radius = AttackConfig.SensorRadius;
+            PlayerSensor.Collider.radius = HealConfig.SensorHealRadius;
         }
 
         private void OnEnable()
@@ -38,7 +39,20 @@ namespace IfSimulator.GOAP.Behaviors
 
         private void PlayerSensorOnPlayerEnter(Transform Player)
         {
-            AgentBehaviour.SetGoal<KillEnemy>(true);
+            Debug.Log(CurrentPlayerSo.Player.CurrentHealth + " " + "before");
+
+            if (CurrentPlayerSo.Player.CurrentHealth < 60)
+            {
+                AgentBehaviour.SetGoal<HealAlly>(true);
+                Debug.Log("Healing ally");
+            }
+            else
+            {
+                Debug.Log("Wander goal");
+                AgentBehaviour.SetGoal<WanderGoal>(true);
+
+            }
+
         }
 
         private void PlayerSensorOnPlayerExit(Vector3 lastKnownPosition)

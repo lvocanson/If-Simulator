@@ -7,8 +7,8 @@ namespace IfSimulator.GOAP
 {
     public class DependencyInjector : GoapConfigInitializerBase, IGoapInjector
     {
-        public AttackConfigSO AttackConfig;
         public WanderConfigSO WanderConfig;
+        public HealConfigSO HealConfig;
 
         public override void InitConfig(GoapConfig config)
         {

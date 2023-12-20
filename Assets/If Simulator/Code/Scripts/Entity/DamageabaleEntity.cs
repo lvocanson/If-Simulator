@@ -25,6 +25,15 @@ public class DamageabaleEntity : MonoBehaviour, IDamageable
             Die();
         }
     }
+
+    public void Heal(float heal)
+    {
+        _currentHealth += heal;
+        if (_currentHealth > _maxHealth)
+        {
+            _currentHealth = _maxHealth;
+        }
+    }
     
     protected virtual void Die()
     {

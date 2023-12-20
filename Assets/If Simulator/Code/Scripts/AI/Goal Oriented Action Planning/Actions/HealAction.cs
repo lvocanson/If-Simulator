@@ -10,6 +10,7 @@ namespace IfSimulator.GOAP.Actions
     public class HealAction : ActionBase<HealData>, IInjectable
     {
         private HealConfigSO HealConfig;
+        private DamageabaleEntity DamageabaleEntity;
         public override void Created()
         {
         }
@@ -22,12 +23,13 @@ namespace IfSimulator.GOAP.Actions
             data.Timer -= context.DeltaTime;
 
             bool shouldHeal = data.Target != null && Vector3.Distance(data.Target.Position, agent.transform.position) <= HealConfig.HealRadius;
-            
-            Debug.Log("Can Heal or should Heal" + shouldHeal);
 
             if (shouldHeal)
             {
-                agent.transform.LookAt(data.Target.Position);
+                agent.transform.up = data.Target.Position - agent.transform.position;
+                DamageabaleEntity.Heal(HealConfig.HealAmount);
+                Debug.Log(HealConfig.HealAmount);
+                Debug.Log(DamageabaleEntity.CurrentHealth);
             }
 
             return data.Timer > 0 ? ActionRunState.Continue : ActionRunState.Stop;
@@ -37,10 +39,9 @@ namespace IfSimulator.GOAP.Actions
         {
         }
 
-        public void Inject(DependencyInjector Injector) 
+        public void Inject(DependencyInjector Injector)
         {
-            //HealConfig = Injector.HealConfig;
+            HealConfig = Injector.HealConfig;
         }
     }
-
 }
