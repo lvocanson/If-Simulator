@@ -179,6 +179,7 @@ MonoBehaviour:
   _managedFromPool: 1
   _rb: {fileID: 3859353762324603953}
   _renderer: {fileID: 5158183046418414025}
+  _color: {r: 0.514774, g: 0.013216423, b: 0.9339623, a: 1}
   _layers:
     serializedVersion: 2
     m_Bits: 9

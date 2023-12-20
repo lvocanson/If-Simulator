@@ -1,9 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Pool;
 
 namespace Ability
 {
-    public class AbilityPrimaryShoot : AbilityShoot
+    public class AbilitySecondaryShoot : AbilityShoot
     {
+        [SerializeField] private GameObject _explodePrefab;
+        [SerializeField] private SoAbilityCooldown _explodeSo;
+
         protected override GameObject CreateBullet()
         {
             // Spawn a new bullet at the spawn point (player position)
@@ -16,7 +21,7 @@ namespace Ability
 
             return bp;
         }
-
+        
         private void CleanProjectile(Projectile p)
         {
             _bulletPool.Release(p.gameObject);
@@ -30,8 +35,17 @@ namespace Ability
             bullet.GetComponent<Projectile>().Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
         }
 
-        protected override void OnBulletReturnToPool(GameObject bullet) => bullet.SetActive(false);
+        protected override void OnBulletReturnToPool(GameObject bullet)
+        {
+            var explosion = Instantiate(_explodePrefab, bullet.transform.position, Quaternion.identity).GetComponent<AbilityExplosionBehavior>();
+            explosion.Init(_explodeSo);
+            
+            bullet.SetActive(false);
+        }
 
-        protected override void OnBulletDestroy(GameObject bullet) => Destroy(bullet);
+        protected override void OnBulletDestroy(GameObject bullet)
+        {
+            Destroy(bullet);
+        }
     }
 }

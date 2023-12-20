@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2728036162082443792}
   - component: {fileID: 4419410267802930010}
   m_Layer: 8
-  m_Name: PlayerBullet
+  m_Name: PlayerBulletSecondary
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9716981, g: 0.26125845, b: 0.26125845, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -179,13 +179,13 @@ MonoBehaviour:
   _managedFromPool: 0
   _rb: {fileID: 3859353762324603953}
   _renderer: {fileID: 5158183046418414025}
-  _color: {r: 1, g: 1, b: 1, a: 1}
+  _color: {r: 0.9245283, g: 0.22241008, b: 0.22241008, a: 1}
   _layers:
     serializedVersion: 2
     m_Bits: 9
   _damageableEntityLayers:
     serializedVersion: 2
     m_Bits: 8
-  _speed: 25
+  _speed: 40
   _lifeTime: 2
-  _damage: 100
+  _damage: 2
