@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Ability
 {
-    public class TurretExplosionBehavior : AbilityExplosionBehavior
+    public class SecondaryFireExplosionBehavior : AbilityExplosionBehavior
     {
         [SerializeField] private LayerMask _wallLayer;
-
+        
         private void Update()
         {
             OnUpdate();

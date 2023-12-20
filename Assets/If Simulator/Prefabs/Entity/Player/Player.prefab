@@ -272,6 +272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 392480088945418388}
   - component: {fileID: 7005681117116373979}
+  - component: {fileID: 6962324553966039841}
   - component: {fileID: 3239121802332896468}
   - component: {fileID: 3763282448011404525}
   - component: {fileID: 2452512995575623704}
@@ -316,6 +317,26 @@ MonoBehaviour:
   _bulletContainer: {fileID: 0}
   _numberOfBulletsPerDefault: 25
   _numberOfBulletsMax: 100
+--- !u!114 &6962324553966039841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5648217721370397452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af81a6fa653d4b9093ca2cb2fcf4781c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _abilitySo: {fileID: 11400000, guid: 3159d618200ce7e41bdaa35764a2df27, type: 2}
+  _bulletPrefab: {fileID: 3981262126783197580, guid: 16a434fecab362348b8e1f4a840bc875, type: 3}
+  _bulletSpawnPoint: {fileID: 2873507226914812432}
+  _bulletContainer: {fileID: 0}
+  _numberOfBulletsPerDefault: 2
+  _numberOfBulletsMax: 5
+  _explodePrefab: {fileID: 399414093182519051, guid: 60aa00f93e2a72b45895af010aa140ce, type: 3}
+  _explodeSo: {fileID: 11400000, guid: ccf8dad3f44992747bfb63a44d6ba68b, type: 2}
 --- !u!114 &3239121802332896468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,7 +596,7 @@ MonoBehaviour:
   _firstSpellInput: {fileID: 5852425643557178782, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
   _secondSpellInput: {fileID: -2028806386459919619, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
   _primaryAttackAbilityBase: {fileID: 7005681117116373979}
-  _secondaryAttackAbilityBase: {fileID: 3176874792679140571}
+  _secondaryAttackAbilityBase: {fileID: 6962324553966039841}
   _dashAbilityBase: {fileID: 3239121802332896468}
   _firstSpellAbilityBase: {fileID: 3763282448011404525}
   _secondSpellAbilityBase: {fileID: 2452512995575623704}
