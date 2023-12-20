@@ -11,6 +11,7 @@ namespace IfSimulator.GOAP.Actions
     {
 
         private AttackConfigSO AttackConfig;
+        public Enemy Enemy;
         public override void Created()
         {
             
@@ -28,7 +29,8 @@ namespace IfSimulator.GOAP.Actions
 
             if (shouldAttack)
             {
-                agent.transform.LookAt(data.Target.Position);
+                agent.transform.up = data.Target.Position - agent.transform.position;
+                Enemy.Damage(AttackConfig.AttackDamage);
             }
 
             return data.Timer > 0 ? ActionRunState.Continue : ActionRunState.Stop;
@@ -40,7 +42,7 @@ namespace IfSimulator.GOAP.Actions
 
         public void Inject(DependencyInjector injector)
         {
-            //AttackConfig = injector.AttackConfig;
+            AttackConfig = injector.AttackConfig;
         }
     }
 }

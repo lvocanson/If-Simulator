@@ -12,13 +12,14 @@ namespace IfSimulator.GOAP.Behaviors
         private NavMeshAgent Agent;
         private AgentBehaviour AgentBehaviour;
         private ITarget CurrentTarget;
-        [SerializeField] private float MinMoveDistance = 0.25f;
+        [SerializeField] private float MinMoveDistance = 4f;
         private Vector3 LastPosition;
         private void Awake()
         {
             Agent = GetComponent<NavMeshAgent>();
             Agent.updateRotation = false;
             Agent.updateUpAxis = false;
+
             AgentBehaviour = GetComponent<AgentBehaviour>();
         }
 

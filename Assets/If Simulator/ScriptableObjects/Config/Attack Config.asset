@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1916403cac2f749a93a0ad1452b45d, type: 3}
   m_Name: Attack Config
   m_EditorClassIdentifier: 
-  SensorRadius: 6
-  MeleeAttackRadius: 1
+  SensorRadius: 10
+  MeleeAttackRadius: 5
   MeleeAttackCost: 3
-  AttackDelay: 1
+  AttackDelay: 5
+  AttackDamage: 10
   AttackableLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 8

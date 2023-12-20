@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd5d451188e16b48a491de38cd5fceb, type: 3}
   m_Name: Heal Config
   m_EditorClassIdentifier: 
-  SensorHealRadius: 10
-  HealRadius: 2
+  SensorHealRadius: 5
+  HealRadius: 5
   HealCost: 2
   HealDelay: 1
   HealAmount: 10

@@ -10,9 +10,13 @@ namespace IfSimulator.GOAP.Behaviors
     public class AllyBrain : MonoBehaviour
     {
         [SerializeField] private PlayerSensor PlayerSensor;
+        [SerializeField] private EnemySensor EnemySensor;
         [SerializeField] private HealConfigSO HealConfig;
+        [SerializeField] private AttackConfigSO AttackConfig;
         [SerializeField] private CurrentPlayerSo CurrentPlayerSo;
+
         private AgentBehaviour AgentBehaviour;
+
 
         private void Awake()
         {
@@ -23,36 +27,53 @@ namespace IfSimulator.GOAP.Behaviors
         {
             AgentBehaviour.SetGoal<WanderGoal>(false);
             PlayerSensor.Collider.radius = HealConfig.SensorHealRadius;
+            EnemySensor.Collider.radius = AttackConfig.SensorRadius;
         }
 
         private void OnEnable()
         {
             PlayerSensor.OnPlayerEnter += PlayerSensorOnPlayerEnter;
+            PlayerSensor.OnPlayerStay += PlayerSensorOnPlayerStay;
             PlayerSensor.OnPlayerExit += PlayerSensorOnPlayerExit;
         }
 
         private void OnDisable()
         {
             PlayerSensor.OnPlayerEnter -= PlayerSensorOnPlayerEnter;
+            PlayerSensor.OnPlayerStay -= PlayerSensorOnPlayerStay;
             PlayerSensor.OnPlayerExit -= PlayerSensorOnPlayerExit;
         }
 
         private void PlayerSensorOnPlayerEnter(Transform Player)
         {
-            Debug.Log(CurrentPlayerSo.Player.CurrentHealth + " " + "before");
-
-            if (CurrentPlayerSo.Player.CurrentHealth < 60)
+            if (CurrentPlayerSo.Player.CurrentHealth < 90 )
             {
                 AgentBehaviour.SetGoal<HealAlly>(true);
-                Debug.Log("Healing ally");
+            }
+            else if (CurrentPlayerSo.Player.CurrentHealth > 80)
+            {
+                AgentBehaviour.SetGoal<WanderGoal>(true);
             }
             else
             {
-                Debug.Log("Wander goal");
                 AgentBehaviour.SetGoal<WanderGoal>(true);
-
             }
+        }
 
+        private void PlayerSensorOnPlayerStay(Transform Player)
+        {
+            if (CurrentPlayerSo.Player.CurrentHealth < 90)
+            {
+                AgentBehaviour.SetGoal<HealAlly>(true);
+            }
+            else if (CurrentPlayerSo.Player.CurrentHealth > 80)
+            {
+                AgentBehaviour.SetGoal<WanderGoal>(true);
+            }
+            else
+            {
+                AgentBehaviour.SetGoal<WanderGoal>(true);
+            }
         }
 
         private void PlayerSensorOnPlayerExit(Vector3 lastKnownPosition)

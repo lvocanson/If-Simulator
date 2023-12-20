@@ -9,6 +9,7 @@ namespace IfSimulator.GOAP
     {
         public WanderConfigSO WanderConfig;
         public HealConfigSO HealConfig;
+        public AttackConfigSO AttackConfig;
 
         public override void InitConfig(GoapConfig config)
         {
