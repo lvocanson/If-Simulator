@@ -10,6 +10,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     
     [Header("References")]
     [SerializeField] private SpriteRenderer _sprite;
+    [SerializeField] private AudioSource _audioSource;
 
     [Header("Damageable Entity")]
     [SerializeField] private float _maxHealth;
@@ -21,8 +22,9 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     [SerializeField] private float _scaleEffectOffset = 0.2f;
     
     [Header("Feedback")]
-    [SerializeField] private AudioSource _damageSound;
+    [SerializeField] private AudioClip _damageSound;
     [SerializeField] private GameObject _damageParticle;
+    [SerializeField] private GameObject _dieParticle;
     
     [Header("Debug")]
     [ShowNonSerializedField] private float _currentHealth;
@@ -90,7 +92,8 @@ public class DamageableEntity : MonoBehaviour, IDamageable
         OnDamage?.Invoke();
         if(_damageParticle != null)
             Instantiate(_damageParticle, transform.position, Quaternion.identity);
-        _damageSound.Play();
+        if (_audioSource != null)
+            _audioSource.PlayOneShot(_damageSound); 
     }
     
     public bool Heal(float heal)
@@ -105,6 +108,8 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     
     protected virtual void Die()
     {
+        if (_dieParticle != null)
+            Instantiate(_dieParticle, transform.position, Quaternion.identity);
         OnDeath?.Invoke();
     }
     
