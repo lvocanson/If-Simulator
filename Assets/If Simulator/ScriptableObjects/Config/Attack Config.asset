@@ -15,7 +15,7 @@ MonoBehaviour:
   SensorRadius: 10
   MeleeAttackRadius: 5
   MeleeAttackCost: 3
-  AttackDelay: 1
+  AttackDelay: 2
   AttackDamage: 10
   AttackableLayerMask:
     serializedVersion: 2

@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 815662273393526798}
   - component: {fileID: 3011798696108756573}
   - component: {fileID: 9069181165205015797}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Ally
   m_TagString: Untagged
   m_Icon: {fileID: 0}

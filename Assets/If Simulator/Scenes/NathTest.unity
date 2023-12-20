@@ -435,7 +435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8345320118885696050, guid: 084b8e49e7888e14e9b20c6b846509e5, type: 3}
       propertyPath: m_Speed
-      value: 22.91
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9069181165205015797, guid: 084b8e49e7888e14e9b20c6b846509e5, type: 3}
       propertyPath: GoapRunner
