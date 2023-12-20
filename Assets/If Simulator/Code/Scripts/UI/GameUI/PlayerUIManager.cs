@@ -35,13 +35,8 @@ public class PlayerUIManager : MonoBehaviour
     
     private void UnloadEvents()
     {
-        if (_currentPlayerSo.Player == null)
-        {
-            Debug.LogError("Player is null");
-            return;
-        }
-        
-        _currentPlayerSo.Player.OnHealthChanged -= _playerLife.UpdateHealth;
+        if (_currentPlayerSo.Player)
+            _currentPlayerSo.Player.OnHealthChanged -= _playerLife.UpdateHealth;
     }
 
     private void Start()
