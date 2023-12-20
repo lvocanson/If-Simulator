@@ -30,7 +30,6 @@ namespace Ability
 
         protected override void OnEffectUpdate()
         {
-            //TODO : exit invisibility on attack or hit
         }
 
         protected override void OnEffectEnd()

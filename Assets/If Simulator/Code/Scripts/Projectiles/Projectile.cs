@@ -69,7 +69,6 @@ namespace Ability
 
         public void Initialize(int ownerId, Vector2 dir, bool managedByPool = false)
         {
-            Debug.Log("InitBullet with dir: " + dir + " and speed: " + _speed);
             _ownerLayer = ownerId;
             _rb.velocity = dir.normalized * _speed;
             _managedFromPool = managedByPool;
