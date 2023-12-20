@@ -4169,7 +4169,7 @@ GameObject:
   - component: {fileID: 9002804277489440419}
   - component: {fileID: 4129435621845972857}
   - component: {fileID: 240348434201955147}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4562,7 +4562,7 @@ GameObject:
   - component: {fileID: 6721167022224045952}
   - component: {fileID: 1799382461745124954}
   - component: {fileID: 2514100002846288488}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Enter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

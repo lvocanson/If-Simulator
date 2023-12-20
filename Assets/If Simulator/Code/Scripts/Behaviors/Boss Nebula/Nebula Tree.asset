@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00d2a8749e57c1d49abf55f8f140b7f9, type: 3}
-  m_Name: SequencerSo
+  m_Name: GoTo Random Point
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 524, y: 384}
+  <GraphPosition>k__BackingField: {x: 224, y: 520.12006}
   <Children>k__BackingField:
   - {fileID: 7662662209385309704}
   - {fileID: 1426314562281020923}
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6a014d58bd30f449d8f2455d985d1f, type: 3}
   m_Name: SetAgentDestination
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 674, y: 498}
+  <GraphPosition>k__BackingField: {x: 374, y: 634.12006}
   _onDestinationChanged: {fileID: 11400000, guid: afce6602e55f27840ace77bdc3e144d6, type: 2}
 --- !u!114 &1426314562281020923
 MonoBehaviour:
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045f970479e1cbd4180b1ce1de33674d, type: 3}
   m_Name: RandomDestination
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 524, y: 498}
+  <GraphPosition>k__BackingField: {x: 224, y: 634.12006}
   _min: {x: -19, y: -17}
   _max: {x: 19, y: 17}
 --- !u!114 &4619722936577785502
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8152cfc5aed5a7d478477efd9a45ab40, type: 3}
   m_Name: Cooldown
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 374, y: 498}
+  <GraphPosition>k__BackingField: {x: 74, y: 634.12006}
   _cooldown: 5
 --- !u!114 &9196141375401226169
 MonoBehaviour:
