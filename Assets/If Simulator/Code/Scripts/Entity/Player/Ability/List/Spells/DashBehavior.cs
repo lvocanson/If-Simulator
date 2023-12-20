@@ -19,10 +19,14 @@ namespace Ability
         [SerializeField] private AnimationCurve _velocityReleaseCurve;
         [SerializeField] private float _velocityReleaseTime = 0.2f;
         
+        [Header("Feedback")]
+        [SerializeField] private AudioSource _dashSound;
+        
         protected override void OnEffectStart()
         {
             _timer = 0;
             _playerMovement.IsControllable = false;
+            _dashSound.Play();
         }
         
         protected override void OnEffectUpdate()
