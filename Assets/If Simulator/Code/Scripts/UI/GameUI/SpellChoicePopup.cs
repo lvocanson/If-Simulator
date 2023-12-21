@@ -34,6 +34,15 @@ namespace UI
             }
         }
 
+        private void Update()
+        {
+            // TODO CHANGE THIS BECAUSE THIS IS SUPER UGLY
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Exit(null);
+            }
+        }
+
         private void GetRandomSpellsFromPool()
         {
             for (int i = 0; i < _numberOfCards; i++)
@@ -45,7 +54,20 @@ namespace UI
         
         private void Exit(SoAbilityBase so)
         {
+            if (so == null)
+            {
+                InternalExit();
+                return;
+            }
             _spellChoiceBind.Init(so);
+            _popup.SetActive(false);
+        }
+        
+        private void InternalExit()
+        {
+            App.InputManager.SwitchMode(InputManager.InputMode.Gameplay);
+            Cursor.visible = false;
+            Time.timeScale = 1;
             _popup.SetActive(false);
         }
     }

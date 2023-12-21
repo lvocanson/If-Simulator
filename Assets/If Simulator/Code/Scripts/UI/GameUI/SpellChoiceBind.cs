@@ -23,6 +23,15 @@ namespace UI
             _cards[1].Init(_playerUiManager.CurrentPlayerSo.Player.PlayerAttackManager.GetSecondSpell(), _context);
             _cards[1].OnCardClicked += SelectSecondSpell;
         }
+        
+        private void Update()
+        {
+            // TODO CHANGE THIS BECAUSE THIS IS SUPER UGLY
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Exit();
+            }
+        }
 
         private void SelectFirstSpell(SoAbilityBase so)
         {
