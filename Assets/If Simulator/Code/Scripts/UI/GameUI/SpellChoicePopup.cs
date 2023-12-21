@@ -79,7 +79,7 @@ namespace UI
                 _playerUIManager.ChangeFirstSpell(so);
                 InternalExit();
             }
-            else if (playerAttackManager.GetSecondSpell() == null)
+            else if (playerAttackManager.GetSecondSpell() == null || playerAttackManager.GetSecondSpell()?.Name == so.Name)
             {
                 _playerUIManager.ChangeSecondSpell(so);
                 InternalExit();
