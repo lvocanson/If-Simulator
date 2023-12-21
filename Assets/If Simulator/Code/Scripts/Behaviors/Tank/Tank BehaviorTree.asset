@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7054886245853732018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae99e079bb335e847a591ac7a62860d1, type: 3}
+  m_Name: RepeatSo
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 610.3333, y: 592.6667}
+  <Child>k__BackingField: {fileID: 3812466740392867482}
+--- !u!114 &-3028494167472602365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311b2aaf8612ae248b51b05b04e8e009, type: 3}
+  m_Name: Phase2
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 387, y: 493.6667}
+  <Children>k__BackingField:
+  - {fileID: -7054886245853732018}
+  - {fileID: 7745419603377233335}
+  - {fileID: 5997173988792922376}
+--- !u!114 &-1061436447285569649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae99e079bb335e847a591ac7a62860d1, type: 3}
+  m_Name: RepeatSo
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 685.3333, y: 260}
+  <Child>k__BackingField: {fileID: 4528845497883580108}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,7 +58,19 @@ MonoBehaviour:
   m_Name: Tank BehaviorTree
   m_EditorClassIdentifier: 
   <Root>k__BackingField: {fileID: 753691683404720390}
-  <AllNodes>k__BackingField: []
+  <AllNodes>k__BackingField:
+  - {fileID: 2159452710237399492}
+  - {fileID: 7745419603377233335}
+  - {fileID: 2548668332136790397}
+  - {fileID: 2610350223688714453}
+  - {fileID: 5819593103243800611}
+  - {fileID: -3028494167472602365}
+  - {fileID: -1061436447285569649}
+  - {fileID: 4528845497883580108}
+  - {fileID: 3812466740392867482}
+  - {fileID: -7054886245853732018}
+  - {fileID: 5997173988792922376}
+  - {fileID: 1767247326054102961}
 --- !u!114 &753691683404720390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26,5 +83,138 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c580eaa7cb03b4188cb9de0fb81cf3, type: 3}
   m_Name: Root
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 0, y: 0}
+  <GraphPosition>k__BackingField: {x: 685.3333, y: 99.333336}
   <Child>k__BackingField: {fileID: 0}
+--- !u!114 &1767247326054102961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d2a8749e57c1d49abf55f8f140b7f9, type: 3}
+  m_Name: SequencerSo
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 0, y: 0}
+  <Children>k__BackingField: []
+--- !u!114 &2159452710237399492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae8b9ff7984e2ad4a9909f5bc355d704, type: 3}
+  m_Name: SetAgentDestinationTank
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 1054.6666, y: 831}
+  _onDestinationChanged: {fileID: 11400000, guid: f4bc2728597d62944886b04c4877bbc5, type: 2}
+--- !u!114 &2548668332136790397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f015d038ca06e1f40ba88b89860b4a6f, type: 3}
+  m_Name: RandomDestinationTank
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 878.6667, y: 831}
+  _min: {x: -20, y: -20}
+  _max: {x: 20, y: 20}
+--- !u!114 &2610350223688714453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f1d07132375244e8d345ef304f92b4, type: 3}
+  m_Name: CooldownTank
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 718.6667, y: 831}
+  _cooldown: 3
+--- !u!114 &3812466740392867482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e923fcb82a2d50c48a2d065cf01c0f1f, type: 3}
+  m_Name: RandomSo
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 878.6667, y: 707}
+  <Children>k__BackingField:
+  - {fileID: 2610350223688714453}
+  - {fileID: 2548668332136790397}
+  - {fileID: 2159452710237399492}
+--- !u!114 &4528845497883580108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311b2aaf8612ae248b51b05b04e8e009, type: 3}
+  m_Name: SelectorSo
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 685.3333, y: 366.66666}
+  <Children>k__BackingField:
+  - {fileID: -3028494167472602365}
+  - {fileID: 3812466740392867482}
+--- !u!114 &5819593103243800611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843eabcfe77db0f41bd8bb1db6f94a17, type: 3}
+  m_Name: I'm a tank (Log)
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 480.66666, y: 260}
+  _message: I'm a tank
+--- !u!114 &5997173988792922376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843eabcfe77db0f41bd8bb1db6f94a17, type: 3}
+  m_Name: I'm in 2nd phase (log)
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 405.66663, y: 632.6667}
+  _message: I'm in 2nd phase
+--- !u!114 &7745419603377233335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe17c927bc1aa5c4091d86657cf1a4c2, type: 3}
+  m_Name: ChecktoStart2ndPhase
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 240.66667, y: 632.6667}
+  _conditionName: Half HP
+  _defaultValue: 0
