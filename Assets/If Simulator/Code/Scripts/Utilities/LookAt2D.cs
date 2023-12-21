@@ -4,6 +4,7 @@ public class LookAt2D : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField, Range(0, 360)] private float _angleOffset;
+    [SerializeField] private float _speed = 100;
     public Transform Target
     {
         get => _target;
@@ -21,8 +22,9 @@ public class LookAt2D : MonoBehaviour
 
     private void Update()
     {
-        var direction = _target.position - transform.position;
-        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle + _angleOffset, Vector3.forward);
+        var targetDirection = _target.position - transform.position;
+        var targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+        var angle = Mathf.MoveTowardsAngle(transform.eulerAngles.z, targetAngle + _angleOffset, _speed * Time.deltaTime);
+        transform.eulerAngles = new Vector3(0, 0, angle);
     }
 }

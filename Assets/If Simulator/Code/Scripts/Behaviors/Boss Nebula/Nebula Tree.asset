@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae99e079bb335e847a591ac7a62860d1, type: 3}
   m_Name: RepeatSo
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 524.00006, y: 593.9999}
+  <GraphPosition>k__BackingField: {x: 524.0002, y: 594.0001}
   <Child>k__BackingField: {fileID: -3968597673885763220}
 --- !u!114 &-1805404537095440609
 MonoBehaviour:
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843eabcfe77db0f41bd8bb1db6f94a17, type: 3}
   m_Name: '"Hi" Log'
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 374, y: 290}
+  <GraphPosition>k__BackingField: {x: 224, y: 290}
   _message: '"Hi!" says Nebula'
 --- !u!114 &11400000
 MonoBehaviour:
@@ -102,6 +102,7 @@ MonoBehaviour:
   - {fileID: -7460615325434540483}
   - {fileID: -2199449707574892188}
   - {fileID: 1333229591383761185}
+  - {fileID: 5949188128498022716}
 --- !u!114 &282241372355560515
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,6 +174,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <GraphPosition>k__BackingField: {x: 524, y: 290}
   <Child>k__BackingField: {fileID: -5930681148571772857}
+--- !u!114 &5949188128498022716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7eab866325c21542a8e40dfa5b41b39, type: 3}
+  m_Name: Protect
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 374, y: 290}
+  _shoulderAngle: -45
+  _elbowAngle: 135
 --- !u!114 &7662662209385309704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d2a8749e57c1d49abf55f8f140b7f9, type: 3}
   m_Name: SequencerSo
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 374, y: 480}
+  <GraphPosition>k__BackingField: {x: 374.00003, y: 477.7001}
   <Children>k__BackingField:
   - {fileID: -7460615325434540483}
   - {fileID: 1333229591383761185}
@@ -219,4 +235,5 @@ MonoBehaviour:
   <GraphPosition>k__BackingField: {x: 524, y: 177}
   <Children>k__BackingField:
   - {fileID: -1805404537095440609}
+  - {fileID: 5949188128498022716}
   - {fileID: 4619722936577785502}
