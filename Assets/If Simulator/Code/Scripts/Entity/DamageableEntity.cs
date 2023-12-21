@@ -48,7 +48,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
 
     public event Action OnDamage;
     public event Action<float, float> OnHealthChanged;
-    public event Action OnDeath;
+    public event Action OnDeath; // => float: xp to give to the player on death
 
     
     private Coroutine _effectsCoroutine;

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Ability
@@ -13,22 +14,25 @@ namespace Ability
         }
 
         private float _curCooldown;
+        public event Action<float, float> OnCooldownChanged;
+        public event Action OnAbilityActivated;
 
         private Coroutine _routine;
 
         private AbilityState _state = AbilityState.READY;
-
-        public float CurCooldown
-        {
-            get => _curCooldown;
-            set => _curCooldown = Mathf.Clamp(value, 0, _abilitySo.Cooldown);
-        }
-
-        public float CurActiveCooldown { get; private set; }
+        
+        private float CurActiveCooldown { get; set; }
 
         private float GetActiveCooldown()
         {
-            return _abilitySo.IsHoldable is true ? _abilitySo.Delay : _abilitySo.AbilityDuration;
+            return RuntimeAbilitySo.IsHoldable is true ? RuntimeAbilitySo.Delay : RuntimeAbilitySo.AbilityDuration;
+        }
+        
+        public event Action OnEnemyKilled;
+        
+        public void TriggerEnemyKilled()
+        {
+            OnEnemyKilled?.Invoke();
         }
 
         // Called when the ability is activated (corresponding key pressed)
@@ -40,6 +44,7 @@ namespace Ability
 
             // Mark the ability as active
             _state = AbilityState.ACTIVE;
+            OnAbilityActivated?.Invoke();
             CurActiveCooldown = GetActiveCooldown();
 
             _routine = StartCoroutine(Routine());
@@ -54,7 +59,7 @@ namespace Ability
                     yield return new WaitForSeconds(CurActiveCooldown);
 
                     // If the ability is not holdable, end it
-                    if (_abilitySo.IsHoldable is true) continue;
+                    if (RuntimeAbilitySo.IsHoldable is true) continue;
 
                     End();
                     yield break;
@@ -62,7 +67,20 @@ namespace Ability
             }
         }
 
-        public sealed override void LevelUp() => CurrentLevel = (ushort)Mathf.Clamp(CurrentLevel + 1, 0, _abilitySo.MaxLevel);
+        public sealed override void LevelUp()
+        {
+            CurrentLevel = (ushort)Mathf.Clamp(CurrentLevel + 1, 0, RuntimeAbilitySo.MaxLevel);
+            
+            // If the ability is on cooldown, reset the cooldown
+            if (_state == AbilityState.COOLDOWN)
+            {
+                _state = AbilityState.READY;
+                _curCooldown = 0;
+            }
+            
+            // Increase the ability's stats
+            RuntimeAbilitySo.LevelUp();
+        }
 
         private void Update()
         {
@@ -71,8 +89,15 @@ namespace Ability
                 // If the ability is on cooldown, decrease the cooldown
                 case AbilityState.COOLDOWN:
                 {
-                    if (_curCooldown > 0) _curCooldown -= Time.deltaTime;
-                    else _state = AbilityState.READY;
+                    if (_curCooldown > 0)
+                    {
+                        _curCooldown -= Time.deltaTime;
+                        OnCooldownChanged?.Invoke(_curCooldown, RuntimeAbilitySo.Cooldown);
+                    }
+                    else
+                    {
+                        _state = AbilityState.READY;
+                    }
                     break;
                 }
                 // If the ability is active, decrease the active cooldown and call the update method
@@ -80,11 +105,12 @@ namespace Ability
                 {
                     if (CurActiveCooldown > 0)
                     {
-                        if (_abilitySo.IsHoldable is false) CurActiveCooldown -= Time.deltaTime;
+                        if (RuntimeAbilitySo.IsHoldable is false) CurActiveCooldown -= Time.deltaTime;
                         OnEffectUpdate();
                     }
                     break;
                 }
+                case AbilityState.READY:
                 default:
                     break;
             }
@@ -106,7 +132,7 @@ namespace Ability
 
             // Enter cooldown state
             _state = AbilityState.COOLDOWN;
-            _curCooldown = _abilitySo.Cooldown;
+            _curCooldown = RuntimeAbilitySo.Cooldown;
 
             // If the ability is active, stop the coroutine
             if (_routine != null)

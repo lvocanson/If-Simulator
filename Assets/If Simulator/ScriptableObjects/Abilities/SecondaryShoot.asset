@@ -16,9 +16,13 @@ MonoBehaviour:
   _description: piou piou v2
   _icon: {fileID: 0}
   _maxLevel: 3
-  _damage: 0
   _range: 3
+  _value: 5
+  _valuePerLevel: 0
+  _rangePerLevel: 0
   _cooldown: 0.7
   _isHoldable: 1
   _delay: 0.7
   _abilityDuration: 0
+  _cooldownDecreasePerLevel: 0
+  _abilityDurationIncreasePerLevel: 0

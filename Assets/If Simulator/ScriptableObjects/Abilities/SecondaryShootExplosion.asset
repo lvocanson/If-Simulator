@@ -16,9 +16,13 @@ MonoBehaviour:
   _description: Bullets explodes on collide
   _icon: {fileID: 0}
   _maxLevel: 1
-  _damage: 25
   _range: 3
+  _value: 10
+  _valuePerLevel: 0
+  _rangePerLevel: 0
   _cooldown: 0
   _isHoldable: 0
   _delay: 0
   _abilityDuration: 1.5
+  _cooldownDecreasePerLevel: 0
+  _abilityDurationIncreasePerLevel: 0

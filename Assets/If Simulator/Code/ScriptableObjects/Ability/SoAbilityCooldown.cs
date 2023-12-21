@@ -10,13 +10,23 @@ namespace Ability
         public bool IsHoldable => _isHoldable;
         public float Delay => _delay;
         public float AbilityDuration => _abilityDuration;
-        
+
+        public override void LevelUp()
+        {
+            base.LevelUp();
+            _cooldown -= _cooldownDecreasePerLevel;
+            _abilityDuration += _abilityDurationIncreasePerLevel;
+        }
+
         [Header("Ability cooldown")]
         [SerializeField] private float _cooldown;
         [SerializeField] private bool _isHoldable;
-        
         [SerializeField, ShowIf("IsHoldable")] private float _delay;
         [SerializeField, HideIf("IsHoldable")] private float _abilityDuration;
+        
+        [Header("Level up properties (Ability cooldown)")]
+        [SerializeField] private float _cooldownDecreasePerLevel;
+        [SerializeField] private float _abilityDurationIncreasePerLevel;
     }
     
     public static class AnimationCurveExtension
