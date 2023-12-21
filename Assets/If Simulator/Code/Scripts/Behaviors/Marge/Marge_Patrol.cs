@@ -24,8 +24,7 @@ public class Marge_Patrol : BaseState
     private void OnEnable()
     {
         _chaseColEvent.OnEnter += EnterOnChaseRange;
-
-        _enemy.Agent.SetDestination(_waypoints[_index].position) ;
+        _enemy.Agent.SetDestination(_waypoints[_index].position);
         _enemy.Agent.speed = _speed;
     }
 

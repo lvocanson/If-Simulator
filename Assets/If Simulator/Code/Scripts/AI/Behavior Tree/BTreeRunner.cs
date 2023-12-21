@@ -16,6 +16,11 @@ namespace BehaviorTree
         [SerializeField, Tooltip("The blackboard initializer. All fields marked with the SerializeField attribute will be copied to the tree's blackboard.")]
         private MonoBehaviour _blackboardInitializer = null;
 
+        /// <summary>
+        /// The blackboard of the running tree.
+        /// </summary>
+        public Blackboard Blackboard => _instance.Blackboard;
+
         private void Awake()
         {
             if (_tree == null)
@@ -32,8 +37,7 @@ namespace BehaviorTree
                 return;
             }
 #endif
-
-            _instance = _tree.Clone();
+            Blackboard blackboard = new();
             if (_blackboardInitializer != null)
             {
                 var fields = _blackboardInitializer.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
@@ -41,10 +45,12 @@ namespace BehaviorTree
 
                 foreach (var field in fields)
                 {
-                    _instance.Blackboard.Write(field.Name, field.GetValue(_blackboardInitializer));
+                    blackboard.Write(field.Name, field.GetValue(_blackboardInitializer));
                 }
             }
-            _instance.Blackboard.Write("GameObject", gameObject);
+            blackboard.Write("GameObject", gameObject);
+
+            _instance = _tree.Clone(blackboard);
         }
 
         private void Update()

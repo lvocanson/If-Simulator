@@ -16,7 +16,7 @@ namespace BehaviorTree
         /// <summary>
         /// The tree's blackboard.
         /// </summary>
-        public Blackboard Blackboard { get; } = new();
+        public Blackboard Blackboard => Root.Blackboard;
 
         /// <summary>
         /// State of the tree.
@@ -26,10 +26,10 @@ namespace BehaviorTree
         /// <summary>
         /// Clones the tree. Needed for running multiple instances of the same tree.
         /// </summary>
-        public BTreeSo Clone()
+        public BTreeSo Clone(Blackboard blackboard)
         {
             BTreeSo clone = Instantiate(this);
-            clone.Root = (RootNodeSo)Root.DeepInitialize(clone.Blackboard);
+            clone.Root = (RootNodeSo)Root.DeepInitialize(blackboard);
             return clone;
         }
 

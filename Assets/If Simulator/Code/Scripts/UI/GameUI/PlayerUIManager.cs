@@ -69,8 +69,4 @@ public class PlayerUIManager : MonoBehaviour
         _currentPlayerSo.Player.PlayerAttackManager.FirstSpell.OnAbilityActivated -= _spellHolderUI.OnFirstSpellActivated;
         _currentPlayerSo.Player.PlayerAttackManager.SecondSpell.OnAbilityActivated -= _spellHolderUI.OnSecondSpellActivated;
     }
-
-    private void Start()
-    {
-    }
 }

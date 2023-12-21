@@ -9,15 +9,19 @@ public class LevelContext : MonoBehaviour
 
     public LevelManager LevelManager => Instance._levelManager;
     public CameraManager CameraManager => Instance._cameraManager;
+    public PrefabsHolder PrefabsHolder => Instance.prefabsHolder;
+    public GameSettings GameSettings => Instance.gameSettings;
 
     [Header("Managers")]
     [SerializeField] private LevelManager _levelManager;
     [SerializeField] private CameraManager _cameraManager;
+    [SerializeField] private PrefabsHolder prefabsHolder;
+    [SerializeField] private GameSettings gameSettings;
 
 
     [Header("Events")]
-    [SerializeField] private EventSo _levelContextInitialized;
-    [SerializeField] private EventSo _levelContextStarted;
+    [SerializeField] private EventSO _levelContextInitialized;
+    [SerializeField] private EventSO _levelContextStarted;
 
     public event Action<GameModeStartMode> OnStarted;
     public event Action<GameModeStartMode> OnInitialized;

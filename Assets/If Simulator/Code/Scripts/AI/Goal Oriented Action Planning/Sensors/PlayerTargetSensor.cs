@@ -1,15 +1,15 @@
 using CrashKonijn.Goap.Classes;
-
 using CrashKonijn.Goap.Interfaces;
 using CrashKonijn.Goap.Sensors;
-using IfSimulator.GOAP.Config;
 using UnityEngine;
+
+using IfSimulator.GOAP.Config;
 
 namespace IfSimulator.GOAP.Sensors
 {
     public class PlayerTargetSensor : LocalTargetSensorBase, IInjectable
     {
-        private AttackConfigSO AttackConfig;
+        private HealConfigSO HealConfig;
         public override void Created()
         {
         }
@@ -19,7 +19,7 @@ namespace IfSimulator.GOAP.Sensors
 
         public override ITarget Sense(IMonoAgent agent, IComponentReference references)
         {
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(agent.transform.position, AttackConfig.SensorRadius, AttackConfig.AttackableLayerMask);
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(agent.transform.position, HealConfig.SensorHealRadius, HealConfig.HealableLayerMask);
 
             if (hitColliders.Length > 0)
             {
@@ -50,7 +50,7 @@ namespace IfSimulator.GOAP.Sensors
 
         public void Inject(DependencyInjector injector)
         {
-            AttackConfig = injector.AttackConfig;
+            HealConfig = injector.HealConfig;
         }
     }
 }

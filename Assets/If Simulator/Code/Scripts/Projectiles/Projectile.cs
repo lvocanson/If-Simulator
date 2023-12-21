@@ -22,7 +22,7 @@ namespace Ability
         
         private Coroutine _selfDestructCoroutine;
         protected int _ownerLayer;
-        private bool _isDestroyed;
+        private Color _damageColor;
         
         public float Damage => _damage;
         
@@ -57,7 +57,6 @@ namespace Ability
         {
             _selfDestructCoroutine ??= StartCoroutine(SelfDestruct());
             _renderer.color = _color;
-            _isDestroyed = false;
         }
 
         private void OnDisable()
@@ -74,6 +73,7 @@ namespace Ability
             _ownerLayer = ownerId;
             _rb.velocity = dir.normalized * _speed;
             _managedFromPool = managedByPool;
+            _damageColor = _ownerLayer == LayerMask.NameToLayer("Player") ? LevelContext.Instance.GameSettings.PlayerDamageColor : LevelContext.Instance.GameSettings.EnemyDamageColor;
         }
         
         private void OnEntityDeath()
@@ -103,7 +103,7 @@ namespace Ability
                     if (_damage > 0)
                     {
                         damageable.OnDeath += OnEntityDeath;
-                        damageable.Damage(_damage);
+                        damageable.Damage(_damage, _damageColor);
                         damageable.OnDeath -= OnEntityDeath;
                     }
                     OnHit?.Invoke();
@@ -145,7 +145,6 @@ namespace Ability
         
         private void Death()
         {
-            _isDestroyed = true;
             OnDestroy?.Invoke(this);
             
             if (!_managedFromPool)

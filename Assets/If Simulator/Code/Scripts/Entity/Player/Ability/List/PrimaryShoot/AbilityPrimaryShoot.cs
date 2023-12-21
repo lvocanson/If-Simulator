@@ -28,9 +28,11 @@ namespace Ability
             base.OnBulletTakeFromPool(bullet);
             
             bullet.transform.position = _bulletSpawnPoint.position;
-            bullet.transform.rotation = _bulletSpawnPoint.rotation;
+            bullet.transform.rotation = _bulletSpawnPoint.rotation * Quaternion.Euler(0,0,90);
             bullet.SetActive(true);
-            bullet.GetComponent<Projectile>().Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
+            Projectile bulletBehavior = bullet.GetComponent<Projectile>();
+            bulletBehavior.Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
+            bulletBehavior.SetDamage(_abilitySo.Damage);
         }
 
         protected override void OnBulletReturnToPool(GameObject bullet)
