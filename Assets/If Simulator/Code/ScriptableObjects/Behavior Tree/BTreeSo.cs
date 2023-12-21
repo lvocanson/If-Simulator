@@ -16,7 +16,7 @@ namespace BehaviorTree
         /// <summary>
         /// The tree's blackboard.
         /// </summary>
-        public Blackboard Blackboard { get; } = new();
+        public Blackboard Blackboard => Root.Blackboard;
 
         /// <summary>
         /// State of the tree.

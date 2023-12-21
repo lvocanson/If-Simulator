@@ -16,7 +16,7 @@ namespace GameMode
         [SerializeField, Scene] private string _uiScene;
 
         [Header("Events")]
-        [SerializeField] private EventSo _onMainSceneLoad;
+        [SerializeField] private EventSO _onMainSceneLoad;
 
         public IEnumerator OnStart(string mainScene = null)
         {

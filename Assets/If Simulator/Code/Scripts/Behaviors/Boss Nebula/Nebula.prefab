@@ -77,8 +77,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1582213625445126202}
+  - component: {fileID: 4759572329534604806}
   - component: {fileID: 5714818370375915192}
-  - component: {fileID: 3953214287197373651}
   - component: {fileID: 5365644634267308413}
   m_Layer: 3
   m_Name: Brain
@@ -103,6 +103,30 @@ Transform:
   - {fileID: 3467833155784730785}
   m_Father: {fileID: 16418495951437707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4759572329534604806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2550281454822840940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bed18ff4f029cf4bb978f36afb3d121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: 1621438283796109939}
+  _maxHealth: 1000
+  _invulnerabilityDuration: 0.5
+  _hitMaterial: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
+  _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
+  _scaleEffectOffset: 0
+  _damageSound: {fileID: 3619958452992786419}
+  _damageParticle: {fileID: 0}
+  _agent: {fileID: 7880431903634342679}
+  _objectToDestroyOnDeath: {fileID: 4346472286162694412}
+  _btRunner: {fileID: 5197708910883006062}
+  _2ndPhaseHealthThreshold: 500
 --- !u!114 &5714818370375915192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,26 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 422e3a7408b9c5e4c97d1b22eebf2755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3953214287197373651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2550281454822840940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3998c70e51258c44bafa35cbde8e33fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sprite: {fileID: 1621438283796109939}
-  _maxHealth: 1000
-  _invulnerabilityDuration: 0.5
-  _hitMaterial: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
-  _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
-  _scaleEffectOffset: 0.2
-  _agent: {fileID: 7880431903634342679}
-  _objectToDestroyOnDeath: {fileID: 4346472286162694412}
 --- !u!114 &5365644634267308413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7025194800556801645}
+  - component: {fileID: 3619958452992786419}
   m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
@@ -181,6 +186,102 @@ Transform:
   - {fileID: 3073816392985348119}
   m_Father: {fileID: 3746692892111180143}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!82 &3619958452992786419
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024926177662904865}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3224547641642551848
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,6 +291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3746692892111180143}
+  - component: {fileID: 6133081045672806953}
   m_Layer: 3
   m_Name: Body
   m_TagString: Enemy
@@ -215,6 +317,20 @@ Transform:
   - {fileID: 7025194800556801645}
   m_Father: {fileID: 16418495951437707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6133081045672806953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3224547641642551848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5230eccb8d67d4287ea6803889e819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+  _angleOffset: 0
 --- !u!1 &4346472286162694412
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,4 +665,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848551b2a23fae446829557f68c7f272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forwardTo: {fileID: 3953214287197373651}
+  _forwardTo: {fileID: 4759572329534604806}
