@@ -37,7 +37,7 @@ namespace IfSimulator.GOAP.Actions
                 if (shouldHeal && Player.CurrentHealth < 90)
                 {
                     agent.transform.up = data.Target.Position - agent.transform.position;
-                    Player.Heal(HealConfig.HealAmount);
+                    Player.Heal(HealConfig.HealAmount, LevelContext.Instance.GameSettings.HealColor);
 
                     if (Player.CurrentHealth > 80)
                     {

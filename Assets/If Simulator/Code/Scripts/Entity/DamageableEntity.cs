@@ -20,6 +20,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     [SerializeField] private Material _invulnerabilityMaterial;
     [SerializeField] private float _scaleEffectOffset = 0.2f;
     [SerializeField] private Transform _damagePopupPosition;
+    [SerializeField] private Transform _healPopupRotation;
     
     [Header("Feedback")]
     [SerializeField] private AudioSource _damageSound;
@@ -106,12 +107,12 @@ public class DamageableEntity : MonoBehaviour, IDamageable
         _damageSound.Play();
     }
     
-    public void Heal(float heal)
+    public void Heal(float heal, Color color)
     {
         if (_currentHealth >= _maxHealth) return;
         _currentHealth = Mathf.Min(_maxHealth, _currentHealth + heal);
         
-        SingleDamagePopup.Create(transform.position - _damagePopupPosition.localPosition, (int)heal, LevelContext.Instance.GameSettings.HealColor);
+        SingleDamagePopup.Create(transform.position - _healPopupRotation.localPosition, (int)heal, LevelContext.Instance.GameSettings.HealColor);
         
         OnHealthChanged?.Invoke(_currentHealth, MaxHealth);
     }
