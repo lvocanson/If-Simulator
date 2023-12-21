@@ -11,13 +11,14 @@ public class LevelContext : MonoBehaviour
     public CameraManager CameraManager => Instance._cameraManager;
     public PrefabsHolder PrefabsHolder => Instance.prefabsHolder;
     public GameSettings GameSettings => Instance.gameSettings;
+    public SpellPool SpellPool => Instance._spellPool;
 
     [Header("Managers")]
     [SerializeField] private LevelManager _levelManager;
     [SerializeField] private CameraManager _cameraManager;
     [SerializeField] private PrefabsHolder prefabsHolder;
     [SerializeField] private GameSettings gameSettings;
-
+    [SerializeField] private SpellPool _spellPool;
 
     [Header("Events")]
     [SerializeField] private EventSO _levelContextInitialized;

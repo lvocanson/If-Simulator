@@ -1,20 +1,36 @@
+using Ability;
+using If_Simulator.Code.Scripts.UI.GameUI;
+using UI;
 using UnityEngine;
 
 public class PlayerUIManager : MonoBehaviour
 {
     [SerializeField] private PlayerLifeUI _playerLife;
-    [SerializeField] private SpellHolderUI spellHolderUI;
-    [SerializeField] private PassiveHolderUI passiveHolderUI;
+    [SerializeField] private PlayerXpUI _playerXp;
+    [SerializeField] private SpellHolderUI _spellHolderUI;
+    [SerializeField] private PassiveHolderUI _passiveHolderUI;
     [SerializeField] private CurrentPlayerSo _currentPlayerSo;
     
+    [SerializeField] private SpellChoicePopup _spellChoicePopup;
     
-    public SpellHolderUI SpellHolderUI => spellHolderUI;
-    public PassiveHolderUI PassiveHolderUI => passiveHolderUI;
-
+    public SpellHolderUI SpellHolderUI => _spellHolderUI;
+    public PassiveHolderUI PassiveHolderUI => _passiveHolderUI;
+    public CurrentPlayerSo CurrentPlayerSo => _currentPlayerSo;
 
     private void OnEnable()
     {
         _currentPlayerSo.OnPlayerLoaded += LoadEvents;
+        _currentPlayerSo.OnPlayerStarted += LoadSpellsEvents;
+    }
+    
+    public void ChangeFirstSpell(SoAbilityBase so)
+    {
+        _currentPlayerSo.Player.PlayerAttackManager.ChangeFirstSpell(so);
+    }
+    
+    public void ChangeSecondSpell(SoAbilityBase so)
+    {
+        _currentPlayerSo.Player.PlayerAttackManager.ChangeSecondSpell(so);
     }
     
     private void LoadEvents()
@@ -24,24 +40,51 @@ public class PlayerUIManager : MonoBehaviour
             Debug.LogError("Player is null");
             return;
         }
+        // Health change event
         _currentPlayerSo.Player.OnHealthChanged += _playerLife.UpdateHealth;
+        
+        // Xp change events
+        _currentPlayerSo.Player.PlayerXp.OnXpChanged += _playerXp.UpdateValue; 
+        _currentPlayerSo.Player.PlayerXp.OnLevelUp += _spellChoicePopup.Init;
+
+        _currentPlayerSo.Player.PlayerAttackManager.OnFirstSpellChanged += _spellHolderUI.UpdateFirstSpell;
+        _currentPlayerSo.Player.PlayerAttackManager.OnSecondSpellChanged += _spellHolderUI.UpdateSecondSpell;
+    }
+
+    private void LoadSpellsEvents()
+    {
+        _currentPlayerSo.Player.PlayerAttackManager.FirstSpell.OnCooldownChanged += _spellHolderUI.UpdateFirstSpellCooldown;
+        _currentPlayerSo.Player.PlayerAttackManager.SecondSpell.OnCooldownChanged += _spellHolderUI.UpdateSecondSpellCooldown;
+        
+        _currentPlayerSo.Player.PlayerAttackManager.FirstSpell.OnAbilityActivated += _spellHolderUI.OnFirstSpellActivated;
+        _currentPlayerSo.Player.PlayerAttackManager.SecondSpell.OnAbilityActivated += _spellHolderUI.OnSecondSpellActivated;
     }
     
     private void OnDisable()
     {
         _currentPlayerSo.OnPlayerLoaded -= LoadEvents;
+        _currentPlayerSo.OnPlayerStarted -= LoadSpellsEvents;
         UnloadEvents();
     }
     
     private void UnloadEvents()
     {
-        if (_currentPlayerSo.Player)
-            _currentPlayerSo.Player.OnHealthChanged -= _playerLife.UpdateHealth;
-    }
-
-    private void Start()
-    {
-        SpellHolderUI.UpdateFirstSpell(null);
-        SpellHolderUI.UpdateSecondSpell(null);
+        if (_currentPlayerSo.Player == null)
+        {
+            Debug.LogError("Player is null");
+            return;
+        }
+        
+        _currentPlayerSo.Player.OnHealthChanged -= _playerLife.UpdateHealth;
+        _currentPlayerSo.Player.PlayerXp.OnXpChanged -= _playerXp.UpdateValue;
+        
+        _currentPlayerSo.Player.PlayerAttackManager.OnFirstSpellChanged -= _spellHolderUI.UpdateFirstSpell;
+        _currentPlayerSo.Player.PlayerAttackManager.OnSecondSpellChanged -= _spellHolderUI.UpdateSecondSpell;
+        
+        _currentPlayerSo.Player.PlayerAttackManager.FirstSpell.OnCooldownChanged -= _spellHolderUI.UpdateFirstSpellCooldown;
+        _currentPlayerSo.Player.PlayerAttackManager.SecondSpell.OnCooldownChanged -= _spellHolderUI.UpdateSecondSpellCooldown;
+        
+        _currentPlayerSo.Player.PlayerAttackManager.FirstSpell.OnAbilityActivated -= _spellHolderUI.OnFirstSpellActivated;
+        _currentPlayerSo.Player.PlayerAttackManager.SecondSpell.OnAbilityActivated -= _spellHolderUI.OnSecondSpellActivated;
     }
 }

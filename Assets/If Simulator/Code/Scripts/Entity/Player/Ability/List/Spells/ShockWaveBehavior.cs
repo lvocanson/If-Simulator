@@ -25,14 +25,16 @@ namespace Ability
             // Push back enemies and damage them
             if (otherLayerMask != _layersToDamage.value) return;
             
-            if (other.TryGetComponent(out Rigidbody2D rb) is false || other.TryGetComponent(out IDamageable damageable) is false) return;
+            if (other.TryGetComponent(out Rigidbody2D rb) is false || other.TryGetComponent(out DamageableEntity damageable) is false) return;
                 
             // Push back
             Vector2 dir = (other.transform.position - transform.position).normalized;
             rb.AddForce(dir * _enemyPushBackForce, ForceMode2D.Impulse);
                 
             // Damage
-            damageable.Damage(_so.Damage, LevelContext.Instance.GameSettings.EnemyDamageColor);
+            damageable.OnDeath += NotifyEnemyKilled;
+            damageable.Damage(_so.Value, LevelContext.Instance.GameSettings.EnemyDamageColor);
+            damageable.OnDeath -= NotifyEnemyKilled;
         }
 
         public override void OnUpdate()

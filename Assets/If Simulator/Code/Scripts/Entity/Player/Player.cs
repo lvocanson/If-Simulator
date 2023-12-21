@@ -1,3 +1,4 @@
+using Ability;
 using UnityEngine;
 
 public class Player : DamageableEntity
@@ -6,17 +7,36 @@ public class Player : DamageableEntity
     [SerializeField] private PlayerAttackManager _playerAttackManager;
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private PlayerAim playerAim;
+    [SerializeField] private PlayerXp _playerXp;
     [SerializeField] private CurrentPlayerSo _data;
+    
+    [Header("For Debug")]
+    [SerializeField] private SoAbilityBase _firstSpell;
+    [SerializeField] private SoAbilityBase _secondSpell;
     
     public PlayerAttackManager PlayerAttackManager => _playerAttackManager;
     public PlayerMovement PlayerMovement => _playerMovement;
     public PlayerAim PlayerAim => playerAim;
+    public PlayerXp PlayerXp => _playerXp;
 
     protected override void Awake()
     {
         base.Awake();
-        
+
         _data.Load(this);
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        
+        if (_playerAttackManager.GetFirstSpell() == null) _playerAttackManager.ChangeFirstSpell(_firstSpell);
+        else _playerAttackManager.ResetFirstSpell();
+        
+        if (_playerAttackManager.GetSecondSpell() == null) _playerAttackManager.ChangeSecondSpell(_secondSpell);
+        else _playerAttackManager.ResetSecondSpell();
+        
+        _data.Start();
     }
     
     protected override void Die()

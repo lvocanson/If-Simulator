@@ -7,10 +7,8 @@ public class LevelableAbilityUI : AbilityIconUI
     [SerializeField] private LayoutGroup _levelStarLayoutGroup;
     [SerializeField] private GameObject _levelStarPrefab;
     
-    
     private List<LevelStarUI> _levelStars = new();
-
-
+    
     private void Awake()
     {
         _levelStars.Clear();
@@ -21,18 +19,15 @@ public class LevelableAbilityUI : AbilityIconUI
         }
     }
 
-    public void InitPassiveLevels(int maxLevel)
+    public void InitStars(int maxLevel)
     {
-        // TODO : Replace by sprite in so
-        //_icon.sprite = passive.Icon;
-        
         int levelStarInstantiated = _levelStarLayoutGroup.transform.childCount;
-        
         if (levelStarInstantiated > maxLevel)
         {
             for (int i = maxLevel; i < levelStarInstantiated; i++)
             {
                 Destroy(_levelStarLayoutGroup.transform.GetChild(i).gameObject);
+                if (i < _levelStars.Count) break; // Temporary fix of a bug where the whole UpdateSpell event is called twice
                 _levelStars.RemoveAt(i);
             }
         }
@@ -44,15 +39,13 @@ public class LevelableAbilityUI : AbilityIconUI
                 _levelStars.Add(star);
             }
         }
-        
-        LevelUpPassive(1);
     }
     
-    public void LevelUpPassive(int nextLevel)
+    public void EnableStars(int level)
     {
         for (int i = 0; i < _levelStars.Count; i++)
         {
-            _levelStars[i].EnableStar(i < nextLevel);
+            _levelStars[i].EnableStar(i < level);
         }
     } 
 }
