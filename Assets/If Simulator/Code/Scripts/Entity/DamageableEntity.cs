@@ -10,6 +10,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     
     [Header("References")]
     [SerializeField] private SpriteRenderer _sprite;
+    [SerializeField] private AudioSource _audioSource;
 
     [Header("Damageable Entity")]
     [SerializeField] private float _maxHealth;
@@ -19,10 +20,13 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     [SerializeField] private Material _hitMaterial;
     [SerializeField] private Material _invulnerabilityMaterial;
     [SerializeField] private float _scaleEffectOffset = 0.2f;
+    [SerializeField] private Transform _damagePopupPosition;
+    [SerializeField] private Transform _healPopupRotation;
     
     [Header("Feedback")]
-    [SerializeField] private AudioSource _damageSound;
+    [SerializeField] private AudioClip _damageSound;
     [SerializeField] private GameObject _damageParticle;
+    [SerializeField] private GameObject _dieParticle;
     
     [Header("Debug")]
     [ShowNonSerializedField] private float _currentHealth;
@@ -35,6 +39,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     private Material _baseMaterial;
     private Color _baseColor;
     private Vector2 _baseSpriteScale;
+    private TotalDamagePopup _totalDamagePopup;
     
     
     public float MaxHealth => _maxHealth;
@@ -65,12 +70,23 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     
     public void SetInvulnerable(bool isInvulnerable) => _isInvulnerable = isInvulnerable;
     
-    public void Damage(float damage)
+    public void Damage(float damage, Color color)
     {
         if (_currentHealth <= 0) return;
         if (_isInvulnerable) return;
         
         _currentHealth -= damage;
+        
+        if (_totalDamagePopup != null)
+        {
+            _totalDamagePopup.UpdateDamage((int)damage);
+        }
+        else
+        {
+            _totalDamagePopup = TotalDamagePopup.Create(transform, _damagePopupPosition.localPosition, (int)damage, color).GetComponent<TotalDamagePopup>();
+        }
+        
+        SingleDamagePopup.Create(transform.position + _damagePopupPosition.localPosition, (int)damage, color);
         
         OnDamageTaken();
         OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
@@ -90,22 +106,30 @@ public class DamageableEntity : MonoBehaviour, IDamageable
         OnDamage?.Invoke();
         if(_damageParticle != null)
             Instantiate(_damageParticle, transform.position, Quaternion.identity);
-        _damageSound.Play();
+        if (_audioSource != null)
+            _audioSource.PlayOneShot(_damageSound); 
     }
     
-    public bool Heal(float heal)
+    public void Heal(float heal, Color color)
     {
-        if (_currentHealth >= _maxHealth) return false;
+        if (_currentHealth >= _maxHealth) return;
         _currentHealth = Mathf.Min(_maxHealth, _currentHealth + heal);
         
+        SingleDamagePopup.Create(transform.position - _healPopupRotation.localPosition, (int)heal, LevelContext.Instance.GameSettings.HealColor);
+        
         OnHealthChanged?.Invoke(_currentHealth, MaxHealth);
-
-        return true;
     }
     
     protected virtual void Die()
     {
+        if (_dieParticle != null)
+            Instantiate(_dieParticle, transform.position, Quaternion.identity);
         OnDeath?.Invoke();
+        
+        if (_totalDamagePopup != null)
+        {
+            Destroy(_totalDamagePopup.gameObject, 0.5f);
+        }
     }
     
     public void Kill()

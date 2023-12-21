@@ -5,5 +5,4 @@ namespace IfSimulator.GOAP.Goals
     public class HealAlly : GoalBase
     {
     }
-
 }
