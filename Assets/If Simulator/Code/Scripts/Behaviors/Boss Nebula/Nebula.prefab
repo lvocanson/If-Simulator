@@ -268,6 +268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1477968158750289604}
+  - component: {fileID: 2865381515713765863}
   m_Layer: 3
   m_Name: Shoulder
   m_TagString: Untagged
@@ -291,6 +292,19 @@ Transform:
   - {fileID: 2088576486401183649}
   m_Father: {fileID: 3746692892111180143}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+--- !u!114 &2865381515713765863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814930713997030131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44963df80262894458241d19805f6a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _btRunner: {fileID: 5197708910883006062}
 --- !u!1 &2550281454822840940
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,9 +481,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectilePrefab: {fileID: 3981262126783197580, guid: 4e2b0953374b140468376168987a6f0a, type: 3}
-  _projectileSpeed: 10
-  _projectileCount: 10
-  _spreadAngle: 30
+  _projectileSpeed: 20
+  _projectileCount: 50
+  _spreadAngle: 45
   _angleOffset: 0
 --- !u!1 &3224547641642551848
 GameObject:
@@ -1354,6 +1368,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2088576486401183649}
+  - component: {fileID: 925644801493460489}
   m_Layer: 3
   m_Name: Arm
   m_TagString: Untagged
@@ -1379,6 +1394,19 @@ Transform:
   - {fileID: 654201663571255544}
   m_Father: {fileID: 1477968158750289604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &925644801493460489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7683851646979663360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44963df80262894458241d19805f6a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _btRunner: {fileID: 5197708910883006062}
 --- !u!1 &8579085837448962334
 GameObject:
   m_ObjectHideFlags: 0

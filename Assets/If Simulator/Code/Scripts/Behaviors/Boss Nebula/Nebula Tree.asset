@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8991898129009402163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d2a8749e57c1d49abf55f8f140b7f9, type: 3}
+  m_Name: Shotgun spam
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 148.99997, y: 784.0001}
+  <Children>k__BackingField:
+  - {fileID: 854934705960508816}
+  - {fileID: 4301447106292969563}
 --- !u!114 &-8576862461978862479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,7 +28,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d2a8749e57c1d49abf55f8f140b7f9, type: 3}
   m_Name: Shoot Bullets
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 1053, y: 482}
+  <GraphPosition>k__BackingField: {x: 1293, y: 482}
   <Children>k__BackingField:
   - {fileID: -2263343710461593339}
   - {fileID: 6155430162816522539}
@@ -32,8 +48,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf615b459fef2645badea6ed28f77d2, type: 3}
   m_Name: Check 2nd Phase
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 224, y: 594}
+  <GraphPosition>k__BackingField: {x: -76.000015, y: 593.9999}
   _conditionName: 2nd Phase
+  _defaultValue: 0
+--- !u!114 &-6112781673095608376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf615b459fef2645badea6ed28f77d2, type: 3}
+  m_Name: ArmDestroyed ?
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 618, y: 593.99994}
+  _conditionName: ArmDestroyed
   _defaultValue: 0
 --- !u!114 &-5930681148571772857
 MonoBehaviour:
@@ -50,8 +81,25 @@ MonoBehaviour:
   <GraphPosition>k__BackingField: {x: 524, y: 369}
   <Children>k__BackingField:
   - {fileID: 7713762042658579056}
-  - {fileID: -8576862461978862479}
   - {fileID: -3968597673885763220}
+  - {fileID: -4456308161262184913}
+  - {fileID: -8576862461978862479}
+--- !u!114 &-4456308161262184913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d2a8749e57c1d49abf55f8f140b7f9, type: 3}
+  m_Name: SequencerSo
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 693, y: 482}
+  <Children>k__BackingField:
+  - {fileID: -6112781673095608376}
+  - {fileID: -3097540262294909616}
 --- !u!114 &-4205615839013952150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7eab866325c21542a8e40dfa5b41b39, type: 3}
   m_Name: Protect
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 1428, y: 594}
+  <GraphPosition>k__BackingField: {x: 1668, y: 594}
   _shoulderAngle: -45
   _elbowAngle: 135
 --- !u!114 &-3968597673885763220
@@ -79,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d2a8749e57c1d49abf55f8f140b7f9, type: 3}
   m_Name: GoTo Random Point
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 827.9999, y: 783.67346}
+  <GraphPosition>k__BackingField: {x: 527.99994, y: 783.9999}
   <Children>k__BackingField:
   - {fileID: 7662662209385309704}
   - {fileID: 1426314562281020923}
@@ -94,9 +142,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a82c4b21af4e3624ba9cc69d4454ebc2, type: 3}
-  m_Name: Shoot
+  m_Name: Shoot (Big)
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 524, y: 897}
+  <GraphPosition>k__BackingField: {x: 768, y: 594}
 --- !u!114 &-2263343710461593339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8152cfc5aed5a7d478477efd9a45ab40, type: 3}
   m_Name: Cooldown
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 678, y: 594}
+  <GraphPosition>k__BackingField: {x: 918, y: 594}
   _cooldown: 14
   _onCooldownAtStart: 1
 --- !u!114 &-2199449707574892188
@@ -124,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae99e079bb335e847a591ac7a62860d1, type: 3}
   m_Name: RepeatSo
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 524.0002, y: 594.0001}
+  <GraphPosition>k__BackingField: {x: 224, y: 593.9999}
   <Child>k__BackingField: {fileID: 3624227793071688021}
 --- !u!114 &-1805404537095440609
 MonoBehaviour:
@@ -176,6 +224,11 @@ MonoBehaviour:
   - {fileID: -4205615839013952150}
   - {fileID: 5486390435436348288}
   - {fileID: 2413792374225728700}
+  - {fileID: -6112781673095608376}
+  - {fileID: -4456308161262184913}
+  - {fileID: 854934705960508816}
+  - {fileID: 4301447106292969563}
+  - {fileID: -8991898129009402163}
 --- !u!114 &282241372355560515
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,6 +243,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <GraphPosition>k__BackingField: {x: 524, y: 122}
   <Child>k__BackingField: {fileID: 9196141375401226169}
+--- !u!114 &854934705960508816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8152cfc5aed5a7d478477efd9a45ab40, type: 3}
+  m_Name: Cooldown
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 73.999985, y: 898.0001}
+  _cooldown: 2
+  _onCooldownAtStart: 0
 --- !u!114 &1126652462122529457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6a014d58bd30f449d8f2455d985d1f, type: 3}
   m_Name: SetAgentDestination
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 978, y: 897.67346}
+  <GraphPosition>k__BackingField: {x: 677.99994, y: 897.99994}
 --- !u!114 &1333229591383761185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843eabcfe77db0f41bd8bb1db6f94a17, type: 3}
   m_Name: 2nd Phase Log
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 374, y: 594}
+  <GraphPosition>k__BackingField: {x: 74, y: 593.9999}
   _message: Nebula is going into 2nd Phase!
 --- !u!114 &1426314562281020923
 MonoBehaviour:
@@ -229,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045f970479e1cbd4180b1ce1de33674d, type: 3}
   m_Name: RandomDestination
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 827.9999, y: 897.67346}
+  <GraphPosition>k__BackingField: {x: 527.99994, y: 897.99994}
   _min: {x: -19, y: -17}
   _max: {x: 19, y: 17}
 --- !u!114 &2245091678919857542
@@ -244,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a3acf717731d242ba99c6ebe40cac1, type: 3}
   m_Name: WaitSo
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 978, y: 594}
+  <GraphPosition>k__BackingField: {x: 1218, y: 594}
   _time: 1
 --- !u!114 &2413792374225728700
 MonoBehaviour:
@@ -258,7 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a3acf717731d242ba99c6ebe40cac1, type: 3}
   m_Name: WaitSo
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 1278, y: 594}
+  <GraphPosition>k__BackingField: {x: 1518, y: 594}
   _time: 1
 --- !u!114 &3624227793071688021
 MonoBehaviour:
@@ -272,10 +340,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311b2aaf8612ae248b51b05b04e8e009, type: 3}
   m_Name: 2nd Phase Behavior
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 524.0001, y: 673.0001}
+  <GraphPosition>k__BackingField: {x: 224, y: 672.99994}
   <Children>k__BackingField:
-  - {fileID: -3097540262294909616}
   - {fileID: -3968597673885763220}
+  - {fileID: -8991898129009402163}
+--- !u!114 &4301447106292969563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa95df3de58778041bea8ce6e9e0d73e, type: 3}
+  m_Name: ShootShotgun
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 224, y: 898.0001}
 --- !u!114 &4619722936577785502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa95df3de58778041bea8ce6e9e0d73e, type: 3}
   m_Name: ShootShotgun
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 1128, y: 594}
+  <GraphPosition>k__BackingField: {x: 1368, y: 594}
 --- !u!114 &5949188128498022716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7eab866325c21542a8e40dfa5b41b39, type: 3}
   m_Name: Un-Protect
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 828, y: 594}
+  <GraphPosition>k__BackingField: {x: 1068, y: 594}
   _shoulderAngle: -125
   _elbowAngle: 45
 --- !u!114 &7662662209385309704
@@ -345,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8152cfc5aed5a7d478477efd9a45ab40, type: 3}
   m_Name: Cooldown
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 678, y: 897.67346}
+  <GraphPosition>k__BackingField: {x: 378.00006, y: 897.99994}
   _cooldown: 5
   _onCooldownAtStart: 0
 --- !u!114 &7713762042658579056
@@ -360,7 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d2a8749e57c1d49abf55f8f140b7f9, type: 3}
   m_Name: 2nd Phase?
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 374, y: 482}
+  <GraphPosition>k__BackingField: {x: 74, y: 481.99994}
   <Children>k__BackingField:
   - {fileID: -7460615325434540483}
   - {fileID: 1333229591383761185}
