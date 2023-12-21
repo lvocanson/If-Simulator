@@ -1280,7 +1280,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4245275800966106626}
   - component: {fileID: 3885814529886951944}
-  - component: {fileID: 8577521899776159685}
   - component: {fileID: 6073565648746644368}
   m_Layer: 3
   m_Name: Physics
@@ -1340,19 +1339,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1.5
---- !u!114 &8577521899776159685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8579085837448962334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f1847fd7e38696458b06795f613abc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: e407ec7d5d6838e44bda14bb1432d672, type: 2}
 --- !u!114 &6073565648746644368
 MonoBehaviour:
   m_ObjectHideFlags: 0
