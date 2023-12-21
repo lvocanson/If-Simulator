@@ -462,6 +462,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 084b8e49e7888e14e9b20c6b846509e5, type: 3}
+--- !u!212 &404777399 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3069426484400717471, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+  m_PrefabInstance: {fileID: 7699213882708670006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &894846376 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1251540385488086924, guid: 331de377600e2074d9d684db032e1e87, type: 3}
@@ -577,6 +582,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &1667323307 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 669617141972673452, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+  m_PrefabInstance: {fileID: 7699213882708670006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1667323308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 209771094220172998, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+  m_PrefabInstance: {fileID: 7699213882708670006}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d18b4a29548c3c4db9b61ee29ef3852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1682392815
@@ -1052,6 +1073,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -8958606225747822085, guid: c93829a4053f83941866fe9e8a0c51e3, type: 3}
+    - target: {fileID: 3732456989763029850, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4361324824852945236, guid: 331de377600e2074d9d684db032e1e87, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -1064,6 +1089,50 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6088140218886315233, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221939654445967251, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+      propertyPath: _agent
+      value: 
+      objectReference: {fileID: 1667323307}
+    - target: {fileID: 6221939654445967251, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+      propertyPath: _sprite
+      value: 
+      objectReference: {fileID: 404777399}
+    - target: {fileID: 6221939654445967251, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+      propertyPath: _btRunner
+      value: 
+      objectReference: {fileID: 1667323308}
+    - target: {fileID: 6221939654445967251, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+      propertyPath: _maxHealth
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221939654445967251, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+      propertyPath: _hitMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
+    - target: {fileID: 6221939654445967251, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+      propertyPath: _lifeBarPrefab
+      value: 
+      objectReference: {fileID: 5956547421886942265, guid: 03065971c4bee1d459195ed49f3383ea, type: 3}
+    - target: {fileID: 6221939654445967251, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+      propertyPath: _lifeBarPosition
+      value: 
+      objectReference: {fileID: 894846376}
+    - target: {fileID: 6221939654445967251, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+      propertyPath: _damagePopupPosition
+      value: 
+      objectReference: {fileID: 1007164867}
+    - target: {fileID: 6221939654445967251, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+      propertyPath: _2ndPhaseHealthThreshold
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221939654445967251, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+      propertyPath: _invulnerabilityMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
     - target: {fileID: 6324812206353779064, guid: 331de377600e2074d9d684db032e1e87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.42
@@ -1131,7 +1200,7 @@ PrefabInstance:
     - target: {fileID: 8261710116451286170, guid: 331de377600e2074d9d684db032e1e87, type: 3}
       propertyPath: _damageSound
       value: 
-      objectReference: {fileID: 8300000, guid: 340f0d56c22b3c641b04b65a8a496aee, type: 3}
+      objectReference: {fileID: 8300000, guid: b63afea8658586b478e228808e3507a6, type: 3}
     - target: {fileID: 8261710116451286170, guid: 331de377600e2074d9d684db032e1e87, type: 3}
       propertyPath: _lifeBarPrefab
       value: 
@@ -1152,6 +1221,10 @@ PrefabInstance:
       propertyPath: _2ndPhaseHealthThreshold
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 8875159123792528539, guid: 331de377600e2074d9d684db032e1e87, type: 3}
+      propertyPath: NavMeshAgent
+      value: 
+      objectReference: {fileID: 1667323307}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
