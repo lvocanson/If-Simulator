@@ -101,22 +101,26 @@ public class PlayerUIManager : MonoBehaviour
     
     private void UnloadEvents()
     {
-        if (_currentPlayerSo.Player == null)
-        {
-            Debug.LogError("Player is null");
-            return;
-        }
+        if (_currentPlayerSo.Player == null) return;
         
         _currentPlayerSo.Player.OnHealthChanged -= _playerLife.UpdateHealth;
         _currentPlayerSo.Player.PlayerXp.OnXpChanged -= _playerXp.UpdateValue;
         
-        _currentPlayerSo.Player.PlayerAttackManager.OnFirstSpellChanged -= _spellHolderUI.UpdateFirstSpell;
-        _currentPlayerSo.Player.PlayerAttackManager.OnSecondSpellChanged -= _spellHolderUI.UpdateSecondSpell;
+        PlayerAttackManager playerAttackManager = _currentPlayerSo.Player.PlayerAttackManager;
         
-        _currentPlayerSo.Player.PlayerAttackManager.FirstSpell.OnCooldownChanged -= _spellHolderUI.UpdateFirstSpellCooldown;
-        _currentPlayerSo.Player.PlayerAttackManager.SecondSpell.OnCooldownChanged -= _spellHolderUI.UpdateSecondSpellCooldown;
-        
-        _currentPlayerSo.Player.PlayerAttackManager.FirstSpell.OnAbilityActivated -= _spellHolderUI.OnFirstSpellActivated;
-        _currentPlayerSo.Player.PlayerAttackManager.SecondSpell.OnAbilityActivated -= _spellHolderUI.OnSecondSpellActivated;
+        playerAttackManager.OnFirstSpellChanged -= _spellHolderUI.UpdateFirstSpell;
+        playerAttackManager.OnSecondSpellChanged -= _spellHolderUI.UpdateSecondSpell;
+
+        if (playerAttackManager.FirstSpell)
+        {
+            playerAttackManager.FirstSpell.OnCooldownChanged -= _spellHolderUI.UpdateFirstSpellCooldown;
+            playerAttackManager.FirstSpell.OnAbilityActivated -= _spellHolderUI.OnFirstSpellActivated;
+        }
+
+        if (playerAttackManager.SecondSpell)
+        {
+            playerAttackManager.SecondSpell.OnCooldownChanged -= _spellHolderUI.UpdateSecondSpellCooldown;
+            playerAttackManager.SecondSpell.OnAbilityActivated -= _spellHolderUI.OnSecondSpellActivated;
+        }
     }
 }
