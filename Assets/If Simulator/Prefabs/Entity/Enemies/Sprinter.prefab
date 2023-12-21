@@ -212,6 +212,7 @@ MonoBehaviour:
   _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
   _scaleEffectOffset: 0.2
   _damagePopupPosition: {fileID: 3784984780950780479}
+  _healPopupRotation: {fileID: 0}
   _damageSound: {fileID: 0}
   _damageParticle: {fileID: 0}
   _dieParticle: {fileID: 0}
@@ -671,7 +672,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1.24
+  m_Radius: 2.21
 --- !u!114 &7876448869393631908
 MonoBehaviour:
   m_ObjectHideFlags: 0

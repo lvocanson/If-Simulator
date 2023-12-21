@@ -18,6 +18,7 @@ public class Kamikaz_Attack : BaseState
     private void OnEnable()
     {
         _enemy.Agent.isStopped = true;
+        _enemy.Agent.velocity = Vector3.zero;
         
         StartCoroutine(ExplodeHimself());
     }
