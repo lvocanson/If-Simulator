@@ -13,7 +13,7 @@ namespace Ability
         {
             GameObject go = Instantiate(_prefab, _spawnPoint.position, Quaternion.identity);
             _instance = go.GetComponent<TurretBrain>();
-            _instance.So = RuntimeAbilitySo;
+            _instance.ParentAbility = this;
         }
 
         protected override void OnEffectUpdate()

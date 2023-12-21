@@ -27,6 +27,13 @@ namespace Ability
         {
             return RuntimeAbilitySo.IsHoldable is true ? RuntimeAbilitySo.Delay : RuntimeAbilitySo.AbilityDuration;
         }
+        
+        public event Action OnEnemyKilled;
+        
+        public void TriggerEnemyKilled()
+        {
+            OnEnemyKilled?.Invoke();
+        }
 
         // Called when the ability is activated (corresponding key pressed)
         // Note: This method does not start the cooldown right away, the cooldown is started when the ability's active time is over

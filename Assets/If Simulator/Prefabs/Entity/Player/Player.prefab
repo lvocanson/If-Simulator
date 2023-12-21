@@ -315,7 +315,6 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 3981262126783197580, guid: 4e2b0953374b140468376168987a6f0a, type: 3}
   _bulletSpawnPoint: {fileID: 2873507226914812432}
   _bulletContainer: {fileID: 0}
-  _playerXp: {fileID: 8099816899909354675}
   _numberOfBulletsPerDefault: 25
   _numberOfBulletsMax: 100
 --- !u!114 &6962324553966039841
@@ -334,7 +333,6 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 3981262126783197580, guid: 16a434fecab362348b8e1f4a840bc875, type: 3}
   _bulletSpawnPoint: {fileID: 2873507226914812432}
   _bulletContainer: {fileID: 0}
-  _playerXp: {fileID: 8099816899909354675}
   _numberOfBulletsPerDefault: 2
   _numberOfBulletsMax: 5
   _explodePrefab: {fileID: 399414093182519051, guid: 60aa00f93e2a72b45895af010aa140ce, type: 3}
@@ -602,6 +600,7 @@ MonoBehaviour:
   _firstSpellInput: {fileID: 5852425643557178782, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
   _secondSpellInput: {fileID: -2028806386459919619, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
   _spellsGo: {fileID: 5648217721370397452}
+  _playerXp: {fileID: 8099816899909354675}
   _primaryAttackAbilityBase: {fileID: 7005681117116373979}
   _secondaryAttackAbilityBase: {fileID: 6962324553966039841}
   _dashAbilityBase: {fileID: 3239121802332896468}

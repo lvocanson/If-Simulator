@@ -10,6 +10,7 @@ namespace If_Simulator.Code.Scripts.UI.GameUI
         
         public void UpdateValue(float value, float max, float level)
         {
+            Debug.Log($"UpdateValue: {value} / {max} - {level}");
             _slider.value = value;
             _slider.maxValue = max;
         }

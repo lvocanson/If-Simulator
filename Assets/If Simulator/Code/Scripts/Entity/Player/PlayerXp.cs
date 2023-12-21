@@ -28,7 +28,7 @@ public class PlayerXp : MonoBehaviour
         
     private void LevelUp()
     {
-        _currentXp -= _currentXpToNextLevel;
+        _currentXp = 0;
         _currentLevel++;
         _currentXpToNextLevel *= 1.5f;
     }

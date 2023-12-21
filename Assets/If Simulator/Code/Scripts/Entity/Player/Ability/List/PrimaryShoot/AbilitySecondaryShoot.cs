@@ -38,7 +38,7 @@ namespace Ability
         protected override void OnBulletReturnToPool(GameObject bullet)
         {
             var explosion = Instantiate(_explodePrefab, bullet.transform.position, Quaternion.identity).GetComponent<AbilityExplosionBehavior>();
-            explosion.Init(_explodeSo);
+            explosion.Init(_explodeSo, this);
             
             bullet.SetActive(false);
         }

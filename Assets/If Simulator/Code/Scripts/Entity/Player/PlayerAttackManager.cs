@@ -22,6 +22,7 @@ public class PlayerAttackManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject _spellsGo;
+    [SerializeField] private PlayerXp _playerXp;
     
     [Header("Spells")]
     [SerializeField] private AbilityShoot _primaryAttackAbilityBase;
@@ -38,7 +39,13 @@ public class PlayerAttackManager : MonoBehaviour
         {
             Debug.LogError("Spell not found", this);
         }
+        
+        if(_firstSpellAbilityBase != null) 
+            _firstSpellAbilityBase.OnEnemyKilled -= _playerXp.AddXp;
+        
         _firstSpellAbilityBase = s;
+        _firstSpellAbilityBase.OnEnemyKilled += _playerXp.AddXp;
+        
         OnFirstSpellChanged?.Invoke(_firstSpellAbilityBase);
     }
     
@@ -50,10 +57,16 @@ public class PlayerAttackManager : MonoBehaviour
         {
             Debug.LogError("Spell not found", this);
         }
+        
+        if(_secondSpellAbilityBase != null) 
+            _secondSpellAbilityBase.OnEnemyKilled -= _playerXp.AddXp;
+        
         _secondSpellAbilityBase = s;
+        _secondSpellAbilityBase.OnEnemyKilled += _playerXp.AddXp;
+        
         OnSecondSpellChanged?.Invoke(_secondSpellAbilityBase);
     }
-
+    
     protected void OnEnable()
     {
         _primaryAttackInput.action.started += OnPrimaryAttackAction;
@@ -82,6 +95,12 @@ public class PlayerAttackManager : MonoBehaviour
         _firstSpellInput.action.started -= OnFirstSpellAction;
 
         _secondSpellInput.action.started -= OnSecondSpellAction;
+    }
+
+    private void Start()
+    {
+        _primaryAttackAbilityBase.OnEnemyKilled += _playerXp.AddXp;
+        _secondaryAttackAbilityBase.OnEnemyKilled += _playerXp.AddXp;
     }
 
     private void OnPrimaryAttackAction(InputAction.CallbackContext context)
