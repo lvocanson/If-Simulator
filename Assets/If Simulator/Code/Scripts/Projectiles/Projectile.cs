@@ -50,6 +50,7 @@ namespace Ability
         
         public event Action<Projectile> OnDestroy;
         public event Action OnHit;
+        public event Action OnEntityKill;
 
         
         private void OnEnable()
@@ -75,6 +76,11 @@ namespace Ability
             _managedFromPool = managedByPool;
         }
         
+        private void OnEntityDeath()
+        {
+            OnEntityKill?.Invoke();
+        }
+        
         private void OnTriggerEnter2D(Collider2D col)
         {
             // skip unwanted layers
@@ -92,11 +98,13 @@ namespace Ability
             // damage
             if (((1 << otherLayer) & _damageableEntityLayers.value) != 0)
             {
-                if (col.TryGetComponent(out IDamageable damageable))
+                if (col.TryGetComponent(out DamageableEntity damageable))
                 {
                     if (_damage > 0)
                     {
+                        damageable.OnDeath += OnEntityDeath;
                         damageable.Damage(_damage);
+                        damageable.OnDeath -= OnEntityDeath;
                     }
                     OnHit?.Invoke();
                 }

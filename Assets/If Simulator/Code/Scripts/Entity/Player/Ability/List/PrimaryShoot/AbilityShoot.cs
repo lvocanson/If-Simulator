@@ -9,6 +9,7 @@ namespace Ability
         [SerializeField] protected GameObject _bulletPrefab;
         [SerializeField] protected Transform _bulletSpawnPoint;
         [SerializeField] protected Transform _bulletContainer;
+        [SerializeField] private PlayerXp _playerXp;
 
         [Header("Settings")]
         [SerializeField] protected int _numberOfBulletsPerDefault;
@@ -37,10 +38,18 @@ namespace Ability
         }
 
         protected abstract GameObject CreateBullet();
-        
-        protected abstract void OnBulletTakeFromPool(GameObject bullet);
-        
-        protected abstract void OnBulletReturnToPool(GameObject bullet);
+
+        protected virtual void OnBulletTakeFromPool(GameObject bullet)
+        {
+            Projectile proj = bullet.GetComponent<Projectile>();
+            proj.OnEntityKill += _playerXp.AddXp;
+        }
+
+        protected virtual void OnBulletReturnToPool(GameObject bullet)
+        {
+            Projectile proj = bullet.GetComponent<Projectile>();
+            proj.OnEntityKill -= _playerXp.AddXp;
+        }
         
         protected abstract void OnBulletDestroy(GameObject bullet);
     }

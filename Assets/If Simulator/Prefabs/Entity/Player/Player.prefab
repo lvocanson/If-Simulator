@@ -315,6 +315,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 3981262126783197580, guid: 4e2b0953374b140468376168987a6f0a, type: 3}
   _bulletSpawnPoint: {fileID: 2873507226914812432}
   _bulletContainer: {fileID: 0}
+  _playerXp: {fileID: 8099816899909354675}
   _numberOfBulletsPerDefault: 25
   _numberOfBulletsMax: 100
 --- !u!114 &6962324553966039841
@@ -333,6 +334,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 3981262126783197580, guid: 16a434fecab362348b8e1f4a840bc875, type: 3}
   _bulletSpawnPoint: {fileID: 2873507226914812432}
   _bulletContainer: {fileID: 0}
+  _playerXp: {fileID: 8099816899909354675}
   _numberOfBulletsPerDefault: 2
   _numberOfBulletsMax: 5
   _explodePrefab: {fileID: 399414093182519051, guid: 60aa00f93e2a72b45895af010aa140ce, type: 3}
@@ -533,6 +535,7 @@ GameObject:
   - component: {fileID: 2258649158215846201}
   - component: {fileID: 4761457398783333148}
   - component: {fileID: 263370004781948735}
+  - component: {fileID: 8099816899909354675}
   - component: {fileID: 6823956314062483985}
   m_Layer: 6
   m_Name: Brain
@@ -577,6 +580,7 @@ MonoBehaviour:
   _playerAttackManager: {fileID: 263370004781948735}
   _playerMovement: {fileID: 5540728448906214869}
   playerAim: {fileID: 3407179542858764038}
+  _playerXp: {fileID: 8099816899909354675}
   _data: {fileID: 11400000, guid: 0a0b0f884ace5ed41b10f57eb03db9b9, type: 2}
   _firstSpell: {fileID: 11400000, guid: 83156b29a3143244eb33e0875148af16, type: 2}
   _secondSpell: {fileID: 11400000, guid: 650c4ac964c428140913c9b312d9d7f8, type: 2}
@@ -601,6 +605,20 @@ MonoBehaviour:
   _primaryAttackAbilityBase: {fileID: 7005681117116373979}
   _secondaryAttackAbilityBase: {fileID: 6962324553966039841}
   _dashAbilityBase: {fileID: 3239121802332896468}
+--- !u!114 &8099816899909354675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6455209932745954752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733b5508cb1d47ca9dd8a38ec9cf7fce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentXpToNextLevel: 100
+  _xpPerKill: 10
 --- !u!58 &6823956314062483985
 CircleCollider2D:
   m_ObjectHideFlags: 0

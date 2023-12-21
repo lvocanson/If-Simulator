@@ -1,8 +1,10 @@
+using If_Simulator.Code.Scripts.UI.GameUI;
 using UnityEngine;
 
 public class PlayerUIManager : MonoBehaviour
 {
     [SerializeField] private PlayerLifeUI _playerLife;
+    [SerializeField] private PlayerXpUI _playerXp;
     [SerializeField] private SpellHolderUI _spellHolderUI;
     [SerializeField] private PassiveHolderUI _passiveHolderUI;
     [SerializeField] private CurrentPlayerSo _currentPlayerSo;
@@ -25,11 +27,10 @@ public class PlayerUIManager : MonoBehaviour
             return;
         }
         _currentPlayerSo.Player.OnHealthChanged += _playerLife.UpdateHealth;
-        
+        _currentPlayerSo.Player.PlayerXp.OnXpChanged += _playerXp.UpdateValue; 
+
         _currentPlayerSo.Player.PlayerAttackManager.OnFirstSpellChanged += _spellHolderUI.UpdateFirstSpell;
         _currentPlayerSo.Player.PlayerAttackManager.OnSecondSpellChanged += _spellHolderUI.UpdateSecondSpell;
-        
-        
     }
 
     private void LoadSpellsEvents()
@@ -57,6 +58,7 @@ public class PlayerUIManager : MonoBehaviour
         }
         
         _currentPlayerSo.Player.OnHealthChanged -= _playerLife.UpdateHealth;
+        _currentPlayerSo.Player.PlayerXp.OnXpChanged -= _playerXp.UpdateValue;
         
         _currentPlayerSo.Player.PlayerAttackManager.OnFirstSpellChanged -= _spellHolderUI.UpdateFirstSpell;
         _currentPlayerSo.Player.PlayerAttackManager.OnSecondSpellChanged -= _spellHolderUI.UpdateSecondSpell;

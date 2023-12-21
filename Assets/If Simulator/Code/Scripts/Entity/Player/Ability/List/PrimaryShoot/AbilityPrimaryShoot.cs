@@ -25,13 +25,18 @@ namespace Ability
 
         protected override void OnBulletTakeFromPool(GameObject bullet)
         {
+            base.OnBulletTakeFromPool(bullet);
             bullet.transform.position = _bulletSpawnPoint.position;
             bullet.transform.rotation = _bulletSpawnPoint.rotation;
             bullet.SetActive(true);
             bullet.GetComponent<Projectile>().Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
         }
 
-        protected override void OnBulletReturnToPool(GameObject bullet) => bullet.SetActive(false);
+        protected override void OnBulletReturnToPool(GameObject bullet)
+        {
+            base.OnBulletReturnToPool(bullet);
+            bullet.SetActive(false);
+        }
 
         protected override void OnBulletDestroy(GameObject bullet) => Destroy(bullet);
     }
