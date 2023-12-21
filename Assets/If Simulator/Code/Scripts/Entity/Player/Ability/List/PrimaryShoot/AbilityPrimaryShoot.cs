@@ -26,6 +26,7 @@ namespace Ability
         protected override void OnBulletTakeFromPool(GameObject bullet)
         {
             base.OnBulletTakeFromPool(bullet);
+            
             bullet.transform.position = _bulletSpawnPoint.position;
             bullet.transform.rotation = _bulletSpawnPoint.rotation;
             bullet.SetActive(true);
@@ -35,6 +36,7 @@ namespace Ability
         protected override void OnBulletReturnToPool(GameObject bullet)
         {
             base.OnBulletReturnToPool(bullet);
+            
             bullet.SetActive(false);
         }
 
