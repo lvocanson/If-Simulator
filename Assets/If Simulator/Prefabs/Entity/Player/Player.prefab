@@ -577,7 +577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _abilitySo: {fileID: 11400000, guid: 3159d618200ce7e41bdaa35764a2df27, type: 2}
   _bulletPrefab: {fileID: 3981262126783197580, guid: 16a434fecab362348b8e1f4a840bc875, type: 3}
-  _bulletSpawnPoint: {fileID: 2873507226914812432}
+  _bulletSpawnPoint: {fileID: 6392572602471796864}
   _bulletContainer: {fileID: 0}
   _numberOfBulletsPerDefault: 2
   _numberOfBulletsMax: 5
