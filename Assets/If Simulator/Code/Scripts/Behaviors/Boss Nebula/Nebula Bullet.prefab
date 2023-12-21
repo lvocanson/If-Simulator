@@ -184,13 +184,13 @@ MonoBehaviour:
   _color: {r: 1, g: 1, b: 1, a: 1}
   _layers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1024
   _damageableEntityLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1024
   _speed: 25
   _lifeTime: 2
-  _damage: 30
+  _damage: 35
 --- !u!82 &4472575231071319934
 AudioSource:
   m_ObjectHideFlags: 0
