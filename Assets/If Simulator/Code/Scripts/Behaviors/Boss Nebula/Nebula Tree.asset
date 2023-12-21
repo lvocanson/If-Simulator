@@ -25,7 +25,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 311b2aaf8612ae248b51b05b04e8e009, type: 3}
-  m_Name: SelectorSo
+  m_Name: 1st Phase Behavior
   m_EditorClassIdentifier: 
   <GraphPosition>k__BackingField: {x: 523.99994, y: 369}
   <Children>k__BackingField:
@@ -43,11 +43,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d2a8749e57c1d49abf55f8f140b7f9, type: 3}
   m_Name: GoTo Random Point
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 730.318, y: 707.19293}
+  <GraphPosition>k__BackingField: {x: 828, y: 783}
   <Children>k__BackingField:
   - {fileID: 7662662209385309704}
   - {fileID: 1426314562281020923}
   - {fileID: 1126652462122529457}
+--- !u!114 &-3097540262294909616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82c4b21af4e3624ba9cc69d4454ebc2, type: 3}
+  m_Name: Shoot
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 524, y: 897}
 --- !u!114 &-2199449707574892188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,7 +74,7 @@ MonoBehaviour:
   m_Name: RepeatSo
   m_EditorClassIdentifier: 
   <GraphPosition>k__BackingField: {x: 524.0002, y: 594.0001}
-  <Child>k__BackingField: {fileID: -3968597673885763220}
+  <Child>k__BackingField: {fileID: 3624227793071688021}
 --- !u!114 &-1805404537095440609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +116,8 @@ MonoBehaviour:
   - {fileID: -2199449707574892188}
   - {fileID: 1333229591383761185}
   - {fileID: 5949188128498022716}
+  - {fileID: 3624227793071688021}
+  - {fileID: -3097540262294909616}
 --- !u!114 &282241372355560515
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,8 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6a014d58bd30f449d8f2455d985d1f, type: 3}
   m_Name: SetAgentDestination
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 880.31805, y: 821.19293}
-  _onDestinationChanged: {fileID: 11400000, guid: afce6602e55f27840ace77bdc3e144d6, type: 2}
+  <GraphPosition>k__BackingField: {x: 978, y: 897}
 --- !u!114 &1333229591383761185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,9 +171,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045f970479e1cbd4180b1ce1de33674d, type: 3}
   m_Name: RandomDestination
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 730.318, y: 821.19293}
+  <GraphPosition>k__BackingField: {x: 828, y: 897}
   _min: {x: -19, y: -17}
   _max: {x: 19, y: 17}
+--- !u!114 &3624227793071688021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311b2aaf8612ae248b51b05b04e8e009, type: 3}
+  m_Name: 2nd Phase Behavior
+  m_EditorClassIdentifier: 
+  <GraphPosition>k__BackingField: {x: 524.0001, y: 673.0001}
+  <Children>k__BackingField:
+  - {fileID: -3097540262294909616}
+  - {fileID: -3968597673885763220}
 --- !u!114 &4619722936577785502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8152cfc5aed5a7d478477efd9a45ab40, type: 3}
   m_Name: Cooldown
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 580.3181, y: 821.19293}
+  <GraphPosition>k__BackingField: {x: 678, y: 897}
   _cooldown: 5
 --- !u!114 &7713762042658579056
 MonoBehaviour:
@@ -213,7 +243,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00d2a8749e57c1d49abf55f8f140b7f9, type: 3}
-  m_Name: SequencerSo
+  m_Name: 2nd Phase?
   m_EditorClassIdentifier: 
   <GraphPosition>k__BackingField: {x: 374.00003, y: 477.7001}
   <Children>k__BackingField:
@@ -230,7 +260,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00d2a8749e57c1d49abf55f8f140b7f9, type: 3}
-  m_Name: SequencerSo
+  m_Name: Initialization
   m_EditorClassIdentifier: 
   <GraphPosition>k__BackingField: {x: 524, y: 177}
   <Children>k__BackingField:

@@ -8,7 +8,7 @@ namespace Ability
         // Used for displaying the ability in the UI
         public ushort CurrentLevel { get; protected set; }
 
-        public abstract void TryActivate();
+        public abstract bool TryActivate();
 
         public abstract void LevelUp();
 
