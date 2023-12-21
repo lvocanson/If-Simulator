@@ -4,11 +4,20 @@ namespace Ability
 {
     public class SoAbilityBase : ScriptableObject
     {
+        public enum AbilityType
+        {
+            ACTIVE,
+            PASSIVE,
+            BASE
+        }
+        
         public string Name => _name;
 
         public string Description => _description;
 
         public Sprite Icon => _icon;
+        
+        public AbilityType Type => _abilityType;
 
         public ushort MaxLevel => _maxLevel;
         
@@ -26,6 +35,7 @@ namespace Ability
         [SerializeField] private string _name;
         [SerializeField] private string _description;
         [SerializeField] private Sprite _icon;
+        [SerializeField] private AbilityType _abilityType;
         [SerializeField] private ushort _maxLevel;
         [SerializeField] private float _range;
         [SerializeField, Tooltip("The value used by this spell (i.e : damage, stat increase, speed, ...)")] private float _value;

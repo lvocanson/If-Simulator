@@ -1,4 +1,5 @@
 using If_Simulator.Code.Scripts.UI.GameUI;
+using UI;
 using UnityEngine;
 
 public class PlayerUIManager : MonoBehaviour
@@ -9,9 +10,11 @@ public class PlayerUIManager : MonoBehaviour
     [SerializeField] private PassiveHolderUI _passiveHolderUI;
     [SerializeField] private CurrentPlayerSo _currentPlayerSo;
     
+    [SerializeField] private SpellChoicePopup _spellChoicePopup;
+    
     public SpellHolderUI SpellHolderUI => _spellHolderUI;
     public PassiveHolderUI PassiveHolderUI => _passiveHolderUI;
-
+    public CurrentPlayerSo CurrentPlayerSo => _currentPlayerSo;
 
     private void OnEnable()
     {
@@ -26,8 +29,12 @@ public class PlayerUIManager : MonoBehaviour
             Debug.LogError("Player is null");
             return;
         }
+        // Health change event
         _currentPlayerSo.Player.OnHealthChanged += _playerLife.UpdateHealth;
+        
+        // Xp change events
         _currentPlayerSo.Player.PlayerXp.OnXpChanged += _playerXp.UpdateValue; 
+        _currentPlayerSo.Player.PlayerXp.OnLevelUp += _spellChoicePopup.Init;
 
         _currentPlayerSo.Player.PlayerAttackManager.OnFirstSpellChanged += _spellHolderUI.UpdateFirstSpell;
         _currentPlayerSo.Player.PlayerAttackManager.OnSecondSpellChanged += _spellHolderUI.UpdateSecondSpell;

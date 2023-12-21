@@ -934,7 +934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733b5508cb1d47ca9dd8a38ec9cf7fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentXpToNextLevel: 100
+  _currentXpToNextLevel: 10
   _xpPerKill: 10
 --- !u!58 &6823956314062483985
 CircleCollider2D:

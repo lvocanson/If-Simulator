@@ -4,12 +4,13 @@ using UnityEngine;
 public class PlayerXp : MonoBehaviour
 {
     private float _currentXp = 0;
-    private float _currentLevel = 1;
+    private int _currentLevel = 1;
     [SerializeField] private float _currentXpToNextLevel = 100;
         
     [SerializeField] private float _xpPerKill = 10;
         
-    public event Action<float, float, float> OnXpChanged; // => float1: currentXp, float2: currentXpToNextLevel, float3: currentLevel
+    public event Action<float, float, int> OnXpChanged; // => float1: currentXp, float2: currentXpToNextLevel, float3: currentLevel
+    public event Action<int> OnLevelUp; // => int: currentLevel
         
     private void Start()
     {
@@ -31,5 +32,6 @@ public class PlayerXp : MonoBehaviour
         _currentXp = 0;
         _currentLevel++;
         _currentXpToNextLevel *= 1.5f;
+        OnLevelUp?.Invoke(_currentLevel);
     }
 }
