@@ -40,17 +40,17 @@ namespace Ability
                 OnBulletReturnToPool, OnBulletDestroy, true, _numberOfBulletsPerDefault, _numberOfBulletsMax);
         }
 
-        public SoAbilityCooldown So
+        public AbilityTurret ParentAbility
         {
-            get => _so;
+            get => _parentAbility;
             set
             {
-                _so = value;
-                _collider.radius = _so.Range;
+                _parentAbility = value;
+                _collider.radius = _parentAbility.RuntimeAbilitySo.Range;
             }
         }
 
-        private SoAbilityCooldown _so;
+        private AbilityTurret _parentAbility;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -102,7 +102,7 @@ namespace Ability
         {
             // Handle turret explosion
             _currentTarget = null;
-            ChangeState(_destroyState);
+            ChangeState(_destroyState, ParentAbility);
 
             // Destroy the game object
             Destroy(gameObject);
@@ -115,7 +115,7 @@ namespace Ability
 
             var proj = bp.GetComponent<Projectile>();
             proj.Initialize(gameObject.layer, _bulletSpawnPoint.up);
-            proj.SetDamage(So.Damage);
+            proj.SetDamage(_parentAbility.RuntimeAbilitySo.Value);
             proj.OnDestroy += CleanProjectile;
 
             return bp;
@@ -134,9 +134,15 @@ namespace Ability
 
             var proj = bullet.GetComponent<Projectile>();
             proj.Initialize(gameObject.layer, _bulletSpawnPoint.up, managedByPool:true);
+            proj.OnEntityKill += ParentAbility.TriggerEnemyKilled;
         }
 
-        private void OnBulletReturnToPool(GameObject bullet) => bullet.SetActive(false);
+        private void OnBulletReturnToPool(GameObject bullet)
+        {
+            Projectile proj = bullet.GetComponent<Projectile>();
+            proj.OnEntityKill -= ParentAbility.TriggerEnemyKilled;
+            bullet.SetActive(false);
+        }
 
         private void OnBulletDestroy(GameObject bullet) => Destroy(bullet);
     }

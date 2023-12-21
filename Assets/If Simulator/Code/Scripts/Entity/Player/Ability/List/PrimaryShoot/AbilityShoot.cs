@@ -16,8 +16,9 @@ namespace Ability
 
         protected ObjectPool<GameObject> _bulletPool;
         
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _bulletPool = new ObjectPool<GameObject>(CreateBullet, OnBulletTakeFromPool,
                 OnBulletReturnToPool, OnBulletDestroy, true, _numberOfBulletsPerDefault, _numberOfBulletsMax);
         }
@@ -36,10 +37,18 @@ namespace Ability
         }
 
         protected abstract GameObject CreateBullet();
-        
-        protected abstract void OnBulletTakeFromPool(GameObject bullet);
-        
-        protected abstract void OnBulletReturnToPool(GameObject bullet);
+
+        protected virtual void OnBulletTakeFromPool(GameObject bullet)
+        {
+            Projectile proj = bullet.GetComponent<Projectile>();
+            proj.OnEntityKill += TriggerEnemyKilled;
+        }
+
+        protected virtual void OnBulletReturnToPool(GameObject bullet)
+        {
+            Projectile proj = bullet.GetComponent<Projectile>();
+            proj.OnEntityKill -= TriggerEnemyKilled;
+        }
         
         protected abstract void OnBulletDestroy(GameObject bullet);
     }

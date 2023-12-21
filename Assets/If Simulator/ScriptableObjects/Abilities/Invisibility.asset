@@ -14,11 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Invisibility
   _description: You can't see me
-  _icon: {fileID: 0}
+  _icon: {fileID: -8805439409598010693, guid: 9a3559717aa03f9498f5c09032da8b7d, type: 3}
   _maxLevel: 2
-  _damage: 0
   _range: 0
+  _value: 0
+  _valuePerLevel: 0
+  _rangePerLevel: 0
   _cooldown: 60
   _isHoldable: 0
   _delay: 0
   _abilityDuration: 5
+  _cooldownDecreasePerLevel: 0
+  _abilityDurationIncreasePerLevel: 0

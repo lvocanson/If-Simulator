@@ -6,6 +6,9 @@ namespace Behaviors
 {
     public class TurretDestroy : BaseState
     {
+        /*
+         * Args 0 : Parent Ability
+         */
         [SerializeField] private GameObject _explosionPrefab;
         [SerializeField] private Transform _explosionSpawnPoint;
 
@@ -18,7 +21,7 @@ namespace Behaviors
             base.Enter(manager, args);
             GameObject go = Instantiate(_explosionPrefab, _explosionSpawnPoint.position, Quaternion.identity);
             _explosionInstance = go.GetComponent<AbilityExplosionBehavior>();
-            _explosionInstance.Init(_so);
+            _explosionInstance.Init(_so, (AbilityActive) args[0]);
         }
     }
 }
