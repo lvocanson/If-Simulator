@@ -190,7 +190,7 @@ MonoBehaviour:
     m_Bits: 64
   _speed: 25
   _lifeTime: 2
-  _damage: 100
+  _damage: 30
 --- !u!82 &4472575231071319934
 AudioSource:
   m_ObjectHideFlags: 0
