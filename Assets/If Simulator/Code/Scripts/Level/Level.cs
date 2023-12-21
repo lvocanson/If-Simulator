@@ -42,7 +42,7 @@ namespace Game.Level
         
         public void UpdateNavMesh()
         {
-            //_navMeshSurface.UpdateNavMesh(_navMeshSurface.navMeshData); There is a Unity bug with this
+            _navMeshSurface.UpdateNavMesh(_navMeshSurface.navMeshData); //There is a Unity bug with this
         }
     }
 }

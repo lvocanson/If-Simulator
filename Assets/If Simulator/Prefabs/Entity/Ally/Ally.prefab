@@ -303,7 +303,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 12
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -359,6 +359,7 @@ MonoBehaviour:
   HealConfig: {fileID: 11400000, guid: e284d7ac37415d548967720edfef079d, type: 2}
   AttackConfig: {fileID: 11400000, guid: c78ea30c6b26aeb478561f56eee5113d, type: 2}
   CurrentPlayerSo: {fileID: 11400000, guid: 0a0b0f884ace5ed41b10f57eb03db9b9, type: 2}
+  NavMeshAgent: {fileID: 8345320118885696050}
 --- !u!114 &9069181165205015797
 MonoBehaviour:
   m_ObjectHideFlags: 0

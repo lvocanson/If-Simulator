@@ -1,8 +1,10 @@
+using System;
 using CrashKonijn.Goap.Behaviours;
 using IfSimulator.GOAP.Config;
 using IfSimulator.GOAP.Goals;
 using IfSimulator.GOAP.Sensors;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace IfSimulator.GOAP.Behaviors
 {
@@ -14,10 +16,11 @@ namespace IfSimulator.GOAP.Behaviors
         [SerializeField] private HealConfigSO HealConfig;
         [SerializeField] private AttackConfigSO AttackConfig;
         [SerializeField] private CurrentPlayerSo CurrentPlayerSo;
-
+        [SerializeField] private NavMeshAgent NavMeshAgent;
+        
         private AgentBehaviour AgentBehaviour;
-
-
+        private Player _player;
+        
         private void Awake()
         {
             AgentBehaviour = GetComponent<AgentBehaviour>();
@@ -30,6 +33,14 @@ namespace IfSimulator.GOAP.Behaviors
             EnemySensor.Collider.radius = AttackConfig.SensorRadius;
         }
 
+        private void Update()
+        {
+            if (_player)
+            {
+                NavMeshAgent.SetDestination(_player.AllyTarget.position);
+            }
+        }
+
         private void OnEnable()
         {
             PlayerSensor.OnPlayerEnter += PlayerSensorOnPlayerEnter;
@@ -39,6 +50,8 @@ namespace IfSimulator.GOAP.Behaviors
             EnemySensor.OnEnemyEnter += EnemySensorOnEnemyEnter;
             EnemySensor.OnEnemyStay += EnemySensorOnEnemyStay;
             EnemySensor.OnEnemyExit += EnemySensorOnEnemyExit;
+            
+            CurrentPlayerSo.OnPlayerLoaded += LoadPlayer;
         }
 
         private void OnDisable()
@@ -50,6 +63,13 @@ namespace IfSimulator.GOAP.Behaviors
             EnemySensor.OnEnemyEnter -= EnemySensorOnEnemyEnter;
             EnemySensor.OnEnemyStay -= EnemySensorOnEnemyStay;
             EnemySensor.OnEnemyExit -= EnemySensorOnEnemyExit;
+            
+            CurrentPlayerSo.OnPlayerLoaded -= LoadPlayer;
+        }
+        
+        private void LoadPlayer()
+        {
+            _player = CurrentPlayerSo.Player;
         }
 
         private void PlayerSensorOnPlayerEnter(Transform Player)

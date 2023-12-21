@@ -34,7 +34,7 @@ public class Kamikaz_Chase : BaseState
 
     private void EnterOnAttackRange(Collider2D obj)
     {
-        if (!obj.CompareTag("Player") || obj.GetComponent<Player>()) return;
+        if (!obj.CompareTag("Player") || !obj.GetComponent<Player>()) return;
         Manager.ChangeState(_attackState);
     }
 

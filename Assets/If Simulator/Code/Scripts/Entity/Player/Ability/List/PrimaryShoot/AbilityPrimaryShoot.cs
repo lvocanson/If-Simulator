@@ -5,6 +5,7 @@ namespace Ability
     public class AbilityPrimaryShoot : AbilityShoot
     {
         [SerializeField] private AudioClip _shootSound;
+        [SerializeField] private AudioSource _audioSource;
         
         protected override GameObject CreateBullet()
         {
@@ -15,9 +16,12 @@ namespace Ability
             bulletBehavior.Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
             bulletBehavior.SetDamage(RuntimeAbilitySo.Value);
             bulletBehavior.OnDestroy += CleanProjectile;
-            
-            if (_shootSound != null)
-                AudioSource.PlayClipAtPoint(_shootSound, transform.position);
+
+            if (_shootSound)
+            {
+                _audioSource.PlayOneShot(_shootSound);
+            }
+                
             
             return bp;
         }
@@ -38,9 +42,11 @@ namespace Ability
             Projectile bulletBehavior = bullet.GetComponent<Projectile>();
             bulletBehavior.Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
             bulletBehavior.SetDamage(RuntimeAbilitySo.Value);
-            
-            if (_shootSound != null)
-                AudioSource.PlayClipAtPoint(_shootSound, transform.position);
+
+            if (_shootSound)
+            {
+                _audioSource.PlayOneShot(_shootSound);
+            }
         }
 
         protected override void OnBulletReturnToPool(GameObject bullet)

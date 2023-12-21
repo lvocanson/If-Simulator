@@ -319,6 +319,7 @@ Transform:
   - {fileID: 6392572602471796864}
   - {fileID: 4383681110756215978}
   - {fileID: 6273551665258946998}
+  - {fileID: 8226419868889100520}
   m_Father: {fileID: 2873507226914812432}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3350060009215273141
@@ -405,6 +406,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3650000887874546666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8226419868889100520}
+  m_Layer: 6
+  m_Name: AllyTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8226419868889100520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3650000887874546666}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5372018016285161383}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5175235984256072066
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +562,7 @@ MonoBehaviour:
   _numberOfBulletsPerDefault: 25
   _numberOfBulletsMax: 100
   _shootSound: {fileID: 8300000, guid: e941df81ba6cae0458beb2a5ec2d4ed1, type: 3}
+  _audioSource: {fileID: 810246432251487707}
 --- !u!114 &6962324553966039841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,12 +712,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5648217721370397452}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8409366792044145289, guid: 4c4e8c388c65bf64d84c8d3aaeef5238, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 340f0d56c22b3c641b04b65a8a496aee, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -885,7 +918,7 @@ MonoBehaviour:
   _sprite: {fileID: 7429918993202385571}
   _audioSource: {fileID: 0}
   _maxHealth: 100
-  _invulnerabilityDuration: 1
+  _invulnerabilityDuration: 0.5
   _hitMaterial: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
   _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
   _scaleEffectOffset: 0.2
@@ -899,6 +932,7 @@ MonoBehaviour:
   playerAim: {fileID: 3407179542858764038}
   _playerXp: {fileID: 8099816899909354675}
   _data: {fileID: 11400000, guid: 0a0b0f884ace5ed41b10f57eb03db9b9, type: 2}
+  _allyTarget: {fileID: 8226419868889100520}
 --- !u!114 &263370004781948735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -916,6 +950,7 @@ MonoBehaviour:
   _dashInput: {fileID: 5768644624366424321, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
   _firstSpellInput: {fileID: 5852425643557178782, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
   _secondSpellInput: {fileID: -2028806386459919619, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
+  _pauseInput: {fileID: -6722698695808088723, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
   _spellsGo: {fileID: 5648217721370397452}
   _playerXp: {fileID: 8099816899909354675}
   _primaryAttackAbilityBase: {fileID: 7005681117116373979}

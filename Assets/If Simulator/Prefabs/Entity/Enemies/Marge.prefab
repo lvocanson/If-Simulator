@@ -235,6 +235,8 @@ MonoBehaviour:
   _attackCol: {fileID: 4620439536270340928}
   _enemy: {fileID: 6284057064356520435}
   ProjectileSpawnPoint: {fileID: 4673422206163609828}
+  _shootSound: {fileID: 8300000, guid: 0487de59c1a96074095391244428bf2e, type: 3}
+  _audioSource: {fileID: 1526714553159219255}
   _chaseState: {fileID: 600574708586748271}
   _attackRange: 7
   _attackDelay: 0.1
@@ -270,10 +272,10 @@ AudioSource:
   m_GameObject: {fileID: 1772047841111923917}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8409366792044145289, guid: 4c4e8c388c65bf64d84c8d3aaeef5238, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0

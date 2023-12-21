@@ -73,7 +73,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     public void Damage(float damage, Color color)
     {
         if (_currentHealth <= 0) return;
-        if (_isInvulnerable) return;
+        if (IsInvulnerable) return;
         
         _currentHealth -= damage;
         

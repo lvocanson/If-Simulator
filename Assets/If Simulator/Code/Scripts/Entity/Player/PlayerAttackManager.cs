@@ -13,10 +13,12 @@ public class PlayerAttackManager : MonoBehaviour
     [SerializeField, BoxGroup("Inputs")] private InputActionReference _dashInput;
     [SerializeField, BoxGroup("Inputs")] private InputActionReference _firstSpellInput;
     [SerializeField, BoxGroup("Inputs")] private InputActionReference _secondSpellInput;
+    [SerializeField, BoxGroup("Inputs")] private InputActionReference _pauseInput;
     
     public event Action<AbilityActive> OnAbilityActivated;
     public event Action<AbilityActive> OnFirstSpellChanged;
     public event Action<AbilityActive> OnSecondSpellChanged;
+    public event Action OnPausePressed;
     
     public AbilityActive FirstSpell => _firstSpellAbilityBase;
     public AbilityActive SecondSpell => _secondSpellAbilityBase;
