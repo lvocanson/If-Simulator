@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class SingleDamagePopup : DamagePopup
 {
-    public static GameObject Create(Vector3 position, int damage)
+    public static GameObject Create(Vector3 position, int damage, Color color)
     {
         SingleDamagePopup damagePopup = Instantiate(LevelContext.Instance.PrefabsHolder.DamagePopupPrefab, position, Quaternion.identity).GetComponent<SingleDamagePopup>();
-        damagePopup.Setup(damage);
+        damagePopup.Setup(damage, color);
         return damagePopup.gameObject;
     }
     
@@ -25,9 +25,9 @@ public class SingleDamagePopup : DamagePopup
     private float _decreaseScaleStep;
     
     
-    public override void Setup(int damageAmount)
+    public override void Setup(int damageAmount, Color color)
     {
-        base.Setup(damageAmount);
+        base.Setup(damageAmount, color);
         
         _moveVector = new Vector3(0.7f, 1) * 5f;
         transform.position += new Vector3(Random.Range(_randomOffsetX.x, _randomOffsetX.y), Random.Range(_randomOffsetY.x, _randomOffsetY.y), 0);
@@ -38,8 +38,8 @@ public class SingleDamagePopup : DamagePopup
         _sortingOrder++;
         _textMesh.sortingOrder = _sortingOrder;
     }
-    
-    private void Update()
+
+    protected override void Update()
     {
         base.Update();
         

@@ -32,7 +32,7 @@ namespace Ability
             rb.AddForce(dir * _enemyPushBackForce, ForceMode2D.Impulse);
                 
             // Damage
-            damageable.Damage(_so.Damage);
+            damageable.Damage(_so.Damage, LevelContext.Instance.GameSettings.EnemyDamageColor);
         }
 
         public override void OnUpdate()

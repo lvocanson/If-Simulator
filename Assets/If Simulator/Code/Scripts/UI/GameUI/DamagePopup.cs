@@ -16,11 +16,12 @@ public abstract class DamagePopup : MonoBehaviour
     protected float _disappearTimer;
 
 
-    public virtual void Setup(int damageAmount)
+    public virtual void Setup(int damageAmount, Color color)
     {
         _disappearTimer = _duration;
         _textMesh.SetText(damageAmount.ToString());
-        _textColor = _textMesh.color;
+        _textColor = color;
+        _textMesh.color = _textColor;
     }
 
     protected virtual void Update()

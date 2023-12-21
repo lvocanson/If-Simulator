@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class TotalDamagePopup : DamagePopup
 {
-    public static GameObject Create(Transform entity, Vector3 offset, int damage)
+    public static GameObject Create(Transform entity, Vector3 offset, int damage, Color color)
     {
         TotalDamagePopup damagePopup = Instantiate(LevelContext.Instance.PrefabsHolder.TotalDamagePopupPrefab, entity.position + offset, Quaternion.identity).GetComponent<TotalDamagePopup>();
-        damagePopup.Setup(damage);
+        damagePopup.Setup(damage, color);
         damagePopup._entity = entity;
         damagePopup._offset = offset;
         return damagePopup.gameObject;
@@ -15,9 +15,9 @@ public class TotalDamagePopup : DamagePopup
     private Vector3 _offset;
     private float _totalDamage;
     
-    public override void Setup(int damageAmount)
+    public override void Setup(int damageAmount, Color color)
     {
-        base.Setup(damageAmount);
+        base.Setup(damageAmount, color);
         
         _totalDamage = damageAmount;
     }

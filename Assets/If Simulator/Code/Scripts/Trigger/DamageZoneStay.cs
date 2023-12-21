@@ -54,6 +54,6 @@ public class DamageZoneStay : MonoBehaviour
             _hitEnemies.Add(entity);
         
         OnEnemyHit?.Invoke();
-        entity.Damage(_damage);
+        entity.Damage(_damage, LevelContext.Instance.GameSettings.EnemyDamageColor);
     }
 }

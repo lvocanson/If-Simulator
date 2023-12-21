@@ -67,7 +67,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     
     public void SetInvulnerable(bool isInvulnerable) => _isInvulnerable = isInvulnerable;
     
-    public void Damage(float damage)
+    public void Damage(float damage, Color color)
     {
         if (_currentHealth <= 0) return;
         if (_isInvulnerable) return;
@@ -80,10 +80,10 @@ public class DamageableEntity : MonoBehaviour, IDamageable
         }
         else
         {
-            _totalDamagePopup = TotalDamagePopup.Create(transform, _damagePopupPosition.localPosition, (int)damage).GetComponent<TotalDamagePopup>();
+            _totalDamagePopup = TotalDamagePopup.Create(transform, _damagePopupPosition.localPosition, (int)damage, color).GetComponent<TotalDamagePopup>();
         }
         
-        SingleDamagePopup.Create(transform.position + _damagePopupPosition.localPosition, (int)damage);
+        SingleDamagePopup.Create(transform.position + _damagePopupPosition.localPosition, (int)damage, color);
         
         OnDamageTaken();
         OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
@@ -110,6 +110,8 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     {
         if (_currentHealth >= _maxHealth) return;
         _currentHealth = Mathf.Min(_maxHealth, _currentHealth + heal);
+        
+        SingleDamagePopup.Create(transform.position - _damagePopupPosition.localPosition, (int)heal, LevelContext.Instance.GameSettings.HealColor);
         
         OnHealthChanged?.Invoke(_currentHealth, MaxHealth);
     }
