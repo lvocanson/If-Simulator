@@ -67,6 +67,16 @@ public class PlayerAttackManager : MonoBehaviour
         OnSecondSpellChanged?.Invoke(_secondSpellAbilityBase);
     }
     
+    public SoAbilityBase GetFirstSpell()
+    {
+        return _firstSpellAbilityBase.RuntimeAbilitySo;
+    }
+    
+    public SoAbilityBase GetSecondSpell()
+    {
+        return _secondSpellAbilityBase.RuntimeAbilitySo;
+    }
+    
     protected void OnEnable()
     {
         _primaryAttackInput.action.started += OnPrimaryAttackAction;

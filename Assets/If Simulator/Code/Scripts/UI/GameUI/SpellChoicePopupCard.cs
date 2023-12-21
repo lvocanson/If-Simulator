@@ -13,23 +13,27 @@ namespace UI
         [SerializeField] private TextMeshProUGUI _nameText;
         [SerializeField] private TextMeshProUGUI _spellType;
         
-        private SoAbilityBase _soAbilityBase;
+        public SoAbilityBase DisplayedSpellSo => _displayedSpellSo;
+        private SoAbilityBase _displayedSpellSo;
+        
+        private SoAbilityBase _context;
         
         public event Action<SoAbilityBase> OnCardClicked;
 
-        public void Init(SoAbilityBase so)
+        public void Init(SoAbilityBase displayed, SoAbilityBase context)
         {
             _button.onClick.AddListener(OnClick);
-            _soAbilityBase = so;
+            _displayedSpellSo = displayed;
+            _context = context;
             
-            _icon.sprite = _soAbilityBase.Icon;
-            _nameText.text = _soAbilityBase.Name;
-            _spellType.text = _soAbilityBase.Type.ToString();
+            _icon.sprite = _displayedSpellSo.Icon;
+            _nameText.text = _displayedSpellSo.Name;
+            _spellType.text = _displayedSpellSo.Type.ToString();
         }
         
         public void OnClick()
         {
-            OnCardClicked?.Invoke(_soAbilityBase);
+            OnCardClicked?.Invoke(_context);
         }
     }
 }

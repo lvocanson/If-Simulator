@@ -8,18 +8,12 @@ namespace UI
 {
     public class SpellChoicePopup : MonoBehaviour
     {
-        public enum SpellType
-        {
-            FIRST,
-            SECOND
-        }
-        
-        [SerializeField] private PlayerUIManager _playerUIManager;
-        
         [SerializeField] private GameObject _popup;
         [SerializeField] private List<SpellChoicePopupCard> _cards;
         [SerializeField] private TextMeshProUGUI _levelText;
         [SerializeField] private int _numberOfCards = 3;
+        
+        [SerializeField] private SpellChoiceBind _spellChoiceBind;
         
         [SerializeField] private string _levelTextFormat = "New Level : {0}";
 
@@ -45,18 +39,13 @@ namespace UI
             for (int i = 0; i < _numberOfCards; i++)
             {
                 SoAbilityBase spell = LevelContext.Instance.SpellPool.GetRandomSpell();
-                _cards[i].Init(spell);
+                _cards[i].Init(spell, spell);
             }
         }
         
         private void Exit(SoAbilityBase so)
         {
-            App.InputManager.SwitchMode(InputManager.InputMode.Gameplay);
-            Cursor.visible = false;
-            Time.timeScale = 1;
-            
-            _playerUIManager.CurrentPlayerSo.Player.PlayerAttackManager.ChangeFirstSpell(so);
-            
+            _spellChoiceBind.Init(so);
             _popup.SetActive(false);
         }
     }

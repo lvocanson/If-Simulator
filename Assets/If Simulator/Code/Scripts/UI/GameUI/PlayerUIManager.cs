@@ -1,3 +1,4 @@
+using Ability;
 using If_Simulator.Code.Scripts.UI.GameUI;
 using UI;
 using UnityEngine;
@@ -20,6 +21,16 @@ public class PlayerUIManager : MonoBehaviour
     {
         _currentPlayerSo.OnPlayerLoaded += LoadEvents;
         _currentPlayerSo.OnPlayerStarted += LoadSpellsEvents;
+    }
+    
+    public void ChangeFirstSpell(SoAbilityBase so)
+    {
+        _currentPlayerSo.Player.PlayerAttackManager.ChangeFirstSpell(so);
+    }
+    
+    public void ChangeSecondSpell(SoAbilityBase so)
+    {
+        _currentPlayerSo.Player.PlayerAttackManager.ChangeSecondSpell(so);
     }
     
     private void LoadEvents()
