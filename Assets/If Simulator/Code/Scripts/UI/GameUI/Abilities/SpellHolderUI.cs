@@ -5,7 +5,9 @@ public class SpellHolderUI : MonoBehaviour
 {
     [SerializeField] private LevelableAbilityUI _firstSpell;
     [SerializeField] private LevelableAbilityUI _secondSpell;
-    
+
+    public LevelableAbilityUI FirstSpell;
+    public LevelableAbilityUI SecondSpell;
 
     public void UpdateFirstSpell(AbilityActive newSpell)
     {

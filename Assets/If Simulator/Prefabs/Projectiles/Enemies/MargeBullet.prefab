@@ -180,10 +180,10 @@ MonoBehaviour:
   _color: {r: 1, g: 1, b: 1, a: 1}
   _layers:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 1089
   _damageableEntityLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
   _speed: 5
   _lifeTime: 6
   _damage: 10
