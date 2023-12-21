@@ -462,7 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891c6075acfdd67428ef6631a8c0d9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectilePrefab: {fileID: 3981262126783197580, guid: 4e2b0953374b140468376168987a6f0a, type: 3}
+  _projectilePrefab: {fileID: 3981262126783197580, guid: 150575c59ebe448448b724ba96c97093, type: 3}
   _projectileSpeed: 20
   _projectileCount: 50
   _spreadAngle: 45
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891c6075acfdd67428ef6631a8c0d9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectilePrefab: {fileID: 3981262126783197580, guid: 4e2b0953374b140468376168987a6f0a, type: 3}
+  _projectilePrefab: {fileID: 3981262126783197580, guid: 150575c59ebe448448b724ba96c97093, type: 3}
   _projectileSpeed: 20
   _projectileCount: 5
   _spreadAngle: 15
