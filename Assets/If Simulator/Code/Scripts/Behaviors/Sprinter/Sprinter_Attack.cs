@@ -29,8 +29,10 @@ public class Sprinter_Attack : BaseState
     
     private void ExitAttackRange(Collider2D obj)
     {
-        if (obj.CompareTag("Player"))
-            Manager.ChangeState(_chaseState);
+        Debug.Log("EXIT RANGE");
+        StopCoroutine(_attackSprinter);
+        _attackSprinter = null;
+        Manager.ChangeState(_chaseState);
     }
 
     private IEnumerator Attack()
@@ -38,9 +40,6 @@ public class Sprinter_Attack : BaseState
         while (_target != null)
         {
             Debug.Log("Attack melee");
-            _hitAttack.enabled = true;
-            yield return new WaitForSeconds(0.1f);
-            _hitAttack.enabled = false;
             yield return new WaitForSeconds(1f);
         }
     }
