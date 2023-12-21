@@ -302,7 +302,7 @@ MonoBehaviour:
   _sprite: {fileID: 1027814553974290942}
   _audioSource: {fileID: 0}
   _maxHealth: 100
-  _invulnerabilityDuration: 1
+  _invulnerabilityDuration: 0
   _hitMaterial: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
   _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
   _scaleEffectOffset: 0.2

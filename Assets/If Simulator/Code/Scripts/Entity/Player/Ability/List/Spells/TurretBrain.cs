@@ -56,6 +56,7 @@ namespace Ability
         {
             Debug.Log("Target");
             // Assert that the entity is damageable
+            if (!other.transform.parent) return;
             if (other.transform.parent.TryGetComponent(out DamageableEntity damageable) is false) return;
             
             // Assert that the entity is not already in the list
