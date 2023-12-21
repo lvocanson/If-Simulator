@@ -17,6 +17,6 @@ public class DamageZoneEnter : MonoBehaviour
             return;
 
         if (collision.TryGetComponent(out DamageableEntity damageabaleEntity))
-            damageabaleEntity.Damage(_damage);
+            damageabaleEntity.Damage(_damage, LevelContext.Instance.GameSettings.EnemyDamageColor);
     }
 }

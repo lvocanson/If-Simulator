@@ -17,8 +17,6 @@ public class InGameLifeBar : MonoBehaviour
     
     private void Update()
     {
-        Debug.Log(Vector3.up * _heightOffset);
-        
         transform.position = _entity.transform.position + Vector3.up * _heightOffset;
     }
     

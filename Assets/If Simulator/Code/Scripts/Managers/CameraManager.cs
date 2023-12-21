@@ -1,6 +1,7 @@
 using Cinemachine;
 using GameMode;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Managers
 {
@@ -28,6 +29,8 @@ namespace Managers
         protected override void OnContextInitialized(GameModeStartMode mode)
         {
             _mainCamera = Camera.main;
+            _mainCamera.GetComponent<Volume>().enabled = true;
+            
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
         }
@@ -40,6 +43,7 @@ namespace Managers
         protected override void OnContextQuit(GameModeQuitMode mode)
         {
             ClearTargets();
+            _mainCamera.GetComponent<Volume>().enabled = false;
         }
     
         private void AddPlayerAsTarget()
