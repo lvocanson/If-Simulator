@@ -12,8 +12,11 @@ EditorBuildSettings:
     path: Assets/If Simulator/Scenes/Game/MainMenu.unity
     guid: 0aff69d6490cb3041898a3a498927d75
   - enabled: 1
-    path: Assets/If Simulator/Scenes/BaseLevel.unity
-    guid: d252a2610d0d24b439d986bf907747c4
+    path: Assets/If Simulator/Scenes/Game/Level_01.unity
+    guid: 398de9833d7786f4e9c54b1da0f0cc93
+  - enabled: 1
+    path: Assets/If Simulator/Scenes/Game/Nebula Fight.unity
+    guid: a22cc14e7bac16445847294ea020c0ce
   - enabled: 1
     path: Assets/If Simulator/Scenes/Game/UI.unity
     guid: e108053ad20831d48bec1d10a7074418
