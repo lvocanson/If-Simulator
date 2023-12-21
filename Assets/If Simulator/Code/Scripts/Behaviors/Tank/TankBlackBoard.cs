@@ -1,7 +1,7 @@
-using System;
 using BehaviorTree;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TankBlackBoard : MonoBehaviour
 {
@@ -12,6 +12,8 @@ public class TankBlackBoard : MonoBehaviour
 
     [SerializeField] private PhysicsEvents _chaseColEvent;
     [SerializeField] private PhysicsEvents _attackColEvent;
+
+    [SerializeField] private NavMeshAgent Agent;
     //[SerializeField] private Shooter _shooter;
 
     [Header("Debug")]
@@ -21,6 +23,9 @@ public class TankBlackBoard : MonoBehaviour
     {
         _chaseColEvent.OnEnter += OnPlayerEnteredRange;
         _chaseColEvent.OnExit += OnPlayerExitedRange;
+
+        _attackColEvent.OnEnter += OnPlayerEnteredAttackRange;
+        _attackColEvent.OnExit += OnPlayerExitedAttackRange;
     }
 
     private void OnPlayerEnteredRange(Collider2D collider2D)
@@ -37,7 +42,25 @@ public class TankBlackBoard : MonoBehaviour
         if (collider2D.CompareTag("Player"))
         {
             _runner.Blackboard.Write("isPlayerInRange", false);
-            _lookAt2D.Target = null;
+            _lookAt2D = null;
+        }
+    }
+
+    private void OnPlayerEnteredAttackRange(Collider2D collider2D)
+    {
+        if (collider2D.CompareTag("Player"))
+        {
+            _runner.Blackboard.Write("isPlayerInAttackRange", true);
+            _lookAt2D.Target = collider2D.transform.parent;
+        }
+    }
+
+    private void OnPlayerExitedAttackRange(Collider2D collider2D)
+    {
+        if (collider2D.CompareTag("Player"))
+        {
+            _runner.Blackboard.Write("isPlayerInAttackRange", false);
+            _lookAt2D = null;
         }
     }
 
@@ -45,5 +68,8 @@ public class TankBlackBoard : MonoBehaviour
     {
         _chaseColEvent.OnEnter -= OnPlayerEnteredRange;
         _chaseColEvent.OnExit -= OnPlayerExitedRange;
+
+        _attackColEvent.OnEnter -= OnPlayerEnteredAttackRange;
+        _attackColEvent.OnExit -= OnPlayerExitedAttackRange;
     }
 }

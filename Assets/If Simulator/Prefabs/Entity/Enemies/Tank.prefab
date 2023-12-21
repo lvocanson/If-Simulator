@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8355994690388667817}
   - component: {fileID: 8261710116451286170}
   - component: {fileID: 8875159123792528539}
-  - component: {fileID: 6221939654445967251}
   m_Layer: 3
   m_Name: Brain
   m_TagString: Untagged
@@ -77,37 +76,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c9860ae7e643949b7093c0351f483b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NavMeshAgent: {fileID: 0}
---- !u!114 &6221939654445967251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 543416588543456972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35036d091187b1e47ac8b33cfcb329cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sprite: {fileID: 0}
-  _audioSource: {fileID: 0}
-  _maxHealth: 0
-  _invulnerabilityDuration: 0
-  _hitMaterial: {fileID: 0}
-  _invulnerabilityMaterial: {fileID: 0}
-  _scaleEffectOffset: 0.2
-  _damagePopupPosition: {fileID: 0}
-  _healPopupRotation: {fileID: 0}
-  _damageSound: {fileID: 0}
-  _damageParticle: {fileID: 0}
-  _dieParticle: {fileID: 0}
-  _agent: {fileID: 0}
-  _lifeBarPrefab: {fileID: 0}
-  _lifeBarPosition: {fileID: 0}
-  _objectToDestroyOnDeath: {fileID: 0}
-  _btRunner: {fileID: 0}
-  _2ndPhaseHealthThreshold: 0
+  _lookAt2D: {fileID: 0}
+  _runner: {fileID: 0}
+  _enemy: {fileID: 0}
+  _waypoints: []
+  _chaseColEvent: {fileID: 0}
+  _attackColEvent: {fileID: 0}
+  Agent: {fileID: 0}
 --- !u!1 &3732456989763029850
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7346726285797736489}
   - component: {fileID: 3285434469442076168}
+  - component: {fileID: 3616430072722359446}
   m_Layer: 9
   m_Name: Target
   m_TagString: Untagged
@@ -403,6 +379,33 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!50 &3616430072722359446
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6360606812465939318}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7633564130571727065
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4361324824852945236}
   - component: {fileID: 3493127885560842595}
-  - component: {fileID: 5865422642245903965}
+  - component: {fileID: 8207680625414698957}
   m_Layer: 3
   m_Name: Physics
   m_TagString: Untagged
@@ -472,7 +475,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &5865422642245903965
+--- !u!114 &8207680625414698957
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -481,10 +484,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7633564130571727065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f1847fd7e38696458b06795f613abc7, type: 3}
+  m_Script: {fileID: 11500000, guid: 848551b2a23fae446829557f68c7f272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: be5c46e6132375e4b87babf9d0c126d2, type: 2}
+  _forwardTo: {fileID: 8261710116451286170}
 --- !u!1 &7665824310961699684
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d18b4a29548c3c4db9b61ee29ef3852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tree: {fileID: 11400000, guid: 5ed4c18da16d0764cb5d6e13f98fc76a, type: 2}
+  _tree: {fileID: 11400000, guid: e9913efc6881d674880ea8db2ac513cb, type: 2}
   _blackboardInitializer: {fileID: 8261710116451286170}
 --- !u!195 &669617141972673452
 NavMeshAgent:
@@ -680,7 +683,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2606805930765070169}
   - component: {fileID: 3069426484400717471}
-  - component: {fileID: 5755880292893382883}
   m_Layer: 3
   m_Name: Renderer
   m_TagString: Untagged
@@ -755,16 +757,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5755880292893382883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9015439077626714525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 848551b2a23fae446829557f68c7f272, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _forwardTo: {fileID: 8261710116451286170}

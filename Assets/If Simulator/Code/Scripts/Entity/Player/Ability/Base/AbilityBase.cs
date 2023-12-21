@@ -14,7 +14,7 @@ namespace Ability
 
         public abstract void End();
 
-        [SerializeField, Expandable] private T _abilitySo;
+        [SerializeField, Expandable] protected T _abilitySo;
         
         public T RuntimeAbilitySo { get; private set; }
         
