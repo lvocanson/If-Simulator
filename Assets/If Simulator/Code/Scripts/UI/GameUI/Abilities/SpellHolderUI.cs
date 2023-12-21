@@ -17,12 +17,22 @@ public class SpellHolderUI : MonoBehaviour
         UpdateSpell(_secondSpell, newSpell);
     }
     
-    public void UpdateFirstSpellCooldown(int newCooldown, float maxCooldown)
+    public void OnFirstSpellActivated()
+    {
+        _firstSpell.OnUsed();
+    }
+    
+    public void OnSecondSpellActivated()
+    {
+        _secondSpell.OnUsed();
+    }
+    
+    public void UpdateFirstSpellCooldown(float newCooldown, float maxCooldown)
     {
         _firstSpell.UpdateCooldown(newCooldown, maxCooldown);
     }
     
-    public void UpdateSecondSpellCooldown(int newCooldown, float maxCooldown)
+    public void UpdateSecondSpellCooldown(float newCooldown, float maxCooldown)
     {
         _secondSpell.UpdateCooldown(newCooldown, maxCooldown);
     }

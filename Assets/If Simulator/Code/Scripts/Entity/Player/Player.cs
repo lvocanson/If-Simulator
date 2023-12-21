@@ -20,7 +20,7 @@ public class Player : DamageableEntity
     protected override void Awake()
     {
         base.Awake();
-        
+
         _data.Load(this);
     }
 
@@ -30,6 +30,8 @@ public class Player : DamageableEntity
         
         _playerAttackManager.ChangeFirstSpell(_firstSpell);
         _playerAttackManager.ChangeSecondSpell(_secondSpell);
+        
+        _data.Start();
     }
     
     protected override void Die()

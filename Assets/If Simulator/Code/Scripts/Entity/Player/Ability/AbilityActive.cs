@@ -14,14 +14,13 @@ namespace Ability
         }
 
         private float _curCooldown;
-        public event Action<int, float> OnCooldownChanged;
+        public event Action<float, float> OnCooldownChanged;
+        public event Action OnAbilityActivated;
 
         private Coroutine _routine;
 
         private AbilityState _state = AbilityState.READY;
-
-        private int CurCooldown => (int)_curCooldown;
-
+        
         private float CurActiveCooldown { get; set; }
 
         private float GetActiveCooldown()
@@ -38,6 +37,7 @@ namespace Ability
 
             // Mark the ability as active
             _state = AbilityState.ACTIVE;
+            OnAbilityActivated?.Invoke();
             CurActiveCooldown = GetActiveCooldown();
 
             _routine = StartCoroutine(Routine());
@@ -84,14 +84,8 @@ namespace Ability
                 {
                     if (_curCooldown > 0)
                     {
-                        var oldCooldown = (int)_curCooldown;
                         _curCooldown -= Time.deltaTime;
-                        var newCooldown = (int)_curCooldown;
-                        
-                        if (oldCooldown != newCooldown)
-                        {
-                            OnCooldownChanged?.Invoke(CurCooldown, RuntimeAbilitySo.Cooldown);
-                        }
+                        OnCooldownChanged?.Invoke(_curCooldown, RuntimeAbilitySo.Cooldown);
                     }
                     else
                     {

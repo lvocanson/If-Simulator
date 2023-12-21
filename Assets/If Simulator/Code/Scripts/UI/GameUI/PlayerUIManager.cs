@@ -14,6 +14,7 @@ public class PlayerUIManager : MonoBehaviour
     private void OnEnable()
     {
         _currentPlayerSo.OnPlayerLoaded += LoadEvents;
+        _currentPlayerSo.OnPlayerStarted += LoadSpellsEvents;
     }
     
     private void LoadEvents()
@@ -28,13 +29,22 @@ public class PlayerUIManager : MonoBehaviour
         _currentPlayerSo.Player.PlayerAttackManager.OnFirstSpellChanged += _spellHolderUI.UpdateFirstSpell;
         _currentPlayerSo.Player.PlayerAttackManager.OnSecondSpellChanged += _spellHolderUI.UpdateSecondSpell;
         
+        
+    }
+
+    private void LoadSpellsEvents()
+    {
         _currentPlayerSo.Player.PlayerAttackManager.FirstSpell.OnCooldownChanged += _spellHolderUI.UpdateFirstSpellCooldown;
         _currentPlayerSo.Player.PlayerAttackManager.SecondSpell.OnCooldownChanged += _spellHolderUI.UpdateSecondSpellCooldown;
+        
+        _currentPlayerSo.Player.PlayerAttackManager.FirstSpell.OnAbilityActivated += _spellHolderUI.OnFirstSpellActivated;
+        _currentPlayerSo.Player.PlayerAttackManager.SecondSpell.OnAbilityActivated += _spellHolderUI.OnSecondSpellActivated;
     }
     
     private void OnDisable()
     {
         _currentPlayerSo.OnPlayerLoaded -= LoadEvents;
+        _currentPlayerSo.OnPlayerStarted -= LoadSpellsEvents;
         UnloadEvents();
     }
     
@@ -53,6 +63,9 @@ public class PlayerUIManager : MonoBehaviour
         
         _currentPlayerSo.Player.PlayerAttackManager.FirstSpell.OnCooldownChanged -= _spellHolderUI.UpdateFirstSpellCooldown;
         _currentPlayerSo.Player.PlayerAttackManager.SecondSpell.OnCooldownChanged -= _spellHolderUI.UpdateSecondSpellCooldown;
+        
+        _currentPlayerSo.Player.PlayerAttackManager.FirstSpell.OnAbilityActivated -= _spellHolderUI.OnFirstSpellActivated;
+        _currentPlayerSo.Player.PlayerAttackManager.SecondSpell.OnAbilityActivated -= _spellHolderUI.OnSecondSpellActivated;
     }
 
     private void Start()
