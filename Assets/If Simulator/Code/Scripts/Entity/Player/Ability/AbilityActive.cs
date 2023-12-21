@@ -37,10 +37,10 @@ namespace Ability
 
         // Called when the ability is activated (corresponding key pressed)
         // Note: This method does not start the cooldown right away, the cooldown is started when the ability's active time is over
-        public sealed override void TryActivate()
+        public sealed override bool TryActivate()
         {
             // If the ability is not ready, do nothing
-            if (_state != AbilityState.READY) return;
+            if (_state != AbilityState.READY) return false;
 
             // Mark the ability as active
             _state = AbilityState.ACTIVE;
@@ -48,7 +48,7 @@ namespace Ability
             CurActiveCooldown = GetActiveCooldown();
 
             _routine = StartCoroutine(Routine());
-            return;
+            return true;
 
             // Local function to start the start coroutine
             IEnumerator Routine()

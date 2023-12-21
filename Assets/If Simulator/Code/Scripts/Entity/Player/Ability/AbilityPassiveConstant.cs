@@ -2,12 +2,14 @@
 {
     public abstract class AbilityPassiveConstant : AbilityPassive<SoAbilityConstant>
     {
-        public sealed override void TryActivate()
+        public sealed override bool TryActivate()
         {
-            if (RuntimeAbilitySo._isActivated) return;
+            if (_abilitySo._isActivated) return false;
 
             OnEffectStart();
-            RuntimeAbilitySo._isActivated = true;
+            _abilitySo._isActivated = true;
+
+            return true;
         }
 
         public override void End()
