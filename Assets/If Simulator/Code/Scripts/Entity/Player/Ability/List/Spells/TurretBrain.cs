@@ -102,7 +102,7 @@ namespace Ability
         {
             // Handle turret explosion
             _currentTarget = null;
-            ChangeState(_destroyState);
+            ChangeState(_destroyState, ParentAbility);
 
             // Destroy the game object
             Destroy(gameObject);

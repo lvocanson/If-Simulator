@@ -20,7 +20,7 @@ MonoBehaviour:
   _value: 3
   _valuePerLevel: 0
   _rangePerLevel: 0
-  _cooldown: 120
+  _cooldown: 60
   _isHoldable: 0
   _delay: 0.2
   _abilityDuration: 30

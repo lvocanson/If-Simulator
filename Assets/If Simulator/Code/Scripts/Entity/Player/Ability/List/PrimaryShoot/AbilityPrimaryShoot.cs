@@ -32,7 +32,7 @@ namespace Ability
             bullet.SetActive(true);
             Projectile bulletBehavior = bullet.GetComponent<Projectile>();
             bulletBehavior.Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
-            bulletBehavior.SetDamage(_abilitySo.Damage);
+            bulletBehavior.SetDamage(RuntimeAbilitySo.Value);
         }
 
         protected override void OnBulletReturnToPool(GameObject bullet)
