@@ -48,7 +48,7 @@ namespace Ability
             if (Physics2D.Linecast(transform.position, other.transform.position, _wallLayer.value)) return;
                 
             // Damage
-            damageable.Damage(_so.Damage);
+            damageable.Damage(_so.Damage, LevelContext.Instance.GameSettings.EnemyDamageColor);
             
             // Push back
             Vector2 dir = (other.transform.position - transform.position).normalized;

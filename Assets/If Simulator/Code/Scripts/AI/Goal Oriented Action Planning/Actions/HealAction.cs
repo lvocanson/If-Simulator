@@ -10,37 +10,56 @@ namespace IfSimulator.GOAP.Actions
     public class HealAction : ActionBase<HealData>, IInjectable
     {
         private HealConfigSO HealConfig;
+        private Player Player;
+        private float cooldownTimer = 0f;
+
         public override void Created()
         {
+            cooldownTimer = 2f;
         }
+
         public override void Start(IMonoAgent agent, HealData data)
         {
             data.Timer = HealConfig.HealDelay;
+            Player = LevelContext.Instance.LevelManager.SpawnedPlayer; // TODO refactor this    
         }
+
         public override ActionRunState Perform(IMonoAgent agent, HealData data, ActionContext context)
         {
-            data.Timer -= context.DeltaTime;
+            cooldownTimer -= context.DeltaTime;
 
-            bool shouldHeal = data.Target != null && Vector3.Distance(data.Target.Position, agent.transform.position) <= HealConfig.HealRadius;
-            
-            Debug.Log("Can Heal or should Heal" + shouldHeal);
-
-            if (shouldHeal)
+            if (cooldownTimer <= 0)
             {
-                agent.transform.LookAt(data.Target.Position);
+                data.Timer -= context.DeltaTime;
+
+                bool shouldHeal = data.Target != null && Vector3.Distance(data.Target.Position, agent.transform.position) <= HealConfig.HealRadius;
+
+                if (shouldHeal && Player.CurrentHealth < 90)
+                {
+                    agent.transform.up = data.Target.Position - agent.transform.position;
+                    Player.Heal(HealConfig.HealAmount);
+
+                    if (Player.CurrentHealth > 80)
+                    {
+                        cooldownTimer = HealConfig.HealDelay;
+                        return ActionRunState.Stop;
+                    }
+
+                    cooldownTimer = HealConfig.HealDelay;
+                    return ActionRunState.Continue;
+                }
             }
 
-            return data.Timer > 0 ? ActionRunState.Continue : ActionRunState.Stop;
+            return ActionRunState.Stop;
         }
 
         public override void End(IMonoAgent agent, HealData data)
         {
         }
 
-        public void Inject(DependencyInjector Injector) 
+        public void Inject(DependencyInjector Injector)
         {
-            //HealConfig = Injector.HealConfig;
+            HealConfig = Injector.HealConfig;
         }
     }
-
 }

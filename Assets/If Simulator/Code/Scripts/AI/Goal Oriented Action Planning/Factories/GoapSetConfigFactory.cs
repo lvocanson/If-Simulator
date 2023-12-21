@@ -32,11 +32,14 @@ namespace IfSimulator.GOAP.Factories
 
         private void BuildGoals(GoapSetBuilder builder)
         {
-            builder.AddGoal<WanderGoal>()
+            builder.AddGoal<WanderGoal>() 
                 .AddCondition<IsWandering>(Comparison.GreaterThanOrEqual, 1);
 
+            builder.AddGoal<HealAlly>()
+                .AddCondition<PlayerHealth>(Comparison.GreaterThanOrEqual, 80);
+
             builder.AddGoal<KillEnemy>()
-                .AddCondition<PlayerHealth>(Comparison.SmallerThanOrEqual, 0);
+                .AddCondition<EnemyHealth>(Comparison.SmallerThanOrEqual, 0);
         }
 
         private void BuildActions(GoapSetBuilder builder)
@@ -47,11 +50,17 @@ namespace IfSimulator.GOAP.Factories
                 .SetBaseCost(5)
                 .SetInRange(10);
 
-            builder.AddAction<MeleeAction>()
+            builder.AddAction<HealAction>()
                 .SetTarget<PlayerTarget>()
-                .AddEffect<PlayerHealth>(EffectType.Decrease)
+                .AddEffect<PlayerHealth>(EffectType.Increase)
+                .SetBaseCost(Injector.HealConfig.HealCost)
+                .SetInRange(Injector.HealConfig.HealRadius);
+
+            builder.AddAction<MeleeAction>()
+                .SetTarget<EnemyTarget>()
+                .AddEffect<EnemyHealth>(EffectType.Decrease)
                 .SetBaseCost(Injector.AttackConfig.MeleeAttackCost)
-                .SetInRange(Injector.AttackConfig.SensorRadius);
+                .SetInRange(Injector.AttackConfig.MeleeAttackRadius);
         }
 
         private void BuildSensors(GoapSetBuilder builder)
@@ -61,6 +70,9 @@ namespace IfSimulator.GOAP.Factories
 
             builder.AddTargetSensor<PlayerTargetSensor>()
                 .SetTarget<PlayerTarget>();
+
+            builder.AddTargetSensor<EnemyTargetSensor>()
+                .SetTarget<EnemyTarget>();
         }
     }
 }

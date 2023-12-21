@@ -22376,6 +22376,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room3
       objectReference: {fileID: 0}
+    - target: {fileID: 1609689453537896995, guid: e935191c92074154f927686f0dc5e685, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609689453537896995, guid: e935191c92074154f927686f0dc5e685, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609689453537896995, guid: e935191c92074154f927686f0dc5e685, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 1799382461661175786, guid: e935191c92074154f927686f0dc5e685, type: 3}
       propertyPath: _initialState
       value: 2
@@ -22850,7 +22862,7 @@ Transform:
   m_GameObject: {fileID: 601580062}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.52, y: -8.53, z: 0}
+  m_LocalPosition: {x: 20.1, y: 5.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23190,7 +23202,7 @@ Transform:
   m_GameObject: {fileID: 878434649}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.35, y: -18.61, z: 0}
+  m_LocalPosition: {x: -0.4, y: -10.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23286,7 +23298,7 @@ Transform:
   m_GameObject: {fileID: 951019401}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.53, y: -6.86, z: 0}
+  m_LocalPosition: {x: -1.1, y: -3.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23319,7 +23331,7 @@ Transform:
   m_GameObject: {fileID: 962231490}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.9, y: 4.87, z: 0}
+  m_LocalPosition: {x: -3.63, y: 7.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23761,7 +23773,7 @@ Transform:
   m_GameObject: {fileID: 1174498708}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.76, y: -23.74, z: 0}
+  m_LocalPosition: {x: 9.6, y: 3.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24136,7 +24148,7 @@ Transform:
   m_GameObject: {fileID: 1528018395}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.75, y: 0.07, z: 0}
+  m_LocalPosition: {x: -1.6, y: 3.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24350,7 +24362,7 @@ Transform:
   m_GameObject: {fileID: 1581151628}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.8, y: -16.43, z: 0}
+  m_LocalPosition: {x: 7.1, y: -9.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24383,7 +24395,7 @@ Transform:
   m_GameObject: {fileID: 1584186379}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -18.89, y: -0.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24416,7 +24428,7 @@ Transform:
   m_GameObject: {fileID: 1606090663}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.75, y: 0.07, z: 0}
+  m_LocalPosition: {x: 13.8, y: 14.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26280,10 +26292,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 890092921793073788, guid: 5acf1feb0ac87c34f8885801de6f0f97, type: 3}
-      propertyPath: _mainCamera
-      value: 
-      objectReference: {fileID: 974814647}
     - target: {fileID: 890092921793073788, guid: 5acf1feb0ac87c34f8885801de6f0f97, type: 3}
       propertyPath: _targetGroup
       value: 

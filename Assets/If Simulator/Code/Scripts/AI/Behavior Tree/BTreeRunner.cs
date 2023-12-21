@@ -16,6 +16,11 @@ namespace BehaviorTree
         [SerializeField, Tooltip("The blackboard initializer. All fields marked with the SerializeField attribute will be copied to the tree's blackboard.")]
         private MonoBehaviour _blackboardInitializer = null;
 
+        /// <summary>
+        /// The blackboard of the running tree.
+        /// </summary>
+        public Blackboard Blackboard => _instance.Blackboard;
+
         private void Awake()
         {
             if (_tree == null)
