@@ -221,6 +221,17 @@ MonoBehaviour:
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
   m_NavMeshData: {fileID: 23800000, guid: 2b0b2fdc37ec619478431dc3402afcc2, type: 2}
+--- !u!114 &321035792 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4759572329534604806, guid: 66c00676d3a3e8549aeb55d75b8d35a3, type: 3}
+  m_PrefabInstance: {fileID: 4749155546870189313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bed18ff4f029cf4bb978f36afb3d121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &720478803
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,8 +559,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0043001175, y: -0.00034999847, z: 0}
-    m_Extent: {x: 20.502998, y: 23.509048, z: 0}
+    m_Center: {x: 0.0017499924, y: -0.0032491684, z: 0}
+    m_Extent: {x: 20.501549, y: 23.49545, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -3080,7 +3091,7 @@ MonoBehaviour:
   - {fileID: 4129435621845972857}
   _enteredRoomTrigger: {fileID: 5796130753136477284}
   _allEnemies:
-  - {fileID: 0}
+  - {fileID: 321035792}
 --- !u!1 &3222685473766455457
 GameObject:
   m_ObjectHideFlags: 0
