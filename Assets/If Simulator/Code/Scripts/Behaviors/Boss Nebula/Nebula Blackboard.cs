@@ -5,5 +5,5 @@ public class NebulaBlackboard : MonoBehaviour
 {
     [SerializeField] NavMeshAgent NavMeshAgent;
     [SerializeField] NebulaForearm Forearm;
-    [SerializeField] Shooter Shooter;
+    [SerializeField] Shooter BigShooter;
 }

@@ -1,13 +1,13 @@
 using BehaviorTree;
 
-public class Shoot : ActionNodeSo
+public class ShootBig : ActionNodeSo
 {
     private Shooter _shooter;
 
     public override NodeSo DeepInitialize(Blackboard blackboard)
     {
-        var clone = (Shoot)base.DeepInitialize(blackboard);
-        blackboard.Read("Shooter", out clone._shooter);
+        var clone = (ShootBig)base.DeepInitialize(blackboard);
+        blackboard.Read("BigShooter", out clone._shooter);
         return clone;
     }
 
