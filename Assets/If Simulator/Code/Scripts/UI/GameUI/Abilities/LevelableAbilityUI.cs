@@ -22,12 +22,12 @@ public class LevelableAbilityUI : AbilityIconUI
     public void InitStars(int maxLevel)
     {
         int levelStarInstantiated = _levelStarLayoutGroup.transform.childCount;
-        
         if (levelStarInstantiated > maxLevel)
         {
             for (int i = maxLevel; i < levelStarInstantiated; i++)
             {
                 Destroy(_levelStarLayoutGroup.transform.GetChild(i).gameObject);
+                if (i < _levelStars.Count) break; // Temporary fix of a bug where the whole UpdateSpell event is called twice
                 _levelStars.RemoveAt(i);
             }
         }

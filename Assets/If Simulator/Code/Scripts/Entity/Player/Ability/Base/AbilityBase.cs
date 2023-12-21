@@ -31,7 +31,7 @@ namespace Ability
         
         public bool CompareAbility(SoAbilityBase otherAbility)
         {
-            return _abilitySo == otherAbility;
+            return _abilitySo.Name == otherAbility.Name;
         }
     }
 }

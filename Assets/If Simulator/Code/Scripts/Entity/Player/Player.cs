@@ -30,8 +30,11 @@ public class Player : DamageableEntity
     {
         base.Start();
         
-        _playerAttackManager.ChangeFirstSpell(_firstSpell);
-        _playerAttackManager.ChangeSecondSpell(_secondSpell);
+        if (_playerAttackManager.GetFirstSpell() == null) _playerAttackManager.ChangeFirstSpell(_firstSpell);
+        else _playerAttackManager.ResetFirstSpell();
+        
+        if (_playerAttackManager.GetSecondSpell() == null) _playerAttackManager.ChangeSecondSpell(_secondSpell);
+        else _playerAttackManager.ResetSecondSpell();
         
         _data.Start();
     }

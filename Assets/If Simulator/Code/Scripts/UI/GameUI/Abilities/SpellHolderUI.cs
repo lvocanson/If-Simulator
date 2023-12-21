@@ -10,11 +10,13 @@ public class SpellHolderUI : MonoBehaviour
     public void UpdateFirstSpell(AbilityActive newSpell)
     {
         UpdateSpell(_firstSpell, newSpell);
+        UpdateFirstSpellCooldown(0, 0);
     }
     
     public void UpdateSecondSpell(AbilityActive newSpell)
     {
         UpdateSpell(_secondSpell, newSpell);
+        UpdateSecondSpellCooldown(0, 0);
     }
     
     public void OnFirstSpellActivated()
@@ -41,7 +43,6 @@ public class SpellHolderUI : MonoBehaviour
     {
         if (newSpell == null) return;
 
-        Debug.Log("Updating spell: " + newSpell.RuntimeAbilitySo.Name);
         spellUI.ChangeIcon(newSpell.RuntimeAbilitySo.Icon);
         spellUI.InitStars(newSpell.RuntimeAbilitySo.MaxLevel);
         spellUI.EnableStars(newSpell.CurrentLevel);

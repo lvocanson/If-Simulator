@@ -17,11 +17,29 @@ namespace UI
             _context = so;
             
             _popup.SetActive(true);
-            _cards[0].Init(_playerUiManager.CurrentPlayerSo.Player.PlayerAttackManager.GetFirstSpell(), _context);
-            _cards[0].OnCardClicked += SelectFirstSpell;
+            
+            string firstSpellName = _playerUiManager.CurrentPlayerSo.Player.PlayerAttackManager.GetFirstSpell()?.Name;
+            string secondSpellName = _playerUiManager.CurrentPlayerSo.Player.PlayerAttackManager.GetSecondSpell()?.Name;
 
-            _cards[1].Init(_playerUiManager.CurrentPlayerSo.Player.PlayerAttackManager.GetSecondSpell(), _context);
-            _cards[1].OnCardClicked += SelectSecondSpell;
+            if (_context.Name == secondSpellName)
+            {
+                _cards[0].gameObject.SetActive(false);
+            }
+            else
+            {
+                _cards[0].Init(_playerUiManager.CurrentPlayerSo.Player.PlayerAttackManager.GetFirstSpell(), _context);
+                _cards[0].OnCardClicked += SelectFirstSpell;
+            }
+            
+            if (_context.Name == firstSpellName)
+            {
+                _cards[1].gameObject.SetActive(false);
+            }
+            else
+            {
+                _cards[1].Init(_playerUiManager.CurrentPlayerSo.Player.PlayerAttackManager.GetSecondSpell(), _context);
+                _cards[1].OnCardClicked += SelectSecondSpell;
+            }
         }
         
         private void Update()

@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Ability;
+using JetBrains.Annotations;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -35,13 +36,19 @@ public class PlayerAttackManager : MonoBehaviour
     {
         var spells = _spellsGo.GetComponents<AbilityActive>();
         AbilityActive s = spells.First(e => e.CompareAbility(newSpell));
-        if (s == null)
-        {
-            Debug.LogError("Spell not found", this);
-        }
+        if (s == null) Debug.LogError("Spell not found", this);
         
-        if(_firstSpellAbilityBase != null) 
+        if (_firstSpellAbilityBase != null)
+        {
+            if (newSpell.Name == _firstSpellAbilityBase.RuntimeAbilitySo.Name)
+            {
+                Debug.Log("Level up : " + _firstSpellAbilityBase.RuntimeAbilitySo.Name);
+                _firstSpellAbilityBase.LevelUp();
+                OnFirstSpellChanged?.Invoke(_firstSpellAbilityBase);
+                return;
+            }
             _firstSpellAbilityBase.OnEnemyKilled -= _playerXp.AddXp;
+        }
         
         _firstSpellAbilityBase = s;
         _firstSpellAbilityBase.OnEnemyKilled += _playerXp.AddXp;
@@ -53,13 +60,18 @@ public class PlayerAttackManager : MonoBehaviour
     {
         var spells = _spellsGo.GetComponents<AbilityActive>();
         AbilityActive s = spells.First(e => e.CompareAbility(newSpell));
-        if (s == null)
-        {
-            Debug.LogError("Spell not found", this);
-        }
+        if (s == null) Debug.LogError("Spell not found", this);
         
-        if(_secondSpellAbilityBase != null) 
+        if (_secondSpellAbilityBase != null)
+        {
+            if (newSpell.Name == _secondSpellAbilityBase.RuntimeAbilitySo.Name)
+            {
+                _secondSpellAbilityBase.LevelUp();
+                OnSecondSpellChanged?.Invoke(_secondSpellAbilityBase);
+                return;
+            }
             _secondSpellAbilityBase.OnEnemyKilled -= _playerXp.AddXp;
+        }
         
         _secondSpellAbilityBase = s;
         _secondSpellAbilityBase.OnEnemyKilled += _playerXp.AddXp;
@@ -67,14 +79,26 @@ public class PlayerAttackManager : MonoBehaviour
         OnSecondSpellChanged?.Invoke(_secondSpellAbilityBase);
     }
     
+    [CanBeNull]
     public SoAbilityBase GetFirstSpell()
     {
-        return _firstSpellAbilityBase.RuntimeAbilitySo;
+        return _firstSpellAbilityBase == null ? null : _firstSpellAbilityBase.RuntimeAbilitySo;
     }
     
+    [CanBeNull]
     public SoAbilityBase GetSecondSpell()
     {
-        return _secondSpellAbilityBase.RuntimeAbilitySo;
+        return _secondSpellAbilityBase == null ? null : _secondSpellAbilityBase.RuntimeAbilitySo;
+    }
+    
+    public void ResetFirstSpell()
+    {
+        _firstSpellAbilityBase.ResetAbility();
+    }
+    
+    public void ResetSecondSpell()
+    {
+        _secondSpellAbilityBase.ResetAbility();
     }
     
     protected void OnEnable()
