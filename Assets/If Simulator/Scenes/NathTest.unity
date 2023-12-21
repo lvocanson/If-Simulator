@@ -425,9 +425,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 815662273393526798, guid: 084b8e49e7888e14e9b20c6b846509e5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a0b0f884ace5ed41b10f57eb03db9b9, type: 2}
     - target: {fileID: 2829507403385847181, guid: 084b8e49e7888e14e9b20c6b846509e5, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2888834996624213117, guid: 084b8e49e7888e14e9b20c6b846509e5, type: 3}
       propertyPath: m_IsTrigger
@@ -435,7 +439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5481753674666730977, guid: 084b8e49e7888e14e9b20c6b846509e5, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8218941141542645601, guid: 084b8e49e7888e14e9b20c6b846509e5, type: 3}
       propertyPath: m_Name
@@ -443,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8218941141542645601, guid: 084b8e49e7888e14e9b20c6b846509e5, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8345320118885696050, guid: 084b8e49e7888e14e9b20c6b846509e5, type: 3}
       propertyPath: m_Speed

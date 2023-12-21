@@ -5,21 +5,21 @@ using CrashKonijn.Goap.Interfaces;
 
 namespace IfSimulator.GOAP.Behaviors
 {
-    // TODO : ADD Animator in futur
     [RequireComponent(typeof(NavMeshAgent), typeof(AgentBehaviour))]
     public class AgentMoveBehavior : MonoBehaviour
     {
         private NavMeshAgent Agent;
         private AgentBehaviour AgentBehaviour;
         private ITarget CurrentTarget;
-        [SerializeField] private float MinMoveDistance = 4f;
+        [SerializeField] private float MinMoveDistance = 3f;
         private Vector3 LastPosition;
+
         private void Awake()
         {
             Agent = GetComponent<NavMeshAgent>();
             Agent.updateRotation = false;
             Agent.updateUpAxis = false;
-
+            Agent.stoppingDistance = MinMoveDistance; 
             AgentBehaviour = GetComponent<AgentBehaviour>();
         }
 
@@ -53,7 +53,7 @@ namespace IfSimulator.GOAP.Behaviors
                 return;
             }
 
-            if (MinMoveDistance <= Vector3.Distance(CurrentTarget.Position, LastPosition)) 
+            if (MinMoveDistance <= Vector3.Distance(CurrentTarget.Position, LastPosition))
             {
                 LastPosition = CurrentTarget.Position;
                 Agent.SetDestination(CurrentTarget.Position);
