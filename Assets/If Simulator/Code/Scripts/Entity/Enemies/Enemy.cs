@@ -23,7 +23,6 @@ public class Enemy : DamageableEntity
     protected override void OnDisable()
     {
         base.OnDisable();
-        
         OnHealthChanged -= _lifeBar.SetHealth;
     }
     

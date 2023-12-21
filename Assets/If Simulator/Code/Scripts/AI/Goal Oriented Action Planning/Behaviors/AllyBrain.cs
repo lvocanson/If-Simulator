@@ -83,14 +83,12 @@ namespace IfSimulator.GOAP.Behaviors
 
         private void EnemySensorOnEnemyEnter(Transform Enemy)
         {
-            if (CurrentPlayerSo.Player.CurrentHealth > 80)
-                AgentBehaviour.SetGoal<KillEnemy>(true);
+            AgentBehaviour.SetGoal<KillEnemy>(true);
         }
 
         private void EnemySensorOnEnemyStay(Transform Enemy)
         {
-            if (CurrentPlayerSo.Player.CurrentHealth > 80)
-                AgentBehaviour.SetGoal<KillEnemy>(true);
+            AgentBehaviour.SetGoal<KillEnemy>(true);
         }
 
         private void EnemySensorOnEnemyExit(Vector3 lastKnownPosition)

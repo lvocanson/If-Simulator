@@ -16,7 +16,7 @@ namespace IfSimulator.GOAP.Actions
 
         public override void Created()
         {
-            cooldownTimer = 2f;
+            cooldownTimer = 1f;
         }
 
         public override void Start(IMonoAgent agent, AttackData data)

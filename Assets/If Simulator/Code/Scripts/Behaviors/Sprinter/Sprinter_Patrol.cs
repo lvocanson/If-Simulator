@@ -4,36 +4,49 @@ using NaughtyAttributes;
 
 public class Sprinter_Patrol : BaseState
 {
-    [Header("References")]
     [SerializeField] private Enemy _enemy;
-    [SerializeField] private BaseState _chase;
-    [SerializeField] private Transform[] _waypoints;
-    [SerializeField] private float _speed = 1f;
-    [SerializeField] private float _playerRange = 2f;
     
+    [Header("State Machine")]
+    [SerializeField] private Sprinter_Chase _chase;
+    [SerializeField] private Transform[] _waypoints;
+
+    [Header("Data")]
+    [SerializeField] private float _speed = 1f;
+
+    [Header("Debug")]
     [ShowNonSerializedField] private int _index = 0;
-    [ShowNonSerializedField, Tooltip("The target to move towards")] private Transform _currentTarget;
 
+    [Header("Event")]
+    [SerializeField] private PhysicsEvents _chaseColEvent;
 
+    
     private void OnEnable()
     {
+        _chaseColEvent.OnEnter += EnterOnChaseRange;
         _enemy.Agent.SetDestination(_waypoints[_index].position);
         _enemy.Agent.speed = _speed;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void EnterOnChaseRange(Collider2D obj)
     {
-        if (Vector3.Distance(transform.position, _currentTarget.position) < _playerRange)
-        {
-            Manager.ChangeState(_chase);
-        }
+        _chase.SetTarget(obj.transform);
+        Manager.ChangeState(_chase);
+    }
 
-        else if (Vector3.Distance(transform.position, _waypoints[_index].position) < .5f)
+    private void Update()
+    {
+        if (_waypoints.Length > 0 && Vector3.Distance(transform.position, _waypoints[_index].position) < .5f)
         {
-            _index = (_index + 1) % _waypoints.Length;
+            _index++;
+            if (_index >= _waypoints.Length)
+                _index = 0;
+            
             _enemy.Agent.SetDestination(_waypoints[_index].position);
         }
+    }
 
+    private void OnDisable()
+    {
+        _chaseColEvent.OnEnter -= EnterOnChaseRange;
     }
 }

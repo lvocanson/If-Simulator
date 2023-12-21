@@ -10,6 +10,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     
     [Header("References")]
     [SerializeField] private SpriteRenderer _sprite;
+    [SerializeField] private AudioSource _audioSource;
 
     [Header("Damageable Entity")]
     [SerializeField] private float _maxHealth;
@@ -20,10 +21,12 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     [SerializeField] private Material _invulnerabilityMaterial;
     [SerializeField] private float _scaleEffectOffset = 0.2f;
     [SerializeField] private Transform _damagePopupPosition;
+    [SerializeField] private Transform _healPopupRotation;
     
     [Header("Feedback")]
-    [SerializeField] private AudioSource _damageSound;
+    [SerializeField] private AudioClip _damageSound;
     [SerializeField] private GameObject _damageParticle;
+    [SerializeField] private GameObject _dieParticle;
     
     [Header("Debug")]
     [ShowNonSerializedField] private float _currentHealth;
@@ -103,21 +106,24 @@ public class DamageableEntity : MonoBehaviour, IDamageable
         OnDamage?.Invoke();
         if(_damageParticle != null)
             Instantiate(_damageParticle, transform.position, Quaternion.identity);
-        _damageSound.Play();
+        if (_audioSource != null)
+            _audioSource.PlayOneShot(_damageSound); 
     }
     
-    public void Heal(float heal)
+    public void Heal(float heal, Color color)
     {
         if (_currentHealth >= _maxHealth) return;
         _currentHealth = Mathf.Min(_maxHealth, _currentHealth + heal);
         
-        SingleDamagePopup.Create(transform.position - _damagePopupPosition.localPosition, (int)heal, LevelContext.Instance.GameSettings.HealColor);
+        SingleDamagePopup.Create(transform.position - _healPopupRotation.localPosition, (int)heal, LevelContext.Instance.GameSettings.HealColor);
         
         OnHealthChanged?.Invoke(_currentHealth, MaxHealth);
     }
     
     protected virtual void Die()
     {
+        if (_dieParticle != null)
+            Instantiate(_dieParticle, transform.position, Quaternion.identity);
         OnDeath?.Invoke();
         
         if (_totalDamagePopup != null)

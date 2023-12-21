@@ -6,5 +6,5 @@ public class DamageableEntityProxy : MonoBehaviour, IDamageable
 
     public void Damage(float damage, Color color) => _forwardTo.Damage(damage, color);
 
-    public void Heal(float heal) => _forwardTo.Heal(heal);
+    public void Heal(float heal, Color color) => _forwardTo.Heal(heal, color);
 }

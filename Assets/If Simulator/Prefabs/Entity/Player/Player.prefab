@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 73705202239706238}
   - component: {fileID: 1184203270396730982}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6392572602471796864}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: ProjectileSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 3698871190431304111}
   - component: {fileID: 5540728448906214869}
   - component: {fileID: 3407179542858764038}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Actions
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4383681110756215978}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: DamagePopupPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4131663215806318270}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Render
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -256,6 +256,37 @@ Transform:
   - {fileID: 307254912974005669}
   m_Father: {fileID: 2873507226914812432}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3067877074802430322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6273551665258946998}
+  m_Layer: 6
+  m_Name: HealPopupPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6273551665258946998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3067877074802430322}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4, y: -1.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5372018016285161383}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3154893639845020007
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5372018016285161383}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Sockets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,6 +318,7 @@ Transform:
   m_Children:
   - {fileID: 6392572602471796864}
   - {fileID: 4383681110756215978}
+  - {fileID: 6273551665258946998}
   m_Father: {fileID: 2873507226914812432}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3350060009215273141
@@ -299,7 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 307254912974005669}
   - component: {fileID: 7429918993202385571}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Body
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -457,7 +489,7 @@ GameObject:
   - component: {fileID: 2452512995575623704}
   - component: {fileID: 3176874792679140571}
   - component: {fileID: 810246432251487707}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Spells
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -745,7 +777,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2873507226914812432}
   - component: {fileID: 7800368948159628112}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -814,7 +846,7 @@ GameObject:
   - component: {fileID: 263370004781948735}
   - component: {fileID: 6823956314062483985}
   - component: {fileID: 1091957154965525956}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Brain
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -849,14 +881,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sprite: {fileID: 7429918993202385571}
+  _audioSource: {fileID: 0}
   _maxHealth: 100
   _invulnerabilityDuration: 1
   _hitMaterial: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
   _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
   _scaleEffectOffset: 0.2
   _damagePopupPosition: {fileID: 4383681110756215978}
+  _healPopupRotation: {fileID: 6273551665258946998}
   _damageSound: {fileID: 1091957154965525956}
   _damageParticle: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
+  _dieParticle: {fileID: 0}
   _playerAttackManager: {fileID: 263370004781948735}
   _playerMovement: {fileID: 5540728448906214869}
   playerAim: {fileID: 3407179542858764038}
@@ -1024,7 +1059,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6141166088696183152}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Physics
   m_TagString: Player
   m_Icon: {fileID: 0}
