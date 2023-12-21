@@ -16,7 +16,7 @@ namespace Ability
 
             var bulletBehavior = bp.GetComponent<Projectile>();
             bulletBehavior.Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
-            bulletBehavior.SetDamage(_abilitySo.Damage);
+            bulletBehavior.SetDamage(RuntimeAbilitySo.Value);
             bulletBehavior.OnDestroy += CleanProjectile;
 
             return bp;
@@ -29,6 +29,8 @@ namespace Ability
 
         protected override void OnBulletTakeFromPool(GameObject bullet)
         {
+            base.OnBulletTakeFromPool(bullet);
+            
             bullet.transform.position = _bulletSpawnPoint.position;
             bullet.transform.rotation = _bulletSpawnPoint.rotation;
             bullet.SetActive(true);
@@ -37,8 +39,10 @@ namespace Ability
 
         protected override void OnBulletReturnToPool(GameObject bullet)
         {
+            base.OnBulletReturnToPool(bullet);
+            
             var explosion = Instantiate(_explodePrefab, bullet.transform.position, Quaternion.identity).GetComponent<AbilityExplosionBehavior>();
-            explosion.Init(_explodeSo);
+            explosion.Init(_explodeSo, this);
             
             bullet.SetActive(false);
         }

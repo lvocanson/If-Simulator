@@ -46,6 +46,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damagePopupPrefab: {fileID: 4185968672654884755, guid: b21f96d496eaf5b449de1a2e36d1fc7b, type: 3}
   _totalDamagePopupPrefab: {fileID: 4185968672654884755, guid: 9ab0473e355c91844b912de98a08400e, type: 3}
+--- !u!1 &3887366644516909383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7122815214602658624}
+  - component: {fileID: 2221054769618308763}
+  m_Layer: 0
+  m_Name: SpellPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7122815214602658624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887366644516909383}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5566196646264193762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2221054769618308763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887366644516909383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57987f65e44a46c3b68c1b1702f641ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseAbilities:
+  - {fileID: 11400000, guid: 2965c84f1be4d394da0db509c4a2ae7a, type: 2}
+  - {fileID: 11400000, guid: 3159d618200ce7e41bdaa35764a2df27, type: 2}
+  - {fileID: 11400000, guid: 7ca9785ad7b1538429ff0187493cb2e5, type: 2}
+  _spells:
+  - {fileID: 11400000, guid: 49bc4f1abfe5d9241a9bdce3378a1b25, type: 2}
+  - {fileID: 11400000, guid: 83156b29a3143244eb33e0875148af16, type: 2}
+  - {fileID: 11400000, guid: 650c4ac964c428140913c9b312d9d7f8, type: 2}
+  _passives: []
 --- !u!1 &4548767136249302230
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +275,7 @@ Transform:
   - {fileID: 868724593796369079}
   - {fileID: 4308397584509740018}
   - {fileID: 7383668931307455512}
+  - {fileID: 7122815214602658624}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2088842095107069512
@@ -240,5 +294,6 @@ MonoBehaviour:
   _cameraManager: {fileID: 890092921793073788}
   prefabsHolder: {fileID: 1448977717612599085}
   gameSettings: {fileID: 1363996854448621434}
+  _spellPool: {fileID: 2221054769618308763}
   _levelContextInitialized: {fileID: 11400000, guid: 4bf5c5f77e306c549986f626845ed91e, type: 2}
   _levelContextStarted: {fileID: 11400000, guid: 8e2a49aa856a31749916a00b9055414e, type: 2}

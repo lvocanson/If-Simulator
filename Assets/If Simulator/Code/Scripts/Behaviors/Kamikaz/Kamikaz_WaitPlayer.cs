@@ -19,8 +19,11 @@ public class Kamikaz_WaitPlayer : BaseState
 
     private void EnterOnChaseRange(Collider2D obj)
     {
-        _chase.SetTarget(obj.transform);
-        Manager.ChangeState(_chase);
+        if (obj.CompareTag("Player") && obj.GetComponent<Player>())
+        {
+            _chase.SetTarget(obj.transform);
+            Manager.ChangeState(_chase);
+        }
     }
     
     private void OnDisable()

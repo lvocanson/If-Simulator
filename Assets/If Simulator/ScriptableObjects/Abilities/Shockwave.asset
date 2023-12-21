@@ -14,11 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Wave
   _description: area damage
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 1bc592b5c6bf99e49944e96c58a6c802, type: 3}
   _maxLevel: 3
-  _damage: 1
   _range: 3
+  _value: 2
+  _valuePerLevel: 0
+  _rangePerLevel: 0
   _cooldown: 2
   _isHoldable: 0
   _delay: 0
   _abilityDuration: 2
+  _cooldownDecreasePerLevel: 0
+  _abilityDurationIncreasePerLevel: 0

@@ -16,7 +16,7 @@ namespace Ability
             GameObject swGo = Instantiate(_swPrefab, _spawnPoint.position, Quaternion.identity);
             
             _swInstance = swGo.GetComponent<AbilityExplosionBehavior>();
-            _swInstance.Init(_abilitySo);
+            _swInstance.Init(RuntimeAbilitySo, this);
         }
 
         protected override void OnEffectUpdate()

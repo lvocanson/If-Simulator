@@ -16,7 +16,7 @@ public class PassiveHolderUI : MonoBehaviour
     {
         LevelableAbilityUI obj = Instantiate(_abilityPrefab, _layoutGroup.transform).GetComponent<LevelableAbilityUI>();
         _currentAbilities.Add(ability, obj);
-        obj.InitPassiveLevels(ability.MaxLevel);
+        obj.InitStars(ability.MaxLevel);
     }
     
     public void RemovePassive(SoAbilityBase ability)

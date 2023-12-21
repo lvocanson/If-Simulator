@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using Ability;
+using JetBrains.Annotations;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,13 +15,96 @@ public class PlayerAttackManager : MonoBehaviour
     [SerializeField, BoxGroup("Inputs")] private InputActionReference _secondSpellInput;
     
     public event Action<AbilityActive> OnAbilityActivated;
+    public event Action<AbilityActive> OnFirstSpellChanged;
+    public event Action<AbilityActive> OnSecondSpellChanged;
+    
+    public AbilityActive FirstSpell => _firstSpellAbilityBase;
+    public AbilityActive SecondSpell => _secondSpellAbilityBase;
 
+    [Header("References")]
+    [SerializeField] private GameObject _spellsGo;
+    [SerializeField] private PlayerXp _playerXp;
+    
+    [Header("Spells")]
     [SerializeField] private AbilityShoot _primaryAttackAbilityBase;
     [SerializeField] private AbilityShoot _secondaryAttackAbilityBase;
     [SerializeField] private DashBehavior _dashAbilityBase;
-    [SerializeField] private AbilityActive _firstSpellAbilityBase;
-    [SerializeField] private AbilityActive _secondSpellAbilityBase;
+    private AbilityActive _firstSpellAbilityBase;
+    private AbilityActive _secondSpellAbilityBase;
+    
+    public void ChangeFirstSpell(SoAbilityBase newSpell)
+    {
+        if (newSpell == null) return;
+        
+        var spells = _spellsGo.GetComponents<AbilityActive>();
+        AbilityActive s = spells.First(e => e.CompareAbility(newSpell));
+        if (s == null) Debug.LogError("Spell not found", this);
+        
+        if (_firstSpellAbilityBase != null)
+        {
+            if (newSpell.Name == _firstSpellAbilityBase.RuntimeAbilitySo.Name)
+            {
+                Debug.Log("Level up : " + _firstSpellAbilityBase.RuntimeAbilitySo.Name);
+                _firstSpellAbilityBase.LevelUp();
+                OnFirstSpellChanged?.Invoke(_firstSpellAbilityBase);
+                return;
+            }
+            _firstSpellAbilityBase.OnEnemyKilled -= _playerXp.AddXp;
+        }
+        
+        _firstSpellAbilityBase = s;
+        _firstSpellAbilityBase.OnEnemyKilled += _playerXp.AddXp;
+        
+        OnFirstSpellChanged?.Invoke(_firstSpellAbilityBase);
+    }
+    
+    public void ChangeSecondSpell(SoAbilityBase newSpell)
+    {
+        if (newSpell == null) return;
 
+        var spells = _spellsGo.GetComponents<AbilityActive>();
+        AbilityActive s = spells.First(e => e.CompareAbility(newSpell));
+        if (s == null) Debug.LogError("Spell not found", this);
+        
+        if (_secondSpellAbilityBase != null)
+        {
+            if (newSpell.Name == _secondSpellAbilityBase.RuntimeAbilitySo.Name)
+            {
+                _secondSpellAbilityBase.LevelUp();
+                OnSecondSpellChanged?.Invoke(_secondSpellAbilityBase);
+                return;
+            }
+            _secondSpellAbilityBase.OnEnemyKilled -= _playerXp.AddXp;
+        }
+        
+        _secondSpellAbilityBase = s;
+        _secondSpellAbilityBase.OnEnemyKilled += _playerXp.AddXp;
+        
+        OnSecondSpellChanged?.Invoke(_secondSpellAbilityBase);
+    }
+    
+    [CanBeNull]
+    public SoAbilityBase GetFirstSpell()
+    {
+        return _firstSpellAbilityBase == null ? null : _firstSpellAbilityBase.RuntimeAbilitySo;
+    }
+    
+    [CanBeNull]
+    public SoAbilityBase GetSecondSpell()
+    {
+        return _secondSpellAbilityBase == null ? null : _secondSpellAbilityBase.RuntimeAbilitySo;
+    }
+    
+    public void ResetFirstSpell()
+    {
+        _firstSpellAbilityBase.ResetAbility();
+    }
+    
+    public void ResetSecondSpell()
+    {
+        _secondSpellAbilityBase.ResetAbility();
+    }
+    
     protected void OnEnable()
     {
         _primaryAttackInput.action.started += OnPrimaryAttackAction;
@@ -50,26 +135,44 @@ public class PlayerAttackManager : MonoBehaviour
         _secondSpellInput.action.started -= OnSecondSpellAction;
     }
 
+    private void Start()
+    {
+        _primaryAttackAbilityBase.OnEnemyKilled += _playerXp.AddXp;
+        _secondaryAttackAbilityBase.OnEnemyKilled += _playerXp.AddXp;
+    }
+
     private void OnPrimaryAttackAction(InputAction.CallbackContext context)
     {
-        _primaryAttackAbilityBase.TryActivate();
-        OnAbilityActivated?.Invoke(_primaryAttackAbilityBase);
+        if (_primaryAttackAbilityBase)
+        {
+            _primaryAttackAbilityBase.TryActivate();
+            OnAbilityActivated?.Invoke(_primaryAttackAbilityBase);
+        }
     }
 
     private void OnPrimaryAttackEndAction(InputAction.CallbackContext context)
     {
-        _primaryAttackAbilityBase.End();
+        if (_primaryAttackAbilityBase)
+        {
+            _primaryAttackAbilityBase.End();
+        }
     }
 
     private void OnSecondaryAttackAction(InputAction.CallbackContext context)
     {
-        _secondaryAttackAbilityBase.TryActivate();
-        OnAbilityActivated?.Invoke(_secondaryAttackAbilityBase);
+        if (_secondaryAttackAbilityBase)
+        {
+            _secondaryAttackAbilityBase.TryActivate();
+            OnAbilityActivated?.Invoke(_secondaryAttackAbilityBase);
+        }
     }
     
     private void OnSecondaryAttackEndAction(InputAction.CallbackContext context)
     {
-        _secondaryAttackAbilityBase.End();
+        if (_secondaryAttackAbilityBase)
+        {
+            _secondaryAttackAbilityBase.End();
+        }
     }
     
     private void OnDashAction(InputAction.CallbackContext context)
@@ -80,13 +183,19 @@ public class PlayerAttackManager : MonoBehaviour
 
     private void OnFirstSpellAction(InputAction.CallbackContext context)
     {
-        _firstSpellAbilityBase.TryActivate();
-        OnAbilityActivated?.Invoke(_firstSpellAbilityBase);
+        if (_firstSpellAbilityBase)
+        {
+            _firstSpellAbilityBase.TryActivate();
+            OnAbilityActivated?.Invoke(_firstSpellAbilityBase);
+        }
     }
 
     private void OnSecondSpellAction(InputAction.CallbackContext context)
     {
-        _secondSpellAbilityBase.TryActivate();
-        OnAbilityActivated?.Invoke(_secondSpellAbilityBase);
+        if (_secondSpellAbilityBase)
+        {
+            _secondSpellAbilityBase.TryActivate();
+            OnAbilityActivated?.Invoke(_secondSpellAbilityBase);
+        }
     }
 }

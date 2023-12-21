@@ -30,7 +30,8 @@ namespace Game.Level
 
         protected override void OnPlayerEnteredRoom()
         {
-            LockRoom();
+            if (_enemiesAlive > 0)
+                LockRoom();
 
             _isActivated = true;
         }
