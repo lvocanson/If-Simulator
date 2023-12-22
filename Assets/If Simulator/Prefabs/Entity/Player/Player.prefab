@@ -924,7 +924,7 @@ MonoBehaviour:
   _sprite: {fileID: 7429918993202385571}
   _audioSource: {fileID: 0}
   _maxHealth: 100
-  _invulnerabilityDuration: 0.5
+  _invulnerabilityDuration: 0.25
   _hitMaterial: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
   _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
   _scaleEffectOffset: 0.2
@@ -959,7 +959,6 @@ MonoBehaviour:
   _pauseInput: {fileID: -6722698695808088723, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
   _spellsGo: {fileID: 5648217721370397452}
   _playerXp: {fileID: 8099816899909354675}
-  _currentPlayerSo: {fileID: 11400000, guid: 0a0b0f884ace5ed41b10f57eb03db9b9, type: 2}
   _primaryAttackAbilityBase: {fileID: 7005681117116373979}
   _secondaryAttackAbilityBase: {fileID: 6962324553966039841}
   _dashAbilityBase: {fileID: 3239121802332896468}

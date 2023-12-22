@@ -60,12 +60,6 @@ namespace Ability
             damageable.OnDeath += NotifyEnemyKilled;
             damageable.DamageWithoutInvulnerability(_so.Value, LevelContext.Instance.GameSettings.PlayerDamageColor);
             damageable.OnDeath -= NotifyEnemyKilled;
-            
-            if (other.TryGetComponent(out Rigidbody2D rb) is false) return;
-            
-            // Push back
-            Vector2 dir = (other.transform.position - transform.position).normalized;
-            rb.AddForce(dir * _enemyPushBackForce, ForceMode2D.Impulse);
         }
     }
 }

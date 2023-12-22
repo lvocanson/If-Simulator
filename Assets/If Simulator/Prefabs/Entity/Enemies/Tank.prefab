@@ -556,7 +556,7 @@ MonoBehaviour:
   _patrolState: {fileID: 2433215935938600984}
   _attackState: {fileID: 5167056104583862781}
   _speed: 3
-  _chaseRange: 15
+  _chaseRange: 17
   _attackColEvent: {fileID: 3281358216262540504}
   _chaseColEvent: {fileID: 1868752582225163812}
 --- !u!114 &5167056104583862781
@@ -576,7 +576,7 @@ MonoBehaviour:
   _enemy: {fileID: 1698883670266099510}
   ProjectileSpawnPoint: {fileID: 4586071095355305932}
   _chaseState: {fileID: 8255366764156641672}
-  _attackRange: 10
+  _attackRange: 13
   _attackDelay: 0.5
   _attackBurst: 5
   _delayBetweenBurst: 0.33
@@ -612,7 +612,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using NavMeshPlus.Components;
 using UnityEngine;
@@ -41,7 +42,12 @@ public class RoomDoor : MonoBehaviour
 
     public DoorState CurrentState => _currentState;
     public DoorState PreviousState => _previousState;
-    
+
+
+    private void Awake()
+    {
+        Initialize();
+    }
 
     public void Initialize()
     {
