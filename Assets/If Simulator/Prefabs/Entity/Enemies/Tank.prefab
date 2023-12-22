@@ -136,7 +136,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 7
+  m_Radius: 5.09
 --- !u!114 &3281358216262540504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,10 +509,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3998c70e51258c44bafa35cbde8e33fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 0}
-  _audioSource: {fileID: 0}
+  _sprite: {fileID: 2162075158221990425}
+  _audioSource: {fileID: 5812581730745473226}
   _maxHealth: 300
-  _invulnerabilityDuration: 0
+  _invulnerabilityDuration: 0.1
   _hitMaterial: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
   _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
   _scaleEffectOffset: 0.2
@@ -555,7 +555,7 @@ MonoBehaviour:
   _patrolState: {fileID: 2433215935938600984}
   _attackState: {fileID: 5167056104583862781}
   _speed: 3
-  _chaseRange: 5
+  _chaseRange: 15
   _attackColEvent: {fileID: 3281358216262540504}
   _chaseColEvent: {fileID: 1868752582225163812}
 --- !u!114 &5167056104583862781
@@ -570,13 +570,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90adca7ada34889489fc66ff8bcb46bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 740895394917663843, guid: cb6e4be07c0d22f429760327321c0c67, type: 3}
+  _bulletPrefab: {fileID: 740895394917663843, guid: 7eaa3658bc821144b98fb1ce44519c46, type: 3}
   _attackCol: {fileID: 6176078581650882244}
   _enemy: {fileID: 1698883670266099510}
   ProjectileSpawnPoint: {fileID: 4586071095355305932}
   _chaseState: {fileID: 8255366764156641672}
-  _attackRange: 7
-  _attackDelay: 3
+  _attackRange: 5
+  _attackDelay: 1
+  _attackBurst: 3
+  _delayBetweenBurst: 0.5
   _attackEvent: {fileID: 3281358216262540504}
 --- !u!114 &2433215935938600984
 MonoBehaviour:
@@ -592,10 +594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy: {fileID: 1698883670266099510}
   _chase: {fileID: 8255366764156641672}
-  _waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _waypoints: []
   _speed: 1
   _chaseColEvent: {fileID: 1868752582225163812}
 --- !u!195 &669617141972673452

@@ -40,6 +40,8 @@ public class Tank_Chase : BaseState
 
     private void EnterOnAttackRange(Collider2D obj)
     {
+        if (!obj.CompareTag("Player") || !obj.GetComponent<Player>()) return;
+        
         _attackState.SetTarget(obj.transform);
         Manager.ChangeState(_attackState);
     }
@@ -51,6 +53,8 @@ public class Tank_Chase : BaseState
 
     private void ExitOnChaseRange(Collider2D obj)
     {
+        if (!obj.CompareTag("Player") || !obj.GetComponent<Player>()) return;
+
         Manager.ChangeState(_patrolState);
     }
 

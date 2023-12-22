@@ -30,6 +30,8 @@ public class Tank_Patrol : BaseState
     // Enemy trigger is on Trigger Enemy layer, which will only collide with Trigger Player layer (bound to the Trigger GameObject in the Player)
     private void EnterOnChaseRange(Collider2D obj)
     {
+        if (!obj.CompareTag("Player") || !obj.GetComponent<Player>()) return;
+
         _chase.SetTarget(obj.transform);
         Manager.ChangeState(_chase);
     }
@@ -40,6 +42,7 @@ public class Tank_Patrol : BaseState
         {
             _index = (_index + 1) % _waypoints.Length;
             _enemy.Agent.SetDestination(_waypoints[_index].position);
+            transform.up = _enemy.Agent.velocity.normalized;
         }
     }
 
