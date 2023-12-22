@@ -90,11 +90,9 @@ namespace Ability
         private void OnTriggerEnter2D(Collider2D col)
         {
             // skip unwanted layers
-            //Debug.Log("Collided with : " + col.gameObject.name + " on layer " + col.gameObject.layer + "(" + (1 << col.gameObject.layer) + ")" + " and " + _layers.value + " = " + ((1 << col.gameObject.layer) & _layers.value));
             int otherLayer = col.gameObject.layer;
             if (((1 << otherLayer) & _layers.value) == 0) return;
             if (otherLayer == _ownerLayer) return;
-            Debug.Log("Collided with : " + col.gameObject.name + " on layer " + col.gameObject.layer + "(" + (1 << col.gameObject.layer) + ")" + " and " + _layers.value + " = " + ((1 << col.gameObject.layer) & _layers.value));
 
             if (_selfDestructCoroutine != null)
             {
@@ -112,6 +110,14 @@ namespace Ability
                         damageable.OnDeath += OnEntityDeath;
                         damageable.Damage(_damage, _damageColor);
                         damageable.OnDeath -= OnEntityDeath;
+                    }
+                    OnHit?.Invoke();
+                }
+                else if (col.TryGetComponent(out IDamageable Idamageable))
+                {
+                    if (_damage > 0)
+                    {
+                        Idamageable.Damage(_damage, _damageColor);
                     }
                     OnHit?.Invoke();
                 }
