@@ -51,15 +51,17 @@ namespace Ability
             if (otherLayerMask != _layersToDamage.value) return;
             
             // Assert that the other entity is damageable
-            if (other.TryGetComponent(out Rigidbody2D rb) is false || other.TryGetComponent(out DamageableEntity damageable) is false) return;
+            if (other.TryGetComponent(out DamageableEntity damageable) is false) return;
                 
             // Assert that the other entity is not behind a wall
             if (Physics2D.Linecast(transform.position, other.transform.position, _wallLayer.value)) return;
                 
             // Damage
             damageable.OnDeath += NotifyEnemyKilled;
-            damageable.Damage(_so.Value, LevelContext.Instance.GameSettings.PlayerDamageColor);
+            damageable.DamageWithoutInvulnerability(_so.Value, LevelContext.Instance.GameSettings.PlayerDamageColor);
             damageable.OnDeath -= NotifyEnemyKilled;
+            
+            if (other.TryGetComponent(out Rigidbody2D rb) is false) return;
             
             // Push back
             Vector2 dir = (other.transform.position - transform.position).normalized;
