@@ -9,8 +9,9 @@ public class NebulaBrain : Enemy
     [SerializeField] private float _2ndPhaseHealthThreshold;
     private bool _is2ndPhase = false;
 
-    protected void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         OnHealthChanged += CheckPhase;
     }
 

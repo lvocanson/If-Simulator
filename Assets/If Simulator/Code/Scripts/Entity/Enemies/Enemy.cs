@@ -15,7 +15,7 @@ public class Enemy : DamageableEntity
     public NavMeshAgent Agent => _agent;
 
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         OnHealthChanged += _lifeBar.SetHealth;
     }
