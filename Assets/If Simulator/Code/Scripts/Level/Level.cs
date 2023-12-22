@@ -8,7 +8,9 @@ namespace Game.Level
     {
         [SerializeField] private List<Room> _rooms;
         [SerializeField] private NavMeshSurface _navMeshSurface;
-
+        
+        public List<Room> Rooms => _rooms;
+        
         private void Awake()
         {
             if (!_navMeshSurface)
@@ -42,7 +44,7 @@ namespace Game.Level
         
         public void UpdateNavMesh()
         {
-            _navMeshSurface.UpdateNavMesh(_navMeshSurface.navMeshData);
+            _navMeshSurface.UpdateNavMesh(_navMeshSurface.navMeshData); //There is a Unity bug with this
         }
     }
 }

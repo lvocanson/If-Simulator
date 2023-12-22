@@ -56,7 +56,7 @@ namespace IfSimulator.GOAP.Factories
                 .SetBaseCost(Injector.HealConfig.HealCost)
                 .SetInRange(Injector.HealConfig.HealRadius);
 
-            builder.AddAction<MeleeAction>()
+            builder.AddAction<AttackAction>()
                 .SetTarget<EnemyTarget>()
                 .AddEffect<EnemyHealth>(EffectType.Decrease)
                 .SetBaseCost(Injector.AttackConfig.MeleeAttackCost)

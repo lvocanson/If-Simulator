@@ -6,12 +6,13 @@ namespace IfSimulator.GOAP.Config
     public class AttackConfigSO : ScriptableObject
     {
         public float SensorRadius = 10f;
-        public float MeleeAttackRadius = 2f;
-        public int MeleeAttackCost = 1;
-        public float AttackDelay = 2f;
-        public float AttackDamage = 10f;
+        public float MeleeAttackRadius = 7f;
+        public int MeleeAttackCost = 5;
+        public float AttackDelay = 0.5f;
+        public float AttackDamage = 20f;
 
         public LayerMask AttackableLayerMask;
+        public GameObject ProjectilePrefab;
     }
 
 }

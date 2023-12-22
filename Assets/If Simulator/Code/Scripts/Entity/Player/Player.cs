@@ -1,4 +1,3 @@
-using Ability;
 using UnityEngine;
 
 public class Player : DamageableEntity
@@ -9,15 +8,14 @@ public class Player : DamageableEntity
     [SerializeField] private PlayerAim playerAim;
     [SerializeField] private PlayerXp _playerXp;
     [SerializeField] private CurrentPlayerSo _data;
-    
-    [Header("For Debug")]
-    [SerializeField] private SoAbilityBase _firstSpell;
-    [SerializeField] private SoAbilityBase _secondSpell;
+    [SerializeField] private Transform _allyTarget;
     
     public PlayerAttackManager PlayerAttackManager => _playerAttackManager;
     public PlayerMovement PlayerMovement => _playerMovement;
     public PlayerAim PlayerAim => playerAim;
     public PlayerXp PlayerXp => _playerXp;
+    public Transform AllyTarget => _allyTarget;
+    
 
     protected override void Awake()
     {
@@ -30,12 +28,9 @@ public class Player : DamageableEntity
     {
         base.Start();
         
-        if (_playerAttackManager.GetFirstSpell() == null) _playerAttackManager.ChangeFirstSpell(_firstSpell);
-        else _playerAttackManager.ResetFirstSpell();
-        
-        if (_playerAttackManager.GetSecondSpell() == null) _playerAttackManager.ChangeSecondSpell(_secondSpell);
-        else _playerAttackManager.ResetSecondSpell();
-        
+        _playerAttackManager.ChangeFirstSpell(null);
+        _playerAttackManager.ChangeSecondSpell(null);
+
         _data.Start();
     }
     

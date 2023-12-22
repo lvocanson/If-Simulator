@@ -19,6 +19,20 @@ public class LevelableAbilityUI : AbilityIconUI
         }
     }
 
+    public override void HideAbility()
+    {
+        base.HideAbility();
+
+        _levelStarLayoutGroup.gameObject.SetActive(false);
+    }
+
+    public override void ShowAbility()
+    {
+        base.ShowAbility();
+        
+        _levelStarLayoutGroup.gameObject.SetActive(true);
+    }
+
     public void InitStars(int maxLevel)
     {
         int levelStarInstantiated = _levelStarLayoutGroup.transform.childCount;

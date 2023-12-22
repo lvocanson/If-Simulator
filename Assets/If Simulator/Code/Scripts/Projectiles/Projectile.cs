@@ -70,10 +70,16 @@ namespace Ability
 
         public void Initialize(int ownerId, Vector2 dir, bool managedByPool = false)
         {
+            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+            
             _ownerLayer = ownerId;
             _rb.velocity = dir.normalized * _speed;
             _managedFromPool = managedByPool;
-            _damageColor = _ownerLayer == LayerMask.NameToLayer("Player") ? LevelContext.Instance.GameSettings.PlayerDamageColor : LevelContext.Instance.GameSettings.EnemyDamageColor;
+            
+            if (_ownerLayer == LayerMask.NameToLayer("Player") || _ownerLayer == LayerMask.NameToLayer("Ally"))
+                _damageColor = LevelContext.Instance.GameSettings.PlayerDamageColor;
+            else
+                _damageColor = LevelContext.Instance.GameSettings.EnemyDamageColor;
         }
         
         private void OnEntityDeath()
@@ -84,10 +90,11 @@ namespace Ability
         private void OnTriggerEnter2D(Collider2D col)
         {
             // skip unwanted layers
+            //Debug.Log("Collided with : " + col.gameObject.name + " on layer " + col.gameObject.layer + "(" + (1 << col.gameObject.layer) + ")" + " and " + _layers.value + " = " + ((1 << col.gameObject.layer) & _layers.value));
             int otherLayer = col.gameObject.layer;
             if (((1 << otherLayer) & _layers.value) == 0) return;
             if (otherLayer == _ownerLayer) return;
-
+            Debug.Log("Collided with : " + col.gameObject.name + " on layer " + col.gameObject.layer + "(" + (1 << col.gameObject.layer) + ")" + " and " + _layers.value + " = " + ((1 << col.gameObject.layer) & _layers.value));
 
             if (_selfDestructCoroutine != null)
             {

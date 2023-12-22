@@ -13,10 +13,12 @@ public class PlayerAttackManager : MonoBehaviour
     [SerializeField, BoxGroup("Inputs")] private InputActionReference _dashInput;
     [SerializeField, BoxGroup("Inputs")] private InputActionReference _firstSpellInput;
     [SerializeField, BoxGroup("Inputs")] private InputActionReference _secondSpellInput;
+    [SerializeField, BoxGroup("Inputs")] private InputActionReference _pauseInput;
     
     public event Action<AbilityActive> OnAbilityActivated;
     public event Action<AbilityActive> OnFirstSpellChanged;
     public event Action<AbilityActive> OnSecondSpellChanged;
+    public event Action OnPausePressed;
     
     public AbilityActive FirstSpell => _firstSpellAbilityBase;
     public AbilityActive SecondSpell => _secondSpellAbilityBase;
@@ -34,6 +36,8 @@ public class PlayerAttackManager : MonoBehaviour
     
     public void ChangeFirstSpell(SoAbilityBase newSpell)
     {
+        if (newSpell == null) return;
+        
         var spells = _spellsGo.GetComponents<AbilityActive>();
         AbilityActive s = spells.First(e => e.CompareAbility(newSpell));
         if (s == null) Debug.LogError("Spell not found", this);
@@ -58,6 +62,8 @@ public class PlayerAttackManager : MonoBehaviour
     
     public void ChangeSecondSpell(SoAbilityBase newSpell)
     {
+        if (newSpell == null) return;
+
         var spells = _spellsGo.GetComponents<AbilityActive>();
         AbilityActive s = spells.First(e => e.CompareAbility(newSpell));
         if (s == null) Debug.LogError("Spell not found", this);
@@ -139,24 +145,36 @@ public class PlayerAttackManager : MonoBehaviour
 
     private void OnPrimaryAttackAction(InputAction.CallbackContext context)
     {
-        _primaryAttackAbilityBase.TryActivate();
-        OnAbilityActivated?.Invoke(_primaryAttackAbilityBase);
+        if (_primaryAttackAbilityBase)
+        {
+            _primaryAttackAbilityBase.TryActivate();
+            OnAbilityActivated?.Invoke(_primaryAttackAbilityBase);
+        }
     }
 
     private void OnPrimaryAttackEndAction(InputAction.CallbackContext context)
     {
-        _primaryAttackAbilityBase.End();
+        if (_primaryAttackAbilityBase)
+        {
+            _primaryAttackAbilityBase.End();
+        }
     }
 
     private void OnSecondaryAttackAction(InputAction.CallbackContext context)
     {
-        _secondaryAttackAbilityBase.TryActivate();
-        OnAbilityActivated?.Invoke(_secondaryAttackAbilityBase);
+        if (_secondaryAttackAbilityBase)
+        {
+            _secondaryAttackAbilityBase.TryActivate();
+            OnAbilityActivated?.Invoke(_secondaryAttackAbilityBase);
+        }
     }
     
     private void OnSecondaryAttackEndAction(InputAction.CallbackContext context)
     {
-        _secondaryAttackAbilityBase.End();
+        if (_secondaryAttackAbilityBase)
+        {
+            _secondaryAttackAbilityBase.End();
+        }
     }
     
     private void OnDashAction(InputAction.CallbackContext context)
@@ -167,13 +185,19 @@ public class PlayerAttackManager : MonoBehaviour
 
     private void OnFirstSpellAction(InputAction.CallbackContext context)
     {
-        _firstSpellAbilityBase.TryActivate();
-        OnAbilityActivated?.Invoke(_firstSpellAbilityBase);
+        if (_firstSpellAbilityBase)
+        {
+            _firstSpellAbilityBase.TryActivate();
+            OnAbilityActivated?.Invoke(_firstSpellAbilityBase);
+        }
     }
 
     private void OnSecondSpellAction(InputAction.CallbackContext context)
     {
-        _secondSpellAbilityBase.TryActivate();
-        OnAbilityActivated?.Invoke(_secondSpellAbilityBase);
+        if (_secondSpellAbilityBase)
+        {
+            _secondSpellAbilityBase.TryActivate();
+            OnAbilityActivated?.Invoke(_secondSpellAbilityBase);
+        }
     }
 }

@@ -8,6 +8,7 @@ namespace UI
 {
     public class SpellChoicePopup : MonoBehaviour
     {
+        [SerializeField] private PlayerUIManager _playerUIManager;
         [SerializeField] private GameObject _popup;
         [SerializeField] private List<SpellChoicePopupCard> _cards;
         [SerializeField] private TextMeshProUGUI _levelText;
@@ -16,6 +17,22 @@ namespace UI
         [SerializeField] private SpellChoiceBind _spellChoiceBind;
         
         [SerializeField] private string _levelTextFormat = "New Level : {0}";
+
+        private void OnEnable()
+        {
+            foreach (SpellChoicePopupCard card in _cards)
+            {
+                card.OnCardClicked += Exit;
+            }
+        }
+
+        private void OnDisable()
+        {
+            foreach (SpellChoicePopupCard card in _cards)
+            {
+                card.OnCardClicked -= Exit;
+            }
+        }
 
         public void Init(int level)
         {
@@ -27,11 +44,6 @@ namespace UI
             _popup.SetActive(true);
             _levelText.text = string.Format(_levelTextFormat, level);
             GetRandomSpellsFromPool();
-            
-            foreach (SpellChoicePopupCard card in _cards)
-            {
-                card.OnCardClicked += Exit;
-            }
         }
 
         private void Update()
@@ -54,13 +66,29 @@ namespace UI
         
         private void Exit(SoAbilityBase so)
         {
+            Debug.Log("Triggered exit");
             if (so == null)
             {
                 InternalExit();
                 return;
             }
-            _spellChoiceBind.Init(so);
-            _popup.SetActive(false);
+
+            PlayerAttackManager playerAttackManager = _playerUIManager.CurrentPlayerSo.Player.PlayerAttackManager;
+            if (playerAttackManager.GetFirstSpell() == null || playerAttackManager.GetFirstSpell()?.Name == so.Name)
+            {
+                _playerUIManager.ChangeFirstSpell(so);
+                InternalExit();
+            }
+            else if (playerAttackManager.GetSecondSpell() == null || playerAttackManager.GetSecondSpell()?.Name == so.Name)
+            {
+                _playerUIManager.ChangeSecondSpell(so);
+                InternalExit();
+            }
+            else
+            {
+                _spellChoiceBind.Init(so);
+                _popup.SetActive(false); 
+            }
         }
         
         private void InternalExit()

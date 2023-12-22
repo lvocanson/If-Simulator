@@ -18,6 +18,8 @@ public class Marge_Attack : BaseState
     [SerializeField] private CircleCollider2D _attackCol;
     [SerializeField] private Enemy _enemy;
     [SerializeField] private GameObject ProjectileSpawnPoint; 
+    [SerializeField] private AudioClip _shootSound;
+    [SerializeField] private AudioSource _audioSource;
 
     [Header("State Machine")]
     [SerializeField] private Marge_Chase _chaseState;
@@ -58,6 +60,8 @@ public class Marge_Attack : BaseState
 
     private void ExitAttackRange(Collider2D obj)
     {
+        if (!obj.CompareTag("Player")) return;
+
         Manager.ChangeState(_chaseState);
     }
 
@@ -66,6 +70,11 @@ public class Marge_Attack : BaseState
         Vector3 direction = _target.transform.position - transform.position;
         Projectile bullet = Instantiate(_bulletPrefab, ProjectileSpawnPoint.transform.position, quaternion.identity)
             .GetComponent<Projectile>();
+
+        if (_shootSound)
+        {
+            _audioSource.PlayOneShot(_shootSound);
+        }
         
         bullet.transform.rotation = Quaternion.AngleAxis(TransformUtility.AngleFromDirection(direction), Vector3.forward);
         bullet.Initialize(gameObject.layer, direction);
@@ -91,5 +100,4 @@ public class Marge_Attack : BaseState
             _attackCoroutine = null;
         }
     }
-
 }

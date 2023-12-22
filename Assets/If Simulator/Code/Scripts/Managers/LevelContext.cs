@@ -1,4 +1,6 @@
 using System;
+using CrashKonijn.Goap.Behaviours;
+using CrashKonijn.Goap.Classes;
 using GameMode;
 using Managers;
 using UnityEngine;
@@ -12,6 +14,7 @@ public class LevelContext : MonoBehaviour
     public PrefabsHolder PrefabsHolder => Instance.prefabsHolder;
     public GameSettings GameSettings => Instance.gameSettings;
     public SpellPool SpellPool => Instance._spellPool;
+    public GoapRunnerBehaviour GoapRunnerBehaviour => Instance._goapRunnerBehaviour;
 
     [Header("Managers")]
     [SerializeField] private LevelManager _levelManager;
@@ -19,6 +22,7 @@ public class LevelContext : MonoBehaviour
     [SerializeField] private PrefabsHolder prefabsHolder;
     [SerializeField] private GameSettings gameSettings;
     [SerializeField] private SpellPool _spellPool;
+    [SerializeField] private GoapRunnerBehaviour _goapRunnerBehaviour;
 
     [Header("Events")]
     [SerializeField] private EventSO _levelContextInitialized;

@@ -21,6 +21,8 @@ namespace Ability
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform _bulletSpawnPoint;
         [SerializeField] private Transform _bulletContainer;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _shootSound;
 
         [Header("Settings")] 
         [SerializeField] private int _numberOfBulletsPerDefault;
@@ -55,6 +57,7 @@ namespace Ability
         private void OnTriggerEnter2D(Collider2D other)
         {
             // Assert that the entity is damageable
+            if (!other.transform.parent) return;
             if (other.transform.parent.TryGetComponent(out DamageableEntity damageable) is false) return;
             
             // Assert that the entity is not already in the list
@@ -76,6 +79,7 @@ namespace Ability
 
         private void OnTriggerExit2D(Collider2D other)
         {
+            if (!other.transform.parent) return;
             if (other.transform.parent.TryGetComponent(out DamageableEntity damageable) is false) return;
             
             if (_closeEntities.Contains(damageable) is false) return;
@@ -118,6 +122,11 @@ namespace Ability
             proj.SetDamage(_parentAbility.RuntimeAbilitySo.Value);
             proj.OnDestroy += CleanProjectile;
 
+            if (_shootSound)
+            {
+                _audioSource.PlayOneShot(_shootSound);
+            }
+
             return bp;
         }
 
@@ -135,6 +144,11 @@ namespace Ability
             var proj = bullet.GetComponent<Projectile>();
             proj.Initialize(gameObject.layer, _bulletSpawnPoint.up, managedByPool:true);
             proj.OnEntityKill += ParentAbility.TriggerEnemyKilled;
+            
+            if (_shootSound)
+            {
+                _audioSource.PlayOneShot(_shootSound);
+            }
         }
 
         private void OnBulletReturnToPool(GameObject bullet)

@@ -8,7 +8,6 @@ namespace UI
 {
     public class SpellChoicePopupCard : MonoBehaviour
     {
-        [SerializeField] private Button _button;
         [SerializeField] private Image _icon;
         [SerializeField] private TextMeshProUGUI _nameText;
         [SerializeField] private TextMeshProUGUI _spellType;
@@ -22,7 +21,6 @@ namespace UI
 
         public void Init(SoAbilityBase displayed, SoAbilityBase context)
         {
-            _button.onClick.AddListener(OnClick);
             _displayedSpellSo = displayed;
             _context = context;
             

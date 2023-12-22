@@ -36,13 +36,14 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.01, y: 0.06, z: 0}
-  m_LocalScale: {x: 4.94, y: 4.94, z: 4.94}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3110411443589256580}
   - {fileID: 3869355002308170677}
   - {fileID: 7182632730349503359}
   - {fileID: 3784984780950780479}
+  - {fileID: 8399510465836850229}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5611656267731139082
@@ -86,8 +87,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 1}
+  m_Sprite: {fileID: -5482918286973062079, guid: c93829a4053f83941866fe9e8a0c51e3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -134,8 +135,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.2}
+    pivot: {x: 0.5034344, y: 0.2162714}
+    oldSize: {x: 1.2266667, y: 2.2877295}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -212,6 +213,7 @@ MonoBehaviour:
   _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
   _scaleEffectOffset: 0.2
   _damagePopupPosition: {fileID: 3784984780950780479}
+  _healPopupRotation: {fileID: 0}
   _damageSound: {fileID: 0}
   _damageParticle: {fileID: 0}
   _dieParticle: {fileID: 0}
@@ -246,9 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy: {fileID: 9064951256437794892}
   _chase: {fileID: 539981647252691793}
-  _waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  _waypoints: []
   _speed: 3
   _chaseColEvent: {fileID: 7876448869393631908}
 --- !u!114 &539981647252691793
@@ -298,7 +298,7 @@ AudioSource:
   m_GameObject: {fileID: 2782989695571857333}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8409366792044145289, guid: 4c4e8c388c65bf64d84c8d3aaeef5238, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -484,8 +484,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.54
+  m_Offset: {x: 0, y: 0.48}
+  m_Radius: 0.93
 --- !u!114 &5359220137862214696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +526,7 @@ Transform:
   m_GameObject: {fileID: 7138138931482150711}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.009, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -576,7 +576,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.19733694, y: 0.1716283}
+  m_Size: {x: 0.6, y: 1.67}
   m_EdgeRadius: 0
 --- !u!114 &3308918586341437652
 MonoBehaviour:
@@ -671,7 +671,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1.24
+  m_Radius: 2.21
 --- !u!114 &7876448869393631908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,3 +715,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6968235111207890850}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4772291096502724330
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6968235111207890850}
+    m_Modifications:
+    - target: {fileID: 514673610153462581, guid: 1ec829cf21502b743a46dedc962c257a, type: 3}
+      propertyPath: m_Name
+      value: EnemyPointLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939412944838490847, guid: 1ec829cf21502b743a46dedc962c257a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939412944838490847, guid: 1ec829cf21502b743a46dedc962c257a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939412944838490847, guid: 1ec829cf21502b743a46dedc962c257a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939412944838490847, guid: 1ec829cf21502b743a46dedc962c257a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939412944838490847, guid: 1ec829cf21502b743a46dedc962c257a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939412944838490847, guid: 1ec829cf21502b743a46dedc962c257a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939412944838490847, guid: 1ec829cf21502b743a46dedc962c257a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939412944838490847, guid: 1ec829cf21502b743a46dedc962c257a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939412944838490847, guid: 1ec829cf21502b743a46dedc962c257a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939412944838490847, guid: 1ec829cf21502b743a46dedc962c257a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1ec829cf21502b743a46dedc962c257a, type: 3}
+--- !u!4 &8399510465836850229 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3939412944838490847, guid: 1ec829cf21502b743a46dedc962c257a, type: 3}
+  m_PrefabInstance: {fileID: 4772291096502724330}
+  m_PrefabAsset: {fileID: 0}

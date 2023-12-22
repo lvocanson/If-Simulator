@@ -6,10 +6,11 @@ namespace IfSimulator.GOAP.Config
     public class HealConfigSO : ScriptableObject
     {
         public float SensorHealRadius = 10f;
-        public float HealRadius = 2f;
-        public int HealCost = 1;
-        public float HealDelay = 1f;
-        public int HealAmount = 10;
+        public float HealRadius = 3f;
+        [Range(0, 100)] public float HealThreshold = 70;
+        public int HealCost = 10;
+        public float HealDelay = 4f;
+        public int HealAmount = 30;
 
         public LayerMask HealableLayerMask;    
     }

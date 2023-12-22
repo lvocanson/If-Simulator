@@ -13,7 +13,6 @@ namespace Ability
             bulletBehavior.Initialize(gameObject.layer, _bulletSpawnPoint.up, true);
             bulletBehavior.SetDamage(RuntimeAbilitySo.Value);
             bulletBehavior.OnDestroy += CleanProjectile;
-
             return bp;
         }
 
