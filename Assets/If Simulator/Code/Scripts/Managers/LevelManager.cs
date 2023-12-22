@@ -13,7 +13,8 @@ namespace Managers
         [SerializeField] private GameObject _allyPrefab;
         [SerializeField] private Transform _playerSpawnPoint;
         [SerializeField] private CurrentPlayerSo _currentPlayerSo;
-
+        [SerializeField] private AudioClip _levelMusic;
+        
         private Player _spawnedPlayer;
         private AllyBrain _spawnedAlly;
 
@@ -29,6 +30,8 @@ namespace Managers
         {
             if (_currentLevel)
                 _currentLevel.Initialize();
+            
+            App.AudioManager.PlayMusic(_levelMusic);
         }
         
         protected override void OnContextStarted(GameModeStartMode mode)
