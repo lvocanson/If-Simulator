@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: WaitSo
   m_EditorClassIdentifier: 
   <GraphPosition>k__BackingField: {x: 1369.3551, y: 594}
-  _time: 0.75
+  _time: 0.8
 --- !u!114 &2413792374225728700
 MonoBehaviour:
   m_ObjectHideFlags: 0
