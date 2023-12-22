@@ -29,7 +29,8 @@ namespace IfSimulator.GOAP.Actions
         {
             cooldownTimer -= context.DeltaTime;
             
-            agent.transform.up = data.Target.Position - agent.transform.position;
+            if (data.Target != null)
+                agent.transform.up = data.Target.Position - agent.transform.position;
 
             if (cooldownTimer <= 0)
             {

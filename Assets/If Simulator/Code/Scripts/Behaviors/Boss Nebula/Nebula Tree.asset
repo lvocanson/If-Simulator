@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: Cooldown
   m_EditorClassIdentifier: 
   <GraphPosition>k__BackingField: {x: 1069.3551, y: 594}
-  _cooldown: 14
+  _cooldown: 10
   _onCooldownAtStart: 1
 --- !u!114 &-2199449707574892188
 MonoBehaviour:

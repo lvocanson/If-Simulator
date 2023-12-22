@@ -959,6 +959,7 @@ MonoBehaviour:
   _pauseInput: {fileID: -6722698695808088723, guid: 5ffc78a209612b04c819e64a7c7d0572, type: 3}
   _spellsGo: {fileID: 5648217721370397452}
   _playerXp: {fileID: 8099816899909354675}
+  _currentPlayerSo: {fileID: 11400000, guid: 0a0b0f884ace5ed41b10f57eb03db9b9, type: 2}
   _primaryAttackAbilityBase: {fileID: 7005681117116373979}
   _secondaryAttackAbilityBase: {fileID: 6962324553966039841}
   _dashAbilityBase: {fileID: 3239121802332896468}
