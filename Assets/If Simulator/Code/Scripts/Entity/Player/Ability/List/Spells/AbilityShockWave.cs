@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Ability
 {
@@ -11,12 +12,20 @@ namespace Ability
         
         private AbilityExplosionBehavior _swInstance;
         
+        [Header("Feedback")]
+        [SerializeField] private AudioSource _shockwaveAudioSource;
+        [SerializeField] private AudioClip _shockwaveAudioClip;
+        [SerializeField] private GameObject _particles; 
+        
         protected override void OnEffectStart()
         {
             GameObject swGo = Instantiate(_swPrefab, _spawnPoint.position, Quaternion.identity);
             
             _swInstance = swGo.GetComponent<AbilityExplosionBehavior>();
             _swInstance.Init(RuntimeAbilitySo, this);
+            
+            _shockwaveAudioSource.PlayOneShot(_shockwaveAudioClip);
+            Instantiate(_particles, transform.position, Quaternion.identity); 
         }
 
         protected override void OnEffectUpdate()
