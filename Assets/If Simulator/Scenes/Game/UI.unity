@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.28896618, g: 0.72156864, b: 0.19607843, a: 1}
+  m_Color: {r: 0.12178671, g: 0.3301887, b: 0.076317206, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 43
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -830,8 +830,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: (Press SPACE to cancel)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e13dd39e4066814790cd1359ff410b8, type: 2}
+  m_sharedMaterial: {fileID: 1200759078760109457, guid: 6e13dd39e4066814790cd1359ff410b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -964,8 +964,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Chose a new spell (press SPACE to skip)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e13dd39e4066814790cd1359ff410b8, type: 2}
+  m_sharedMaterial: {fileID: 1200759078760109457, guid: 6e13dd39e4066814790cd1359ff410b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -680.1373, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &549690780
@@ -1289,10 +1289,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'New Level : 12'
+  m_text: 'New Level : 1'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e13dd39e4066814790cd1359ff410b8, type: 2}
+  m_sharedMaterial: {fileID: 1200759078760109457, guid: 6e13dd39e4066814790cd1359ff410b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1611,8 +1611,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Which spell do you want to change ? '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e13dd39e4066814790cd1359ff410b8, type: 2}
+  m_sharedMaterial: {fileID: 1200759078760109457, guid: 6e13dd39e4066814790cd1359ff410b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1999,7 +1999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.75294125, g: 0.7019608, b: 0.7019608, a: 1}
+  m_Color: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2069,16 +2069,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 321919684}
     m_Modifications:
     - target: {fileID: 88495363871685820, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 88495363871685820, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 88495363871685820, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 88495363871685820, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_AnchorMin.y
@@ -2090,7 +2082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 88495363871685820, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -192.80832
+      value: -186.99835
       objectReference: {fileID: 0}
     - target: {fileID: 790483018819180843, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2106,7 +2098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 790483018819180843, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -135.685
+      value: -135.68501
       objectReference: {fileID: 0}
     - target: {fileID: 7061654799889158653, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_Name
@@ -2126,7 +2118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7238538443974238170, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -53.561665
+      value: -59.37167
       objectReference: {fileID: 0}
     - target: {fileID: 8968586388301089269, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_Pivot.x
@@ -2471,7 +2463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 88495363871685820, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -192.80832
+      value: -186.99835
       objectReference: {fileID: 0}
     - target: {fileID: 790483018819180843, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2487,7 +2479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 790483018819180843, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -135.685
+      value: -135.68501
       objectReference: {fileID: 0}
     - target: {fileID: 7061654799889158653, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_Name
@@ -2507,7 +2499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7238538443974238170, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -53.561665
+      value: -59.37167
       objectReference: {fileID: 0}
     - target: {fileID: 8968586388301089269, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_Pivot.x
@@ -2670,7 +2662,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 0.9575472, b: 0.9575472, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2696,7 +2688,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 66
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2924,10 +2916,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lvl.3
+  m_text: LV.1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e13dd39e4066814790cd1359ff410b8, type: 2}
+  m_sharedMaterial: {fileID: 1200759078760109457, guid: 6e13dd39e4066814790cd1359ff410b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2957,9 +2949,9 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 10
+  m_fontStyle: 18
   m_HorizontalAlignment: 4
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3051,7 +3043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.75294125, g: 0.7019608, b: 0.7019608, a: 1}
+  m_Color: {r: 0.40392157, g: 0.40392157, b: 0.40392157, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3343,7 +3335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.72156864, g: 0.19607845, b: 0.19607845, a: 1}
+  m_Color: {r: 0.5849056, g: 0.11863652, b: 0.11863652, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3728,11 +3720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 88495363871685820, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -192.80832
-      objectReference: {fileID: 0}
-    - target: {fileID: 641829820614379061, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      value: -186.99835
       objectReference: {fileID: 0}
     - target: {fileID: 790483018819180843, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3748,11 +3736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 790483018819180843, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -135.685
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289041179417042607, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      value: -135.68501
       objectReference: {fileID: 0}
     - target: {fileID: 7061654799889158653, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_Name
@@ -3772,7 +3756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7238538443974238170, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -53.561665
+      value: -59.37167
       objectReference: {fileID: 0}
     - target: {fileID: 8968586388301089269, guid: ea07672ec3bd0144bacdc8bb5778d082, type: 3}
       propertyPath: m_Pivot.x

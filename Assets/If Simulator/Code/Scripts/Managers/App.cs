@@ -36,8 +36,10 @@ public class App : MonoBehaviour
     public PlayerInput Input { get; private set; }
 
     public static InputManager InputManager => Instance._inputManager;
+    public static AudioManager AudioManager => Instance._audioManager;
 
     private InputManager _inputManager;
+    private AudioManager _audioManager;
 
     private void Load()
     {
@@ -46,6 +48,7 @@ public class App : MonoBehaviour
         GameMode = GetComponentInChildren<GameModeManager>();
         Backdrop = GetComponentInChildren<BackdropManager>();
         Input = GetComponentInChildren<PlayerInput>();
+        _audioManager = GetComponentInChildren<AudioManager>();
         _inputManager = GetComponentInChildren<InputManager>();
 
         Application.targetFrameRate = -1;

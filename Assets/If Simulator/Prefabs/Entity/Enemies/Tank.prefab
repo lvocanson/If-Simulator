@@ -136,7 +136,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 5.09
+  m_Radius: 9.65
 --- !u!114 &3281358216262540504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,7 +366,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 7
+  m_Radius: 8.97
 --- !u!114 &1868752582225163812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 2162075158221990425}
   _audioSource: {fileID: 5812581730745473226}
-  _maxHealth: 300
+  _maxHealth: 250
   _invulnerabilityDuration: 0.1
   _hitMaterial: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
   _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
@@ -556,7 +556,7 @@ MonoBehaviour:
   _patrolState: {fileID: 2433215935938600984}
   _attackState: {fileID: 5167056104583862781}
   _speed: 3
-  _chaseRange: 15
+  _chaseRange: 17
   _attackColEvent: {fileID: 3281358216262540504}
   _chaseColEvent: {fileID: 1868752582225163812}
 --- !u!114 &5167056104583862781
@@ -576,10 +576,10 @@ MonoBehaviour:
   _enemy: {fileID: 1698883670266099510}
   ProjectileSpawnPoint: {fileID: 4586071095355305932}
   _chaseState: {fileID: 8255366764156641672}
-  _attackRange: 5
-  _attackDelay: 1
-  _attackBurst: 3
-  _delayBetweenBurst: 0.5
+  _attackRange: 13
+  _attackDelay: 0.5
+  _attackBurst: 5
+  _delayBetweenBurst: 0.33
   _attackEvent: {fileID: 3281358216262540504}
 --- !u!114 &2433215935938600984
 MonoBehaviour:
@@ -612,7 +612,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -629,10 +629,10 @@ AudioSource:
   m_GameObject: {fileID: 7665824310961699684}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8409366792044145289, guid: 4c4e8c388c65bf64d84c8d3aaeef5238, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0

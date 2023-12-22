@@ -145,8 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8152cfc5aed5a7d478477efd9a45ab40, type: 3}
   m_Name: Cooldown
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 1069.3551, y: 594}
-  _cooldown: 14
+  <GraphPosition>k__BackingField: {x: 1069, y: 594}
+  _cooldown: 5
   _onCooldownAtStart: 1
 --- !u!114 &-2199449707574892188
 MonoBehaviour:
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: WaitSo
   m_EditorClassIdentifier: 
   <GraphPosition>k__BackingField: {x: 1369.3551, y: 594}
-  _time: 1
+  _time: 0.8
 --- !u!114 &2413792374225728700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Name: WaitSo
   m_EditorClassIdentifier: 
   <GraphPosition>k__BackingField: {x: 1669.3552, y: 594}
-  _time: 1
+  _time: 0.75
 --- !u!114 &3169937001703435952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311b2aaf8612ae248b51b05b04e8e009, type: 3}
   m_Name: 2nd Phase Behavior
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 224, y: 672.99994}
+  <GraphPosition>k__BackingField: {x: 224, y: 673}
   <Children>k__BackingField:
   - {fileID: -3968597673885763220}
   - {fileID: -8991898129009402163}
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa95df3de58778041bea8ce6e9e0d73e, type: 3}
   m_Name: ShootShotgun
   m_EditorClassIdentifier: 
-  <GraphPosition>k__BackingField: {x: 224, y: 898.0001}
+  <GraphPosition>k__BackingField: {x: 223.99997, y: 898.00006}
   _shotgunKey: BigShotgun
 --- !u!114 &4619722936577785502
 MonoBehaviour:

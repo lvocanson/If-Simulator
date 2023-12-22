@@ -259,7 +259,7 @@ MonoBehaviour:
   _shootSound: {fileID: 8300000, guid: b63afea8658586b478e228808e3507a6, type: 3}
   _numberOfBulletsPerDefault: 50
   _numberOfBulletsMax: 200
-  _attackDelay: 0.2
+  _attackDelay: 0.18
   _wallLayer:
     serializedVersion: 2
     m_Bits: 1

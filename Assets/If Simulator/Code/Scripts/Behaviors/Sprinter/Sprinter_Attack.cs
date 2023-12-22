@@ -75,7 +75,9 @@ public class Sprinter_Attack : BaseState
         _attackEvent.OnExit -= ExitAttackRange;
         _damageEvent.OnEnter -= EnterDamageZone;
         _damageEvent.OnExit -= ExitDamageZone; 
-        _enemy.Agent.isStopped = false;
+        
+        if (_enemy.Agent.isActiveAndEnabled)
+            _enemy.Agent.isStopped = false;
         
         if (_attackSprinter != null)
         {

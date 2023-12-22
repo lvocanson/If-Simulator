@@ -129,6 +129,7 @@ Transform:
   - {fileID: 954065782805932954}
   - {fileID: 8572488506573924706}
   - {fileID: 6977350446229059670}
+  - {fileID: 2677053916439866611}
   m_Father: {fileID: 2088576486401183649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 135}
 --- !u!114 &7565814429765659176
@@ -145,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 1248907336224557181}
   _audioSource: {fileID: 0}
-  _maxHealth: 1000
+  _maxHealth: 350
   _invulnerabilityDuration: 0
   _hitMaterial: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
   _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
@@ -228,6 +229,74 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 5, y: 1}
   m_Direction: 1
+--- !u!1 &1474567626618977542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2677053916439866611}
+  - component: {fileID: 6096624863543657883}
+  m_Layer: 9
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2677053916439866611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474567626618977542}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 654201663571255544}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &6096624863543657883
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474567626618977542}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 2.51
 --- !u!1 &1589148403249635423
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 1621438283796109939}
   _audioSource: {fileID: 7650970311966549296}
-  _maxHealth: 1000
+  _maxHealth: 600
   _invulnerabilityDuration: 0.5
   _hitMaterial: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
   _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
@@ -688,7 +757,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &16418495951437707
 Transform:
   m_ObjectHideFlags: 0

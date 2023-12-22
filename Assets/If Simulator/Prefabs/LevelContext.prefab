@@ -148,6 +148,7 @@ MonoBehaviour:
   _allyPrefab: {fileID: 8218941141542645601, guid: 084b8e49e7888e14e9b20c6b846509e5, type: 3}
   _playerSpawnPoint: {fileID: 0}
   _currentPlayerSo: {fileID: 11400000, guid: 0a0b0f884ace5ed41b10f57eb03db9b9, type: 2}
+  _levelMusic: {fileID: 8300000, guid: 8afe0fc999389db4dadd552aa66de7b3, type: 3}
 --- !u!1 &5648146580008980590
 GameObject:
   m_ObjectHideFlags: 0
