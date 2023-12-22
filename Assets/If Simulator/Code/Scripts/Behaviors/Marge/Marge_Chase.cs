@@ -35,7 +35,8 @@ public class Marge_Chase : BaseState
         _chaseColEvent.OnExit += ExitOnChaseRange;
         _attackColEvent.OnEnter += EnterOnAttackRange;
         
-        _enemy.Agent.SetDestination(_target.position);
+        if (_target != null)
+            _enemy.Agent.SetDestination(_target.position);
         _enemy.Agent.speed = _speed;
     }
 

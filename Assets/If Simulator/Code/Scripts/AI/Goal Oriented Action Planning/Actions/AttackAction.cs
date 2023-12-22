@@ -1,3 +1,4 @@
+using Ability;
 using CrashKonijn.Goap.Behaviours;
 using CrashKonijn.Goap.Classes;
 using CrashKonijn.Goap.Enums;
@@ -7,7 +8,7 @@ using UnityEngine;
 
 namespace IfSimulator.GOAP.Actions
 {
-    public class MeleeAction : ActionBase<AttackData>, IInjectable
+    public class AttackAction : ActionBase<AttackData>, IInjectable
     {
 
         private AttackConfigSO AttackConfig;
@@ -16,18 +17,19 @@ namespace IfSimulator.GOAP.Actions
 
         public override void Created()
         {
-            cooldownTimer = 1f;
         }
 
         public override void Start(IMonoAgent agent, AttackData data)
         {
             data.Timer = AttackConfig.AttackDelay;
-            _enemy = (agent.CurrentActionData.Target as TransformTarget).Transform.GetComponent<Enemy>();
+            _enemy = (agent.CurrentActionData.Target as TransformTarget)?.Transform.GetComponent<Enemy>();
         }
 
         public override ActionRunState Perform(IMonoAgent agent, AttackData data, ActionContext context)
         {
             cooldownTimer -= context.DeltaTime;
+            
+            agent.transform.up = data.Target.Position - agent.transform.position;
 
             if (cooldownTimer <= 0)
             {
@@ -38,7 +40,12 @@ namespace IfSimulator.GOAP.Actions
                 if (shouldAttack)
                 {
                     agent.transform.up = data.Target.Position - agent.transform.position;
-                    _enemy.Damage(AttackConfig.AttackDamage, LevelContext.Instance.GameSettings.PlayerDamageColor);
+                    
+                    Projectile proj = Object.Instantiate(AttackConfig.ProjectilePrefab, agent.transform.position,
+                        Quaternion.identity).GetComponent<Projectile>();
+                    proj.SetDamage(AttackConfig.AttackDamage);
+                    proj.Initialize(agent.gameObject.layer, agent.transform.up);
+                    
                     cooldownTimer = AttackConfig.AttackDelay;
                     return ActionRunState.Continue;
                 }

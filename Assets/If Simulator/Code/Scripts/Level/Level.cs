@@ -8,7 +8,9 @@ namespace Game.Level
     {
         [SerializeField] private List<Room> _rooms;
         [SerializeField] private NavMeshSurface _navMeshSurface;
-
+        
+        public List<Room> Rooms => _rooms;
+        
         private void Awake()
         {
             if (!_navMeshSurface)

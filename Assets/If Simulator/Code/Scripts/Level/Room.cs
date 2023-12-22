@@ -28,6 +28,7 @@ namespace Game.Level
         [ShowNonSerializedField] protected RoomType _roomType;
 
         public event Action OnRoomCleared;
+        public event Action OnPlayerEntered;
 
         
         private void OnEnable()
@@ -67,6 +68,7 @@ namespace Game.Level
             if (_isCleared || _isActivated || !other.CompareTag("Player")) return;
             if (!other.GetComponent<Player>()) return;
             
+            OnPlayerEntered?.Invoke();
             OnPlayerEnteredRoom();
         }
 

@@ -15,7 +15,7 @@ namespace IfSimulator.GOAP.Actions
 
         public override void Created()
         {
-            cooldownTimer = 2f;
+            cooldownTimer = 0.5f;
         }
 
         public override void Start(IMonoAgent agent, HealData data)
@@ -27,26 +27,23 @@ namespace IfSimulator.GOAP.Actions
         public override ActionRunState Perform(IMonoAgent agent, HealData data, ActionContext context)
         {
             cooldownTimer -= context.DeltaTime;
-
+            
+            agent.transform.up = data.Target.Position - agent.transform.position;
+            
             if (cooldownTimer <= 0)
             {
                 data.Timer -= context.DeltaTime;
 
                 bool shouldHeal = data.Target != null && Vector3.Distance(data.Target.Position, agent.transform.position) <= HealConfig.HealRadius;
 
-                if (shouldHeal && Player.CurrentHealth < 90)
+                if (shouldHeal && Player.CurrentHealth <= HealConfig.HealThreshold)
                 {
                     agent.transform.up = data.Target.Position - agent.transform.position;
                     Player.Heal(HealConfig.HealAmount, LevelContext.Instance.GameSettings.HealColor);
-
-                    if (Player.CurrentHealth > 80)
-                    {
-                        cooldownTimer = HealConfig.HealDelay;
-                        return ActionRunState.Stop;
-                    }
-
+                    
                     cooldownTimer = HealConfig.HealDelay;
-                    return ActionRunState.Continue;
+
+                    return Player.CurrentHealth >= HealConfig.HealThreshold ? ActionRunState.Stop : ActionRunState.Continue;
                 }
             }
 

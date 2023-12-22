@@ -10,7 +10,7 @@ namespace IfSimulator.GOAP.Sensors
 
         public event Action<Transform> OnEnemyEnter;
         public event Action<Transform> OnEnemyStay;
-        public event Action<Vector3> OnEnemyExit;
+        public event Action<Transform> OnEnemyExit;
 
         private void Awake()
         {
@@ -43,7 +43,7 @@ namespace IfSimulator.GOAP.Sensors
 
             if (p != null)
             {
-                OnEnemyExit?.Invoke(p.transform.position);
+                OnEnemyExit?.Invoke(p.transform);
             }
         }
     }

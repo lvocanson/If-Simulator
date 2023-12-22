@@ -44,6 +44,7 @@ public class DamageableEntity : MonoBehaviour, IDamageable
     
     public float MaxHealth => _maxHealth;
     public float CurrentHealth => _currentHealth;
+    public float HealthPercentage => (_currentHealth / _maxHealth) * 100;
     public bool IsInvulnerable => _isInvulnerable || _isInvulnerableInternal;
 
     public event Action OnDamage;

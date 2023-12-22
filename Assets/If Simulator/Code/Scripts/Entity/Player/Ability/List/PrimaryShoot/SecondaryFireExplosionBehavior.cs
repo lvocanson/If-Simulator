@@ -58,7 +58,7 @@ namespace Ability
                 
             // Damage
             damageable.OnDeath += NotifyEnemyKilled;
-            damageable.Damage(_so.Value, LevelContext.Instance.GameSettings.EnemyDamageColor);
+            damageable.Damage(_so.Value, LevelContext.Instance.GameSettings.PlayerDamageColor);
             damageable.OnDeath -= NotifyEnemyKilled;
             
             // Push back
