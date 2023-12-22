@@ -15,7 +15,7 @@ namespace If_Simulator.Code.Scripts.UI.GameUI
         {
             _slider.value = value;
             _slider.maxValue = max;
-            _levelText.text = "lvl." + level.ToString();
+            _levelText.text = "LV." + level.ToString();
         }
     }
 }
