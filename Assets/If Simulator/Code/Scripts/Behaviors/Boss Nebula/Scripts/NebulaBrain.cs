@@ -6,7 +6,7 @@ public class NebulaBrain : Enemy
     [SerializeField] private BTreeRunner _btRunner;
 
     [Header("Nebula")]
-    [SerializeField] private float _2ndPhaseHealthThreshold;
+    [SerializeField, Range(0, 100)] private float _2ndPhaseHealthThreshold;
     private bool _is2ndPhase = false;
 
     protected override void OnEnable()
@@ -17,7 +17,7 @@ public class NebulaBrain : Enemy
 
     private void CheckPhase(float health, float maxHealth)
     {
-        if (!_is2ndPhase && health <= _2ndPhaseHealthThreshold)
+        if (!_is2ndPhase && (health / maxHealth) * 100 <= _2ndPhaseHealthThreshold)
         {
             _is2ndPhase = true;
             _btRunner.Blackboard.Write("2nd Phase", true);
