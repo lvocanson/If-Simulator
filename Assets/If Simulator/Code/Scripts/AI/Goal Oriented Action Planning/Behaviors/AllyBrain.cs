@@ -24,6 +24,8 @@ namespace IfSimulator.GOAP.Behaviors
         private void Awake()
         {
             AgentBehaviour = GetComponent<AgentBehaviour>();
+            NavMeshAgent.updateRotation = false;
+            NavMeshAgent.updateUpAxis = false;
         }
 
         private void Start()

@@ -15,8 +15,8 @@ MonoBehaviour:
   SensorHealRadius: 10
   HealRadius: 5
   HealCost: 2
-  HealDelay: 1
-  HealAmount: 20
+  HealDelay: 4
+  HealAmount: 30
   HealableLayerMask:
     serializedVersion: 2
     m_Bits: 64
