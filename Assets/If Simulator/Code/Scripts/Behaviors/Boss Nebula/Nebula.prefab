@@ -535,7 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
   _angleOffset: 0
-  _speed: 100
+  _speed: 200
 --- !u!1 &3660837952263227967
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &16418495951437707
 Transform:
   m_ObjectHideFlags: 0
@@ -1311,7 +1311,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.6
+  m_Radius: 0.69
 --- !u!114 &7880933986003480883
 MonoBehaviour:
   m_ObjectHideFlags: 0

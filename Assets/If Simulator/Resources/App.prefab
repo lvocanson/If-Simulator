@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialScene: _initialScene
   _gameplayMode:
-    _mainScene: BaseLevel
+    _mainScene: Level_01
     _uiScene: UI
     _onMainSceneLoad: {fileID: 11400000, guid: 5d75efd1985862c4185ef7bad592f19d, type: 2}
   _mainMenuMode:

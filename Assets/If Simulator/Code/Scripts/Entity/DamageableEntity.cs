@@ -101,6 +101,36 @@ public class DamageableEntity : MonoBehaviour, IDamageable
 
         if (_currentHealth <= 0) Die();
     }
+    
+    public void DamageWithoutInvulnerability(float damage, Color color)
+    {
+        if (_currentHealth <= 0) return;
+
+        _currentHealth -= damage;
+        
+        if (_totalDamagePopup != null)
+        {
+            _totalDamagePopup.UpdateDamage((int)damage);
+        }
+        else
+        {
+            _totalDamagePopup = TotalDamagePopup.Create(transform, _damagePopupPosition.localPosition, (int)damage, color).GetComponent<TotalDamagePopup>();
+        }
+        
+        SingleDamagePopup.Create(transform.position + _damagePopupPosition.localPosition, (int)damage, color);
+        
+        OnDamageTaken();
+        OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
+        
+        StartCoroutine(InternalInvulnerability());
+        if (_effectsCoroutine != null)
+        {
+            StopCoroutine(_effectsCoroutine);
+        }
+        _effectsCoroutine = StartCoroutine(StartEffects());
+
+        if (_currentHealth <= 0) Die();
+    }
 
     protected virtual void OnDamageTaken()
     {

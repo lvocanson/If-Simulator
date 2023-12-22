@@ -24,7 +24,8 @@ namespace Ability
         
         private void CleanProjectile(Projectile p)
         {
-            _bulletPool.Release(p.gameObject);
+            if (p.gameObject.activeSelf is true)
+                _bulletPool.Release(p.gameObject);
         }
 
         protected override void OnBulletTakeFromPool(GameObject bullet)
