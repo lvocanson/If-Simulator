@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using FiniteStateMachine;
@@ -28,8 +29,8 @@ public class Kamikaz_Chase : BaseState
     
     private void OnEnable()
     {
-        _chaseColEvent.OnExit += ExitOnChaseRange;
-        _chaseColEvent.OnStay += PlayerStayInChaseRange;
+        //_chaseColEvent.OnExit += ExitOnChaseRange;
+        //_chaseColEvent.OnStay += PlayerStayInChaseRange;
         _attackColEvent.OnEnter += EnterOnAttackRange;
         
         _enemy.Agent.speed = _speed;
@@ -39,10 +40,10 @@ public class Kamikaz_Chase : BaseState
     {
         Manager.ChangeState(_attackState);
     }
-    
-    private void PlayerStayInChaseRange(Collider2D obj)
+
+    private void Update()
     {
-        _enemy.Agent.SetDestination(obj.transform.position);
+        _enemy.Agent.SetDestination(_target.position);
     }
 
     private void ExitOnChaseRange(Collider2D obj)
@@ -60,7 +61,7 @@ public class Kamikaz_Chase : BaseState
     private void OnDisable()
     {
         _chaseColEvent.OnExit -= ExitOnChaseRange;
-        _chaseColEvent.OnStay -= PlayerStayInChaseRange;
+        //_chaseColEvent.OnStay -= PlayerStayInChaseRange;
         _attackColEvent.OnEnter -= EnterOnAttackRange;
     }
 }

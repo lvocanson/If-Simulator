@@ -2,9 +2,8 @@
 {
     public abstract class AbilityPassiveDynamic : AbilityPassive<SoAbilityCooldown>
     {
-        public override bool TryActivate()
+        public override void TryActivate()
         {
-            return false;
         }
 
         public override void End()

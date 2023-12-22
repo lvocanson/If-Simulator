@@ -16,10 +16,13 @@ namespace UI
         {
             _context = so;
             
-            _popup.SetActive(true);
+            SoAbilityBase firstSpell = _playerUiManager.CurrentPlayerSo.Player.PlayerAttackManager.GetFirstSpell();
+            SoAbilityBase secondSpell = _playerUiManager.CurrentPlayerSo.Player.PlayerAttackManager.GetSecondSpell();
+            _popup.SetActive(firstSpell != null && secondSpell != null);
+
             
-            string firstSpellName = _playerUiManager.CurrentPlayerSo.Player.PlayerAttackManager.GetFirstSpell()?.Name;
-            string secondSpellName = _playerUiManager.CurrentPlayerSo.Player.PlayerAttackManager.GetSecondSpell()?.Name;
+            string firstSpellName = firstSpell?.Name;
+            string secondSpellName = secondSpell?.Name;
 
             if (_context.Name == secondSpellName)
             {

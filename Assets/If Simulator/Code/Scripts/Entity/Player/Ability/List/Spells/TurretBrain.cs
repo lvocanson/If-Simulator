@@ -54,7 +54,9 @@ namespace Ability
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            Debug.Log("Target");
             // Assert that the entity is damageable
+            if (!other.transform.parent) return;
             if (other.transform.parent.TryGetComponent(out DamageableEntity damageable) is false) return;
             
             // Assert that the entity is not already in the list
@@ -76,6 +78,7 @@ namespace Ability
 
         private void OnTriggerExit2D(Collider2D other)
         {
+            if (!other.transform.parent) return;
             if (other.transform.parent.TryGetComponent(out DamageableEntity damageable) is false) return;
             
             if (_closeEntities.Contains(damageable) is false) return;
