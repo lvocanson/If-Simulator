@@ -35,13 +35,14 @@ public class Marge_Chase : BaseState
         _chaseColEvent.OnExit += ExitOnChaseRange;
         _attackColEvent.OnEnter += EnterOnAttackRange;
         
-        _enemy.Agent.SetDestination(_target.position);
+        if (_target != null)
+            _enemy.Agent.SetDestination(_target.position);
         _enemy.Agent.speed = _speed;
     }
 
     private void EnterOnAttackRange(Collider2D obj)
     {
-        if (!obj.CompareTag("Player")) return;
+        if (!obj.CompareTag("Player") || !obj.GetComponent<Player>()) return;
         
         _attackState.SetTarget(obj.transform);
         Manager.ChangeState(_attackState);
@@ -54,7 +55,7 @@ public class Marge_Chase : BaseState
 
     private void ExitOnChaseRange(Collider2D obj)
     {
-        if (!obj.CompareTag("Player")) return;
+        if (!obj.CompareTag("Player") || !obj.GetComponent<Player>()) return;
 
         Manager.ChangeState(_patrolState);
     }

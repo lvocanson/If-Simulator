@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Attack Config
   m_EditorClassIdentifier: 
   SensorRadius: 10
-  MeleeAttackRadius: 5
-  MeleeAttackCost: 3
-  AttackDelay: 1
-  AttackDamage: 10
+  MeleeAttackRadius: 7
+  MeleeAttackCost: 5
+  AttackDelay: 0.5
+  AttackDamage: 5
   AttackableLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  ProjectilePrefab: {fileID: 3981262126783197580, guid: 98dbecd9b05d2a74fa491e080cbd6f76, type: 3}

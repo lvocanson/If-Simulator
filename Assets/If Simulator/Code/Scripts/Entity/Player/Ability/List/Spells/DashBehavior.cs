@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Ability
 {
@@ -20,13 +21,14 @@ namespace Ability
         [SerializeField] private float _velocityReleaseTime = 0.2f;
         
         [Header("Feedback")]
-        [SerializeField] private AudioSource _dashSound;
+        [SerializeField] private AudioSource _dashAudioSource;
+        [SerializeField] private AudioClip _dashAudioClip;
         
         protected override void OnEffectStart()
         {
             _timer = 0;
             _playerMovement.IsControllable = false;
-            _dashSound.Play();
+            _dashAudioSource.PlayOneShot(_dashAudioClip);
         }
         
         protected override void OnEffectUpdate()

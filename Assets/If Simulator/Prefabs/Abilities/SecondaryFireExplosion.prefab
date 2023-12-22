@@ -178,6 +178,11 @@ MonoBehaviour:
     m_Bits: 8
   _spriteRenderer: {fileID: 3414839370694143272}
   _so: {fileID: 0}
+  _parentAbility: {fileID: 0}
+  _onEnemyKilled:
+    m_PersistentCalls:
+      m_Calls: []
   _wallLayer:
     serializedVersion: 2
     m_Bits: 1
+  _particles: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}

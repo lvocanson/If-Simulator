@@ -104,8 +104,8 @@ GameObject:
   - component: {fileID: 9172649830757384188}
   - component: {fileID: 6347662752647041662}
   - component: {fileID: 2137447027650884516}
-  - component: {fileID: 2860609084339294102}
   - component: {fileID: 981537120481013945}
+  - component: {fileID: 2627435189558688653}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -268,27 +268,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 6347662752647041662}
   _renderer: {fileID: 7602685589310976295}
-  _navMeshModifier: {fileID: 2860609084339294102}
+  _navMeshModifier: {fileID: 2627435189558688653}
+  _shadowCaster2D: {fileID: 981537120481013945}
   _initialState: 1
   _openedColor: {r: 0, g: 0, b: 0, a: 0}
   _unlockedColor: {r: 0.09156906, g: 0.9245283, b: 0, a: 1}
   _lockedColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &2860609084339294102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9080639789903335460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!114 &981537120481013945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,3 +323,19 @@ MonoBehaviour:
     - rid: 3849964646785875971
       type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
+--- !u!114 &2627435189558688653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080639789903335460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

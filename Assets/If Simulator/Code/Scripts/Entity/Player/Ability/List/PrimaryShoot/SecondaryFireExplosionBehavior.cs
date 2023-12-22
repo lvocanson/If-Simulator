@@ -1,4 +1,5 @@
 ﻿using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Ability
@@ -7,6 +8,14 @@ namespace Ability
     {
         [SerializeField] private LayerMask _wallLayer;
         
+        [Header("Feedback")]
+        [SerializeField] private GameObject _particles;
+
+        private void Start()
+        {
+            Instantiate(_particles, transform.position, quaternion.identity);
+        }
+
         private void Update()
         {
             OnUpdate();
@@ -49,7 +58,7 @@ namespace Ability
                 
             // Damage
             damageable.OnDeath += NotifyEnemyKilled;
-            damageable.Damage(_so.Value, LevelContext.Instance.GameSettings.EnemyDamageColor);
+            damageable.Damage(_so.Value, LevelContext.Instance.GameSettings.PlayerDamageColor);
             damageable.OnDeath -= NotifyEnemyKilled;
             
             // Push back

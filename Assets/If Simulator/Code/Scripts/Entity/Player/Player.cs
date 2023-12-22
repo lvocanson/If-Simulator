@@ -8,11 +8,14 @@ public class Player : DamageableEntity
     [SerializeField] private PlayerAim playerAim;
     [SerializeField] private PlayerXp _playerXp;
     [SerializeField] private CurrentPlayerSo _data;
+    [SerializeField] private Transform _allyTarget;
     
     public PlayerAttackManager PlayerAttackManager => _playerAttackManager;
     public PlayerMovement PlayerMovement => _playerMovement;
     public PlayerAim PlayerAim => playerAim;
     public PlayerXp PlayerXp => _playerXp;
+    public Transform AllyTarget => _allyTarget;
+    
 
     protected override void Awake()
     {

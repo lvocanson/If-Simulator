@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.Serialization;
 
 namespace Ability
 {
@@ -13,6 +14,10 @@ namespace Ability
         [Header("Settings")]
         [SerializeField] protected int _numberOfBulletsPerDefault;
         [SerializeField] protected int _numberOfBulletsMax;
+        
+        [Header("Feedback")]
+        [SerializeField] private AudioSource _shootAudioSource;
+        [SerializeField] private AudioClip _shootAudioClip;
 
         protected ObjectPool<GameObject> _bulletPool;
         
@@ -25,6 +30,7 @@ namespace Ability
         
         protected override void OnEffectStart()
         {
+            _shootAudioSource.PlayOneShot(_shootAudioClip);
             _bulletPool.Get();
         }
 

@@ -301,8 +301,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 1027814553974290942}
   _audioSource: {fileID: 0}
-  _maxHealth: 50
-  _invulnerabilityDuration: 1
+  _maxHealth: 100
+  _invulnerabilityDuration: 0
   _hitMaterial: {fileID: 2100000, guid: 9265ab4e444c777468d4408cf60e7e11, type: 2}
   _invulnerabilityMaterial: {fileID: 2100000, guid: 1297f817703e38c4f865ad55dadf500a, type: 2}
   _scaleEffectOffset: 0.2
@@ -356,11 +356,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 3758894104440636533}
-  _waitPlayerState: {fileID: 0}
   _attackState: {fileID: 5570540335073866277}
   _speed: 16
   _attackColEvent: {fileID: 8919522550655574771}
-  _chaseColEvent: {fileID: 5839639195492332}
 --- !u!114 &5570540335073866277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,7 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 3758894104440636533}
-  _explosionDelay: 0.2
+  _explosionDelay: 0.1
   _explosionPrefab: {fileID: 8493438459916198879, guid: b8a6391f3be7bae4da8536b276484e0f, type: 3}
 --- !u!195 &7785838368978051415
 NavMeshAgent:
@@ -589,7 +587,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 3
+  m_Radius: 2
 --- !u!114 &8919522550655574771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,7 +752,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 8
+  m_Radius: 11.87
 --- !u!114 &5839639195492332
 MonoBehaviour:
   m_ObjectHideFlags: 0
